@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "recommend-point": "./components/recommendPoint"
-  }
+  },
+  "navigationBarTitleText": "首页"
 }

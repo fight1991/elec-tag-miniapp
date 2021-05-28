@@ -11,7 +11,8 @@
     "pages/user/insure/insure",
     "pages/user/result/result",
     "pages/main/main",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/main/morePoint"
   ],
   "subPackages": [
     {
