@@ -1,1 +1,57 @@
 /* pages/main/main.wxss */
+.refine-userInfo {
+  background-color: #fff;
+  padding: 40rpx 0;
+}
+
+.btn-box {
+  margin: 0 auto;
+  width: 228rpx;
+  height: 70rpx;
+  background-color: #447FFF;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+}
+.group-btn {
+  display: flex;
+  margin: 40rpx 0;
+  justify-content: space-between;
+}
+.group-btn-item {
+  width: 210rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  color: #fff;
+  position: relative;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  border-radius: 10rpx;
+}
+.group-btn-item:nth-child(1) {
+  background: linear-gradient(92deg, #A899FF 0%, #CBC2FF 100%);
+  box-shadow: 0px 6px 30px rgba(172, 161, 240, 0.42);
+}
+.group-btn-item:nth-child(2) {
+  background: linear-gradient(92deg, #FF8DA9 0%, #FFC3B7 100%);
+  box-shadow: 0px 6px 30px rgba(254, 152, 176, 0.42);
+}
+.group-btn-item:nth-child(3) {
+  background: linear-gradient(92deg, #FEBE5A 0%, #FEBE5A 0%, #FCD8A1 100%);
+  box-shadow: 0px 6px 30px rgba(245, 198, 124, 0.42);
+}
+.recommend-point {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 0;
+}
+.recommend-point {
+  color: #2E2E2E;
+}
+.recommend-point .right {
+  color: #666;
+}

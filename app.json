@@ -132,6 +132,7 @@
     "successPage": "/pages/components/commonSuccess/commonSuccess",
     "nodata": "/pages/components/nodata/nodata",
     "step": "/pages/components/step/step",
+    "stepBox": "/pages/components/stepBox/stepBox",
     "searchInput": "/pages/components/searchInput/searchInput"
   },
   "style": "v2",

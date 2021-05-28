@@ -1,2 +1,30 @@
 <!--pages/main/main.wxml-->
-<text>pages/main/main.wxml</text>
+<view class="outer">
+<!-- 完善用户信息按钮区域-->
+  <view class="refine-userInfo">
+    <stepBox></stepBox>
+    <view class="btn-box">
+      完善用户信息
+    </view>
+  </view>
+  <!-- 电子车牌 车辆信息 扫一扫按钮 -->
+  <view class="group-btn">
+    <view class="group-btn-item">
+      <text>电子车牌</text>
+      <iconfont icon="brand" color="rgba(158, 158, 158, .6)"></iconfont>
+    </view>
+    <view class="group-btn-item">
+      <text>车辆信息</text>
+      <iconfont icon="car" color="rgba(158, 158, 158, .6)"></iconfont>
+    </view>
+    <view class="group-btn-item">
+      <text>扫一扫</text>
+      <iconfont icon="scan" color="rgba(158, 158, 158, .6)"></iconfont>
+    </view>
+  </view>
+  <!-- 推荐安装网点 -->
+  <view class="recommend-point">
+    <view class="left fs16">推荐安装网点</view>
+    <view class="right">更多>></view>
+  </view>
+</view>
