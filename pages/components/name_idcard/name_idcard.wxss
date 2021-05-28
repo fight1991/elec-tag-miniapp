@@ -1,0 +1,21 @@
+/* pages/components/name_idcard/name_idcard.wxss */
+
+.name {
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.routeMePage {
+  margin: 0 8px;
+  width: 34rpx;
+  height: 34rpx;
+}
+.routeMePage .image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.comp-icon {
+  padding: 0 5px;
+}

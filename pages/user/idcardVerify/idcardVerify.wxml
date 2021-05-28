@@ -1,0 +1,47 @@
+<!--pages/user/idcardVerify/idcardVerify.wxml-->
+<view class="outer">
+  <!-- 拍照上传区域 -->
+  <view class="photo-area">
+    <!-- 人脸区域 -->
+    <view class="face-img">
+      <view class="title">拍摄并上传人脸照片</view>
+      <view class="face-btn" bindtap="faceBtn">
+        <!-- 初始未上传图片= -->
+        <image class="image" wx:if="{{ faceShow }}" mode="aspectFit" src="/pages/image/face.png"></image>
+        <!-- 用户拍照完显示预览的图片 -->
+        <image class="image" wx:else mode="aspectFit" src="{{ faceSrc }}"></image>
+      </view>
+      
+    </view>
+    <view class="tips">
+      <view class="title">拍摄并上传本人证件</view>
+      <view class="tips-detail">
+        证件可选择: <text class="tips-text-sub">居民身份证、驾驶证、公民护照</text>
+      </view>
+      <!-- 身份证正面区域 -->
+      <view class="idcard idcard-front">
+        <upload 
+          closeIcon="{{false}}"
+          model:img-src="{{frontImgUrl}}"
+          staticSrc="/pages/image/front.png"
+          mode="aspectFit"
+          height="340rpx"
+          width="550rpx">
+        </upload>
+      </view>
+      <!-- 身份证反面区域 -->
+      <view class="idcard idcard-back">
+        <upload 
+          closeIcon="{{false}}"
+          model:img-src="{{backImgUrl}}"
+          staticSrc="/pages/image/back.png"
+          mode="aspectFit"
+          height="340rpx"
+          width="550rpx">
+        </upload>
+      </view>
+    </view>
+  </view>
+  <fixBtn bindtap="nextStep">下一步</fixBtn>
+</view>
+

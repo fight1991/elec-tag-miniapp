@@ -1,0 +1,31 @@
+<!--pages/message/messageList.wxml-->
+<scroll-view
+  style="height:100vh;"
+  scroll-y="{{true}}"
+  refresher-enabled="{{true}}"
+  bindrefresherrefresh="onRefresh"
+  refresher-triggered="{{triggered}}"
+  bindscrolltolower="scrolltolower"
+  lower-threshold="{{50}}">
+  <view class="outer">
+    <block wx:for="{{resultList}}" wx:key="messageId">
+      <navigator url="/pages/message/messageDetail?id={{item.messageId}}&isRead={{item.readStatus}}">
+        <messageCard
+          type="{{item.msgType}}"
+          hasRead="{{item.readStatus}}"
+          mainTitle="{{item.msgTitle}}"
+          subTitle="{{item.msgDesc}}"
+          time="{{item.createTime}}">
+        </messageCard>
+      </navigator>
+    </block>
+    <view class="has-more" wx:if="{{resultList.length > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
+    <view wx:else>
+      <nodata>暂无数据</nodata>
+    </view>
+  </view>
+</scroll-view>
+
+  
+
+

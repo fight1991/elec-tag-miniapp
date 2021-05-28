@@ -1,0 +1,63 @@
+<!--pages/user/livelihoodBusiness_corp/corp/detail.wxml-->
+<view class="outer">
+  <!-- 电动车基本信息 -->
+  <view class="swiper-item-box">
+    <!-- 电动车静态图片 -->
+    <view class="head-img">
+      <view class="img-box">
+        <image class="img" src="/pages/image/vechicel.png"/>
+      </view>
+      <view class="head-img-text">{{dicStatus[details.vehicleStatus]}}</view>
+    </view>
+    <!-- 电动车基本信息 -->
+    <view class="text-lines">
+      <view class="text-line-item">
+        <view class="line-left">车牌号:</view>
+        <view class="line-right">{{details.plateNo || '-'}}</view>
+      </view>
+      <view class="text-line-item">
+        <view class="line-left">车辆品牌:</view>
+        <view class="line-right">{{details.brand}}</view>
+      </view>
+      <view class="text-line-item">
+        <view class="line-left">型号规格:</view>
+        <view class="line-right">{{details.model}}</view>
+      </view>
+      <view class="text-line-item">
+        <view class="line-left">整车编号:</view>
+        <view class="line-right">{{details.vin}}</view>
+      </view>
+      <view class="text-line-item">
+        <view class="line-left">电动机编号:</view>
+        <view class="line-right">{{details.motorNo}}</view>
+      </view>
+    </view>
+    <view class="op-btns">
+      <iconfont wx:if="{{details.vehicleStatus=='registered'}}" icon="erweima" size="140rpx" color="#fff" bindtap="showErweima"></iconfont>
+    </view>
+  </view>
+  <view class="rider-info" wx:if="{{details.riderName}}">
+    <listTitle isTouchToLeft="{{false}}" title="{{details.riderName}}" subTitle="{{details.riderMobile}}"></listTitle>
+  </view>
+</view>
+<view class="fix-btn">
+  <commonBtn width="220rpx" bindtap="riderAssign">骑手分配</commonBtn>
+  <commonBtn width="220rpx" bindtap="openLossVisible">一键报失</commonBtn>
+  <commonBtn width="220rpx" bindtap="openCrapVisible">一键报废</commonBtn>
+</view>
+<confirmDialog
+  visible="{{lossVisible}}"
+  title="一键报失"
+  content="确定是否执行此操作"
+  bindclose="lossOp">
+</confirmDialog>
+<confirmDialog
+  visible="{{scrapVisible}}"
+  title="一键报废"
+  content="确认之后无法恢复"
+  bindclose="scrapOp">
+</confirmDialog>
+<!-- 二维码弹窗 -->
+<mask initValue="{{maskHidden}}" contentPadding="10rpx">
+  <qrcode width="{{400}}" height="{{400}}" value="{{codeValue}}" background="transparent"></qrcode>
+</mask>

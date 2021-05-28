@@ -1,0 +1,11 @@
+<!--pages/login/index.wxml-->
+<view class="loadEffect">
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+</view>

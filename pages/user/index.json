@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "吉速登记",
+  "usingComponents": {
+    "banner": "../components/banner/banner",
+    "name-idcard": "/pages/components/name_idcard/name_idcard"
+  }
+}

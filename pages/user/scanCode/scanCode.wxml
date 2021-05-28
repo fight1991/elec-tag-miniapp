@@ -1,0 +1,2 @@
+<!--pages/user/scanCode/scanCode.wxml-->
+<web-view src="{{url}}"></web-view>

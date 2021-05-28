@@ -1,0 +1,8 @@
+<!--pages/components/banner/banner.wxml-->
+<view class="banner" style="background-image: url({{bannerBg}});">
+  <view class="title1">{{head}}</view>
+  <view class="title2">
+    <view class="title2-content">{{middle}}</view>
+  </view>
+  <view class="title3">{{foot}}</view>
+</view>

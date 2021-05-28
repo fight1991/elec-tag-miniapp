@@ -1,0 +1,142 @@
+/**app.wxss**/
+page {
+  font-size: 14px;
+  background-color: #f0f7ff;
+  font-family: MicrosoftYaHei;
+}
+.container {
+  color: #444;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+/* 禁止点击 */
+.stopTap {
+  pointer-events:none;
+}
+/* 元素居中并水平排列 */
+.flex-center-x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 元素居中 垂直排列 */
+.flex-center-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* 水平方向弹性布局 */
+.flex-row {
+  display: flex;
+}
+/* 垂直平方向弹性布局 */
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+/* 水平方向居中 */
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+}
+/* 垂直方向居中 */
+.flex-vertical-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fc-444 {
+  color: #444;
+}
+.fc-ccc {
+  color: #ccc;
+}
+.fs24 {
+  font-size: 24px;
+}
+.fs20 {
+  font-size: 20px;
+}
+.fs18 {
+  font-size: 18px;
+}
+.fs16 {
+  font-size: 16px;
+}
+.fs14 {
+  font-size: 14px;
+}
+.fs12 {
+  font-size: 12px;
+}
+.text-center {
+  text-align: center;
+}
+.fw {
+  font-weight: bold;
+}
+
+.common-form-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+.common-form-item .input {
+  flex: 1;
+}
+.mask {
+  background: rgba(0, 0, 0, 0.05) !important;
+  pointer-events: none;
+}
+.bg-img-base {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.fix-bottom-btn {
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  background-color: #516dff;
+}
+.border-bottom-none {
+  border-bottom: none!important;
+}
+.has-more {
+  font-size: 22rpx;
+  text-align: center;
+  padding: 10rpx 0;
+  color: #ccc;
+}
+.outer {
+  padding: 30rpx;
+}
+.auditing {
+  color: #3C79FF;
+}
+.waitInstall {
+  color: #2EDB6F;
+}
+.failure {
+  color: #FF7F21;
+}
+.reportedLost {
+  color: #FF7F21;
+}
+.registered {
+  color: #2EDB6F;
+}
+.scrapped {
+  color: #FF7F21;
+}

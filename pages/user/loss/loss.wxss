@@ -1,0 +1,2 @@
+/* pages/user/loss/loss.wxss */
+@import "../style/checkStatus.wxss";

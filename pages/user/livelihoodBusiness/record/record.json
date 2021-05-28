@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "busInfo": "/pages/user/common/busInfo/busInfo",
+    "step": "/pages/components/step/step",
+    "qrcode": "/pages/components/qrcode/qrcode"
+  },
+  "navigationBarTitleText": "备案申报"
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mobileCodeLogin": "/pages/components/mobile_code_login/mobile_code_login"
+  },
+  "navigationBarTitleText": "登录"
+}

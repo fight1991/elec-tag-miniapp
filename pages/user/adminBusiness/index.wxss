@@ -1,0 +1,4 @@
+@import "../style/common.wxss";
+.box {
+  padding: 30rpx;
+}

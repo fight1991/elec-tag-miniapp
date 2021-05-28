@@ -1,0 +1,13 @@
+/* pages/user/personalBusiness/record/law/law.wxss */
+page {
+  height: 100%;
+}
+.scroll-container {
+  height: 100%;
+}
+.box {
+  padding: 20rpx;
+}
+.graph {
+  text-indent: 2rem;
+}

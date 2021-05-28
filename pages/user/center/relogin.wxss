@@ -1,0 +1,7 @@
+/* pages/user/center/relogin.wxss */
+
+.success-img {
+  width: 470rpx;
+  height: 297rpx;
+  margin-top: 150rpx;
+}

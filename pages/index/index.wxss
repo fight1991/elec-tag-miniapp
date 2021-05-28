@@ -1,0 +1,74 @@
+/* pages/login/index.wxss */
+page {
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadEffect{
+  width: 200rpx;
+  height: 200rpx;
+  position: relative;
+}
+.loadEffect text{
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background: #3E77FF;
+  position: absolute;
+  animation: load 1.04s ease infinite;
+}
+@keyframes load{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0.2;
+  }
+}
+.loadEffect text:nth-child(1){
+  left: 0;
+  top: 50%;
+  margin-top:-16rpx;
+  animation-delay:0.13s;
+}
+.loadEffect text:nth-child(2){
+  left: 28rpx;
+  top: 28rpx;
+  animation-delay:0.26s;
+}
+.loadEffect text:nth-child(3){
+  left: 50%;
+  top: 0;
+  margin-left: -16rpx;
+  animation-delay:0.39s;
+}
+.loadEffect text:nth-child(4){
+  top: 28rpx;
+  right:28rpx;
+  animation-delay:0.52s;
+}
+.loadEffect text:nth-child(5){
+  right: 0;
+  top: 50%;
+  margin-top:-16rpx;
+  animation-delay:0.65s;
+}
+.loadEffect text:nth-child(6){
+  right: 28rpx;
+  bottom:28rpx;
+  animation-delay:0.78s;
+}
+.loadEffect text:nth-child(7){
+  bottom: 0;
+  left: 50%;
+  margin-left: -16rpx;
+  animation-delay:0.91s;
+}
+.loadEffect text:nth-child(8){
+  bottom: 28rpx;
+  left: 28rpx;
+  animation-delay:1.04s;
+}
