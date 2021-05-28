@@ -27,4 +27,7 @@
     <view class="left fs16">推荐安装网点</view>
     <view class="right">更多>></view>
   </view>
+  <view class="recommend-list">
+    <recommend-point></recommend-point>
+  </view>
 </view>

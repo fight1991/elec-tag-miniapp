@@ -47,7 +47,7 @@
 .recommend-point {
   display: flex;
   justify-content: space-between;
-  margin: 20rpx 0;
+  margin: 30rpx 10rpx 20rpx;
 }
 .recommend-point {
   color: #2E2E2E;

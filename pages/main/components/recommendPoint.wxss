@@ -1,0 +1,30 @@
+/* pages/main/components/recommendPoint.wxss */
+.point-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+.point-box:last-child {
+  border-bottom: none;
+}
+.title {
+  font-size: 30rpx;
+}
+.distance {
+  color: #7F7F7F;
+}
+.go-this,.distance{
+  padding-top: 10rpx;
+  font-size: 24rpx;
+}
+.point-left,.point-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.point-right {
+  color: #447FFF;
+  align-items: flex-end;
+}
