@@ -141,18 +141,21 @@ Component({
           data: mobile,
           key: 'mobile',
         })
-        let redirect = app.redirect
-        if (redirect) {
-          var url = decodeURIComponent(redirect)
-          app.redirect = ''
-          wx.reLaunch({
-            url: url
-          })
-        } else {
-          wx.reLaunch({
-            url: '/pages/user/index',
-          })
-        }
+        wx.switchTab({
+          url: '/pages/main/main',
+        })
+        // let redirect = app.redirect
+        // if (redirect) {
+        //   var url = decodeURIComponent(redirect)
+        //   app.redirect = ''
+        //   wx.reLaunch({
+        //     url: url
+        //   })
+        // } else {
+        //   wx.switchTab({
+        //     url: '/pages/main/main',
+        //   })
+        // }
       }
     },
     // 修改手机号api

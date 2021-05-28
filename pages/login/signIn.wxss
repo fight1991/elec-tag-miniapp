@@ -12,9 +12,9 @@
   padding: 8rpx;
   border-radius: 50%;
 }
-.user-img image {
-  width: 200rpx;
-  height: 200rpx;
+.user-img .image {
+  width: 180rpx;
+  height: 180rpx;
 }
 .form-container {
   /* padding: 20px 20px; */

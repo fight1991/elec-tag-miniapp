@@ -9,7 +9,9 @@
     "pages/user/loss/loss",
     "pages/user/scrap/scrap",
     "pages/user/insure/insure",
-    "pages/user/result/result"
+    "pages/user/result/result",
+    "pages/main/main",
+    "pages/my/my"
   ],
   "subPackages": [
     {
@@ -96,6 +98,24 @@
       ]
     }
   ],
+  "tabBar": {
+    "color": "#808080",
+    "selectedColor": "#4E91FF",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "首页",
+        "iconPath": "pages/image/home.png",
+        "selectedIconPath": "pages/image/home-select.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "pages/image/mine.png",
+        "selectedIconPath": "pages/image/mine-select.png"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3E77FF",
