@@ -30,7 +30,7 @@ Page({
       app.messageBox.common('姓名不能为空')
       return
     }
-    if (this.checkIdcard(idNo)) {
+    if (!this.checkIdcard(idNo)) {
       app.messageBox.common('请输入正确的身份证号')
       return
     }
