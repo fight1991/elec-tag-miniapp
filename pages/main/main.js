@@ -13,7 +13,10 @@ Page({
       pageIndex: 1,
       pageSize: 5
     },
-    pointList: []
+    total: 0, // 安装点总数
+    pointList: [],
+    lon: '',
+    lat: ''
   },
 
   /**
@@ -31,15 +34,16 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: (res) => {
-        console.log(res)
         let { latitude, longitude } = res
+        this.data.lon = longitude
+        this.data.lat = latitude
         this.getPointList(longitude, latitude)
       }
     })
   },
   // 获取网点列表
   async getPointList (lon, lat) {
-    let { result } = await point_list({
+    let { result, page } = await point_list({
       data: {
         lat,
         lon
@@ -48,9 +52,25 @@ Page({
     })
     if (result) {
       this.setData({
-        pointList: result
+        pointList: result,
+        total: page.total
       })
     }
+  },
+  // 更多按钮
+  moreBtn () {
+    let { lon, lat } = this.data
+    wx.navigateTo({
+      url: `./morePoint?lon=${lon}lat=${lat}`,
+    })
+  },
+  // 去这里按钮
+  goThisBtn () {
+    let { lon, lat } = this.data
+    wx.openLocation({
+      latitude: lat,
+      longitude: lon,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

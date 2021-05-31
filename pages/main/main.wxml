@@ -29,17 +29,18 @@
   <!-- 推荐安装网点 -->
   <view class="recommend-point">
     <view class="left fs16">推荐安装网点</view>
-    <view class="right" wx:if="{{pointList.length>0}}">更多>></view>
+    <view class="right" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
   </view>
   <view class="recommend-list" wx:if="{{pointList.length>0}}">
-    <block wx:for="{{pointList}}" wx:key="id">
-      <recommend-point 
-        :pointName="{{item.branchName}}"
+    <block wx:for="{{pointList}}" wx:key="branchId">
+      <recommend-point
+        bindgoBtn="goThisBtn"
+        pointName="{{item.branchName}}"
         pointDis="{{item.distance}}">
       </recommend-point>
     </block>
   </view>
   <view class="point-place" wx:else>
-    暂无网点
+    暂无网点信息
   </view>
 </view>
