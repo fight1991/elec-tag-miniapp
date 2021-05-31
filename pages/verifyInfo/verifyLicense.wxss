@@ -5,7 +5,7 @@
   background-color: #fff;
   border-radius: 8rpx;
 }
-.color-title {
+.title {
   text-align: center;
   color: #568EFF;
   font-size: 32rpx;
@@ -56,4 +56,7 @@
   bottom: -50rpx;
   width: 100%;
   text-align: center;
+}
+.upload-area {
+  padding-top: 30rpx;
 }

@@ -3,7 +3,7 @@
   <view class="content">
     <!-- 选择车牌颜色区域 -->
     <view class="choose-color">
-      <view class="color-title">请选择车牌颜色</view>
+      <view class="title">请选择车牌颜色</view>
       <view class="color-box" bindtap="chooseColor">
         <view class="color-block blue" data-color="blue">
           <view class="stopTap white-dot {{currentColor=='blue'?'active':''}}"></view>
@@ -25,6 +25,7 @@
     </view>
     <!-- 上传区域 -->
     <view class="upload-area">
+      <view class="title">请上传行驶证</view>
     </view>
   </view>
 </view>

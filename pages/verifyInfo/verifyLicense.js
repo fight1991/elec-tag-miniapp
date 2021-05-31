@@ -11,7 +11,7 @@ Page({
       yellow: '黄',
       other: '黄绿'
     },
-    currentColor: ''
+    currentColor: 'blue'
   },
 
   /**
