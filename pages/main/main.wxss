@@ -57,3 +57,8 @@
 .recommend-point .right {
   color: #666;
 }
+.point-place {
+  text-align: center;
+  color: #ccc;
+  margin-top: 100rpx;
+}

@@ -1,5 +1,6 @@
 // pages/main/main.js
 var app = getApp()
+const { point_list } = app.api
 Page({
 
   /**
@@ -8,6 +9,11 @@ Page({
   data: {
     isAuth: false, // 是否已实名认证
     bindStatus: false, // 电子车牌是否已绑定
+    pagination: {
+      pageIndex: 1,
+      pageSize: 5
+    },
+    pointList: []
   },
 
   /**
@@ -18,8 +24,34 @@ Page({
       isAuth: app.globalData.userInfo.authVehicleLicense,
       bindStatus: app.globalData.elecBrandInfo.bindStatus == 'bind'
     })
+    this.getCurrentPosition()
   },
-
+  // 获取用户当前位置
+  getCurrentPosition () {
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        console.log(res)
+        let { latitude, longitude } = res
+        this.getPointList(longitude, latitude)
+      }
+    })
+  },
+  // 获取网点列表
+  async getPointList (lon, lat) {
+    let { result } = await point_list({
+      data: {
+        lat,
+        lon
+      },
+      page: this.data.pagination
+    })
+    if (result) {
+      this.setData({
+        pointList: result
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -123,6 +123,11 @@
     "navigationBarTitleText": "吉光出行",
     "navigationBarTextStyle": "white"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "usingComponents": {
     "fixBtn": "/pages/components/button/fixBtn",
     "commonBtn": "/pages/components/button/commonBtn",

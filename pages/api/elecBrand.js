@@ -36,9 +36,10 @@ export const evi_uploadPic = (data) => {
 }
 
 // 获取网点列表
-export const point_list = (data) => {
+export const point_list = ({data, page}) => {
   return wx.$post_business({
     url: '/vehicle-management/branch/list',
-    data
+    data,
+    page
   })
 }
