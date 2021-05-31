@@ -26,6 +26,39 @@
     <!-- 上传区域 -->
     <view class="upload-area">
       <view class="title">请上传行驶证</view>
+      <!-- 身份证正面区域 -->
+      <view class="license-front license-box">
+        <upload 
+          closeIcon="{{false}}"
+          model:img-src="{{frontImgUrl}}"
+          staticSrc="/pages/image/driver-original.png"
+          mode="aspectFit"
+          height="340rpx"
+          width="100%">
+        </upload>
+        <view class="license-txt">行驶证正本</view>
+      </view>
+      <!-- 身份证反面区域 -->
+      <view class="license-back license-box">
+        <upload 
+          closeIcon="{{false}}"
+          model:img-src="{{backImgUrl}}"
+          staticSrc="/pages/image/driver-copy.png"
+          mode="aspectFit"
+          height="340rpx"
+          width="100%">
+        </upload>
+        <view class="license-txt">行驶证副本</view>
+      </view>
+    </view>
+    <!-- 识别的内容区域 -->
+    <view class="read-content">
+      <view class="read-title">
+        以下信息自动识别，需仔细核对，如识别有误，请修改
+      </view>
+      <view class="read-tip">
+        *航天智行不会通过任何渠道泄露您的个人信息，请放心上传;请上传清晰的行驶证正本副本照片，系统将自动识别证件信息。
+      </view>
     </view>
   </view>
 </view>

@@ -11,7 +11,9 @@ Page({
       yellow: '黄',
       other: '黄绿'
     },
-    currentColor: 'blue'
+    currentColor: 'blue',
+    frontImgUrl: null,
+    backImgUrl: null
   },
 
   /**
