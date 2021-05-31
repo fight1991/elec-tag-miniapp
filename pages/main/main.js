@@ -72,6 +72,12 @@ Page({
       longitude: lon,
     })
   },
+  // 跳转到用户信息页面
+  goToUserInfoPage () {
+    wx.navigateTo({
+      url: '/pages/verifyInfo/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

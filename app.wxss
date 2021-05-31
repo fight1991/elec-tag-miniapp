@@ -140,3 +140,20 @@ page {
 .scrapped {
   color: #FF7F21;
 }
+.form-item .input-label {
+  width: 160rpx;
+  color: #444;
+}
+.form-item {
+  padding: 24rpx 0;
+  border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  align-items: center;
+}
+.input-element {
+  text-align: right;
+  flex: 1;
+}
+.no-bottom-border {
+  border-bottom: none;
+}

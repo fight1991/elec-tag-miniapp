@@ -1,0 +1,16 @@
+/* pages/verifyInfo/index.wxss */
+.head-logo {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #447FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.suffix-text {
+  padding: 10rpx;
+  border: 1px solid #447FFF;
+  color: #447FFF;
+  border-radius: 4rpx;
+}

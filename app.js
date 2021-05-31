@@ -5,6 +5,8 @@ import './utils/fetch_all'
 
 // 工具类注册
 const utils = require('./utils/util')
+// 弹框注册
+import messageBox from './utils/messageBox'
 // 用户相关api注册
 import * as usersApi from './pages/api/user'
 // 电子车牌相关
@@ -24,6 +26,7 @@ App({
     ...elecApi, // 电子车牌相关
     ...dictApi // 字典相关
   },
+  messageBox: messageBox, // 弹框
   redirect: '', // 记录token失效时当前的页面地址
   getWechatCode () {
     return new Promise((relove, reject) => {

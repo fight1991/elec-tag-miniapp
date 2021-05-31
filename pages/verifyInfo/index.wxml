@@ -1,0 +1,18 @@
+<!--pages/verifyInfo/index.wxml-->
+<view class="outer">
+  <stepBox></stepBox>
+  <view class="verify-box">
+    <listTitle title="实名认证" subTitle="请完成实名认证">
+      <view class="head-logo" slot="pref">
+        <iconfont icon="realname" color="#fff"></iconfont>
+      </view>
+      <view class="suffix-text" slot="suffix" bindtap="goToRealName">{{authPersonal?'已认证':'去认证'}}</view>
+    </listTitle>
+    <listTitle title="行驶证认证" subTitle="请上传本人行驶证">
+      <view class="head-logo" slot="pref">
+        <iconfont icon="brand" color="#fff"></iconfont>
+      </view>
+      <view class="suffix-text" slot="suffix" bindtap="goToLicense">{{authVehicleLicense?'已认证': '去认证'}}</view>
+    </listTitle>
+  </view>
+</view>

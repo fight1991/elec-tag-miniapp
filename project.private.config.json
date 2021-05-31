@@ -23,6 +23,24 @@
           "pathName": "pages/main/main",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "完善用户信息首页",
+          "pathName": "pages/verifyInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "实名认证",
+          "pathName": "pages/verifyInfo/verifyRealName",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "行驶证认证",
+          "pathName": "pages/verifyInfo/verifyLicense",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -47,63 +47,19 @@ export const getCodeApi = (data) => {
   })
 }
 
-// 查看带掩码个人信息
-export const show_idcard = (data) => {
+// 实名认证
+export const verifyAuth = (data) => {
   return wx.$post_business({
-    url: '/user-center/personal/getMaskInfo',
+    url: '/user-center/personal/certification',
     data
   })
 }
-// 身份认证-上传头像 身份证正反面
-export const verifyPersonApi = (data) => {
+// 行驶证认证
+export const verifyLicense = (data) => {
   return wx.$post_business({
-    url: '/user-center/personal/uploadImages',
-    data
-  })
-}
-// 提交身份认证后的信息
-export const sumitPersonInfoApi = (data) => {
-  return wx.$post_business({
-    url: '/user-center/personal/uploadInfos',
-    data
-  })
-}
-// 获取上传身份证信息后的个人数据
-export const getIdcardInfo = (data) => {
-  return wx.$post_business({
-    url: '/user-center/personal/getInfo',
-    data
-  })
-}
-// 获取新消息数量
-export const getMessageNumApi = (data) => {
-  return wx.$post_business({
-    url: '/user-center/notification/getNoticeCount',
-    data,
-    isLoading: false
-  })
-}
-// 获取消息列表
-export const getMessageListApi = ({data, page}) => {
-  return wx.$post_business({
-    url: '/user-center/notification/getNoticeList',
-    data,
-    page
-  })
-}
-// 获取消息详情
-export const getMessageDetailApi = (data) => {
-  return wx.$post_business({
-    url: '/user-center/notification/getNoticeDetail',
+    url: '/user-center/vehicleLicense/certification',
     data
   })
 }
 
-// ocr识别
-export const licenseOcr = (data) => {
-  return wx.$post_business({
-    url: '/user-center/ocr/license',
-    data,
-    loadingText: '图片识别中...'
-  })
-}
+

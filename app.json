@@ -12,7 +12,10 @@
     "pages/user/result/result",
     "pages/main/main",
     "pages/my/my",
-    "pages/main/morePoint"
+    "pages/main/morePoint",
+    "pages/verifyInfo/verifyRealName",
+    "pages/verifyInfo/verifyLicense",
+    "pages/verifyInfo/index"
   ],
   "subPackages": [
     {
@@ -139,7 +142,8 @@
     "nodata": "/pages/components/nodata/nodata",
     "step": "/pages/components/step/step",
     "stepBox": "/pages/components/stepBox/stepBox",
-    "searchInput": "/pages/components/searchInput/searchInput"
+    "searchInput": "/pages/components/searchInput/searchInput",
+    "listTitle": "/pages/components/listTitle/listTitle"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -3,7 +3,7 @@
   <!-- 完善用户信息按钮区域-->
   <view class="refine-userInfo" wx:if="{{!isAuth}}">
     <stepBox></stepBox>
-    <view class="btn-box">
+    <view class="btn-box" bindtap="goToUserInfoPage">
       完善用户信息
     </view>
   </view>
