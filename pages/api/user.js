@@ -7,22 +7,10 @@ export const loginApi = (data) => {
     data
   })
 }
-// 根据token查询 用户基本信息
-export const getBasicUserInfo = (isLoading) => {
-  return wx.$post_business({
-    url: '/user-center/user/getUserByToken',
-    data: wx.getStorageSync('token'),
-    isLoading
-  })
-}
 // 查询权限编码
-export const getUserPermission = (data = {}, isLoading) => {
+export const getUserPermission = (isLoading) => {
   return wx.$post_business({
     url: '/user-center/user/getUserViews',
-    data: {
-      appId: config.APPID,
-      ...data
-    },
     isLoading
   })
 }
@@ -32,7 +20,7 @@ export const getUserPermission = (data = {}, isLoading) => {
 // 用户完整信息查询
 export const getUserTotalInfo = (isLoading) => {
   return wx.$post_business({
-    url: '/user-center/personal/getUserInfo',
+    url: '/user-center/user/getUserInfo',
     isLoading
   })
 }

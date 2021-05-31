@@ -1,0 +1,26 @@
+/* pages/main/components/cardShow.wxss */
+.card-box {
+  background-color: #fff;
+  padding: 40rpx 0rpx 40rpx 60rpx;
+  border-radius: 10rpx;
+  box-shadow:0 2rpx 16rpx rgba(118, 182, 255, 0.25)
+}
+.mobile,.brand {
+  color: #A6A6A6;
+}
+.plateNo {
+  font-size: 36rpx;
+  padding: 30rpx 0;
+}
+.verify {
+  padding-top: 30rpx;
+  color: #4D4D4D;
+  display: flex;
+}
+.verify-name {
+  margin-right: 40rpx;
+}
+.show-item {
+  display: flex;
+  align-items: center;
+}

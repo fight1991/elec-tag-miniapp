@@ -1,0 +1,16 @@
+<!--pages/main/components/cardShow.wxml-->
+<view class="card-box">
+  <view class="mobile">{{mobile}}</view>
+  <view class="plateNo">{{carInfo.plateNo}}</view>
+  <view class="brand">{{carInfo.model}}</view>
+  <view class="verify">
+    <view class="show-item verify-name">
+      <iconfont icon="realname" color="#447FFF"></iconfont>
+      车主已实名
+    </view>
+    <view class="show-item" wx:if="{{carInfo.bindStatus=='bind'}}">
+      <iconfont icon="brand" color="#447FFF"></iconfont>
+      电子车牌
+    </view>
+  </view>
+</view>

@@ -34,7 +34,11 @@ Page({
     if (token) {
       let res = await app.initUserInfo(false)
       // 必须保证所有接口返回值都正常才能跳转到首页
-      res && this.routeTo('/pages/user/index')
+      if (res) {
+        wx.switchTab({
+          url: '/pages/main/main',
+        })
+      }
     } else {
       this.routeTo('/pages/login/signIn')
     }

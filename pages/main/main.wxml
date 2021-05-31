@@ -1,11 +1,15 @@
 <!--pages/main/main.wxml-->
 <view class="outer">
-<!-- 完善用户信息按钮区域-->
-  <view class="refine-userInfo">
+  <!-- 完善用户信息按钮区域-->
+  <view class="refine-userInfo" wx:if="{{!isAuth}}">
     <stepBox></stepBox>
     <view class="btn-box">
       完善用户信息
     </view>
+  </view>
+  <!-- 汽车信息展示 -->
+  <view class="card-show" wx:else>
+    <card-show></card-show>
   </view>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
   <view class="group-btn">

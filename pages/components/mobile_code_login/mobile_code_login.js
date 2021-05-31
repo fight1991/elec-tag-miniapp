@@ -168,7 +168,7 @@ Component({
         mobileOld: oldMobile
       })
       if (result) {
-        app.globalData.businessUserInfo.mobile = mobile
+        app.globalData.userInfo.mobile = mobile
         // 删除token
         wx.removeStorageSync('token')
         wx.setStorageSync('mobile', mobile)

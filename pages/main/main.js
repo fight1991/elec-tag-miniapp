@@ -1,18 +1,23 @@
 // pages/main/main.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isAuth: false, // 是否已实名认证
+    bindStatus: false, // 电子车牌是否已绑定
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      isAuth: app.globalData.userInfo.authVehicleLicense,
+      bindStatus: app.globalData.elecBrandInfo.bindStatus == 'bind'
+    })
   },
 
   /**

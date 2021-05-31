@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "recommend-point": "./components/recommendPoint"
+    "recommend-point": "./components/recommendPoint",
+    "card-show": "./components/cardShow"
   },
   "navigationBarTitleText": "首页"
 }
