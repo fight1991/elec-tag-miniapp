@@ -13,7 +13,8 @@ Page({
     },
     currentColor: 'blue',
     frontImgUrl: null,
-    backImgUrl: null
+    backImgUrl: null,
+    licenseInfo: {}
   },
 
   /**
@@ -27,7 +28,11 @@ Page({
     this.setData({
       currentColor: color
     })
-
+  },
+  // 表单方法区域
+  bindData (e) {
+    var id = e.currentTarget.id
+    this.data.licenseInfo[id] = e.detail.value
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
