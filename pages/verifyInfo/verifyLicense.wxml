@@ -1,2 +1,30 @@
 <!--pages/verifyInfo/verifyLicense.wxml-->
-<text>pages/verifyInfo/verifyLicense.wxml</text>
+<view class="outer">
+  <view class="content">
+    <!-- 选择车牌颜色区域 -->
+    <view class="choose-color">
+      <view class="color-title">请选择车牌颜色</view>
+      <view class="color-box" bindtap="chooseColor">
+        <view class="color-block blue" data-color="blue">
+          <view class="stopTap white-dot {{currentColor=='blue'?'active':''}}"></view>
+          <view class="stopTap color-text">蓝牌</view>
+        </view>
+        <view class="color-block green" data-color="green">
+          <view class="stopTap white-dot {{currentColor=='green'?'active':''}}"></view>
+          <view class="stopTap color-text">绿牌</view>
+        </view>
+        <view class="color-block yellow" data-color="yellow">
+          <view class="stopTap white-dot {{currentColor=='yellow'?'active':''}}"></view>
+          <view class="stopTap color-text">黄牌</view>
+        </view>
+        <view class="color-block yellow-green" data-color="other">
+          <view class="stopTap white-dot {{currentColor=='other'?'active':''}}"></view>
+          <view class="stopTap color-text">黄绿牌</view>
+        </view>
+      </view>
+    </view>
+    <!-- 上传区域 -->
+    <view class="upload-area">
+    </view>
+  </view>
+</view>

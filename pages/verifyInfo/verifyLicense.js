@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    colorMap: {
+      blue: '蓝',
+      green: '绿',
+      yellow: '黄',
+      other: '黄绿'
+    },
+    currentColor: ''
   },
 
   /**
@@ -14,7 +20,13 @@ Page({
   onLoad: function (options) {
 
   },
+  chooseColor (e) {
+    var color = e.target.dataset.color
+    this.setData({
+      currentColor: color
+    })
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
