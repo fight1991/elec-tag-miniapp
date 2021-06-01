@@ -17,7 +17,8 @@
     "pages/verifyInfo/verifyLicense",
     "pages/verifyInfo/index",
     "pages/verifyInfo/applyWays",
-    "pages/elecPlate/elecPlate"
+    "pages/elecPlate/elecPlate",
+    "pages/elecPlate/uploadImg"
   ],
   "subPackages": [
     {

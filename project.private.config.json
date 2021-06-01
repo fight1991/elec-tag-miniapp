@@ -53,6 +53,12 @@
           "pathName": "pages/elecPlate/elecPlate",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "上传车辆照片",
+          "pathName": "pages/elecPlate/uploadImg",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -1,0 +1,12 @@
+<!--pages/elecPlate/uploadImg.wxml-->
+<view class="outer">
+  <view class="box">
+    <view class="title fs16">请上传车辆照片</view>
+    <view class="upload-box">
+      <upload model:img-src="{{insideImage}}"></upload>
+      <view class="gap"></view>
+      <upload model:img-src="{{outsideImage}}"></upload>
+    </view>
+  </view>
+</view>
+<fixBtn bindtap="uploadBtn">确定上传</fixBtn>

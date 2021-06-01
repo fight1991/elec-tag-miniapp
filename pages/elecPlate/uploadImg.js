@@ -1,14 +1,14 @@
-// pages/elecPlate/elecPlate.js
+// pages/elecPlate/uploadImg.js
 var app = getApp()
-const { evi_bind, evi_info } = app.api
+const { evi_uploadPic } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
-    elecInfo: {}
+    insideImage: null,
+    outsideImage: null
   },
 
   /**
@@ -17,20 +17,16 @@ Page({
   onLoad: function (options) {
 
   },
-  // 绑定电子车牌按钮
-  async bindBtn () {
-    let { result } = await evi_bind()
-  },
-  // 获取电子车牌信息
-  async getElecInfo () {
-    let { result } = await evi_info()
+  async uploadBtn () {
+    let { insideImage, outsideImage } = this.data
+    let { result } = await evi_uploadPic({
+      insideImage,
+      outsideImage
+    })
     if (result) {
-      this.setData({
-        elecInfo: result[0]
-      })
+      
     }
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

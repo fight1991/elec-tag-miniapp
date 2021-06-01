@@ -1,0 +1,13 @@
+/* pages/elecPlate/uploadImg.wxss */
+.box {
+  background-color: #fff;
+  padding: 30rpx;
+}
+.upload-box {
+  padding: 40rpx 0 20rpx;
+  display: flex;
+}
+.gap {
+  width: 30rpx;
+  /* height: 20rpx; */
+}
