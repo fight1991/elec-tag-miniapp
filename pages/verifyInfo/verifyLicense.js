@@ -82,7 +82,9 @@ Page({
     let { result } = await licenseOcr(e.detail)
     if (result) {
       let { licenseInfo } = this.data
-      let tempObj = { ...licenseInfo, ...result}
+      // 去除result中的空值
+      let tempRes = app.utils.removePropertyOfNull(result)
+      let tempObj = { ...licenseInfo, ...tempRes}
       this.setData({
         licenseInfo: tempObj
       })

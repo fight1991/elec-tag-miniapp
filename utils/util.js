@@ -149,6 +149,13 @@ const setUrlParams = (obj) => {
     return ''
   }
 }
+// 去除对象中为属性不存在的情况
+const removePropertyOfNull = (obj) => {
+  Object.keys(obj).forEach(item => {
+    if(!obj[item])  delete obj[item]
+  })
+  return obj
+}
 module.exports = {
   formatTime,
   checkPhone,
@@ -161,5 +168,6 @@ module.exports = {
   openConfirm,
   isNull,
   setUrlParams,
-  getUrlSearch
+  getUrlSearch,
+  removePropertyOfNull
 }
