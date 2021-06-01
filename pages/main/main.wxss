@@ -1,4 +1,7 @@
 /* pages/main/main.wxss */
+page {
+  background:linear-gradient(to bottom, #3E77FF, #f0f7ff 30%);
+}
 .refine-userInfo {
   background-color: #fff;
   padding: 40rpx 0;

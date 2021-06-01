@@ -1,2 +1,55 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+
+<view class="outer">
+  <view class="user-bg">
+    <view class="user-left">
+      <view class="fs18">{{'HAHA'}}</view>
+      <view class="no-verify">
+        <view class="no-verify-item">未实名认证 , 请先认证</view>
+      </view>
+      <!-- <view class="id-card">
+        <view class="show-item verify-name">
+          <iconfont icon="realname" size="40rpx" color="#447FFF"></iconfont>
+          车主已实名
+        </view>
+        <view class="show-item">
+          <iconfont icon="brand" size="40rpx" color="#447FFF"></iconfont>
+          电子车牌
+        </view>
+      </view> -->
+    </view>
+    <view class="user-right">
+      <image class="img" src="{{wxUserImg}}" mode="cover"></image>
+    </view>
+  </view>
+  <view class="change-tab">
+    <view class="tab-item">
+      <view class="head">
+        <iconfont icon="scan" color="#FFBA76"></iconfont>
+        <text class="head-text">扫一扫</text>
+      </view>
+      <view class="arrow-r">
+        <iconfont icon="arrow-right" color="#ccc"></iconfont>
+      </view>
+    </view>
+    <view class="tab-item">
+      <view class="head">
+        <iconfont icon="info" color="#0DD7BE"></iconfont>
+        <text class="head-text">我的消息</text>
+      </view>
+      <view class="arrow-r">
+        <iconfont icon="arrow-right" color="#ccc"></iconfont>
+      </view>
+    </view>
+    <view class="tab-item">
+      <view class="head">
+        <iconfont icon="car" color="#447FFF"></iconfont>
+        <text class="head-text">我的车辆</text>
+      </view>
+      <view class="arrow-r">
+        <iconfont icon="arrow-right" color="#ccc"></iconfont>
+      </view>
+    </view>
+  </view>
+  <fixBtn bindtap="loginOut">退出登录</fixBtn>
+</view>
+
