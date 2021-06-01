@@ -19,6 +19,7 @@ Page({
   async confirmBtn () {
     let { result } = await evi_apply('branchInstall')
     if (result) {
+      app.globalData.elecBrandInfo = result[0]
       wx.reLaunch({
         url: '/pages/elecPlate/elecPlate',
       })

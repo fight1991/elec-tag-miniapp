@@ -1,10 +1,10 @@
 <!--pages/elecPlate/elecPlate.wxml-->
 <view class="">
-  <view class="top-title">
+  <view class="top-title" wx:if="{{elecInfo.bindStatus == 'apply'}}">
     <view class="left-title">您可前往任意网点领取电子车牌并安装</view>
     <view class="right-title">查看网点>></view>
   </view>
-  <view class="top-title">
+  <view class="top-title" wx:if="{{elecInfo.bindStatus == 'unbind'}}">
     您的电子车牌已解绑, 首页扫一扫可再次绑定
   </view>
   <view
@@ -12,9 +12,9 @@
     style="background-image:url({{bgImg}})">
     <view class="content">
       <view class="head-title fs16">{{elecInfo.plateNo}}</view>
-      <view class="head-title fs12 fc-ccc">电子车牌: {{'90909090'}}</view>
-      <view class="head-title fs12 fc-ccc line-through">电子车牌: {{'90909090'}}</view>
-      <view class="head-title unbind">未绑定</view>
+      <view class="head-title fs12 fc-ccc" wx:if="{{elecInfo.bindStatus == 'bind'}}">电子车牌: {{elecInfo.eviId}}</view>
+      <view class="head-title fs12 fc-ccc line-through" wx:if="{{elecInfo.bindStatus == 'unbind'}}">电子车牌: {{elecInfo.eviId}}</view>
+      <view class="head-title unbind" wx:if="{{elecInfo.bindStatus == 'apply'}}">未绑定</view>
     </view>
   </view>
   <view class="info-box">
@@ -26,11 +26,13 @@
       <view class="info-left">申领时间</view>
       <view class="info-right">{{elecInfo.applyTime}}</view>
     </view>
-    <view class="info-item">
+    <view class="info-item" wx:if="{{elecInfo.bindStatus == 'bind' || elecInfo.bindStatus == 'unbind'}}">
       <view class="info-left">车辆贴卡照片</view>
-      <view class="info-right upload">请上传</view>
+      <navigator url="./uploadImg">
+        <view class="info-right upload">请上传</view>
+      </navigator>
     </view>
   </view>
-  <view class="tips">*请向网点工作人员出示该申领页面</view>
+  <view class="tips" wx:if="{{elecInfo.bindStatus == 'apply'}}">*请向网点工作人员出示该申领页面</view>
 </view>
-<fixBtn bindtap="bindBtn">绑定电子车牌</fixBtn>
+<fixBtn bindtap="bindBtn" wx:if="{{elecInfo.bindStatus == 'apply'}}">绑定电子车牌</fixBtn>

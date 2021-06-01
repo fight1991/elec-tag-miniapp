@@ -79,9 +79,18 @@ Page({
         url: '/pages/verifyInfo/index',
       })
     } else {
-      wx.navigateTo({
-        url: '/pages/verifyInfo/applyWays',
-      })
+      // 查看车牌绑定的状态
+      let status = app.globalData.elecBrandInfo.bindStatus
+      if (status == 'notApply') { // 未申领
+        wx.navigateTo({
+          url: '/pages/verifyInfo/applyWays',
+        })
+      } else {
+        wx.navigateTo({ // 已申领apply, 已绑定bind, 已解绑unbind
+          url: '/pages/elecPlate/elecPlate',
+        })
+      }
+      
     }
   },
   // 跳转到用户信息页面

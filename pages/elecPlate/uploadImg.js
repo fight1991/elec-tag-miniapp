@@ -24,7 +24,10 @@ Page({
       outsideImage
     })
     if (result) {
-      
+      app.messageBox.common('上传成功')
+      wx.navigateBack({
+        delta: 1
+      })
     }
   },
   /**
