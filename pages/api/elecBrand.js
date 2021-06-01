@@ -43,3 +43,11 @@ export const point_list = ({data, page}) => {
     page
   })
 }
+// 行驶证ocr识别
+export const licenseOcr = (data) => {
+  return wx.$post_business({
+    url: '/user-center/ocr/vehicleLicense',
+    data,
+    loadingText: '识别中'
+  })
+}

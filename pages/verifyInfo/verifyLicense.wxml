@@ -30,6 +30,7 @@
       <view class="license-front license-box">
         <upload 
           closeIcon="{{false}}"
+          bindgetImgInfo="getImgInfo"
           model:img-src="{{frontImgUrl}}"
           staticSrc="/pages/image/driver-original.png"
           mode="aspectFit"
@@ -82,14 +83,14 @@
         </view>
         <view class="form-item">
           <view class="input-label">车辆识别号</view>
-          <input class="input-element" type="text" id="vehicleType" value="{{licenseInfo.vehicleType}}"/>
+          <input class="input-element" type="text" id="vin" value="{{licenseInfo.vin}}"/>
         </view>
         <view class="form-item no-bottom-border">
           <view class="input-label">发动机号</view>
-          <input class="input-element" type="text" id="vin" value="{{licenseInfo.vin}}"/>
+          <input class="input-element" type="text" id="engineNum" value="{{licenseInfo.engineNum}}"/>
         </view>
       </view>
     </view>
   </view>
 </view>
-<fixBtn>下一步</fixBtn>
+<fixBtn bindtap="nextStepBtn">下一步</fixBtn>
