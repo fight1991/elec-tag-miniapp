@@ -1,14 +1,11 @@
-// pages/elecPlate/uploadImg.js
-var app = getApp()
-const { evi_uploadPic } = app.api
+// pages/scanBind/bindStatus.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    insideImage: null,
-    outsideImage: null
+
   },
 
   /**
@@ -17,22 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  async uploadBtn () {
-    let { insideImage, outsideImage } = this.data
-    let { result } = await evi_uploadPic({
-      insideImage,
-      outsideImage
-    })
-    if (result) {
-      app.messageBox.common('上传成功')
-      // wx.navigateBack({
-      //   delta: 1
-      // })
-      wx.reLaunch({
-        url: '/pages/main/main',
-      })
-    }
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

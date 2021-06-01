@@ -19,7 +19,9 @@
     "pages/verifyInfo/applyWays",
     "pages/elecPlate/elecPlate",
     "pages/elecPlate/uploadImg",
-    "pages/carInfo/carInfo"
+    "pages/carInfo/carInfo",
+    "pages/scanBind/scanBind",
+    "pages/scanBind/bindStatus"
   ],
   "subPackages": [
     {

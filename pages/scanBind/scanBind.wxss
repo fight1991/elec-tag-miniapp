@@ -1,0 +1,23 @@
+/* pages/scanBind/scanBind.wxss */
+.bind-box {
+  height: 258rpx;
+  width: 738rpx;
+  margin: 30rpx auto;
+  /* border: 1px solid #ccc; */
+  border-radius: 8px;
+  /* margin-bottom: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-size: 738rpx 258rpx;
+  background-repeat: no-repeat;
+}
+.bind-box .content {
+  padding-left: 100rpx;
+}
+.head-title {
+  padding: 10rpx 0;
+}
+.fc-ccc {
+  color: #999;
+}

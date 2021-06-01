@@ -1,35 +1,30 @@
-// pages/elecPlate/uploadImg.js
+// pages/scanBind/scanBind.js
 var app = getApp()
-const { evi_uploadPic } = app.api
+const { evi_bind } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    insideImage: null,
-    outsideImage: null
+    bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
+    plateNo: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  async uploadBtn () {
-    let { insideImage, outsideImage } = this.data
-    let { result } = await evi_uploadPic({
-      insideImage,
-      outsideImage
+    let { plateNo } = options
+    this.setData({
+      plateNo
     })
+  },
+  async confirmBtn () {
+    let { result } = await evi_bind(this.data.plateNo)
     if (result) {
-      app.messageBox.common('上传成功')
-      // wx.navigateBack({
-      //   delta: 1
-      // })
-      wx.reLaunch({
-        url: '/pages/main/main',
+      wx.navigateTo({
+        url: './bindStatus',
       })
     }
   },

@@ -70,6 +70,31 @@ Page({
       longitude: lon,
     })
   },
+  // 车辆信息页面
+  carInfoBtn () {
+    let { isAuth } = this.data
+    if (isAuth) {
+      wx.navigateTo({
+        url: '/pages/carInfo/carInfo',
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/verifyInfo/index',
+      })
+    }
+  },
+  // 打开扫码
+  scanBtn () {
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: res => {
+        // res.result
+        wx.navigateTo({
+          url: '/pages/scanBind/scanBind?plateNo=' + res.result,
+        })
+      }
+    })
+  },
   // 电子车牌页面
   elecBrandBtn () {
     // 判断用户信息是否完善

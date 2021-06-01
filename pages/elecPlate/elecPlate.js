@@ -18,11 +18,16 @@ Page({
 
   },
   // 绑定电子车牌按钮
-  async bindBtn () {
-    let { result } = await evi_bind()
-    if (result) {
-      this.getElecInfo()
-    }
+  bindBtn () {
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: res => {
+        // res.result
+        wx.navigateTo({
+          url: '/pages/scanBind/scanBind?plateNo=' + res.result,
+        })
+      }
+    })
   },
   // 获取电子车牌信息
   async getElecInfo () {

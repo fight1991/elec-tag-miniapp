@@ -65,6 +65,18 @@
           "pathName": "pages/carInfo/carInfo",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "扫码绑定页面",
+          "pathName": "pages/scanBind/scanBind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "绑定成功页面",
+          "pathName": "pages/scanBind/bindStatus",
+          "query": "",
+          "scene": null
         }
       ]
     }

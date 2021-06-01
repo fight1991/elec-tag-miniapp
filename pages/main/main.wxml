@@ -17,11 +17,11 @@
       <text>电子车牌</text>
       <iconfont icon="brand" color="rgba(158, 158, 158, .6)"></iconfont>
     </view>
-    <view class="group-btn-item">
+    <view class="group-btn-item" bindtap="carInfoBtn">
       <text>车辆信息</text>
       <iconfont icon="car" color="rgba(158, 158, 158, .6)"></iconfont>
     </view>
-    <view class="group-btn-item">
+    <view class="group-btn-item" bindtap="scanBtn">
       <text>扫一扫</text>
       <iconfont icon="scan" color="rgba(158, 158, 158, .6)"></iconfont>
     </view>
