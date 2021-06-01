@@ -59,6 +59,12 @@
           "pathName": "pages/elecPlate/uploadImg",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "车辆信息",
+          "pathName": "pages/carInfo/carInfo",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -51,4 +51,11 @@ export const licenseOcr = (data) => {
     loadingText: '识别中'
   })
 }
+// 获取车辆信息
+export const getCarInfo = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-management/vehicle/getInfo',
+    data
+  })
+}
 
