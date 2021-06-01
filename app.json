@@ -15,7 +15,9 @@
     "pages/main/morePoint",
     "pages/verifyInfo/verifyRealName",
     "pages/verifyInfo/verifyLicense",
-    "pages/verifyInfo/index"
+    "pages/verifyInfo/index",
+    "pages/verifyInfo/applyWays",
+    "pages/elecPlate/elecPlate"
   ],
   "subPackages": [
     {

@@ -1,0 +1,35 @@
+<!--pages/elecPlate/elecPlate.wxml-->
+<view class="">
+  <view class="top-title">
+    <view class="left-title">您可前往任意网点领取电子车牌并安装</view>
+    <view class="right-title">查看网点>></view>
+  </view>
+  <view class="top-title">
+    您的电子车牌已解绑, 首页扫一扫可再次绑定
+  </view>
+  <view
+    class="bind-box"
+    style="background-image:url({{bgImg}})">
+    <view class="content">
+      <view class="head-title fs16">{{'苏B43434'}}</view>
+      <view class="head-title fs12 fc-ccc">电子车牌: {{'90909090'}}</view>
+      <view class="head-title fs12 fc-ccc line-through">电子车牌: {{'90909090'}}</view>
+      <view class="head-title unbind">未绑定</view>
+    </view>
+  </view>
+  <view class="info-box">
+    <view class="info-item">
+      <view class="info-left">申领方式</view>
+      <view class="info-right">{{1213}}</view>
+    </view>
+    <view class="info-item">
+      <view class="info-left">申领时间</view>
+      <view class="info-right">{{1213}}</view>
+    </view>
+    <view class="info-item">
+      <view class="info-left">车辆贴卡照片</view>
+      <view class="info-right upload">请上传</view>
+    </view>
+  </view>
+  <view class="tips">*请向网点工作人员出示该申领页面</view>
+</view>

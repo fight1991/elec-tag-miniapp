@@ -1,0 +1,39 @@
+/* pages/verifyInfo/applyWays.wxss */
+.box {
+  margin-top: 30rpx;
+  padding: 20rpx 40rpx 80rpx;
+  background-color: #fff;
+  color: #4D4D4D;
+}
+.content {
+  display: flex;
+}
+.title {
+  padding: 20rpx 0;
+}
+.dot {
+  width: 24rpx;
+  height: 24rpx;
+  border: 1px solid #3C79FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 30rpx;
+  margin-top: 5rpx;
+}
+.little-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #3C79FF;
+}
+.lines-two {
+  color: #A6A6A6;
+  font-size: 24rpx;
+  padding: 16rpx 0;
+}
+.lines-three {
+  font-size: 24rpx;
+  color: #3C79FF;
+}

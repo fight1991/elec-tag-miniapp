@@ -1,0 +1,19 @@
+<!--pages/verifyInfo/applyWays.wxml-->
+<view class="outer">
+  <view class="box">
+    <view class="title fs16">请选择申领方式</view>
+    <view class="content">
+      <view class="dot">
+        <view class="little-dot"></view>
+      </view>
+      <view class="lines">
+        <view class="lines-one">网点领取</view>
+        <view class="lines-two">您可前往任意网点领取电子车牌并安装</view>
+        <navigator url="/pages/main/morePoint?pageFlag=way">
+          <view class="lines-three">查看网点分布>></view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<fixBtn bindtap="confirmBtn">确定</fixBtn>

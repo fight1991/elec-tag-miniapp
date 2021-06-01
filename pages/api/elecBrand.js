@@ -51,3 +51,4 @@ export const licenseOcr = (data) => {
     loadingText: '识别中'
   })
 }
+

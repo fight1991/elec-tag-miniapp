@@ -41,6 +41,18 @@
           "pathName": "pages/verifyInfo/verifyLicense",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "申领方式",
+          "pathName": "pages/verifyInfo/applyWays",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "电子车牌",
+          "pathName": "pages/elecPlate/elecPlate",
+          "query": "",
+          "scene": null
         }
       ]
     }
