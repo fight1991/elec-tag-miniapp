@@ -13,7 +13,7 @@
   </view>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
   <view class="group-btn">
-    <view class="group-btn-item">
+    <view class="group-btn-item" bindtap="elecBrandBtn">
       <text>电子车牌</text>
       <iconfont icon="brand" color="rgba(158, 158, 158, .6)"></iconfont>
     </view>

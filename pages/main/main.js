@@ -23,10 +23,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      isAuth: app.globalData.userInfo.authVehicleLicense,
-      bindStatus: app.globalData.elecBrandInfo.bindStatus == 'bind'
-    })
     this.getCurrentPosition()
   },
   // 获取用户当前位置
@@ -38,6 +34,9 @@ Page({
         this.data.lon = longitude
         this.data.lat = latitude
         this.getPointList(longitude, latitude)
+      },
+      fail: (res) => {
+        app.messageBox.common('获取位置失败')
       }
     })
   },
@@ -59,9 +58,8 @@ Page({
   },
   // 更多按钮
   moreBtn () {
-    let { lon, lat } = this.data
     wx.navigateTo({
-      url: `./morePoint?lon=${lon}&lat=${lat}`,
+      url: `./morePoint`,
     })
   },
   // 去这里按钮
@@ -71,6 +69,20 @@ Page({
       latitude: lat,
       longitude: lon,
     })
+  },
+  // 电子车牌页面
+  elecBrandBtn () {
+    // 判断用户信息是否完善
+    let { isAuth } = this.data
+    if (!isAuth) {
+      wx.navigateTo({
+        url: '/pages/verifyInfo/index',
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/verifyInfo/applyWays',
+      })
+    }
   },
   // 跳转到用户信息页面
   goToUserInfoPage () {
@@ -89,7 +101,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      isAuth: app.globalData.userInfo.authVehicleLicense,
+      bindStatus: app.globalData.elecBrandInfo.bindStatus == 'bind'
+    })
   },
 
   /**

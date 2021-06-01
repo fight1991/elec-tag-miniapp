@@ -21,12 +21,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { lon, lat } = options
-    this.data.lon = lon
-    this.data.lat = lat
-    this.initList()
+    this.getCurrentPosition()
   },
-
+  // 获取用户当前位置
+  getCurrentPosition () {
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        let { latitude, longitude } = res
+        this.data.lon = longitude
+        this.data.lat = latitude
+        this.initList()
+      },
+      fail: (res) => {
+        app.messageBox.common('获取位置失败')
+      }
+    })
+  },
+  // 去这里按钮
+  goThisBtn () {
+    let { lon, lat } = this.data
+    wx.openLocation({
+      latitude: lat,
+      longitude: lon,
+    })
+  },
   // 获取列表
   async getList (pageIndex, callback) {
     if (this.loading) return

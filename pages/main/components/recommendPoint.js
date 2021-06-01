@@ -11,6 +11,14 @@ Component({
     pointDis: {
       type: String,
       value: ''
+    },
+    lat: {
+      type: Number,
+      value: 0
+    },
+    lon: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -26,7 +34,11 @@ Component({
    */
   methods: {
     goBtn () {
-      this.triggerEvent('goBtn')
+      let { lon, lat } = this.data
+      wx.openLocation({
+        latitude: lat,
+        longitude: lon,
+      })
     }
   }
 })
