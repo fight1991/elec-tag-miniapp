@@ -6,15 +6,15 @@
       <view class="head-logo" slot="pref">
         <iconfont icon="realname" color="#fff"></iconfont>
       </view>
-      <view class="suffix-text" slot="suffix" wx:if="{{!authPersonal}}">去认证</view>
-      <view wx:else class="hasverify" slot="suffix" bindtap="goToRealName">已认证</view>
+      <view class="suffix-text" slot="suffix" wx:if="{{!authPersonal}}" bindtap="goToRealName">去认证</view>
+      <view wx:else class="hasverify" slot="suffix">已认证</view>
     </listTitle>
     <listTitle title="行驶证认证" subTitle="请上传本人行驶证">
       <view class="head-logo" slot="pref">
         <iconfont icon="brand" color="#fff"></iconfont>
       </view>
-      <view class="suffix-text" slot="suffix" wx:if="{{!authVehicleLicense}}">去认证</view>
-      <view wx:else class="hasverify" slot="suffix" bindtap="goToLicense">已认证</view>
+      <view class="suffix-text" slot="suffix" wx:if="{{!authVehicleLicense}}" bindtap="goToLicense">去认证</view>
+      <view wx:else class="hasverify" slot="suffix">已认证</view>
     </listTitle>
   </view>
 </view>

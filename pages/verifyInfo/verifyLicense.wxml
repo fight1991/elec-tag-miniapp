@@ -43,6 +43,7 @@
       <view class="license-back license-box">
         <upload 
           closeIcon="{{false}}"
+          bindgetImgInfo="getImgInfo"
           model:img-src="{{backImgUrl}}"
           staticSrc="/pages/image/driver-copy.png"
           mode="aspectFit"
@@ -63,31 +64,31 @@
       <view class="input-box">
         <view class="form-item">
           <view class="input-label">车牌号码</view>
-          <input class="input-element" type="text" id="plateNo" value="{{licenseInfo.plateNo}}"/>
+          <input class="input-element" type="text" id="plateNo" bindinput="bindData" value="{{licenseInfo.plateNo}}"/>
         </view>
         <view class="form-item">
           <view class="input-label">车辆类型</view>
-          <input class="input-element" type="text" id="vehicleType" value="{{licenseInfo.vehicleType}}"/>
+          <input class="input-element" type="text" id="vehicleType" bindinput="bindData" value="{{licenseInfo.vehicleType}}"/>
         </view>
         <view class="form-item">
           <view class="input-label">所有人</view>
-          <input class="input-element" type="text" id="ownerName" value="{{licenseInfo.ownerName}}"/>
+          <input class="input-element" type="text" id="ownerName" bindinput="bindData" value="{{licenseInfo.ownerName}}"/>
         </view>
         <view class="form-item">
           <view class="input-label">品牌型号</view>
-          <input class="input-element" type="text" id="model" value="{{licenseInfo.model}}"/>
+          <input class="input-element" type="text" id="model" bindinput="bindData" value="{{licenseInfo.model}}"/>
         </view>
         <view class="form-item">
           <view class="input-label">使用性质</view>
-          <input class="input-element" type="text" id="useCharacter" value="{{licenseInfo.useCharacter}}"/>
+          <input class="input-element" type="text" id="useCharacter" bindinput="bindData" value="{{licenseInfo.useCharacter}}"/>
         </view>
         <view class="form-item">
           <view class="input-label">车辆识别号</view>
-          <input class="input-element" type="text" id="vin" value="{{licenseInfo.vin}}"/>
+          <input class="input-element" type="text" id="vin" bindinput="bindData" value="{{licenseInfo.vin}}"/>
         </view>
         <view class="form-item no-bottom-border">
           <view class="input-label">发动机号</view>
-          <input class="input-element" type="text" id="engineNum" value="{{licenseInfo.engineNum}}"/>
+          <input class="input-element" type="text" id="engineNum" bindinput="bindData" value="{{licenseInfo.engineNum}}"/>
         </view>
       </view>
     </view>

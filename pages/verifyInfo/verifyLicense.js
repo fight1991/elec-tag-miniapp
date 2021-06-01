@@ -74,7 +74,9 @@ Page({
     let { result } = await verifyLicense(licenseInfo)
     if (result) {
       // 跳转到申领方式
-      
+      wx.navigateTo({
+        url: './applyWays',
+      })
     }
   },
   // 上传完成开始ocr识别

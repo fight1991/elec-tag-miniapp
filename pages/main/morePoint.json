@@ -1,4 +1,9 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "安装网点"
+  "usingComponents": {
+    "recommend-point": "./components/recommendPoint"
+  },
+  "navigationBarTitleText": "安装网点",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark"
 }

@@ -61,7 +61,7 @@ Page({
   moreBtn () {
     let { lon, lat } = this.data
     wx.navigateTo({
-      url: `./morePoint?lon=${lon}lat=${lat}`,
+      url: `./morePoint?lon=${lon}&lat=${lat}`,
     })
   },
   // 去这里按钮

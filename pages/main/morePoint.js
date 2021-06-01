@@ -8,7 +8,7 @@ Page({
    */
   data: {
     hasMore: true,
-    pageIndex: 1, // 当前页
+    pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     loading: false, // 正在加载
@@ -24,6 +24,7 @@ Page({
     let { lon, lat } = options
     this.data.lon = lon
     this.data.lat = lat
+    this.initList()
   },
 
   // 获取列表

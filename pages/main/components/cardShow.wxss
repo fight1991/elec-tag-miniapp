@@ -24,3 +24,7 @@
   display: flex;
   align-items: center;
 }
+.fs12 {
+  font-size: 24rpx;
+  padding-left: 10rpx;
+}
