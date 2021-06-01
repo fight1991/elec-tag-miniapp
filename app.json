@@ -149,7 +149,8 @@
     "step": "/pages/components/step/step",
     "stepBox": "/pages/components/stepBox/stepBox",
     "searchInput": "/pages/components/searchInput/searchInput",
-    "listTitle": "/pages/components/listTitle/listTitle"
+    "listTitle": "/pages/components/listTitle/listTitle",
+    "success": "/pages/components/success/success"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

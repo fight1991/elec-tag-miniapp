@@ -1,6 +1,8 @@
 <!--pages/scanBind/bindStatus.wxml-->
 <view class="outer">
-  <view class="text fs18">绑定成功</view>
+  <success>
+    <view class="text fs16">绑定成功</view>
+  </success>
 </view>
 <navigator url="/pages/elecPlate/uploadImg">
   <fixBtn>上传车辆照片</fixBtn>

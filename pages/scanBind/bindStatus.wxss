@@ -2,5 +2,4 @@
 .text {
   color: #3C79FF;
   text-align: center;
-  margin-top: 100rpx;
 }
