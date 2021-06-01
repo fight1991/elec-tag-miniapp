@@ -31,15 +31,17 @@
         <iconfont icon="arrow-right" color="#ccc"></iconfont>
       </view>
     </view>
-    <view class="tab-item">
-      <view class="head">
-        <iconfont icon="info" color="#0DD7BE"></iconfont>
-        <text class="head-text">我的消息</text>
+    <navigator url="/pages/message/messageList">
+      <view class="tab-item">
+        <view class="head">
+          <iconfont icon="info" color="#0DD7BE"></iconfont>
+          <text class="head-text">我的消息</text>
+        </view>
+        <view class="arrow-r">
+          <iconfont icon="arrow-right" color="#ccc"></iconfont>
+        </view>
       </view>
-      <view class="arrow-r">
-        <iconfont icon="arrow-right" color="#ccc"></iconfont>
-      </view>
-    </view>
+    </navigator>
     <view class="tab-item">
       <view class="head">
         <iconfont icon="car" color="#447FFF"></iconfont>

@@ -11,7 +11,7 @@ Page({
     bindStatus: false, // 电子车牌是否已绑定
     pagination: {
       pageIndex: 1,
-      pageSize: 5
+      pageSize: 10
     },
     total: 0, // 安装点总数
     pointList: [],

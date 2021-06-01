@@ -1,5 +1,10 @@
 /* pages/main/main.wxss */
 page {
+  height: 100%;
+}
+.linear-box {
+  height: 100%;
+  overflow-y: scroll;
   background:linear-gradient(to bottom, #3E77FF, #f0f7ff 30%);
 }
 .refine-userInfo {

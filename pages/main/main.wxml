@@ -1,46 +1,49 @@
 <!--pages/main/main.wxml-->
-<view class="outer">
-  <!-- 完善用户信息按钮区域-->
-  <view class="refine-userInfo" wx:if="{{!isAuth}}">
-    <stepBox></stepBox>
-    <view class="btn-box" bindtap="goToUserInfoPage">
-      完善用户信息
+<view class="linear-box">
+  <view class="outer">
+    <!-- 完善用户信息按钮区域-->
+    <view class="refine-userInfo" wx:if="{{!isAuth}}">
+      <stepBox></stepBox>
+      <view class="btn-box" bindtap="goToUserInfoPage">
+        完善用户信息
+      </view>
     </view>
-  </view>
-  <!-- 汽车信息展示 -->
-  <view class="card-show" wx:else>
-    <card-show></card-show>
-  </view>
-  <!-- 电子车牌 车辆信息 扫一扫按钮 -->
-  <view class="group-btn">
-    <view class="group-btn-item" bindtap="elecBrandBtn">
-      <text>电子车牌</text>
-      <iconfont icon="brand" color="rgba(158, 158, 158, .6)"></iconfont>
+    <!-- 汽车信息展示 -->
+    <view class="card-show" wx:else>
+      <card-show></card-show>
     </view>
-    <view class="group-btn-item" bindtap="carInfoBtn">
-      <text>车辆信息</text>
-      <iconfont icon="car" color="rgba(158, 158, 158, .6)"></iconfont>
+    <!-- 电子车牌 车辆信息 扫一扫按钮 -->
+    <view class="group-btn">
+      <view class="group-btn-item" bindtap="elecBrandBtn">
+        <text>电子车牌</text>
+        <iconfont icon="brand" color="rgba(158, 158, 158, .6)"></iconfont>
+      </view>
+      <view class="group-btn-item" bindtap="carInfoBtn">
+        <text>车辆信息</text>
+        <iconfont icon="car" color="rgba(158, 158, 158, .6)"></iconfont>
+      </view>
+      <view class="group-btn-item" bindtap="scanBtn">
+        <text>扫一扫</text>
+        <iconfont icon="scan" color="rgba(158, 158, 158, .6)"></iconfont>
+      </view>
     </view>
-    <view class="group-btn-item" bindtap="scanBtn">
-      <text>扫一扫</text>
-      <iconfont icon="scan" color="rgba(158, 158, 158, .6)"></iconfont>
+    <!-- 推荐安装网点 -->
+    <view class="recommend-point">
+      <view class="left fs16">推荐安装网点</view>
+      <view class="right fs12" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
     </view>
-  </view>
-  <!-- 推荐安装网点 -->
-  <view class="recommend-point">
-    <view class="left fs16">推荐安装网点</view>
-    <view class="right fs12" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
-  </view>
-  <view class="recommend-list" wx:if="{{pointList.length>0}}">
-    <block wx:for="{{pointList}}" wx:key="branchId">
-      <recommend-point
-        bindgoBtn="goThisBtn"
-        pointName="{{item.branchName}}"
-        pointDis="{{item.distance}}">
-      </recommend-point>
-    </block>
-  </view>
-  <view class="point-place" wx:else>
-    暂无网点信息
+    <view class="recommend-list" wx:if="{{pointList.length>0}}">
+      <block wx:for="{{pointList}}" wx:key="branchId">
+        <recommend-point
+          bindgoBtn="goThisBtn"
+          pointName="{{item.branchName}}"
+          pointDis="{{item.distance}}">
+        </recommend-point>
+      </block>
+    </view>
+    <view class="point-place" wx:else>
+      暂无网点信息
+    </view>
   </view>
 </view>
+
