@@ -9,22 +9,22 @@
 <view class="info-box">
   <view class="info-item">
     <view class="info-left">车身颜色</view>
-    <view class="info-right">{{elecInfo.plateColor}}</view>
+    <view class="info-right">{{carInfo.plateColor || ''}}</view>
   </view>
   <view class="info-item">
     <view class="info-left">车辆类型</view>
-    <view class="info-right">{{elecInfo.vehicleType}}</view>
+    <view class="info-right">{{carInfo.vehicleType || ''}}</view>
   </view>
   <view class="info-item">
     <view class="info-left">使用性质</view>
-    <view class="info-right">{{elecInfo.useNature}}</view>
+    <view class="info-right">{{carInfo.useNature || ''}}</view>
   </view>
   <view class="info-item">
     <view class="info-left">车辆识别代号</view>
-    <view class="info-right">{{elecInfo.vin}}</view>
+    <view class="info-right">{{carInfo.vin || ''}}</view>
   </view>
   <view class="info-item">
     <view class="info-left">发动机号</view>
-    <view class="info-right">{{elecInfo.engineNumber}}</view>
+    <view class="info-right">{{carInfo.engineNumber || ''}}</view>
   </view>
 </view>
