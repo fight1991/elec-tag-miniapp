@@ -12,6 +12,10 @@ Component({
       type: String,
       value: ''
     },
+    address: {
+      type: String,
+      value: ''
+    },
     lat: {
       type: Number,
       value: 0
@@ -34,10 +38,12 @@ Component({
    */
   methods: {
     goBtn () {
-      let { lon, lat } = this.data
+      let { lat, lon, pointName, address } = this.data
       wx.openLocation({
         latitude: lat,
         longitude: lon,
+        name: pointName,
+        address
       })
     }
   }

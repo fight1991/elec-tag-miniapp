@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "myCamera": "../../components/myCamera/myCamera"
-  },
-  "navigationBarTitleText": "人像"
-}

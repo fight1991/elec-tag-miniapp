@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "show-hide-icon": "/pages/components/show_hide_icon/showHideIcon"
-  },
-  "navigationBarTitleText": "个人中心"
-
-}

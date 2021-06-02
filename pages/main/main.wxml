@@ -16,15 +16,16 @@
     <view class="group-btn">
       <view class="group-btn-item" bindtap="elecBrandBtn">
         <text>电子车牌</text>
-        <iconfont icon="brand" color="rgba(158, 158, 158, .6)"></iconfont>
+        <iconImg name="plate"></iconImg>
+        <text class="free-apply" wx:if="{{!isAuth}}">免费申领</text>
       </view>
       <view class="group-btn-item" bindtap="carInfoBtn">
         <text>车辆信息</text>
-        <iconfont icon="car" color="rgba(158, 158, 158, .6)"></iconfont>
+        <iconImg name="car"></iconImg>
       </view>
       <view class="group-btn-item" bindtap="scanBtn">
         <text>扫一扫</text>
-        <iconfont icon="scan" color="rgba(158, 158, 158, .6)"></iconfont>
+        <iconImg name="scan"></iconImg>
       </view>
     </view>
     <!-- 推荐安装网点 -->
@@ -35,7 +36,9 @@
     <view class="recommend-list" wx:if="{{pointList.length>0}}">
       <block wx:for="{{pointList}}" wx:key="branchId">
         <recommend-point
-          bindgoBtn="goThisBtn"
+          lat="{{lat}}"
+          lon="{{lon}}"
+          address="{{item.address || ''}}"
           pointName="{{item.branchName}}"
           pointDis="{{item.distance}}">
         </recommend-point>

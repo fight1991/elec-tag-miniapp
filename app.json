@@ -1,110 +1,51 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/user/index",
-    "pages/user/scanCode/scanCode",
-    "pages/user/camera/front",
-    "pages/user/camera/back",
-    "pages/user/record_change/record_change",
-    "pages/user/loss/loss",
-    "pages/user/scrap/scrap",
-    "pages/user/insure/insure",
-    "pages/user/result/result",
     "pages/main/main",
-    "pages/my/my",
     "pages/main/morePoint",
-    "pages/verifyInfo/verifyRealName",
-    "pages/verifyInfo/verifyLicense",
-    "pages/verifyInfo/index",
-    "pages/verifyInfo/applyWays",
-    "pages/elecPlate/elecPlate",
-    "pages/elecPlate/uploadImg",
-    "pages/carInfo/carInfo",
-    "pages/scanBind/scanBind",
-    "pages/scanBind/bindStatus"
+    "pages/my/my"
   ],
-  "subPackages": [
-    {
-      "root": "pages/login",
-      "name": "login",
+  "subPackages": [{
+      "root": "pages/verifyInfo",
+      "name": "verifyInfo",
       "pages": [
-        "signIn"
+        "index",
+        "verifyRealName",
+        "verifyLicense",
+        "applyWays"
       ]
-    },
-    {
+    }, {
+      "root": "pages/elecPlate",
+      "name": "elecPlate",
+      "pages": [
+        "elecPlate",
+        "uploadImg"
+      ]
+    }, {
+      "root": "pages/carInfo",
+      "name": "carInfo",
+      "pages": [
+        "carInfo"
+      ]
+    }, {
+      "root": "pages/scanBind",
+      "name": "scanBind",
+      "pages": [
+        "scanBind",
+        "bindStatus"
+      ]
+    }, {
       "root": "pages/message",
       "name": "message",
       "pages": [
         "messageDetail",
         "messageList"
       ]
-    },
-    {
+    }, {
       "root": "pages/setting",
       "name": "setting",
       "pages": [
         "setting"
-      ]
-    },
-    {
-      "root": "pages/user/center",
-      "name": "center",
-      "pages": [
-        "center",
-        "editPhone",
-        "relogin"
-      ]
-    },
-    {
-      "root": "pages/user/idcardVerify",
-      "name": "idcardVerify",
-      "pages": [
-        "idcardVerify",
-        "livingVerify",
-        "livingResult"
-      ]
-    },
-    {
-      "root": "pages/user/personalBusiness",
-      "name": "personalBusiness",
-      "pages": [
-        "index",
-        "record/record",
-        "record/law/law"
-      ]
-    },
-    {
-      "root": "pages/user/livelihoodBusiness",
-      "name": "livelihoodBusiness",
-      "pages": [
-        "index",
-        "recordSelect",
-        "record/record"
-      ]
-    },
-    {
-      "root": "pages/user/livelihoodBusiness_corp",
-      "name": "livelihoodBusiness_corp",
-      "pages": [
-        "index",
-        "application/list",
-        "check/list",
-        "corp/list",
-        "corp/assign",
-        "corp/detail",
-        "invite/invite",
-        "record/record",
-        "rider/list",
-        "approve/approve"
-      ]
-    },
-    {
-      "root": "pages/user/adminBusiness",
-      "name": "adminBusiness",
-      "pages": [
-        "index",
-        "installer",
-        "details"
       ]
     }
   ],
@@ -150,7 +91,8 @@
     "stepBox": "/pages/components/stepBox/stepBox",
     "searchInput": "/pages/components/searchInput/searchInput",
     "listTitle": "/pages/components/listTitle/listTitle",
-    "success": "/pages/components/success/success"
+    "success": "/pages/components/success/success",
+    "iconImg": "/pages/components/iconImg/iconImg"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "card": "../common/formCard"
-  },
-  "enablePullDownRefresh": true,
-  "onReachBottomDistance": 50,
-  "backgroundTextStyle": "dark",
-  "navigationBarTitleText": "审核单"
-}

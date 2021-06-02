@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "mobileCode": "/pages/components/mobile_code_login/mobile_code_login"
-  },
-  "navigationBarTitleText": "修改手机号"
-
-}

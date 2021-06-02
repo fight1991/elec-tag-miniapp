@@ -42,6 +42,18 @@ page {
   align-items: center;
   border-radius: 10rpx;
 }
+.free-apply {
+  position: absolute;
+  right: -10rpx;
+  top: -15rpx;
+  font-size: 18rpx;
+  height: 30rpx;
+  width: 100rpx;
+  text-align: center;
+  line-height: 30rpx;
+  background-color: #FD8141;
+  border-radius: 15rpx;
+}
 .group-btn-item:nth-child(1) {
   background: linear-gradient(92deg, #A899FF 0%, #CBC2FF 100%);
   box-shadow: 0px 6px 30px rgba(172, 161, 240, 0.42);

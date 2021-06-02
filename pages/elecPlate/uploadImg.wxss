@@ -8,6 +8,6 @@
   display: flex;
 }
 .gap {
-  width: 30rpx;
+  width: 60rpx;
   /* height: 20rpx; */
 }

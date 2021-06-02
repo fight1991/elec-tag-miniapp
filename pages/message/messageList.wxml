@@ -1,12 +1,4 @@
 <!--pages/message/messageList.wxml-->
-<scroll-view
-  style="height:100vh;"
-  scroll-y="{{true}}"
-  refresher-enabled="{{true}}"
-  bindrefresherrefresh="onRefresh"
-  refresher-triggered="{{triggered}}"
-  bindscrolltolower="scrolltolower"
-  lower-threshold="{{50}}">
   <view class="outer">
     <block wx:for="{{resultList}}" wx:key="messageId">
       <navigator url="/pages/message/messageDetail?id={{item.messageId}}&isRead={{item.readStatus}}">
@@ -24,8 +16,6 @@
       <nodata>暂无数据</nodata>
     </view>
   </view>
-</scroll-view>
-
   
 
 

@@ -1,4 +1,4 @@
-// pages/message/messageList.js
+// pages/main/morePoint.js
 var app = getApp()
 const { getMessageListApi } = app.api
 Page({
@@ -7,12 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 上拉刷新下拉加载数据
-    triggered: false, // 设置当前下拉刷新状态
-    hasMore: true, // 是否还有更多数据
-    pageIndex: 1, // 当前页
+    hasMore: true,
+    pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
+    loading: false, // 正在加载
     resultList: []
   },
 
@@ -20,12 +19,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.onRefresh()
+    this.initList()
   },
-  // 获取消息列表
-  async getMessageList (pageIndex, callback) {
-    if (this._freshing) return
-    this._freshing = true
+  // 获取列表
+  async getList (pageIndex, callback) {
+    if (this.loading) return
+    this.loading = true
     let { pageSize, resultList } = this.data
     let createTime = ''
     let id = ''
@@ -34,6 +33,7 @@ Page({
       createTime = lastData.createTime
       id = lastData.id
     }
+    pageIndex ++
     let { result, page } = await getMessageListApi({
       data: {
         createTime,
@@ -47,93 +47,35 @@ Page({
     if (result) {
       callback && callback(result || [], page)
     }
-    this._freshing = false
-    this.setData({
-      triggered: false
-    })
+    this.loading = false
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    // wx.$post({
-    //   url: '/user-center/notification/createNotice',
-    //   data: {
-    //     "msgContent": "你好aaaa" + Date.now(),
-    //     "msgDesc": "这是个好豪情" + Date.now(),
-    //     "msgTitle": "title" + Date.now(),
-    //     "msgType": "system",
-    //     "targetAccountId": '3026861168552657839'
-    //   }
-    // })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    // wx.showNavigationBarLoading() //启用标题栏显示加载状态
-    // // 调用相关方法
-    // setTimeout(() => {
-    //   wx.hideNavigationBarLoading() //隐藏标题栏显示加载状态
-    //   wx.stopPullDownRefresh() //结束刷新
-    // }, 1000); //设置执行时间
-  },
-  onRefresh() {
-    this.data.resultList = []
-    this.getMessageList(1, (list, pagination) => {
-      var { total } = pagination
-      var len = list.length
-      this.setData({
-        resultList: list,
-        hasMore: len >= total ? false : true
-      })
-    })
-  },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  scrolltolower () {
-    if (!this.data.hasMore) return
-    let { resultList } = this.data
-    this.getMessageList(1, (list, pagination) => {
-      var { pageIndex, total } = pagination
-      var tempR = [...resultList, ...list]
+  // 列表初始化查询
+  initList () {
+    this.getList(0, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
       this.setData({
         pageIndex,
-        resultList: tempR,
-        hasMore: tempR.length >= total ? false : true
+        list: resList,
+        hasMore: pageIndex * pageSize >= total ? false : true
       })
+      wx.stopPullDownRefresh()
     })
   },
-  onReachBottom: function (e) {
-    console.log(e)
+  onPullDownRefresh: function () {
+    this.initList()
+    // 停止下拉刷新
+    // wx.stopPullDownRefresh()
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onReachBottom: function () {
+    if (!this.data.hasMore) return
+    let { pageIndex, list } = this.data
+    this.getList(pageIndex, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: [...list, ...resList],
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+    })
   }
 })

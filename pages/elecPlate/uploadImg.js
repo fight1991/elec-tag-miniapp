@@ -28,9 +28,11 @@ Page({
       // wx.navigateBack({
       //   delta: 1
       // })
-      wx.reLaunch({
-        url: '/pages/main/main',
-      })
+      this.timer = setTimeout(() => {
+        wx.reLaunch({
+          url: '/pages/main/main',
+        })
+      }, 350)
     }
   },
   /**
@@ -58,7 +60,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.timer && clearTimeout(this.timer)
   },
 
   /**

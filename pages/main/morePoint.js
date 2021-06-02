@@ -29,21 +29,15 @@ Page({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
-        this.data.lon = longitude
-        this.data.lat = latitude
+        this.setData({
+          lon: longitude,
+          lat: latitude
+        })
         this.initList()
       },
       fail: (res) => {
         app.messageBox.common('获取位置失败')
       }
-    })
-  },
-  // 去这里按钮
-  goThisBtn () {
-    let { lon, lat } = this.data
-    wx.openLocation({
-      latitude: lat,
-      longitude: lon,
     })
   },
   // 获取列表

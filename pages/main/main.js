@@ -11,7 +11,7 @@ Page({
     bindStatus: false, // 电子车牌是否已绑定
     pagination: {
       pageIndex: 1,
-      pageSize: 10
+      pageSize: 5
     },
     total: 0, // 安装点总数
     pointList: [],
@@ -31,8 +31,10 @@ Page({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
-        this.data.lon = longitude
-        this.data.lat = latitude
+        this.setData({
+          lon: longitude,
+          lat: latitude
+        })
         this.getPointList(longitude, latitude)
       },
       fail: (res) => {
@@ -63,7 +65,7 @@ Page({
     })
   },
   // 去这里按钮
-  goThisBtn () {
+  goThisBtn (e) {
     let { lon, lat } = this.data
     wx.openLocation({
       latitude: lat,

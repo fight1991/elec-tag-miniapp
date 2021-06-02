@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "upload": "/pages/components/upload/upload"
-  },
-  "navigationBarTitleText": "安装上报"
-
-}

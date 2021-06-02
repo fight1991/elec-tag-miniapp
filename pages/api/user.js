@@ -62,4 +62,20 @@ export const verifyLicense = (data) => {
   })
 }
 
+// 获取消息列表
+export const getMessageListApi = ({data, page}) => {
+  return wx.$post_business({
+    url: '/user-center/notification/getNoticeList',
+    data,
+    page
+  })
+}
+// 获取消息详情
+export const getMessageDetailApi = (data) => {
+  return wx.$post_business({
+    url: '/user-center/notification/getNoticeDetail',
+    data
+  })
+}
+
 

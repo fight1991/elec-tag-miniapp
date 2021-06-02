@@ -22,7 +22,7 @@
     </view>
   </view>
   <view class="change-tab">
-    <view class="tab-item">
+    <view class="tab-item" bindtap="scanBtn">
       <view class="head">
         <iconfont icon="scan" color="#FFBA76"></iconfont>
         <text class="head-text">扫一扫</text>
@@ -42,15 +42,17 @@
         </view>
       </view>
     </navigator>
-    <view class="tab-item">
-      <view class="head">
-        <iconfont icon="car" color="#447FFF"></iconfont>
-        <text class="head-text">我的车辆</text>
+    <navigator url="/pages/carInfo/carInfo">
+      <view class="tab-item">
+        <view class="head">
+          <iconfont icon="car" color="#447FFF"></iconfont>
+          <text class="head-text">我的车辆</text>
+        </view>
+        <view class="arrow-r">
+          <iconfont icon="arrow-right" color="#ccc"></iconfont>
+        </view>
       </view>
-      <view class="arrow-r">
-        <iconfont icon="arrow-right" color="#ccc"></iconfont>
-      </view>
-    </view>
+    </navigator>
   </view>
   <view class="login-out">
     <view class="tab-item" bindtap="loginOut">

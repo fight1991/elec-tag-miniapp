@@ -1,4 +1,0 @@
-<!--pages/user/center/relogin.wxml-->
-<successPage title="修改成功!">
-  <fixBtn bindtap="reloginBtn">请重新登录</fixBtn>
-</successPage>
