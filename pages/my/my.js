@@ -46,7 +46,7 @@ Page({
   },
   // 读取global数据
   mapStateToProps () {
-    let { authPersonal, authVehicleLicense, userName } = app.globalData.userInfo
+    let { authPersonal, authVehicleLicense, userName = '' } = app.globalData.userInfo
     let { bindStatus } = app.globalData.elecBrandInfo
     this.setData({
       authPersonal,
