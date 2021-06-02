@@ -7,14 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    wxUserImg: app.static_user_logo
+    wxUserImg: app.static_user_logo,
+    authPersonal: false, // 是否已实名
+    authVehicleLicense: false, // 是否行驶证认证
+    userName: '',
+    bindStatus: '', // 电子车牌绑定状态
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.mapStateToProps()
   },
   // 用户退出
   loginOut () {
@@ -38,6 +42,17 @@ Page({
           }
         }
       }
+    })
+  },
+  // 读取global数据
+  mapStateToProps () {
+    let { authPersonal, authVehicleLicense, userName } = app.globalData.userInfo
+    let { bindStatus } = app.globalData.elecBrandInfo
+    this.setData({
+      authPersonal,
+      authVehicleLicense,
+      userName,
+      bindStatus
     })
   },
   // 打开扫码

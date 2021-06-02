@@ -25,7 +25,7 @@ Page({
   goToLicense () {
     let { authPersonal } = this.data
     if (!authPersonal) {
-      app.messageBox.common('请先进行实名认证!')
+      app.messageBox.common('请先进行实名认证')
       return
     }
     wx.navigateTo({

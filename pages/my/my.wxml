@@ -2,20 +2,20 @@
 <view class="outer">
   <view class="user-bg">
     <view class="user-left">
-      <view class="fs18">{{'HAHA'}}</view>
-      <view class="no-verify">
+      <view class="fs18">{{userName}}</view>
+      <view class="no-verify" wx:if="{{!authPersonal}}">
         <view class="no-verify-item">未实名认证 , 请先认证</view>
       </view>
-      <!-- <view class="id-card">
+      <view class="id-card" wx:else>
         <view class="show-item verify-name">
           <iconfont icon="realname" size="40rpx" color="#447FFF"></iconfont>
           车主已实名
         </view>
-        <view class="show-item">
+        <view class="show-item" wx:if="{{bindStatus == 'bind'}}">
           <iconfont icon="brand" size="40rpx" color="#447FFF"></iconfont>
           电子车牌
         </view>
-      </view> -->
+      </view>
     </view>
     <view class="user-right">
       <image class="img" src="{{wxUserImg}}" mode="cover"></image>
