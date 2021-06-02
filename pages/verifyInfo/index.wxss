@@ -9,10 +9,10 @@
   justify-content: center;
 }
 .suffix-text {
-  padding: 10rpx;
+  padding: 10rpx 16rpx;
   border: 1px solid #447FFF;
   color: #447FFF;
-  border-radius: 4rpx;
+  border-radius: 8rpx;
 }
 .hasverify {
   color: #FF975D;
