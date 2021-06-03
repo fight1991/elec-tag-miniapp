@@ -36,8 +36,8 @@
     <view class="recommend-list" wx:if="{{pointList.length>0}}">
       <block wx:for="{{pointList}}" wx:key="branchId">
         <recommend-point
-          lat="{{lat}}"
-          lon="{{lon}}"
+          lat="{{item.lat}}"
+          lon="{{item.lon}}"
           address="{{item.address || ''}}"
           pointName="{{item.branchName}}"
           pointDis="{{item.distance}}">

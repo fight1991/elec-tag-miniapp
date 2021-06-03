@@ -14,9 +14,7 @@ Page({
       pageSize: 5
     },
     total: 0, // 安装点总数
-    pointList: [],
-    lon: '',
-    lat: ''
+    pointList: []
   },
 
   /**
@@ -31,10 +29,6 @@ Page({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
-        this.setData({
-          lon: longitude,
-          lat: latitude
-        })
         this.getPointList(longitude, latitude)
       },
       fail: (res) => {

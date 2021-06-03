@@ -73,6 +73,7 @@ Page({
     licenseInfo.plateColor = colorMap[currentColor]
     let { result } = await verifyLicense(licenseInfo)
     if (result) {
+      app.globalData.userInfo.authVehicleLicense = true
       // 跳转到申领方式
       wx.navigateTo({
         url: './applyWays',

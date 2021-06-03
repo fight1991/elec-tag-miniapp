@@ -12,9 +12,7 @@ Page({
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     loading: false, // 正在加载
-    list: [],
-    lon: '',
-    lat: ''
+    list: []
   },
 
   /**
@@ -29,10 +27,6 @@ Page({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
-        this.setData({
-          lon: longitude,
-          lat: latitude
-        })
         this.initList()
       },
       fail: (res) => {
