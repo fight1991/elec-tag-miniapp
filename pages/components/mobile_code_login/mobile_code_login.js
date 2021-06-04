@@ -1,7 +1,7 @@
 // pages/components/mobile_code_login/mobile_code_login.js
 var app = getApp()
 const utils = app.utils
-const { loginApi, changeMobile, getCodeApi } = app.api
+const { loginApi, changeMobile, getCodeApi, getImgCodeApi } = app.api
 // 手机号验证码登录组件
 Component({
   /**
@@ -25,7 +25,7 @@ Component({
     confirmDialogVisible: false,
     oldMobile: '',
     mobile: '',
-    authCode: '159951', // 验证码
+    authCode: '', // 验证码
     isEditCode: false, // 按钮禁用
     codeText: '获取验证码',
     timerId: 0,
@@ -80,10 +80,6 @@ Component({
       if (!isPass) return
       if (this.data.timerId > 0) return
       this.myDialog.show()
-    },
-    // 关闭dialog
-    colseDialog () {
-      this.myDialog.hide()
     },
     // 是否可以输入验证码
     checkImgCodeStatus (status) {

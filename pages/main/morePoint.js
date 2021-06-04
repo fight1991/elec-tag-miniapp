@@ -27,6 +27,10 @@ Page({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
+        this.setData({
+          lon: longitude,
+          lat: latitude
+        })
         this.initList()
       },
       fail: (res) => {

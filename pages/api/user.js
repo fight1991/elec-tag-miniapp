@@ -42,7 +42,14 @@ export const changeMobile = (data) => {
 // 获取手机验证码
 export const getCodeApi = (data) => {
   return wx.$post_business({
-    url: '/user-center/getMobileAuthCode',
+    url: '/user-center/code/getMobileAuthCode',
+    data
+  })
+}
+// 获取图片验证码
+export const getImgCodeApi = (data) => {
+  return wx.$post_business({
+    url: '/user-center/util/getCheckCodeImage',
     data
   })
 }
