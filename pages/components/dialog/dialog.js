@@ -76,6 +76,7 @@ Component({
       if (result) {
         app.messageBox.common('验证码发送成功')
         this.hide()
+        this.clear()
         this.triggerEvent('confirmEvent', true) 
       }
     },
