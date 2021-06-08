@@ -4,7 +4,7 @@
   <view class="input-box">
     <view class="form-item">
       <view class="input-label">姓名</view>
-      <input class="input-element" type="text" maxlength="6" model:value="{{idName}}" placeholder="请输入姓名"/>
+      <input class="input-element" type="text" maxlength="20" model:value="{{idName}}" placeholder="请输入姓名"/>
     </view>
     <view class="form-item no-bottom-border">
       <view class="input-label">身份证号</view>
