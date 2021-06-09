@@ -1,6 +1,4 @@
-// pages/verifyInfo/applyWays.js
-var app = getApp()
-const { verifyLicense } = app.api
+// pages/carInfo/carList.js
 Page({
 
   /**
@@ -16,22 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  async confirmBtn () {
-    let pages = getCurrentPages()
-    let prevPage = pages[length - 1]
-    if (prevPage) {
-      let formData = prevPage.data.licenseInfo
-      formData.installation = 'branchInstall'
-      let { result } = await verifyLicense(formData)
-      if (result) {
-        app.globalData.userInfo.authVehicleLicense = true
-        wx.reLaunch({
-          url: '/pages/elecPlate/elecPlate',
-        })
-      }
-    }
-    
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

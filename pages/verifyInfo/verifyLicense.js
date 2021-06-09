@@ -1,6 +1,6 @@
 // pages/verifyInfo/verifyLicense.js
 var app = getApp()
-const { verifyLicense, licenseOcr } = app.api
+const { licenseOcr } = app.api
 Page({
 
   /**
@@ -71,14 +71,6 @@ Page({
     licenseInfo.license_image = frontImgUrl
     licenseInfo.license_copy_image = backImgUrl
     licenseInfo.plateColor = colorMap[currentColor]
-    let { result } = await verifyLicense(licenseInfo)
-    if (result) {
-      app.globalData.userInfo.authVehicleLicense = true
-      // 跳转到申领方式
-      wx.navigateTo({
-        url: './applyWays',
-      })
-    }
   },
   // 上传完成开始ocr识别
   async getImgInfo (e) {
@@ -98,8 +90,11 @@ Page({
   nextStepBtn () {
     let isPass = this.checkValid()
     if (!isPass) return
-    // 表单提交
+    // 保存表单并跳转到申领方式
     this.saveFormInfo()
+    wx.navigateTo({
+      url: './applyWays',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

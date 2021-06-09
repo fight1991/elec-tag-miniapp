@@ -5,7 +5,7 @@
     <view class="refine-userInfo" wx:if="{{!isAuth}}">
       <stepBox></stepBox>
       <view class="btn-box" bindtap="goToUserInfoPage">
-        完善用户信息
+        电子车牌新申领
       </view>
     </view>
     <!-- 汽车信息展示 -->
@@ -20,7 +20,7 @@
         <text class="free-apply" wx:if="{{!isAuth}}">免费申领</text>
       </view>
       <view class="group-btn-item" bindtap="carInfoBtn">
-        <text>车辆信息</text>
+        <text>我的车辆</text>
         <iconImg name="car"></iconImg>
       </view>
       <view class="group-btn-item" bindtap="scanBtn">

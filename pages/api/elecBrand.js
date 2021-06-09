@@ -58,4 +58,25 @@ export const getCarInfo = (data) => {
     data
   })
 }
+// 获取车辆列表
+export const getCarList = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-management/vehicle/list',
+    data
+  })
+}
+// 获取未绑定电子车牌的车牌列表
+export const getUnbindList = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-management/vehicle/plateNoList',
+    data
+  })
+}
+// 移除车辆
+export const deleteCar = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-management/vehicle/remove',
+    data
+  })
+}
 

@@ -5,7 +5,8 @@
     "pages/main/morePoint",
     "pages/my/my"
   ],
-  "subPackages": [{
+  "subPackages": [
+    {
       "root": "pages/verifyInfo",
       "name": "verifyInfo",
       "pages": [
@@ -14,34 +15,40 @@
         "verifyLicense",
         "applyWays"
       ]
-    }, {
+    },
+    {
       "root": "pages/elecPlate",
       "name": "elecPlate",
       "pages": [
         "elecPlate",
         "uploadImg"
       ]
-    }, {
+    },
+    {
       "root": "pages/carInfo",
       "name": "carInfo",
       "pages": [
-        "carInfo"
+        "carInfo",
+        "carList"
       ]
-    }, {
+    },
+    {
       "root": "pages/scanBind",
       "name": "scanBind",
       "pages": [
         "scanBind",
         "bindStatus"
       ]
-    }, {
+    },
+    {
       "root": "pages/message",
       "name": "message",
       "pages": [
         "messageDetail",
         "messageList"
       ]
-    }, {
+    },
+    {
       "root": "pages/setting",
       "name": "setting",
       "pages": [

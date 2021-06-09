@@ -71,7 +71,7 @@ Page({
     let { isAuth } = this.data
     if (isAuth) {
       wx.navigateTo({
-        url: '/pages/carInfo/carInfo',
+        url: '/pages/carInfo/carList',
       })
     } else {
       wx.navigateTo({

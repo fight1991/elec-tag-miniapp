@@ -11,7 +11,6 @@ Page({
     authPersonal: false, // 是否已实名
     authVehicleLicense: false, // 是否行驶证认证
     userName: '',
-    bindStatus: '', // 电子车牌绑定状态
   },
 
   /**
@@ -47,12 +46,10 @@ Page({
   // 读取global数据
   mapStateToProps () {
     let { authPersonal, authVehicleLicense, userName } = app.globalData.userInfo
-    let { bindStatus } = app.globalData.elecBrandInfo
     this.setData({
       authPersonal,
       authVehicleLicense,
-      userName,
-      bindStatus: bindStatus || ''
+      userName
     })
   },
   // 打开扫码

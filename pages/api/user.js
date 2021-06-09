@@ -61,7 +61,7 @@ export const verifyAuth = (data) => {
     data
   })
 }
-// 行驶证认证
+// 行驶证认证并申领电子车牌
 export const verifyLicense = (data) => {
   return wx.$post_business({
     url: '/user-center/vehicleLicense/certification',

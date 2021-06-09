@@ -11,10 +11,6 @@
           <iconfont icon="realname" size="40rpx" color="#447FFF"></iconfont>
           车主已实名
         </view>
-        <view class="show-item" wx:if="{{bindStatus == 'bind'}}">
-          <iconfont icon="brand" size="40rpx" color="#447FFF"></iconfont>
-          电子车牌
-        </view>
       </view>
     </view>
     <view class="user-right">
