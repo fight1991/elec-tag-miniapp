@@ -1,2 +1,23 @@
-<!--pages/carInfo/carList.wxml-->
-<text>pages/carInfo/carList.wxml</text>
+<view class="outer">
+  <block
+    wx:for="{{list}}"
+    wx:key="vehicleId">
+    <navigator url="/pages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
+      <view
+        class="bind-box"
+        style="background-image:url({{bgObj[item.bindStatus]}})">
+        <view class="content">
+          <view class="head-title fs16">{{item.plateNo}}</view>
+          <view class="head-title fs12 fc-ccc" wx:if="{{item.bindStatus == 'bind'}}">电子车牌: {{item.eviId}}</view>
+          <view class="head-title fs12 fc-ccc line-through" wx:if="{{item.bindStatus == 'unbind'}}">电子车牌: {{item.eviId}}</view>
+          <view class="head-title unbind" wx:if="{{item.bindStatus == 'apply'}}">未绑定电子车牌</view>
+        </view>
+        <view class="dot-box" id="{{item.vehicleId}}" catchtap="showSheet">
+          <view class="dot"></view>
+          <view class="dot"></view>
+          <view class="dot"></view>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>

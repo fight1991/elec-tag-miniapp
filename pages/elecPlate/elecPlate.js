@@ -1,6 +1,7 @@
 // pages/elecPlate/elecPlate.js
 var app = getApp()
 const { evi_bind, evi_info } = app.api
+
 Page({
 
   /**
@@ -35,9 +36,7 @@ Page({
       onlyFromCamera: true,
       success: res => {
         // res.result
-        wx.navigateTo({
-          url: '/pages/scanBind/scanBind?plateNo=' + res.result,
-        })
+        this.bindBrand(res.result)
       }
     })
   },
@@ -48,7 +47,6 @@ Page({
     this.setData({
       type
     })
-    this.initList()
   },
   // 获取电子车牌信息
   async getElecInfo () {
@@ -59,7 +57,20 @@ Page({
       })
     }
   },
-
+  // 绑定电子车牌
+  async bindBrand (res) {
+    let { id } = this.data
+    let { result } = await evi_bind({
+      vehicleId: id,
+      eviId: res
+    })
+    if (result) {
+      app.messageBox.common('绑定成功')
+      wx.reLaunch({
+        url: '/pages/main/main',
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

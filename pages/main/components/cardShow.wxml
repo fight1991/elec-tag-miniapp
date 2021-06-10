@@ -13,20 +13,22 @@
       next-margin="20rpx"
       circular="{{true}}">
       <swiper-item wx:for="{{list}}" wx:key="vehicleId">
-        <view class="card-box" style="background-image:url({{bgData[item.bindStatus]}})">
-          <view class="plateNo">{{item.plateNo}}</view>
-          <view class="brand">{{item.model}}</view>
-          <view class="verify">
-            <view class="show-item verify-name">
-              <iconfont icon="realname" color="#447FFF" size="40rpx"></iconfont>
-              <text class="fs12">车主已实名</text>
-            </view>
-            <view class="show-item" wx:if="{{item.bindStatus=='bind'}}">
-              <iconfont icon="brand" color="#447FFF" size="40rpx"></iconfont>
-              <text class="fs12">电子车牌</text>
+        <navigator url="/pages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
+          <view class="card-box" style="background-image:url({{bgData[item.bindStatus]}})">
+            <view class="plateNo">{{item.plateNo}}</view>
+            <view class="brand">{{item.model}}</view>
+            <view class="verify">
+              <view class="show-item verify-name">
+                <iconfont icon="realname" color="#447FFF" size="40rpx"></iconfont>
+                <text class="fs12">车主已实名</text>
+              </view>
+              <view class="show-item" wx:if="{{item.bindStatus=='bind'}}">
+                <iconfont icon="brand" color="#447FFF" size="40rpx"></iconfont>
+                <text class="fs12">电子车牌</text>
+              </view>
             </view>
           </view>
-        </view>
+        </navigator>
       </swiper-item>
     </swiper>
   </view>

@@ -1,14 +1,15 @@
 // pages/scanBind/scanBind.js
 var app = getApp()
-const { evi_bind } = app.api
+const { evi_bind, getUnbindList } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
-    plateNo: ''
+    bgImg: '/pages/image/bind-bg.png',
+    plateNo: '',
+    brandList: []
   },
 
   /**
@@ -25,6 +26,15 @@ Page({
     if (result) {
       wx.navigateTo({
         url: './bindStatus',
+      })
+    }
+  },
+  // 获取未绑定车牌列表
+  async getBrandList () {
+    let { result } = await getUnbindList()
+    if (result) {
+      this.setData({
+        brandList: result
       })
     }
   },
