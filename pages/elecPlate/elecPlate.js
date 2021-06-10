@@ -9,7 +9,8 @@ Page({
   data: {
     bgImg: '/pages/image/bind-bg.png',
     elecInfo: {},
-    type: 'base'
+    type: 'base',
+    id: '' // 车辆id
   },
 
   /**
@@ -17,11 +18,15 @@ Page({
    */
   onLoad: function (options) {
     // this.getElecInfo()
-    let { type } = options
+    this.baseFormInfoComponent = this.selectComponent('#baseFormInfo')
+    let { type, id } = options
     if (type) {
       this.setData({
-        type
+        type,
+        id
       })
+      this.baseFormInfoComponent.getCarInfo(id)
+      this.getElecInfo()
     }
   },
   // 绑定电子车牌按钮
@@ -47,10 +52,10 @@ Page({
   },
   // 获取电子车牌信息
   async getElecInfo () {
-    let { result } = await evi_info()
+    let { result } = await evi_info(this.data.id)
     if (result) {
       this.setData({
-        elecInfo: result[0]
+        elecInfo: result
       })
     }
   },

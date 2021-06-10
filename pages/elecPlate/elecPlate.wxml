@@ -19,7 +19,7 @@
     <view class="tab-item{{type == 'base' ? ' active-tab' : ''}}" data-type='base'>基础信息</view>
     <view class="tab-item{{type == 'elec' ? ' active-tab' : ''}}" data-type='elec'>电子车牌</view>
   </view>
-  <view class="info-box" wx:if="{{type=='elec'}}">
+  <view class="info-box" hidden="{{type=='base'}}">
     <view class="info-item">
       <view class="info-left">申领方式</view>
       <view class="info-right">{{'网点领取'}}</view>
@@ -35,8 +35,8 @@
       </navigator>
     </view>
   </view>
-  <view class="base-box" wx:else>
-    <base-info></base-info>
+  <view class="base-box" hidden="{{type=='elec'}}">
+    <base-info id="baseFormInfo"></base-info>
   </view>
   <view class="top-title" wx:if="{{elecInfo.bindStatus == 'apply'}}">
     <view class="left-title">您可前往任意网点领取电子车牌并安装</view>
