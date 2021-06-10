@@ -1,6 +1,6 @@
 // pages/main/components/cardShow.js
 var app = getApp()
-const { evi_info } = app.api
+const { getCarList } = app.api
 Component({
   /**
    * 组件的属性列表
@@ -8,24 +8,20 @@ Component({
   properties: {
     
   },
-  lifetimes: {
-    attached: function () {
-      this.getElecBrandInfo()
-      this.setData({
-        mobile: app.globalData.userInfo.mobile
-      })
+  pageLifetimes: {
+    show: function () {
+      this.getList()
     }
   },
   /**
    * 组件的初始数据
    */
   data: {
-    mobile: '',
-    isAuth: false, // 是否已实名
-    carInfo: {
-      plateNo: '',
-      model: '', // 品牌型号
-      bindStatus: '', // 电子车牌绑定状态 未申领notApply、已申领apply、已绑定bind、已解绑unbind
+    list: [],
+    bgData: {
+      apply: '/pages/image/swiper-bg.png',
+      bind: '/pages/image/swiper-bg.png',
+      unbind: '/pages/image/unbind-bg.png'
     }
   },
   /**
@@ -33,14 +29,19 @@ Component({
    */
   methods: {
     // 获取电子车牌信息
-    async getElecBrandInfo () {
-      let { result } = await evi_info()
+    async getList () {
+      let { result } = await getCarList()
       if (result) {
         this.setData({
-          carInfo: result[0]
+          list: result
         })
-        app.globalData.elecBrandInfo = result[0]
       }
+    },
+    // 跳转到用户信息页面
+    goToUserInfoPage () {
+      wx.navigateTo({
+        url: '/pages/verifyInfo/index',
+      })
     },
   }
 })

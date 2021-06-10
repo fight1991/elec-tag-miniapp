@@ -7,15 +7,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
-    elecInfo: {}
+    bgImg: '/pages/image/bind-bg.png',
+    elecInfo: {},
+    type: 'base'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getElecInfo()
+    // this.getElecInfo()
+    let { type } = options
+    if (type) {
+      this.setData({
+        type
+      })
+    }
   },
   // 绑定电子车牌按钮
   bindBtn () {
@@ -28,6 +35,15 @@ Page({
         })
       }
     })
+  },
+  // 点击tab
+  tabClick (e) {
+    let type = e.target.dataset.type
+    if (this.data.type == type) return
+    this.setData({
+      type
+    })
+    this.initList()
   },
   // 获取电子车牌信息
   async getElecInfo () {

@@ -18,15 +18,14 @@ Page({
   },
   async confirmBtn () {
     let pages = getCurrentPages()
-    let prevPage = pages[length - 1]
+    let prevPage = pages[pages.length - 2]
     if (prevPage) {
       let formData = prevPage.data.licenseInfo
       formData.installation = 'branchInstall'
       let { result } = await verifyLicense(formData)
       if (result) {
-        app.globalData.userInfo.authVehicleLicense = true
-        wx.reLaunch({
-          url: '/pages/elecPlate/elecPlate',
+        wx.navigateTo({
+          url: '/pages/elecPlate/elecPlate?type=elec',
         })
       }
     }

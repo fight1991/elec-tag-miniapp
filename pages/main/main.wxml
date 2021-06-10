@@ -1,23 +1,13 @@
 <!--pages/main/main.wxml-->
 <view class="linear-box">
+  <card-show></card-show>
   <view class="outer">
-    <!-- 完善用户信息按钮区域-->
-    <view class="refine-userInfo" wx:if="{{!isAuth}}">
-      <stepBox></stepBox>
-      <view class="btn-box" bindtap="goToUserInfoPage">
-        电子车牌新申领
-      </view>
-    </view>
-    <!-- 汽车信息展示 -->
-    <view class="card-show" wx:else>
-      <card-show></card-show>
-    </view>
     <!-- 电子车牌 车辆信息 扫一扫按钮 -->
     <view class="group-btn">
       <view class="group-btn-item" bindtap="elecBrandBtn">
         <text>电子车牌</text>
         <iconImg name="plate"></iconImg>
-        <text class="free-apply" wx:if="{{!isAuth}}">免费申领</text>
+        <text class="free-apply">免费申领</text>
       </view>
       <view class="group-btn-item" bindtap="carInfoBtn">
         <text>我的车辆</text>

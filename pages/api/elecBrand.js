@@ -79,4 +79,10 @@ export const deleteCar = (data) => {
     data
   })
 }
-
+// 行驶证认证并申领电子车牌
+export const verifyLicense = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-management/vehicle/certification',
+    data
+  })
+}

@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "base-info": "./carBaseInfo/carBaseInfo"
+  },
   "navigationBarTitleText": "电子车牌"
 }

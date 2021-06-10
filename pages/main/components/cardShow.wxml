@@ -1,16 +1,32 @@
 <!--pages/main/components/cardShow.wxml-->
-<view class="card-box">
-  <view class="mobile">{{mobile}}</view>
-  <view class="plateNo">{{carInfo.plateNo}}</view>
-  <view class="brand">{{carInfo.model}}</view>
-  <view class="verify">
-    <view class="show-item verify-name">
-      <iconfont icon="realname" color="#447FFF" size="40rpx"></iconfont>
-      <text class="fs12">车主已实名</text>
-    </view>
-    <view class="show-item" wx:if="{{carInfo.bindStatus=='bind'}}">
-      <iconfont icon="brand" color="#447FFF" size="40rpx"></iconfont>
-      <text class="fs12">电子车牌</text>
+<!-- 电子车牌申领区域-->
+  <view class="refine-userInfo" wx:if="{{list.length==0}}">
+    <stepBox></stepBox>
+    <view class="btn-box" bindtap="goToUserInfoPage">
+      电子车牌新申领
     </view>
   </view>
-</view>
+  <!-- 汽车信息展示 -->
+  <view class="card-show" wx:else>
+    <swiper
+      previous-margin="20rpx"
+      next-margin="20rpx"
+      circular="{{true}}">
+      <swiper-item wx:for="{{list}}" wx:key="vehicleId">
+        <view class="card-box" style="background-image:url({{bgData[item.bindStatus]}})">
+          <view class="plateNo">{{item.plateNo}}</view>
+          <view class="brand">{{item.model}}</view>
+          <view class="verify">
+            <view class="show-item verify-name">
+              <iconfont icon="realname" color="#447FFF" size="40rpx"></iconfont>
+              <text class="fs12">车主已实名</text>
+            </view>
+            <view class="show-item" wx:if="{{item.bindStatus=='bind'}}">
+              <iconfont icon="brand" color="#447FFF" size="40rpx"></iconfont>
+              <text class="fs12">电子车牌</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>

@@ -1,0 +1,6 @@
+/* pages/elecPlate/carBaseInfo/carBaseInfo.wxss */
+.input-box {
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 8rpx;
+}

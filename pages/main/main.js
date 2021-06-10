@@ -8,7 +8,6 @@ Page({
    */
   data: {
     isAuth: false, // 是否已实名认证
-    bindStatus: false, // 电子车牌是否已绑定
     pagination: {
       pageIndex: 1,
       pageSize: 5
@@ -91,35 +90,13 @@ Page({
       }
     })
   },
-  // 电子车牌页面
+  // 电子车牌新申领页面
   elecBrandBtn () {
-    // 判断用户信息是否完善
-    let { isAuth } = this.data
-    if (!isAuth) {
-      wx.navigateTo({
-        url: '/pages/verifyInfo/index',
-      })
-    } else {
-      // 查看车牌绑定的状态
-      let status = app.globalData.elecBrandInfo.bindStatus
-      if (status == 'notApply') { // 未申领
-        wx.navigateTo({
-          url: '/pages/verifyInfo/applyWays',
-        })
-      } else {
-        wx.navigateTo({ // 已申领apply, 已绑定bind, 已解绑unbind
-          url: '/pages/elecPlate/elecPlate',
-        })
-      }
-      
-    }
-  },
-  // 跳转到用户信息页面
-  goToUserInfoPage () {
     wx.navigateTo({
       url: '/pages/verifyInfo/index',
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -132,8 +109,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      isAuth: app.globalData.userInfo.authVehicleLicense,
-      bindStatus: app.globalData.elecBrandInfo.bindStatus == 'bind'
+      isAuth: app.globalData.userInfo.authPersonal
     })
   },
 
