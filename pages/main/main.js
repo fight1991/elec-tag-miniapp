@@ -13,7 +13,8 @@ Page({
       pageSize: 5
     },
     total: 0, // 安装点总数
-    pointList: []
+    pointList: [],
+    carTotal: 0
   },
 
   /**
@@ -92,11 +93,18 @@ Page({
   },
   // 电子车牌新申领页面
   elecBrandBtn () {
+    if (this.data.carTotal > 2) {
+      app.messageBox.common('您申请的电子车牌次数已达上限')
+      return
+    }
     wx.navigateTo({
       url: '/pages/verifyInfo/index',
     })
   },
-
+  // 获取车辆数量
+  getCarNum (e) {
+    this.data.carTotal = e.detail
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -17,7 +17,13 @@ Component({
    * 组件的初始数据
    */
   data: {
-    licenseInfo: {}
+    licenseInfo: {},
+    colorMap: {
+      blue: '蓝',
+      green: '绿',
+      yellow: '黄',
+      other: '黄绿'
+    },
   },
 
   /**

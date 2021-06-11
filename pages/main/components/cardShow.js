@@ -35,6 +35,7 @@ Component({
         this.setData({
           list: result
         })
+        this.triggerEvent('getCarNum', result.length)
       }
     },
     // 跳转到用户信息页面

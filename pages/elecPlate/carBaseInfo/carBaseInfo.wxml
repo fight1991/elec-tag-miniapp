@@ -2,7 +2,7 @@
 <view class="input-box">
   <view class="form-item">
     <view class="input-label">车身颜色</view>
-    <input class="input-element" type="text" id="plateColor" bindinput="bindData" value="{{licenseInfo.plateColor}}"/>
+    <input class="input-element" type="text" id="plateColor" bindinput="bindData" value="{{colorMap[licenseInfo.plateColor] || '-'}}"/>
   </view>
   <view class="form-item">
     <view class="input-label">车辆类型</view>

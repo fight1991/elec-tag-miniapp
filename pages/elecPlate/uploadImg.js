@@ -8,20 +8,23 @@ Page({
    */
   data: {
     insideImage: null,
-    outsideImage: null
+    outsideImage: null,
+    id: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let { id } = options
+    this.data.id = id
   },
   async uploadBtn () {
-    let { insideImage, outsideImage } = this.data
+    let { insideImage, outsideImage, id } = this.data
     let { result } = await evi_uploadPic({
       insideImage,
-      outsideImage
+      outsideImage,
+      vehicleId: id
     })
     if (result) {
       app.messageBox.common('上传成功')

@@ -4,7 +4,7 @@
   style="background-image:url({{bgImg}})">
   <view class="content">
     <picker bindchange="bindPickerChange" range-key="plateNo" value="{{pickerIndex}}"  range="{{brandList}}">
-      <view class="head-title plate-no fs16">
+      <view class="head-title plate-no fs16" wx:if="{{brandList && brandList.length>0}}">
         <text>{{brandList[pickerIndex] && brandList[pickerIndex]['plateNo']}}</text>
         <iconfont icon="arrow-right" color="#666" size="40rpx"></iconfont>
       </view>

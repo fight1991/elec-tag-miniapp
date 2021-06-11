@@ -8,10 +8,10 @@ Page({
    */
   data: {
     colorMap: {
-      blue: '蓝',
-      green: '绿',
-      yellow: '黄',
-      other: '黄绿'
+      blue: 'blue',
+      green: 'green',
+      yellow: 'yellow',
+      other: 'yellowGreen'
     },
     currentColor: 'blue',
     frontImgUrl: null,

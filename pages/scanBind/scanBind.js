@@ -25,6 +25,10 @@ Page({
   },
   async confirmBtn () {
     let { plateNo, pickerIndex, brandList } = this.data
+    if (brandList.length == 0) {
+      app.messageBox.common('暂无未绑定电子车牌的车辆')
+      return
+    }
     let { result } = await evi_bind({
       vehicleId: brandList[pickerIndex]['vehicleId'],
       eviId: plateNo
