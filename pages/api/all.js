@@ -11,7 +11,7 @@ export const getAllUserInfo = () => {
         source: 'user',
         data: {
           appId: '',
-          accountId: '',
+          uid: '',
           orgId: ''
         }
       }, {

@@ -7,7 +7,7 @@ Component({
     multipleSlots: true
   },
   properties: {
-    accountId: {
+    uid: {
       type: String,
       value: ''
     },
@@ -48,7 +48,7 @@ Component({
   methods: {
     // 删除按钮
     deleteBtn (e) {
-      this.triggerEvent('delete', this.data.accountId)
+      this.triggerEvent('delete', this.data.uid)
     },
     boxTap () {
       let { isLeft, isTouchToLeft, id } = this.data

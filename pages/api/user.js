@@ -48,7 +48,7 @@ export const getCodeApi = (data) => {
 // 获取图片验证码
 export const getImgCodeApi = (data) => {
   return wx.$post_business({
-    url: '/user-center/util/getCheckCodeImage',
+    url: '/user-center/code/getCheckCodeImage',
     data
   })
 }
