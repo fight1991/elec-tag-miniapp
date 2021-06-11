@@ -3,10 +3,15 @@
   class="bind-box"
   style="background-image:url({{bgImg}})">
   <view class="content">
+    <picker bindchange="bindPickerChange" range-key="plateNo" value="{{pickerIndex}}"  range="{{brandList}}">
+      <view class="head-title plate-no fs16">
+        <text>{{brandList[pickerIndex] && brandList[pickerIndex]['plateNo']}}</text>
+        <iconfont icon="arrow-right" color="#666" size="40rpx"></iconfont>
+      </view>
+    </picker>
     <view class="head-title fc-ccc fs12">您即将绑定的电子车牌卡号为</view>
     <view class="head-title fs16">{{plateNo}}</view>
   </view>
 </view>
-<picker bindchange="bindPickerChange" range="{{brandList}}">
-  <fixBtn bindtap="confirmBtn">确认绑定</fixBtn>
-</picker>
+<fixBtn bindtap="confirmBtn">确认绑定</fixBtn>
+

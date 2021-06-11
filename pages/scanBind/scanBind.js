@@ -9,7 +9,8 @@ Page({
   data: {
     bgImg: '/pages/image/bind-bg.png',
     plateNo: '',
-    brandList: []
+    brandList: [],
+    pickerIndex: 0
   },
 
   /**
@@ -20,9 +21,14 @@ Page({
     this.setData({
       plateNo
     })
+    this.getBrandList()
   },
   async confirmBtn () {
-    let { result } = await evi_bind(this.data.plateNo)
+    let { plateNo, pickerIndex, brandList } = this.data
+    let { result } = await evi_bind({
+      vehicleId: brandList[pickerIndex]['vehicleId'],
+      eviId: plateNo
+    })
     if (result) {
       wx.navigateTo({
         url: './bindStatus',

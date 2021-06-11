@@ -1,7 +1,7 @@
 /* pages/scanBind/scanBind.wxss */
 .bind-box {
-  height: 258rpx;
-  width: 738rpx;
+  height: 210rpx;
+  width: 690rpx;
   margin: 30rpx auto;
   /* border: 1px solid #ccc; */
   border-radius: 8px;
@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-size: 738rpx 258rpx;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 .bind-box .content {
@@ -20,4 +20,8 @@
 }
 .fc-ccc {
   color: #999;
+}
+.plate-no {
+  display: flex;
+  align-items: center;
 }

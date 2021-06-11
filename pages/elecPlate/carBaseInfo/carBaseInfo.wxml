@@ -10,7 +10,7 @@
   </view>
   <view class="form-item">
     <view class="input-label">使用性质</view>
-    <input class="input-element" type="text" id="useCharacter" bindinput="bindData" value="{{licenseInfo.useCharacter}}"/>
+    <input class="input-element" type="text" id="useCharacter" bindinput="bindData" value="{{licenseInfo.useNature}}"/>
   </view>
   <view class="form-item">
     <view class="input-label">车辆识别号</view>
@@ -18,6 +18,6 @@
   </view>
   <view class="form-item no-bottom-border">
     <view class="input-label">发动机号</view>
-    <input class="input-element" type="text" id="engineNum" bindinput="bindData" value="{{licenseInfo.engineNum}}"/>
+    <input class="input-element" type="text" id="engineNum" bindinput="bindData" value="{{licenseInfo.engineNumber}}"/>
   </view>
 </view>
