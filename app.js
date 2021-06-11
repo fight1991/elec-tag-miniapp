@@ -55,30 +55,9 @@ App({
     }
     return false
   },
-  // 获取并保存用户权限信息
-  async saveUserPermissionInfo (isLoad) {
-    let { result } = await this.api.getUserPermission(isLoad)
-    if (result) {
-      this.globalData.userPermisson = result
-      return true
-    }
-    return false
-  },
   /**  初始化所有用户信息
    * params: isLoad 是否开启loading
   */
-  async initUserInfo (isLoad = true) {
-    try {
-      isLoad && wx.showLoading('加载中...')
-      let res1 = await this.saveUserBusinessInfo(false)
-      let res2 = await this.saveUserPermissionInfo(false)
-      isLoad && wx.hideLoading()
-      return res1 && res2
-    } catch (error) {
-      isLoad && wx.hideLoading()
-      return false
-    }
-  },
   // 将权限信息映射到相应的实例中
   mapPermissions (instance) {
     let pers = this.globalData.userPermisson

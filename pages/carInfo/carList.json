@@ -1,5 +1,6 @@
 {
   "usingComponents": {},
   "enablePullDownRefresh": true,
-  "navigationBarTitleText": "我的车辆"
+  "navigationBarTitleText": "我的车辆",
+  "backgroundTextStyle": "dark"
 }

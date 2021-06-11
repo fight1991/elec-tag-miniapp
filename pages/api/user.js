@@ -1,9 +1,8 @@
-import config from '../../config/index'
 // 公共平台api开始>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // 用户登录
 export const loginApi = (data) => {
   return wx.$post_business({
-    url: '/user-center/loginByMobile',
+    url: '/user-center/member-login/loginByMobile',
     data
   })
 }
@@ -20,7 +19,7 @@ export const getUserPermission = (isLoading) => {
 // 用户完整信息查询
 export const getUserTotalInfo = (isLoading) => {
   return wx.$post_business({
-    url: '/user-center/user/getUserInfo',
+    url: '/user-center/member-user/getUserInfo',
     isLoading
   })
 }
