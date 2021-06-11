@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bgImg: '/pages/image/bind-bg.png',
+    bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
     plateNo: '',
     brandList: [],
     pickerIndex: 0
@@ -38,6 +38,7 @@ Page({
   // 获取未绑定车牌列表
   async getBrandList () {
     let { result } = await getUnbindList()
+    console.log(result)
     if (result) {
       this.setData({
         brandList: result

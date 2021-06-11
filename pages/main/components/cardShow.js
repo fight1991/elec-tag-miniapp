@@ -19,9 +19,9 @@ Component({
   data: {
     list: [],
     bgData: {
-      apply: '/pages/image/swiper-bg.png',
-      bind: '/pages/image/swiper-bg.png',
-      unbind: '/pages/image/unbind-bg.png'
+      apply: app.utils.imgTobase64('/pages/image/swiper-bg.png'),
+      bind: app.utils.imgTobase64('/pages/image/swiper-bg.png'),
+      unbind: app.utils.imgTobase64('/pages/image/unbind-bg.png')
     }
   },
   /**

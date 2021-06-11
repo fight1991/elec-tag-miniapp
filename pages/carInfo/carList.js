@@ -8,9 +8,9 @@ Page({
    */
   data: {
     bgObj: {
-      bind: '/pages/image/bind-bg.png',
-      apply: '/pages/image/bind-bg.png',
-      unbind: '/pages/image/bind-bg-disable.png'
+      bind: app.utils.imgTobase64('/pages/image/bind-bg.png'),
+      apply: app.utils.imgTobase64('/pages/image/bind-bg.png'),
+      unbind: app.utils.imgTobase64('/pages/image/bind-bg-disable.png')
     },
     list: []
   },

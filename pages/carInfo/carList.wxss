@@ -18,7 +18,7 @@
 }
 .dot-box {
   position: absolute;
-  right: 10rpx;
+  right: 20rpx;
   top: 20rpx;
 }
 .dot {

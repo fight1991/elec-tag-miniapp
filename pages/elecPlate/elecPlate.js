@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bgImg: '/pages/image/bind-bg.png',
+    bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
     elecInfo: {},
     type: 'base',
     id: '' // 车辆id
