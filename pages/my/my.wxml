@@ -38,7 +38,7 @@
         </view>
       </view>
     </navigator>
-    <navigator url="/pages/carInfo/carInfo">
+    <navigator url="/pages/carInfo/carList">
       <view class="tab-item">
         <view class="head">
           <iconfont icon="car" color="#447FFF"></iconfont>

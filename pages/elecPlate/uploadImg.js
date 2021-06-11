@@ -1,6 +1,6 @@
 // pages/elecPlate/uploadImg.js
 var app = getApp()
-const { evi_uploadPic } = app.api
+const { evi_uploadPic, evi_getPic } = app.api
 Page({
 
   /**
@@ -17,10 +17,30 @@ Page({
    */
   onLoad: function (options) {
     let { id } = options
-    this.data.id = id
+    if (id) {
+      this.getImgInfo(id)
+      this.data.id = id
+    }
   },
+  // 查询图片
+  async getImgInfo (id) {
+    let { result } = await evi_getPic(id)
+    if (result) {
+      let { insideImage, outsideImage } = result
+      if (!insideImage || !outsideImage) return
+      this.setData({
+        insideImage,
+        outsideImage
+      })
+    }
+  },
+  // 上传图片
   async uploadBtn () {
     let { insideImage, outsideImage, id } = this.data
+    if (!insideImage || !outsideImage) {
+      app.messageBox.common('请上传2张车辆照片')
+      return
+    }
     let { result } = await evi_uploadPic({
       insideImage,
       outsideImage,

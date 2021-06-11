@@ -27,7 +27,7 @@ export const getUserTotalInfo = (isLoading) => {
 // 注销登录
 export const logOut = (data) => {
   return wx.$post_business({
-    url: '/user-center/logout',
+    url: '/user-center/member-login/logout',
     data
   })
 }
