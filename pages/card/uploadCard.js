@@ -1,14 +1,11 @@
-// pages/card/addCard.js
+// pages/card/uploadCard.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    formData: {
-      vehicleType: '2442'
-    },
-    cardImage: '',
+    cardImage: ''
   },
 
   /**
@@ -17,25 +14,12 @@ Page({
   onLoad: function (options) {
 
   },
-  bindData (e) {
-    var id = e.currentTarget.id
-    this.data.licenseInfo[id] = e.detail.value
-  },
-  photoBtn () {
-    this.$upload.chooseBtn()
-    let { cardImage } = this.data
-    if (!cardImage) return
 
-  },
-  // 银行卡号识别
-  ocrCardNo () {
-    
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.$upload = this.selectComponent('#upload')
+
   },
 
   /**

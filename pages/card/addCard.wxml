@@ -1,2 +1,27 @@
 <!--pages/card/addCard.wxml-->
-<text>pages/card/addCard.wxml</text>
+<view class="outer">
+  <view class="tips">为了保障资金账户安全, 只能绑定本人银行卡</view>
+  <view class="form-box">
+    <view class="form-item">
+      <view class="input-label">姓名</view>
+      <input class="input-element" type="text" id="vehicleType" bindinput="bindData" value="{{formData.vehicleType}}"/>
+    </view>
+    <view class="form-item">
+      <view class="input-label">身份证号</view>
+      <input class="input-element" type="text" id="vehicleType" bindinput="bindData" value="{{formData.vehicleType}}"/>
+    </view>
+    <view class="form-item">
+      <view class="input-label">银行卡号</view>
+      <input class="input-element" type="text" id="vehicleType" bindinput="bindData" value="{{formData.vehicleType}}"/>
+      <iconfont bindtap="photoBtn" class="photo-btn" icon="paizhao"></iconfont>
+    </view>
+    <view class="form-item no-bottom-border">
+      <view class="input-label">发卡行</view>
+      <input class="input-element" type="text" id="vehicleType" bindinput="bindData" value="{{formData.vehicleType}}"/>
+    </view>
+  </view>
+  <view class="tips tips-2">请核对卡号信息, 如有错误, 点击修改</view>
+  <view class="upload-box" style="display:none">
+    <upload id="upload" model:img-src="{{cardImage}}"></upload>
+  </view>
+</view>

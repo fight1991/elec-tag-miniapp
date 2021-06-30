@@ -83,6 +83,12 @@
           "pathName": "pages/card/card",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "添加银行卡",
+          "pathName": "pages/card/addCard",
+          "query": "",
+          "scene": null
         }
       ]
     }

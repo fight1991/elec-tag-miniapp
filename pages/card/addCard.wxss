@@ -1,1 +1,21 @@
 /* pages/card/addCard.wxss */
+.tips {
+  color: #3C79FF;
+  font-size: 26rpx;
+  margin-bottom: 30rpx;
+}
+.tips-2 {
+  color: #999;
+  padding: 30rpx 0;
+}
+.form-box {
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 10rpx;
+}
+.input-element {
+  color: #999;
+}
+.photo-btn {
+  padding-left: 30rpx;
+}
