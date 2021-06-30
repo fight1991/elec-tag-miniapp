@@ -73,6 +73,17 @@ Page({
       userName
     })
   },
+  routePage (e) {
+    let { authPersonal } = this.data
+    if (!authPersonal) {
+      app.messageBox.common('您还未实名认证, 请先认证哦')
+      return
+    }
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url,
+    })
+  },
   // 打开扫码
   scanBtn () {
     wx.scanCode({

@@ -19,8 +19,7 @@
   </view>
   <view class="change-tab">
     <block wx:for="{{tabList}}" wx:key="url">
-      <navigator url="{{item.url}}">
-        <view class="tab-item">
+        <view class="tab-item" bindtap="routePage" data-url="{{item.url}}">
           <view class="head">
             <iconfont icon="{{item.icon}}" color="{{item.color}}"></iconfont>
             <text class="head-text">{{item.label}}</text>
@@ -29,7 +28,6 @@
             <iconfont icon="arrow-right" color="#ccc"></iconfont>
           </view>
         </view>
-      </navigator>
     </block>
   </view>
   <view class="login-out">
