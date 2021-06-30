@@ -29,6 +29,7 @@ Page({
         list: result
       })
     }
+    wx.stopPullDownRefresh()
   },
   // 列表删除
   async deleteCar (id) {

@@ -1,4 +1,5 @@
 <view class="outer">
+  <view wx:if="{{list.length>0}}">
   <block
     wx:for="{{list}}"
     wx:key="vehicleId">
@@ -20,4 +21,8 @@
       </view>
     </navigator>
   </block>
+</view>
+  <view wx:else>
+    <nodata>暂无数据</nodata>
+  </view>
 </view>

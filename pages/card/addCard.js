@@ -1,4 +1,5 @@
 // pages/card/addCard.js
+var app = getApp()
 Page({
 
   /**
@@ -6,7 +7,9 @@ Page({
    */
   data: {
     formData: {
-      vehicleType: '2442'
+      vehicleType: '2442',
+      uid: '',
+      userName: ''
     },
     cardImage: '',
   },
