@@ -1,0 +1,24 @@
+/* pages/components/uploadCase/uploadCase.wxss */
+.case-box {
+  width: 680rpx;
+  text-align: center;
+}
+.title {
+  font-size: 28rpx;
+  font-weight: bold;
+  padding: 20rpx 0;
+}
+.subTitle {
+  font-size: 24rpx;
+}
+.content {
+  /* display: flex; */
+  padding: 20rpx;
+}
+
+.content-item {
+  font-size: 24rpx;
+  padding: 20rpx 0;
+  text-align: left;
+  line-height: 48rpx;
+}

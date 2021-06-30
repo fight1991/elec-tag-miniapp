@@ -25,3 +25,14 @@
     <upload id="upload" model:img-src="{{cardImage}}"></upload>
   </view>
 </view>
+<fixBtn bindtap="nextStepBtn">下一步</fixBtn>
+<!-- 说明 -->
+<mask model:initValue="{{hiddenCase}}">
+  <desc 
+    title="有效期说明"
+    subTitle="信用卡有效期位于卡号下方显示为月/年 (MM/yyyy)"
+    other="填写提示: 09/2025"
+    img="{{safeDate}}">
+  </desc>
+</mask>
+

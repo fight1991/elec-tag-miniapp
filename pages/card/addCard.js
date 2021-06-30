@@ -12,6 +12,9 @@ Page({
       userName: ''
     },
     cardImage: '',
+    hiddenCase: false,
+    safeCodeImg: '/pages/image/card-safecode.png', // 安全码说明
+    safeDate: '/pages/image/card-date.png' // 有效期
   },
 
   /**
@@ -33,6 +36,10 @@ Page({
   // 银行卡号识别
   ocrCardNo () {
     
+  },
+  // 下一步按钮
+  nextStepBtn () {
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

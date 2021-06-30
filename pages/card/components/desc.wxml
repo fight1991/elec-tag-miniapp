@@ -1,0 +1,13 @@
+<!--pages/components/uploadCase/uploadCase.wxml-->
+<view class="case-box">
+  <view class="title">{{title}}</view>
+  <view class="content">
+    <view>
+      <image class="content-img" src="{{img}}" mode="widthFix"></image>
+    </view>
+    <view class="content-item">
+      <view>{{subTitle}}</view>
+      <view>{{other}}</view>
+    </view>
+  </view>
+</view>
