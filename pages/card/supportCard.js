@@ -1,18 +1,11 @@
-// pages/card/card.js
+// pages/card/supportCard.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cardList: [
-      {
-        name: '招商银行',
-        type: '储蓄卡',
-        number: '3424324343434',
-        icon: ''
-      }
-    ]
+
   },
 
   /**

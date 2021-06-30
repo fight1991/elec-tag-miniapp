@@ -7,6 +7,10 @@ Component({
     width: {
       type: String,
       value: '100%'
+    },
+    bgc: {
+      type: String,
+      value: '#3E78FD'
     }
   },
 

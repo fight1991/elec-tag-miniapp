@@ -6,7 +6,9 @@
     "pages/my/my",
     "pages/card/card",
     "pages/ticket",
-    "pages/ticket/ticket"
+    "pages/ticket/ticket",
+    "pages/card/supportCard",
+    "pages/card/addCard"
   ],
   "subPackages": [
     {

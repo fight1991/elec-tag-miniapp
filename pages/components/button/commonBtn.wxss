@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3E78FD;
   color: #fff;
   font-size: 32rpx;
   margin: 40rpx 0;

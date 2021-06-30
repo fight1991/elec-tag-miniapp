@@ -1,2 +1,29 @@
 <!--pages/card/card.wxml-->
-<text>pages/card/card.wxml</text>
+<view class="outer">
+  <view class="card-box">
+    <view class="card-item">
+      <view class="card-left">
+        <view class="card-detail">
+          <view class="card-name">招商银行</view>
+          <view class="card-type">储蓄卡</view>
+        </view>
+        <view class="card-num">1231443141414</view>
+      </view>
+      <view class="card-right"></view>
+    </view>
+  </view>
+  <navigator url="/pages/card/addCard">
+    <commonBtn bgc="#fff">
+      <view class="add-card-btn">
+        <iconfont class="add-icon" icon="add" size="30rpx"></iconfont>
+        添加银行卡
+      </view>
+    </commonBtn>
+  </navigator>
+  <navigator url="/pages/card/supportCard">
+    <view class="support-card">
+      支持银行
+      <iconfont class="support-icon" icon="wenhao" color="#3E77FF" size="40rpx"></iconfont>
+    </view>
+  </navigator>
+</view>

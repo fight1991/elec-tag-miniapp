@@ -77,6 +77,12 @@
           "pathName": "pages/scanBind/bindStatus",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "银行卡",
+          "pathName": "pages/card/card",
+          "query": "",
+          "scene": null
         }
       ]
     }

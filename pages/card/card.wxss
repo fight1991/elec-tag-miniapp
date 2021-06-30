@@ -1,1 +1,51 @@
 /* pages/card/card.wxss */
+.card-item {
+  width: 690rpx;
+  height: 210rpx;
+  padding: 50rpx;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #CD89FF, #A899FF);
+  border-radius: 14rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.card-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.card-detail {
+  display: flex;
+  align-items: flex-end;
+}
+.card-name {
+  font-size: 36rpx;
+}
+.card-type {
+  font-size: 24rpx;
+  padding: 0 20rpx;
+}
+.card-num {
+  font-size: 28rpx;
+}
+.add-card-btn {
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+.add-icon {
+  margin-right: 10rpx;
+}
+.support-card {
+  display: flex;
+  justify-content: flex-end;
+  color: #999;
+  align-items: center;
+
+}
+.support-icon {
+  margin-left: 10rpx;
+}

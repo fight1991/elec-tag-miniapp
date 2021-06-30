@@ -1,0 +1,12 @@
+<!--pages/card/supportCard.wxml-->
+<view class="outer">
+<view class="card-box">
+  <view class="card-item">
+    <view class="card-head">
+      <text>招商银行</text>
+    </view>
+    <view class="card-end">信用卡</view>
+  </view>
+</view>
+  
+</view>

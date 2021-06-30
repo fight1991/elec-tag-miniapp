@@ -1,0 +1,15 @@
+/* pages/card/supportCard.wxss */
+.card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  
+}
+.card-box {
+  background-color: #fff;
+  color: #4c4c4c;
+}
+.card-end {
+  color: #808080;
+}
