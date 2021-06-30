@@ -12,9 +12,10 @@ Page({
       userName: ''
     },
     cardImage: '',
-    hiddenCase: false,
+    hiddenDateCase: true,
+    hiddenCodeCase: true,
     safeCodeImg: '/pages/image/card-safecode.png', // 安全码说明
-    safeDate: '/pages/image/card-date.png' // 有效期
+    safeDateImg: '/pages/image/card-date.png' // 有效期
   },
 
   /**
@@ -41,7 +42,17 @@ Page({
   nextStepBtn () {
 
   },
-  /**
+  openDateCase () {
+    this.setData({
+      hiddenDateCase: false
+    })
+  },
+  openCodeCase () {
+    this.setData({
+      hiddenCodeCase: false
+    })
+  },
+   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
