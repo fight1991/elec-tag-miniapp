@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/main/main",
     "pages/main/morePoint",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/card/card",
+    "pages/ticket",
+    "pages/ticket/ticket"
   ],
   "subPackages": [
     {

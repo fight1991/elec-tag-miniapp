@@ -11,6 +11,27 @@ Page({
     authPersonal: false, // 是否已实名
     authVehicleLicense: false, // 是否行驶证认证
     userName: '',
+    tabList: [{
+      url: '/pages/card/card',
+      label: '我的银行卡',
+      icon: 'card-finance',
+      color: '#ffa44b'
+    }, {
+      url: '/pages/ticket/ticket',
+      label: '我的卡券',
+      icon: 'ticket',
+      color: '#447fff'
+    }, {
+      url: '/pages/message/messageList',
+      label: '我的消息',
+      icon: 'info',
+      color: '#0dd7be'
+    }, {
+      url: '/pages/carInfo/carList',
+      label: '我的车辆',
+      icon: 'car',
+      color: '#769dff'
+    }]
   },
 
   /**

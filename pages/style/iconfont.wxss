@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2475590 */
-  src: url('//at.alicdn.com/t/font_2475590_vm35b7akn8e.woff2?t=1622542641011') format('woff2'),
-       url('//at.alicdn.com/t/font_2475590_vm35b7akn8e.woff?t=1622542641011') format('woff'),
-       url('//at.alicdn.com/t/font_2475590_vm35b7akn8e.ttf?t=1622542641011') format('truetype');
+  src: url('//at.alicdn.com/t/font_2475590_m2x3dnhsynl.woff2?t=1625021378288') format('woff2'),
+       url('//at.alicdn.com/t/font_2475590_m2x3dnhsynl.woff?t=1625021378288') format('woff'),
+       url('//at.alicdn.com/t/font_2475590_m2x3dnhsynl.ttf?t=1625021378288') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-card-finance:before {
+  content: "\e619";
+}
+
+.icon-ticket:before {
+  content: "\e613";
 }
 
 .icon-logout:before {

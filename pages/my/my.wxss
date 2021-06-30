@@ -75,7 +75,7 @@ page {
   align-items: center;
 }
 .head-text {
-  padding: 0 10rpx;
+  padding: 0 20rpx;
 }
 .arrow-r {
   font-size: 12px;
