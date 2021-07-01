@@ -7,9 +7,16 @@ Page({
    */
   data: {
     formData: {
-      vehicleType: '2442',
+      bankCardNo: '',
+      bankCardType: '', // 银行卡类型
+      accountName: '',
+      bankName: '',
+      cvn2: '', // 安全码
+      idNo: '',
+      mobile: '', // 银行预留手机号
       uid: '',
-      userName: ''
+      validDate: '',
+      bankCode: '' // 银行代码
     },
     cardImage: '',
     hiddenDateCase: true,
@@ -22,7 +29,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.mapPropsToData()
+  },
+  mapPropsToData () {
+    let { userName, uid, idNo } = app.globalData.userInfo
+    this.setData({
+      'formData.accountName': userName,
+      'formData.uid': uid,
+      'formData.idNo': idNo
+    })
   },
   bindData (e) {
     var id = e.currentTarget.id
