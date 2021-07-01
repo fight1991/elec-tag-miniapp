@@ -8,7 +8,7 @@ Page({
    */
   data: {
     pageIndex: 1, // 当前页
-    pageSize: 20, // 每页请求数量
+    pageSize: 100, // 每页请求数量
     total: 0, // 条目数
     list: []
   },

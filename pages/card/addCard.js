@@ -46,9 +46,11 @@ Page({
   },
   photoBtn () {
     this.$upload.chooseBtn()
+  },
+  getImgInfo () {
     let { cardImage } = this.data
     if (!cardImage) return
-
+    this.ocrCardNo(cardImage)
   },
   // 银行卡号识别
   async ocrCardNo () {

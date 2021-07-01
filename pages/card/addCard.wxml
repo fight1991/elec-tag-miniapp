@@ -32,7 +32,7 @@
   </view>
   <view class="tips tips-2">请核对卡号信息, 如有错误, 点击修改</view>
   <view class="upload-box" style="display:none">
-    <upload id="upload" model:img-src="{{cardImage}}"></upload>
+    <upload id="upload" bindgetImgInfo="getImgInfo"  model:img-src="{{cardImage}}"></upload>
   </view>
 </view>
 <fixBtn bindtap="nextStepBtn">下一步</fixBtn>
