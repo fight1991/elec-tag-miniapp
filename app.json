@@ -8,7 +8,8 @@
     "pages/ticket/ticket",
     "pages/card/supportCard",
     "pages/card/addCard",
-    "pages/card/uploadCard"
+    "pages/card/uploadCard",
+    "pages/card/check"
   ],
   "subPackages": [
     {

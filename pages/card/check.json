@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "check-code": "./components/mobile_code_check"
+  }
+}

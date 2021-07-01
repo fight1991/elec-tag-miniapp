@@ -1,5 +1,6 @@
 // pages/card/addCard.js
 var app = getApp()
+const { OCR_bankCard } = app.api
 Page({
 
   /**
@@ -8,7 +9,7 @@ Page({
   data: {
     formData: {
       bankCardNo: '',
-      bankCardType: '', // 银行卡类型
+      bankCardType: '', // 银行卡类型 1 储蓄 2 信用
       accountName: '',
       bankName: '',
       cvn2: '', // 安全码
@@ -50,12 +51,36 @@ Page({
 
   },
   // 银行卡号识别
-  ocrCardNo () {
-    
+  async ocrCardNo () {
+    let { result } = await OCR_bankCard(imgUrl)
+    if (result) {
+      this.setData({
+        'formData.bankCardNo': result
+      })
+      this.getBankName()
+    }
+  },
+  // 根据卡号查询市哪家银行
+  async getBankName () {
+    let { bankCardNo } = this.data.formData
+    if (bankCardNo && bankCardNo.length >= 8) {
+      let { result } = await whichBank(bankCardNo)
+      if (result) {
+        this.setData({
+          'formData.bankName': result.bankName,
+          'formData.bankCode': result.bankCode,
+          'formData.bankCardType': result.cardType,
+        })
+      }
+    }
   },
   // 下一步按钮
   nextStepBtn () {
-
+    let { bankCardNo } = this.data.formData
+    if (bankCardNo.length < 8) {
+      app.messageBox.common('请输入正确格式的银行卡号')
+    }
+    return
   },
   openDateCase () {
     this.setData({

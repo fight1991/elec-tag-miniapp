@@ -1,0 +1,4 @@
+<!--pages/card/check.wxml-->
+<view class="outer">
+  <check-code></check-code>
+</view>

@@ -89,6 +89,12 @@
           "pathName": "pages/card/addCard",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "银行卡-手机号验证",
+          "pathName": "pages/card/check",
+          "query": "",
+          "scene": null
         }
       ]
     }

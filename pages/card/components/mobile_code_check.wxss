@@ -1,0 +1,76 @@
+/* pages/components/mobile_code_login/mobile_code_login.wxss */
+.input-container {
+  border-bottom: 1px solid #EBEBEB;
+  padding: 20px 0;
+}
+.form-box {
+  background-color: #fff;
+  padding: 0 30rpx;
+  box-shadow: 0px 2px 16px rgba(118, 182, 255, 0.25);
+  border-radius: 10rpx;
+  margin-top: 40rpx;
+}
+.btn-area {
+  margin-top: 120rpx;
+  padding: 0 20rpx;
+}
+.form-item-code {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: none;
+}
+.input-code {
+  flex: 1;
+}
+.btn-code {
+  border-radius: 6rpx;
+  padding: 8rpx;
+  border: 1px solid #00aaee;
+  width: 80px;
+  color: #00aaee;
+  font-size: 12px;
+  text-align: center;
+}
+.confirm-btn {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #516dff;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 40px;
+  margin-top: 30px;
+}
+.radioBtn {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #3C79FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10rpx;
+}
+.radioBtn::after {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  content: '';
+  background-color: #3C79FF;
+}
+.agree-select::after {
+  background-color: #ccc;
+
+}
+.agree-content {
+  padding: 20rpx 10rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.declare {
+  color: #3C79FF;
+}
