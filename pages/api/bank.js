@@ -20,6 +20,13 @@ export const bankCardCode = (data) => {
     data
   })
 }
+// 绑定银行卡
+export const bindBankCard = (data) => {
+  return wx.$post_business({
+    url: '/user-center/bankCard/auth',
+    data
+  })
+}
 // 用户银行卡列表
 export const bankCardList = ({data, page}) => {
   return wx.$post_business({

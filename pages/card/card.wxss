@@ -17,6 +17,10 @@
   justify-content: space-between;
   height: 100%;
 }
+.card-right {
+  width: 110rpx;
+  height: 110rpx;
+}
 .card-detail {
   display: flex;
   align-items: flex-end;

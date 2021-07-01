@@ -1,7 +1,7 @@
 // pages/components/mobile_code_login/mobile_code_login.js
 var app = getApp()
 const utils = app.utils
-const { loginApi, changeMobile, getCodeApi, getImgCodeApi } = app.api
+const { bindBankCard, bankCardCode } = app.api
 // 手机号验证码登录组件
 Component({
   /**
@@ -19,6 +19,7 @@ Component({
     confirmDialogVisible: false,
     mobile: '',
     authCode: '', // 验证码
+    accountId: '',
     isEditCode: false, // 按钮禁用
     codeText: '获取验证码',
     timerId: 0,
@@ -61,12 +62,32 @@ Component({
         app.messageBox.common('请输入验证码')
         return
       }
+      
+    },
+    // 绑定银行卡
+    async bindCard () {
+      let { accountId, authCode } = this.data
+      let { uid } = app.globalData.userInfo
+      let { result } = await bindBankCard({
+        accountId,
+        authCode,
+        uid
+      })
+      if (result) {
+        wx.navigateBack({
+          delta: 2
+        })
+      }
     },
     // 获取验证码
     async getCode () {
       if (this.data.timerId) return
       if (!utils.checkPhone(this.data.mobile)) return
-      let { result } = await getCodeApi({
+      let pages = getCurrentPages()
+      let prevPage = pages[pages.length - 2]
+      if (!prevPage) return
+      let { result } = await bankCardCode({
+        ...prevPage.data.formData,
         mobile: this.data.mobile
       })
       if (result) {

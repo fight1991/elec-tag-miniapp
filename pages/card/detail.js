@@ -1,45 +1,44 @@
-// pages/card/card.js
+// pages/card/detail.js
 var app = getApp()
-const { bankCardList } = app.api
+const {bankCardDetail, bankCardUnbind} = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageIndex: 1, // 当前页
-    pageSize: 20, // 每页请求数量
-    total: 0, // 条目数
-    cardList: [
-      {
-        name: '招商银行',
-        type: '储蓄卡',
-        number: '3424324343434',
-        icon: ''
-      }
-    ]
+    formData: {
+      bankCardNo: '',
+      bankCardType: '',
+      bankName: ''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let { id } = options
+    id && this.getDetail(id)
   },
-  // 获取银行卡列表
-  async getCardList () {
-    let { pageSize, pageIndex } = this.data
-    let { result } = await bankCardList({
-      page: {
-        pageIndex,
-        pageSize
-      }
-    })
-    if (result && result.length > 0) {
+  // 获取详情
+  async getDetail () {
+    let { result } = await bankCardDetail(id)
+    if (result) {
       this.setData({
-        cardList: result
+        formData: result
       })
     }
-    wx.stopPullDownRefresh()
+  },
+  // 解除绑定
+  async unbindBtn () {
+    let { result } = await bankCardUnbind(this.data.formData.accountId)
+    if (result) {
+      app.messageBox.common('操作成功')
+      wx.navigateBack({
+        delta: 1
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -52,7 +51,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getCardList()
 
   },
 
@@ -74,7 +72,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getSupportBankList()
+
   },
 
   /**

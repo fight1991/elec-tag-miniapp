@@ -1,0 +1,19 @@
+<!--pages/card/detail.wxml-->
+<view class="outer">
+  <view class="form-box">
+    <view class="form-item">
+      <view class="input-label">银行</view>
+      <input class="input-element" type="text" id="bankName" disabled bindinput="bindData" value="{{formData.bankName}}"/>
+    </view>
+    <view class="form-item">
+      <view class="input-label">卡类型</view>
+      <input class="input-element" type="text" id="bankCardType" disabled bindinput="bindData" value="{{formData.bankCardType == 1?'储蓄卡':'信用卡'}}"/>
+    </view>
+    <view class="form-item">
+      <view class="input-label">银行卡号</view>
+      <input class="input-element" type="text" id="bankCardNo" bindinput="bindData" value="{{formData.bankCardNo}}"/>
+      <iconfont bindtap="photoBtn" class="photo-btn" icon="paizhao"></iconfont>
+    </view>
+  </view>
+</view>
+<fixBtn bindtap="unbindBtn">解除绑定</fixBtn>

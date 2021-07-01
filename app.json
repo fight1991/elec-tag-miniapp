@@ -9,7 +9,8 @@
     "pages/card/supportCard",
     "pages/card/addCard",
     "pages/card/uploadCard",
-    "pages/card/check"
+    "pages/card/check",
+    "pages/card/detail"
   ],
   "subPackages": [
     {

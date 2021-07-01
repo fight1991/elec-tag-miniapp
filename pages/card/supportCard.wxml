@@ -1,11 +1,18 @@
 <!--pages/card/supportCard.wxml-->
 <view class="outer">
 <view class="card-box">
-  <view class="card-item">
+  <view class="card-item" wx:for="{{list}}" wx:for="id">
     <view class="card-head">
-      <text>招商银行</text>
+      <view class="img-box">
+        <image src="{{item.logoUrl}}" mode="widthFix"></image>
+      </view>
+      <text>{{item.bankName}}</text>
     </view>
-    <view class="card-end">信用卡</view>
+    <view class="card-end">
+      <text wx:if="{{item.isSupportCreditCard && item.isSupportDebitCard}}">支持储蓄卡、信用卡</text>
+      <text wx:if="{{item.isSupportDebitCard}}">支持储蓄卡</text>
+      <text wx:if="{{item.isSupportCreditCard}}">支持信用卡</text>
+    </view>
   </view>
 </view>
   

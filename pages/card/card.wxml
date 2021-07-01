@@ -1,16 +1,22 @@
 <!--pages/card/card.wxml-->
 <view class="outer">
   <view class="card-box">
-    <view class="card-item">
-      <view class="card-left">
-        <view class="card-detail">
-          <view class="card-name">招商银行</view>
-          <view class="card-type">储蓄卡</view>
+  <block wx:for="{{cardList}}" wx:key="accountId">
+    <navigator url="./detail?id={{item.accountId}}">
+      <view class="card-item">
+        <view class="card-left">
+          <view class="card-detail">
+            <view class="card-name">{{item.bankName}}</view>
+            <view class="card-type">{{item.bankCardType==1?'储蓄卡': '信用卡'}}</view>
+          </view>
+          <view class="card-num">{{item.bankCode}}</view>
         </view>
-        <view class="card-num">1231443141414</view>
+        <view class="card-right">
+          <image src="{{item.logoUrl}}" mode="widthFix"></image>
+        </view>
       </view>
-      <view class="card-right"></view>
-    </view>
+    </navigator>
+  </block>
   </view>
   <navigator url="/pages/card/addCard">
     <commonBtn bgc="#fff">
