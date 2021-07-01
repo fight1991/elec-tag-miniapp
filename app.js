@@ -11,6 +11,8 @@ import messageBox from './utils/messageBox'
 import * as usersApi from './pages/api/user'
 // 电子车牌相关
 import * as elecApi from './pages/api/elecBrand'
+// 银行卡相关
+import * as bankApi from './pages/api/bank'
 // 字典相关api
 import * as dictApi from './pages/api/dictionary'
 
@@ -24,6 +26,7 @@ App({
   api: {
     ...usersApi, // 用户相关
     ...elecApi, // 电子车牌相关
+    ...bankApi, // 银行卡相关
     ...dictApi // 字典相关
   },
   messageBox: messageBox, // 弹框
