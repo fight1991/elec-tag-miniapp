@@ -1,10 +1,15 @@
 // pages/card/card.js
+var app = getApp()
+const { bankCardList } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    pageIndex: 1, // 当前页
+    pageSize: 20, // 每页请求数量
+    total: 0, // 条目数
     cardList: [
       {
         name: '招商银行',
@@ -19,9 +24,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getCardList()
   },
-
+  // 获取银行卡列表
+  async getCardList () {
+    let { pageSize, pageIndex } = this.data
+    let { result } = await bankCardList({
+      page: {
+        pageIndex,
+        pageSize
+      }
+    })
+    if (result && result.length > 0) {
+      this.setData({
+        cardList: result
+      })
+    }
+    wx.stopPullDownRefresh()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -54,7 +74,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getSupportBankList()
   },
 
   /**

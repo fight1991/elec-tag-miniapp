@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "支持的银行卡"
+  "navigationBarTitleText": "支持的银行卡",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
