@@ -10,14 +10,7 @@ Page({
     pageIndex: 1, // 当前页
     pageSize: 20, // 每页请求数量
     total: 0, // 条目数
-    cardList: [
-      {
-        name: '招商银行',
-        type: '储蓄卡',
-        number: '3424324343434',
-        icon: ''
-      }
-    ]
+    cardList: []
   },
 
   /**

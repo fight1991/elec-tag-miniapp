@@ -1,7 +1,7 @@
 <!--pages/card/supportCard.wxml-->
 <view class="outer">
 <view class="card-box">
-  <view class="card-item" wx:for="{{list}}" wx:for="id">
+  <view class="card-item" wx:for="{{list}}" wx:key="id">
     <view class="card-head">
       <view class="img-box">
         <image src="{{item.logoUrl}}" mode="widthFix"></image>
@@ -10,8 +10,8 @@
     </view>
     <view class="card-end">
       <text wx:if="{{item.isSupportCreditCard && item.isSupportDebitCard}}">支持储蓄卡、信用卡</text>
-      <text wx:if="{{item.isSupportDebitCard}}">支持储蓄卡</text>
-      <text wx:if="{{item.isSupportCreditCard}}">支持信用卡</text>
+      <text wx:elif="{{item.isSupportDebitCard}}">支持储蓄卡</text>
+      <text wx:else="{{item.isSupportCreditCard}}">支持信用卡</text>
     </view>
   </view>
 </view>

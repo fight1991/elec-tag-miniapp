@@ -6,6 +6,10 @@
   padding: 30rpx;
   
 }
+.card-head {
+  display: flex;
+  align-items: center;
+}
 .card-box {
   background-color: #fff;
   color: #4c4c4c;
@@ -14,6 +18,9 @@
   width: 60rpx;
   height: 60rpx;
   margin-right: 20rpx;
+}
+image {
+  width: 100%;
 }
 .card-end {
   color: #808080;
