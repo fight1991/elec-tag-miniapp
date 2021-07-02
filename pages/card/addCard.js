@@ -53,7 +53,7 @@ Page({
     this.ocrCardNo(cardImage)
   },
   // 银行卡号识别
-  async ocrCardNo () {
+  async ocrCardNo (imgUrl) {
     let { result } = await OCR_bankCard(imgUrl)
     if (result) {
       this.setData({
@@ -78,11 +78,24 @@ Page({
   },
   // 下一步按钮
   nextStepBtn () {
-    let { bankCardNo } = this.data.formData
+    let { bankCardNo, bankCardType, cvn2, validDate } = this.data.formData
     if (bankCardNo.length < 8) {
       app.messageBox.common('请输入正确格式的银行卡号')
+      return
     }
-    return
+    if (bankCardType==2) {
+      if (!cvn2) {
+        app.messageBox.common('请输入安全码')
+        return
+      }
+      if (!validDate) {
+        app.messageBox.common('请输入有效期')
+        return
+      }
+    }
+    wx.navigateTo({
+      url: './check',
+    })
   },
   openDateCase () {
     this.setData({
