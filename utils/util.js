@@ -27,7 +27,7 @@ const checkPhone = (num, text = '手机号') => {
   var isPass = reg.test(num)
   if (!isPass) {
     wx.showToast({
-      title: '请输入11位的' + text,
+      title: '请输入11位正确格式的' + text,
       icon: 'none',
       duration: 1500
     })

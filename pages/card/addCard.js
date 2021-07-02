@@ -1,6 +1,6 @@
 // pages/card/addCard.js
 var app = getApp()
-const { OCR_bankCard } = app.api
+const { OCR_bankCard, whichBank } = app.api
 Page({
 
   /**
@@ -78,10 +78,13 @@ Page({
   },
   // 下一步按钮
   nextStepBtn () {
-    let { bankCardNo, bankCardType, cvn2, validDate } = this.data.formData
+    let { bankCardNo, bankCardType, cvn2, validDate, bankName } = this.data.formData
     if (bankCardNo.length < 8) {
       app.messageBox.common('请输入正确格式的银行卡号')
       return
+    }
+    if (!bankName) {
+      app.messageBox.common('发卡行不能为空')
     }
     if (bankCardType==2) {
       if (!cvn2) {

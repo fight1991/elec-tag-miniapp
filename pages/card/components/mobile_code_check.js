@@ -62,7 +62,7 @@ Component({
         app.messageBox.common('请输入验证码')
         return
       }
-      
+      this.bindCard()
     },
     // 绑定银行卡
     async bindCard () {
