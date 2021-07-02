@@ -98,6 +98,7 @@ Component({
           })
           this.computedTime()
         })
+        this.data.accountId = result
       }
     },
     // 显示dialog
