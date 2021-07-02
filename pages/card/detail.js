@@ -32,7 +32,10 @@ Page({
   },
   // 解除绑定
   async unbindBtn () {
-    let { result } = await bankCardUnbind(this.data.formData.accountId)
+    let { result } = await bankCardUnbind({
+      accountId: this.data.formData.accountId,
+      uid: ''
+    })
     if (result) {
       app.messageBox.common('操作成功')
       wx.navigateBack({

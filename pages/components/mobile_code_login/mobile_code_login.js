@@ -117,6 +117,12 @@ Component({
     },
     // 去登录按钮
     async goLogin () {
+      let { mobile, authCode } = this.data
+      if (!utils.checkPhone(mobile)) return
+      if (!authCode) {
+        app.messageBox.common('请输入验证码')
+        return
+      }
       app.getWechatCode().then(res => {
         this.loginFunc(res.code)
       })

@@ -1,2 +1,3 @@
-<!--pages/ticket/ticket.wxml-->
-<text>pages/ticket/ticket.wxml</text>
+<view class="outer">
+<nodata>暂无卡券</nodata>
+</view>
