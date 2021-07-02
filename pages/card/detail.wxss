@@ -1,1 +1,5 @@
 /* pages/card/detail.wxss */
+.form-box {
+  background-color: #fff;
+  padding: 0 30rpx;
+}

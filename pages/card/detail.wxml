@@ -12,7 +12,6 @@
     <view class="form-item">
       <view class="input-label">银行卡号</view>
       <input class="input-element" type="text" id="bankCardNo" bindinput="bindData" value="{{formData.bankCardNo}}"/>
-      <iconfont bindtap="photoBtn" class="photo-btn" icon="paizhao"></iconfont>
     </view>
   </view>
 </view>

@@ -22,7 +22,7 @@ Page({
     id && this.getDetail(id)
   },
   // 获取详情
-  async getDetail () {
+  async getDetail (id) {
     let { result } = await bankCardDetail(id)
     if (result) {
       this.setData({

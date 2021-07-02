@@ -48,7 +48,7 @@ Component({
     },
     // 提交按钮
     submitBtn () {
-      let { mobile, authCode } = this.data
+      let { mobile, authCode, isAgree } = this.data
       if (!mobile) {
         app.messageBox.common('请输入手机号')
         return
@@ -60,6 +60,10 @@ Component({
       }
       if (!authCode) {
         app.messageBox.common('请输入验证码')
+        return
+      }
+      if (!isAgree) {
+        app.messageBox.common('请勾选支付协议')
         return
       }
       this.bindCard()

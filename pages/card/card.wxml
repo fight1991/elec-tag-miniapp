@@ -3,13 +3,13 @@
   <view class="card-box">
   <block wx:for="{{cardList}}" wx:key="accountId">
     <navigator url="./detail?id={{item.accountId}}">
-      <view class="card-item" style="background: linear-gradient(90deg, {{backgroundColorStart}}, {{backgroundColorEnd}});">
+      <view class="card-item" style="background: linear-gradient(90deg, {{item.backgroundColorStart}}, {{item.backgroundColorEnd}});">
         <view class="card-left">
           <view class="card-detail">
             <view class="card-name">{{item.bankName}}</view>
             <view class="card-type">{{item.bankCardType==1?'储蓄卡': '信用卡'}}</view>
           </view>
-          <view class="card-num">{{item.bankCode}}</view>
+          <view class="card-num">{{item.bankCardNo}}</view>
         </view>
         <view class="card-right">
           <image src="{{item.logoUrl}}" mode="widthFix"></image>

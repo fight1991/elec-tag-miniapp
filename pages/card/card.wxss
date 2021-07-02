@@ -3,8 +3,9 @@
   width: 690rpx;
   height: 210rpx;
   padding: 50rpx;
+  margin-bottom: 20rpx;
   box-sizing: border-box;
-  background: linear-gradient(90deg, #CD89FF, #A899FF);
+  /* background: linear-gradient(90deg, #CD89FF, #A899FF); */
   border-radius: 14rpx;
   display: flex;
   justify-content: space-between;
@@ -20,6 +21,9 @@
 .card-right {
   width: 110rpx;
   height: 110rpx;
+}
+image {
+  width: 100%;
 }
 .card-detail {
   display: flex;
