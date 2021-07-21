@@ -1,4 +1,4 @@
-# ele_bicycle
+# htjg-car-miniapp
 汽车电子标识发卡系统微信小程序项目
 # 说明
 > 1. 在app.json中注册全局的自定义组件 usingComponents
