@@ -10,7 +10,8 @@
     "pages/card/addCard",
     "pages/card/uploadCard",
     "pages/card/check",
-    "pages/card/detail"
+    "pages/card/detail",
+    "pages/circle/circle"
   ],
   "subPackages": [
     {
@@ -72,6 +73,12 @@
         "text": "首页",
         "iconPath": "pages/image/home.png",
         "selectedIconPath": "pages/image/home-select.png"
+      },
+      {
+        "pagePath": "pages/circle/circle",
+        "text": "商圈",
+        "iconPath": "pages/image/business.png",
+        "selectedIconPath": "pages/image/business-fill.png"
       },
       {
         "pagePath": "pages/my/my",
