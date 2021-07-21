@@ -8,6 +8,34 @@
   ],
   "subPackages": [
     {
+      "root": "pages/subPages/refuel",
+      "name": "refuel",
+      "pages": [
+        "refuel"
+      ]
+    },
+    {
+      "root": "pages/subPages/maint",
+      "name": "maint",
+      "pages": [
+        "maint"
+      ]
+    },
+    {
+      "root": "pages/subPages/wash",
+      "name": "wash",
+      "pages": [
+        "wash"
+      ]
+    },
+    {
+      "root": "pages/subPages/parking",
+      "name": "parking",
+      "pages": [
+        "parking"
+      ]
+    },
+    {
       "root": "pages/subPages/card",
       "name": "card",
       "pages": [

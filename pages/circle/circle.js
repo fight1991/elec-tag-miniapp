@@ -1,4 +1,5 @@
 // pages/circle/circle.js
+var app = getApp()
 Page({
 
   /**
@@ -8,19 +9,23 @@ Page({
     gridIcon: [{
       id: 'id1',
       label: '无感加油',
-      icon: '/pages/image/businessCircle/oil.png'
+      icon: '/pages/image/businessCircle/oil.png',
+      pageKey: 'refuel' // 加油
     }, {
       id: 'id2',
       label: '维修保养',
-      icon: '/pages/image/businessCircle/maintenance.png'
+      icon: '/pages/image/businessCircle/maintenance.png',
+      pageKey: 'maint' // 维保
     }, {
       id: 'id3',
       label: '洗车美容',
-      icon: '/pages/image/businessCircle/wash.png'
+      icon: '/pages/image/businessCircle/wash.png',
+      pageKey: 'wash'
     }, {
       id: 'id4',
       label: '智慧停车',
-      icon: '/pages/image/businessCircle/parking.png'
+      icon: '/pages/image/businessCircle/parking.png',
+      pageKey: 'parking'
     }, {
       id: 'id5',
       label: '保险理赔',
@@ -62,7 +67,17 @@ Page({
   onLoad: function (options) {
 
   },
-
+  // 页面跳转
+  routePage (e) {
+    let pageKey = e.currentTarget.dataset.page
+    if (!pageKey) {
+      app.messageBox.common('敬请期待')
+      return
+    }
+    wx.navigateTo({
+      url: `/pages/subPages/${pageKey}/${pageKey}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

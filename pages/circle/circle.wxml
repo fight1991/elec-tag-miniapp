@@ -6,7 +6,7 @@
   <view class="fun-box">
     <view class="grid-box">
       <block wx:for="{{gridIcon}}" wx:key="id">
-        <view class="grid-item">
+        <view class="grid-item" bindtap="routePage" data-page="{{item.pageKey || ''}}">
           <view class="grid-img">
             <image src="{{item.icon}}" mode="widthFix"></image>
           </view>
