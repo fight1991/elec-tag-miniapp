@@ -4,18 +4,23 @@
     "pages/main/main",
     "pages/main/morePoint",
     "pages/my/my",
-    "pages/card/card",
-    "pages/ticket/ticket",
-    "pages/card/supportCard",
-    "pages/card/addCard",
-    "pages/card/uploadCard",
-    "pages/card/check",
-    "pages/card/detail",
     "pages/circle/circle"
   ],
   "subPackages": [
     {
-      "root": "pages/verifyInfo",
+      "root": "pages/subPages/card",
+      "name": "card",
+      "pages": [
+        "card",
+        "supportCard",
+        "addCard",
+        "uploadCard",
+        "check",
+        "detail"
+      ]
+    },
+    {
+      "root": "pages/subPages/verifyInfo",
       "name": "verifyInfo",
       "pages": [
         "index",
@@ -25,7 +30,14 @@
       ]
     },
     {
-      "root": "pages/elecPlate",
+      "root": "pages/subPages/ticket",
+      "name": "ticket",
+      "pages": [
+        "ticket"
+      ]
+    },
+    {
+      "root": "pages/subPages/elecPlate",
       "name": "elecPlate",
       "pages": [
         "elecPlate",
@@ -33,7 +45,7 @@
       ]
     },
     {
-      "root": "pages/carInfo",
+      "root": "pages/subPages/carInfo",
       "name": "carInfo",
       "pages": [
         "carInfo",
@@ -41,7 +53,7 @@
       ]
     },
     {
-      "root": "pages/scanBind",
+      "root": "pages/subPages/scanBind",
       "name": "scanBind",
       "pages": [
         "scanBind",
@@ -49,7 +61,7 @@
       ]
     },
     {
-      "root": "pages/message",
+      "root": "pages/subPages/message",
       "name": "message",
       "pages": [
         "messageDetail",
@@ -57,7 +69,7 @@
       ]
     },
     {
-      "root": "pages/setting",
+      "root": "pages/subPages/setting",
       "name": "setting",
       "pages": [
         "setting"

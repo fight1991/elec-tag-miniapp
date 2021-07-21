@@ -25,7 +25,7 @@ Page({
       let { result } = await verifyLicense(formData)
       if (result) {
         wx.navigateTo({
-          url: '/pages/elecPlate/elecPlate?type=elec&id=' + result.vehicleId,
+          url: '/pages/subPages/elecPlate/elecPlate?type=elec&id=' + result
         })
       }
     }

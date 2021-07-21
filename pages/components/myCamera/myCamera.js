@@ -1,6 +1,7 @@
 // pages/components/myCamera/myCamera.js
-import { upload_func_private } from '../../api/upload'
 var app = getApp()
+const { upload_func_private } = app.api
+
 Component({
   /**
    * 组件的属性列表

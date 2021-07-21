@@ -18,7 +18,7 @@
     </navigator>
   </block>
   </view>
-  <navigator url="/pages/card/addCard">
+  <navigator url="/pages/subPages/card/addCard">
     <commonBtn bgc="#fff">
       <view class="add-card-btn">
         <iconfont class="add-icon" icon="add" size="30rpx"></iconfont>
@@ -26,7 +26,7 @@
       </view>
     </commonBtn>
   </navigator>
-  <navigator url="/pages/card/supportCard">
+  <navigator url="/pages/subPages/card/supportCard">
     <view class="support-card">
       支持银行
       <iconfont class="support-icon" icon="wenhao" color="#3E77FF" size="40rpx"></iconfont>

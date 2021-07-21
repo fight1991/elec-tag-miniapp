@@ -3,7 +3,7 @@
   <block
     wx:for="{{list}}"
     wx:key="vehicleId">
-    <navigator url="/pages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
+    <navigator url="/pages/subPages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
       <view
         class="bind-box"
         style="background-image:url({{bgObj[item.bindStatus]}})">

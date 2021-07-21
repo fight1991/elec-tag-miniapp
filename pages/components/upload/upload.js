@@ -1,6 +1,6 @@
 // pages/components/upload/upload.js
 var app = getApp()
-import {upload_func_private, upload_func_public} from '../../api/upload'
+const {upload_func_private, upload_func_public} = app.api
 const uploadApi = {
   private: upload_func_private,
   public: upload_func_public

@@ -41,7 +41,7 @@ Component({
     // 跳转到用户信息页面
     goToUserInfoPage () {
       wx.navigateTo({
-        url: '/pages/verifyInfo/index',
+        url: '/pages/subPages/verifyInfo/index',
       })
     },
   }

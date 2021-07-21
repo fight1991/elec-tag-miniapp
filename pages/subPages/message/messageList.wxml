@@ -1,7 +1,7 @@
 <!--pages/message/messageList.wxml-->
   <view class="outer">
     <block wx:for="{{resultList}}" wx:key="messageId">
-      <navigator url="/pages/message/messageDetail?id={{item.messageId}}&isRead={{item.readStatus}}">
+      <navigator url="/pages/subPages/message/messageDetail?id={{item.messageId}}&isRead={{item.readStatus}}">
         <messageCard
           type="{{item.msgType}}"
           hasRead="{{item.readStatus}}"

@@ -13,7 +13,7 @@
       next-margin="20rpx"
       circular="{{true}}">
       <swiper-item wx:for="{{list}}" wx:key="vehicleId">
-        <navigator url="/pages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
+        <navigator url="/pages/subPages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
           <view class="card-box" style="background-image:url({{bgData[item.bindStatus]}})">
             <view class="plateNo">{{item.plateNo}}</view>
             <view class="brand">{{item.model}}</view>

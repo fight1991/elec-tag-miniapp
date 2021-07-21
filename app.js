@@ -7,14 +7,16 @@ import './utils/fetch_all'
 const utils = require('./utils/util')
 // 弹框注册
 import messageBox from './utils/messageBox'
+// 上传api注册
+import * as uploadApi from './api/upload'
 // 用户相关api注册
-import * as usersApi from './pages/api/user'
+import * as usersApi from './api/user'
 // 电子车牌相关
-import * as elecApi from './pages/api/elecBrand'
+import * as elecApi from './api/elecBrand'
 // 银行卡相关
-import * as bankApi from './pages/api/bank'
+import * as bankApi from './api/bank'
 // 字典相关api
-import * as dictApi from './pages/api/dictionary'
+import * as dictApi from './api/dictionary'
 
 App({
   onLaunch() {
@@ -24,6 +26,7 @@ App({
   utils: utils,
   // 绑定api
   api: {
+    ...uploadApi, // 上传相关
     ...usersApi, // 用户相关
     ...elecApi, // 电子车牌相关
     ...bankApi, // 银行卡相关

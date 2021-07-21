@@ -71,11 +71,11 @@ Page({
     let { isAuth } = this.data
     if (isAuth) {
       wx.navigateTo({
-        url: '/pages/carInfo/carList',
+        url: '/pages/subPages/carInfo/carList',
       })
     } else {
       wx.navigateTo({
-        url: '/pages/verifyInfo/index',
+        url: '/pages/subPages/verifyInfo/index',
       })
     }
   },
@@ -86,7 +86,7 @@ Page({
       success: res => {
         // res.result
         wx.navigateTo({
-          url: '/pages/scanBind/scanBind?plateNo=' + res.result,
+          url: '/pages/subPages/scanBind/scanBind?plateNo=' + res.result,
         })
       }
     })
@@ -98,7 +98,7 @@ Page({
       return
     }
     wx.navigateTo({
-      url: '/pages/verifyInfo/index',
+      url: '/pages/subPages/verifyInfo/index',
     })
   },
   // 获取车辆数量
