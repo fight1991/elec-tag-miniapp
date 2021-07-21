@@ -17,7 +17,7 @@
   + login -- 登录页面
   + components -- 公共组件
   + image -- 图片静态资源
-  + style -- 公共样式
+  + style -- iconfont文件样式
   + wxs -- wxml中引用的方法
 + utils -- 公共方法/工具文件夹
   + fetch_all.js 处理批量请求
