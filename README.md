@@ -3,20 +3,21 @@
 # 说明
 > 1. 在app.json中注册全局的自定义组件 usingComponents
 # 分包原则
-## 按照业务功能划分
+> 1. 按照业务功能划分
+> 2. tabBar入口页面无需分包, 放在app主包, 以外的页面放在subPages
 # 目录说明
 + api -- 公共api
 + config -- api域名
 + pages -- 页面文件夹
+  + main -- tabBar首页
   + circle -- tabBar商圈
-  + components -- 公共组件
-  + image -- 图片静态资源
+  + my -- tabBar我的
+  + subPages -- tabBar中的子页面放置位置
   + index -- 初始化入口页面
   + login -- 登录页面
-  + main -- tabBar首页
-  + my -- tabBar我的
+  + components -- 公共组件
+  + image -- 图片静态资源
   + style -- 公共样式
-  + subPages -- tabBar中的子页面放置位置
   + wxs -- wxml中引用的方法
 + utils -- 公共方法/工具文件夹
   + fetch_all.js 处理批量请求
