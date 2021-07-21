@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "商圈",
+  "navigationStyle" : "custom",
   "usingComponents": {
   }
 }

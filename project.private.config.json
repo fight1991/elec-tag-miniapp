@@ -95,6 +95,12 @@
           "pathName": "pages/card/check",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "商圈",
+          "pathName": "pages/circle/circle",
+          "query": "",
+          "scene": null
         }
       ]
     }

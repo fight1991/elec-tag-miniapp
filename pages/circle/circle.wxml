@@ -1,2 +1,19 @@
 <!--pages/circle/circle.wxml-->
-<text>pages/circle/circle.wxml</text>
+<view class="box">
+  <view class="top-bg">
+    <image mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
+  </view>
+  <view class="fun-box">
+    <view class="grid-box">
+      <block wx:for="{{gridIcon}}" wx:key="id">
+        <view class="grid-item">
+          <view class="grid-img">
+            <image src="{{item.icon}}" mode="widthFix"></image>
+          </view>
+          <view class="grid-text">{{item.label}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  
+</view>
