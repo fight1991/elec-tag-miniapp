@@ -35,8 +35,14 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success: res => {
-        // res.result
-        this.bindBrand(res.result)
+        let str = res.result
+        if (str.indexOf('/RFID/') > -1) {
+          wx.navigateTo({
+            url: '/pages/subPages/scanBind/scanBind?plateNo=' + str,
+          })
+        } else {
+          app.messageBox.common('无效的二维码')
+        }
       }
     })
   },
@@ -54,20 +60,6 @@ Page({
     if (result) {
       this.setData({
         elecInfo: result
-      })
-    }
-  },
-  // 绑定电子车牌
-  async bindBrand (res) {
-    let { id } = this.data
-    let { result } = await evi_bind({
-      vehicleId: id,
-      eviId: res
-    })
-    if (result) {
-      app.messageBox.common('绑定成功')
-      wx.reLaunch({
-        url: '/pages/main/main',
       })
     }
   },

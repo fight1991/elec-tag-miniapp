@@ -92,9 +92,15 @@ Page({
       onlyFromCamera: true,
       success: res => {
         // res.result
-        wx.navigateTo({
-          url: '/pages/subPages/scanBind/scanBind?plateNo=' + res.result,
-        })
+        let str = res.result
+        if (str.indexOf('/RFID/') > -1) {
+          wx.navigateTo({
+            url: '/pages/subPages/scanBind/scanBind?plateNo=' + str,
+          })
+        } else {
+          app.messageBox.common('无效的二维码')
+        }
+       
       }
     })
   },

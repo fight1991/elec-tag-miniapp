@@ -9,6 +9,7 @@ Page({
   data: {
     bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
     plateNo: '',
+    elecBrandNum: '',
     brandList: [],
     pickerIndex: 0
   },
@@ -18,20 +19,28 @@ Page({
    */
   onLoad: function (options) {
     let { plateNo } = options
-    this.setData({
-      plateNo
-    })
+    this.getElecFromStr(plateNo)
+    this.data.plateNo = plateNo
     this.getBrandList()
   },
+  // 提取电子车牌号码
+  getElecFromStr (str) {
+    let index = str.indexOf('/RFID/')
+    let num = str.substr(index + 6, 12)
+    this.setData({
+      elecBrandNum: num
+    })
+  },
   async confirmBtn () {
-    let { plateNo, pickerIndex, brandList } = this.data
+    let { plateNo, elecBrandNum, pickerIndex, brandList } = this.data
     if (brandList.length == 0) {
       app.messageBox.common('暂无未绑定电子车牌的车辆')
       return
     }
     let { result } = await evi_bind({
       vehicleId: brandList[pickerIndex]['vehicleId'],
-      eviId: plateNo
+      eviNo: elecBrandNum,
+      eviUrl: plateNo
     })
     if (result) {
       wx.navigateTo({

@@ -10,7 +10,7 @@
       </view>
     </picker>
     <view class="head-title fc-ccc fs12">您即将绑定的电子车牌卡号为</view>
-    <view class="head-title fs16">{{plateNo}}</view>
+    <view class="head-title fs16">{{elecBrandNum}}</view>
   </view>
 </view>
 <fixBtn bindtap="confirmBtn">确认绑定</fixBtn>
