@@ -34,6 +34,11 @@ App({
   },
   messageBox: messageBox, // 弹框
   redirect: '', // 记录token失效时当前的页面地址
+  appLBS: { // 腾讯位置服务
+    key: 'ZMYBZ-P6OKU-YWWV5-45AVL-4SMA5-FDB5X', // 腾讯位置服务申请的key
+    referer: '航天吉光小程序', // 调用插件的app的名称
+    hotCitys: '无锡,北京,上海,杭州,深圳,广州,成都,苏州', // 自定义热门城市
+  },
   getWechatCode () {
     return new Promise((relove, reject) => {
       wx.login({

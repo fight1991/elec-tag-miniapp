@@ -5,6 +5,18 @@ image {
 .box {
   position: relative;
 }
+.pos-info {
+  position: absolute;
+  left: 30rpx;
+  top: 54rpx;
+  z-index: 3;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.address-name {
+  padding: 0 10rpx;
+}
 .top-bg {
   position: absolute;
   top: 0;

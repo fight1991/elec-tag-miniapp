@@ -1,5 +1,10 @@
 <!--pages/circle/circle.wxml-->
 <view class="box">
+  <view class="pos-info">
+    <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
+    <text class="address-name">海创江南</text>
+    <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
+  </view>
   <view class="top-bg">
     <image mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
   </view>
