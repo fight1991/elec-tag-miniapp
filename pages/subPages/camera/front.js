@@ -1,37 +1,20 @@
-// pages/verifyInfo/index.js
-var app = getApp()
+// pages/subPages/camera/front.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    authPersonal: false,
-    authVehicleLicense: false
+
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-  // 跳转到实名认证页面
-  goToRealName () {
-    wx.navigateTo({
-      url: './idcardVerify',
-    })
-  },
-  // 行驶证认证
-  goToLicense () {
-    let { authPersonal } = this.data
-    if (!authPersonal) {
-      app.messageBox.common('请先进行实名认证')
-      return
-    }
-    wx.navigateTo({
-      url: './verifyLicense',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -43,11 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let { authPersonal, authVehicleLicense } = app.globalData.userInfo
-    this.setData({
-      authPersonal,
-      authVehicleLicense
-    })
+
   },
 
   /**

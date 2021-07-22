@@ -30,6 +30,13 @@ Page({
       success: (res) => {
         let { latitude, longitude } = res
         this.getPointList(longitude, latitude)
+        // wx.chooseLocation({
+        //   latitude,
+        //   longitude,
+        //   success: (res) => {
+        //     console.log(res)
+        //   }
+        // })
       },
       fail: (res) => {
         app.messageBox.common('获取位置失败')

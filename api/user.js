@@ -76,3 +76,11 @@ export const getMessageDetailApi = (data) => {
     data
   })
 }
+// 上传身份认证图片
+// 身份认证-上传头像 身份证正反面
+export const verifyPersonApi = (data) => {
+  return wx.$post_business({
+    url: '/user-center/personal/uploadPic',
+    data
+  })
+}

@@ -9,19 +9,32 @@ Page({
   data: {
     idName: '',
     idNo: '',
-
+    idcardInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.initIdcardInfo()
   },
   // 身份证号正则校验
   checkIdcard (value) {
     var reg = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/
     return reg.test(value)
+  },
+  // 读取ocr识别页面idcardVerify的信息
+  initIdcardInfo () {
+    let pages = getCurrentPages()
+    let prePage = pages[pages.length - 2]
+    if (prePage) {
+      let idcardInfo = prePage.data.verifyInfo
+      this.setData({
+        idName: idcardInfo.idName || '',
+        idNo: idcardInfo.idNo || ''
+      })
+      this.data.idcardInfo = idcardInfo
+    }
   },
   // 提交认证
   async sumitBtn () {
@@ -35,14 +48,13 @@ Page({
       return
     }
     let { result } = await verifyAuth({
-      idName,
-      idNo
+      ...this.data.idcardInfo
     })
     if (result) {
       app.globalData.userInfo.authPersonal = true
       app.messageBox.success('实名认证成功')
       wx.navigateBack({
-        delta: 1
+        delta: 2
       })
     }
   },

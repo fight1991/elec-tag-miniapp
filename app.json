@@ -131,12 +131,12 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3E77FF",
-    "navigationBarTitleText": "吉光出行",
+    "navigationBarTitleText": "汽车电子标识",
     "navigationBarTextStyle": "white"
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "汽车电子发卡系统请求获取您的位置信息"
     }
   },
   "usingComponents": {

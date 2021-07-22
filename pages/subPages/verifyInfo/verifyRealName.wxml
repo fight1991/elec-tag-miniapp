@@ -1,14 +1,14 @@
 <!--pages/verifyInfo/verifyRealName.wxml-->
 <view class="outer">
-  <view class="title">请输入姓名和身份证号进行验证</view>
+  <view class="title">识别结果如下,如有错误请重新上传</view>
   <view class="input-box">
     <view class="form-item">
       <view class="input-label">姓名</view>
-      <input class="input-element" type="text" maxlength="20" model:value="{{idName}}" placeholder="请输入姓名"/>
+      <input class="input-element" type="text" maxlength="20" model:value="{{idName}}" disabled placeholder="请输入姓名"/>
     </view>
     <view class="form-item no-bottom-border">
       <view class="input-label">身份证号</view>
-      <input class="input-element" type="text" type="number" model:value="{{idNo}}" placeholder="请输入身份证号"/>
+      <input class="input-element" type="text" type="number" model:value="{{idNo}}" disabled placeholder="请输入身份证号"/>
     </view>
   </view>
 </view>
