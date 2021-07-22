@@ -67,6 +67,12 @@ Page({
   onLoad: function (options) {
 
   },
+  // 城市选择
+  placeSearch () {
+    wx.navigateTo({
+      url: '/pages/subPages/citySelector/citySelector',
+    })
+  },
   // 页面跳转
   routePage (e) {
     let pageKey = e.currentTarget.dataset.page

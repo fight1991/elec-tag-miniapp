@@ -1,5 +1,5 @@
 <!--pages/components/searchInput/searchInput.wxml-->
-<view class="search-box">
+<view class="search-box" style="background-color: {{bgc}};">
     <view class="prefix-icon">
       <iconfont icon="search" color="#B3B3B3"/>
     </view>

@@ -1,6 +1,7 @@
 // pages/verifyInfo/verifyLicense.js
 var app = getApp()
-const { licenseOcr } = app.api
+const { licenseOcr, verifyLicense } = app.api
+
 Page({
 
   /**
@@ -87,14 +88,17 @@ Page({
     }
   },
   // 下一步按钮
-  nextStepBtn () {
+  async nextStepBtn () {
     let isPass = this.checkValid()
     if (!isPass) return
     // 保存表单并跳转到申领方式
     this.saveFormInfo()
-    wx.navigateTo({
-      url: './applyWays',
-    })
+    let { result } = await verifyLicense(this.data.licenseInfo)
+    if (result) {
+      wx.navigateTo({
+        url: './applyWays?id=' + result,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

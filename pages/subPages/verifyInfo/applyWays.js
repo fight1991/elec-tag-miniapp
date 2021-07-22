@@ -1,35 +1,34 @@
 // pages/verifyInfo/applyWays.js
 var app = getApp()
-const { verifyLicense } = app.api
+const { selectInstallType } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let { id } = options
+    if (id) {
+      this.data.id = id
+    }
   },
   async confirmBtn () {
-    let pages = getCurrentPages()
-    let prevPage = pages[pages.length - 2]
-    if (prevPage) {
-      let formData = prevPage.data.licenseInfo
-      formData.installation = 'branchInstall'
-      let { result } = await verifyLicense(formData)
-      if (result) {
-        wx.navigateTo({
-          url: '/pages/subPages/elecPlate/elecPlate?type=elec&id=' + result
-        })
-      }
+    let { result } = await selectInstallType({
+      installation: 'branchInstall',
+      vehicleId: this.data.id
+    })
+    if (result) {
+      wx.navigateTo({
+        url: '/pages/subPages/elecPlate/elecPlate?type=elec&id=' + this.data.id
+      })
     }
-    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

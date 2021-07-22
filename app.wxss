@@ -18,6 +18,13 @@ page {
 .stopTap {
   pointer-events:none;
 }
+/* 省略号 */
+.text-cut {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+}
 /* 元素居中并水平排列 */
 .flex-center-x {
   display: flex;

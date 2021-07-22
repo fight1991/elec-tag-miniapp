@@ -101,6 +101,12 @@
           "pathName": "pages/circle/circle",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "选择地点",
+          "pathName": "pages/subPages/citySelector/citySelector",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -86,3 +86,10 @@ export const verifyLicense = (data) => {
     data
   })
 }
+// 选择安装方式
+export const selectInstallType = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-management/evi/installation',
+    data
+  })
+}

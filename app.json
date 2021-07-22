@@ -4,7 +4,8 @@
     "pages/main/main",
     "pages/main/morePoint",
     "pages/my/my",
-    "pages/circle/circle"
+    "pages/circle/circle",
+    "pages/subPages/citySelector/citySelector"
   ],
   "subPackages": [
     {

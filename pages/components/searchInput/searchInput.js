@@ -11,6 +11,10 @@ Component({
     placeHolder: {
       type: String,
       value: ''
+    },
+    bgc: {
+      type: String,
+      value: '#fff'
     }
   },
 

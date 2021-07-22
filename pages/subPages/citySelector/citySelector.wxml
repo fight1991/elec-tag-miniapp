@@ -1,0 +1,43 @@
+<!--pages/subPages/citySelector/citySelector.wxml-->
+<view class="box">
+  <div class="input-box">
+    <div class="city-name">
+      <iconfont icon="position" size="30rpx"></iconfont>
+      <text>无锡</text>
+      <iconfont icon="arrow-down" size="30rpx"></iconfont>
+    </div>
+    <!--绑定输入事件-->
+    <div class="search-box">
+      <searchInput
+        bgc="#f2f2f2"
+        placeHolder="请输入您的目的地"
+        value="{{backfill}}"
+        bindchange="getsuggest">
+      </searchInput>
+    </div>
+  </div>
+  <view class="scroll-box">
+    <view class="current-address">
+      <view class="current-detail text-cut">海创江南</view>
+      <view class="re-getpos">
+        <iconfont icon="target" size="36rpx" color="#447FFF"></iconfont>
+        <text class="re-text">重新定位</text>
+      </view>
+    </view>
+    <view class="near-place">
+      <iconfont icon="position" size="28rpx"></iconfont>
+      附近地址
+    </view>
+    <!--关键词输入提示列表渲染-->
+    <view wx:for="{{suggestion}}" wx:key="index">
+      <!--绑定回填事件-->
+      <view class="address-item">
+        <!--根据需求渲染相应数据-->
+        <!--渲染地址title-->
+        <view class="address-title" bindtap="backfill" id="{{index}}">{{item.title}}</view>
+        <!--渲染详细地址-->
+        <view class="address-detail">{{item.addr}}</view>
+        </view>
+    </view>
+  </view>
+</view>
