@@ -52,7 +52,7 @@ page {
   flex: 1;
 }
 .re-getpos {
-  width: 160rpx;
+  /* width: 160rpx; */
   text-align: right;
   padding-left: 10rpx;
   color: #447FFF;

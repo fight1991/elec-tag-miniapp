@@ -1,5 +1,5 @@
 /* pages/circle/circle.wxss */
-image {
+.image {
   width: 100%;
 }
 .box {

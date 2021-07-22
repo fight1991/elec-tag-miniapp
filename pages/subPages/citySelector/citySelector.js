@@ -113,7 +113,11 @@ Page({
   // 重新定位
   regetPosition () {
     if (!this.data.prePage) return
+    wx.showLoading({
+      title: '定位中',
+    })
     this.data.prePage.getPlaceDetail(() => {
+      wx.hideLoading()
       wx.navigateBack({
         delta: 1
       })
