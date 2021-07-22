@@ -39,6 +39,7 @@ App({
     referer: '航天吉光小程序', // 调用插件的app的名称
     hotCitys: '无锡,北京,上海,杭州,深圳,广州,成都,苏州', // 自定义热门城市
   },
+  qqmapsdk: null, // mapsdk实例对象
   getWechatCode () {
     return new Promise((relove, reject) => {
       wx.login({

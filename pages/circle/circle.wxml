@@ -1,15 +1,15 @@
 <!--pages/circle/circle.wxml-->
 <view class="box">
-  <view class="pos-info" bindtap="placeSearch">
-    <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
-    <text class="address-name">海创江南</text>
-    <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
-  </view>
   <view class="top-bg">
     <image mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
   </view>
   <view class="fun-box">
     <view class="grid-box">
+      <view class="pos-info" bindtap="placeSearch">
+        <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
+        <text class="address-name">{{currentPlace}}</text>
+        <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
+      </view>
       <block wx:for="{{gridIcon}}" wx:key="id">
         <view class="grid-item" bindtap="routePage" data-page="{{item.pageKey || ''}}">
           <view class="grid-img">

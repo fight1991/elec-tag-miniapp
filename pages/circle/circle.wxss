@@ -7,8 +7,8 @@ image {
 }
 .pos-info {
   position: absolute;
-  left: 30rpx;
-  top: 54rpx;
+  left: 10rpx;
+  top: -68rpx;
   z-index: 3;
   color: #fff;
   display: flex;

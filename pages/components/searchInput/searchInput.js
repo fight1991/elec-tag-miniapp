@@ -56,6 +56,7 @@ Component({
           hiddenClearIcon: true,
           value: ''
         })
+        this.triggerEvent('change', '')
       }
     }
   }

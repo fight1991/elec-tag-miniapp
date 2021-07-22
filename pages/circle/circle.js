@@ -1,4 +1,6 @@
 // pages/circle/circle.js
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
+var qqmapsdk = null
 var app = getApp()
 Page({
 
@@ -58,14 +60,63 @@ Page({
       id: 'id12',
       label: '敬请期待',
       icon: '/pages/image/businessCircle/more.png'
-    }]
+    }],
+    currentPlace: '', // 当前地理位置
+    pois: [], // 当前位置的周边信息
+    city: '' // 城市名
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.initMapSdk()
+    this.getPlaceDetail()
+  },
+  // 实例化sdk
+  initMapSdk (){
+    if (app.qqmapsdk) {
+      qqmapsdk = app.qqmapsdk
+      return
+    }
+    var key = app.appLBS.key
+    app.qqmapsdk = qqmapsdk = new QQMapWX({
+      key
+    })
+  },
+  // 根据经纬度解析地理位置
+  getPlaceDetail () {
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        let { latitude, longitude } = res
+        this.reverseGeocoder(latitude, longitude)
+      },
+      fail: (res) => {
+        app.messageBox.common('获取位置失败')
+      }
+    })
+  },
+  // 解析位置
+  reverseGeocoder (latitude, longitude) {
+    var _this = this;
+    qqmapsdk.reverseGeocoder({
+      location: {
+        latitude,
+        longitude
+      },
+      get_poi: 1,
+      success: res => {
+        if (res.status == 0) {
+          let tempRes = res.result
+          this.data.pois = tempRes.pois
+          this.setData({
+            currentPlace: tempRes.formatted_addresses.recommend,
+            city: tempRes.address_component.city
+          })
+        }
+      }
+    })
   },
   // 城市选择
   placeSearch () {

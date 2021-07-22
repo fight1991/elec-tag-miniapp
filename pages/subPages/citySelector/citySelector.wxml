@@ -1,9 +1,9 @@
 <!--pages/subPages/citySelector/citySelector.wxml-->
 <view class="box">
   <div class="input-box">
-    <div class="city-name">
+    <div class="city-name" bindtap="selectCity">
       <iconfont icon="position" size="30rpx"></iconfont>
-      <text>无锡</text>
+      <text>{{city}}</text>
       <iconfont icon="arrow-down" size="30rpx"></iconfont>
     </div>
     <!--绑定输入事件-->
@@ -17,27 +17,33 @@
     </div>
   </div>
   <view class="scroll-box">
-    <view class="current-address">
-      <view class="current-detail text-cut">海创江南</view>
-      <view class="re-getpos">
-        <iconfont icon="target" size="36rpx" color="#447FFF"></iconfont>
-        <text class="re-text">重新定位</text>
+    <view class="init-data" hidden="{{!showDefault}}">
+      <view class="current-address">
+        <view class="current-detail text-cut">{{currentPlace}}</view>
+        <view class="re-getpos">
+          <iconfont icon="target" size="36rpx" color="#447FFF"></iconfont>
+          <text class="re-text">重新定位</text>
+        </view>
+      </view>
+      <view class="near-place">
+        <iconfont icon="position" size="28rpx"></iconfont>
+        附近地址
       </view>
     </view>
-    <view class="near-place">
-      <iconfont icon="position" size="28rpx"></iconfont>
-      附近地址
-    </view>
     <!--关键词输入提示列表渲染-->
-    <view wx:for="{{suggestion}}" wx:key="index">
-      <!--绑定回填事件-->
-      <view class="address-item">
+    <view>
+      <view
+        class="address-item"
+        bindtap="backfill"
+        wx:for="{{suggestion}}"
+        wx:key="index"
+        id="{{index}}">
         <!--根据需求渲染相应数据-->
         <!--渲染地址title-->
-        <view class="address-title" bindtap="backfill" id="{{index}}">{{item.title}}</view>
+        <view class="address-title">{{item.title}}</view>
         <!--渲染详细地址-->
-        <view class="address-detail">{{item.addr}}</view>
-        </view>
+        <view class="address-detail">{{item.address}}</view>
+      </view>
     </view>
   </view>
 </view>
