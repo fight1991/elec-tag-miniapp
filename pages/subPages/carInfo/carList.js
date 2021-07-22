@@ -7,11 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bgObj: {
-      bind: app.utils.imgTobase64('/pages/image/bind-bg.png'),
-      apply: app.utils.imgTobase64('/pages/image/bind-bg.png'),
-      unbind: app.utils.imgTobase64('/pages/image/bind-bg-disable.png')
-    },
     list: []
   },
 
@@ -41,7 +36,7 @@ Page({
     wx.stopPullDownRefresh()
   },
   showSheet (e) {
-    let id = e.currentTarget.id
+    let id = e.detail
     wx.showActionSheet({
       itemList: ['删除'],
       success: (res) => {

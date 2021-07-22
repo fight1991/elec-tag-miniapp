@@ -15,7 +15,10 @@
       <swiper-item wx:for="{{list}}" wx:key="vehicleId">
         <navigator url="/pages/subPages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
           <view class="card-box" style="background-image:url({{bgData[item.bindStatus]}})">
-            <view class="plateNo">{{item.plateNo}}</view>
+            <view class="plateNo">
+              <text>{{item.plateNo}}</text>
+              <text class="ele-status">{{statusText[item.bindStatus]}}</text>
+            </view>
             <view class="brand">{{item.model}}</view>
             <view class="verify">
               <view class="show-item verify-name">

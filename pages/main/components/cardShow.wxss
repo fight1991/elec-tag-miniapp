@@ -30,6 +30,13 @@
 .plateNo {
   font-size: 36rpx;
   padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+}
+.ele-status {
+  color: #FF7E37;
+  padding-left: 10rpx;
+  font-size: 28rpx;
 }
 .verify {
   color: #4D4D4D;

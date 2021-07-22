@@ -6,6 +6,9 @@
   font-size: 24rpx;
   color: #FF7E37;
 }
+.box-status {
+  padding-top: 30rpx;
+}
 .right-title {
   width: 160rpx;
   color: #3C79FF;
@@ -14,28 +17,8 @@
   flex: 1;
   color: #04CFC6;
 }
-.bind-box {
-  height: 210rpx;
-  width: 690rpx;
-  margin: 40rpx auto 0;
-  /* border: 1px solid #ccc; */
-  border-radius: 8px;
-  /* margin-bottom: 10px; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.bind-box .content {
-  padding-left: 100rpx;
-}
-.head-title {
-  padding: 10rpx 0;
-}
-.unbind {
-  color: #FF7E37;
-}
+
+
 .info-box {
   padding: 0 30rpx;
   margin: 0 30rpx;
@@ -68,7 +51,7 @@
   text-decoration: line-through;
 }
 .tab-box {
-  padding: 40rpx 0;
+  padding-bottom: 30rpx;
   display: flex;
   justify-content: space-around;
 }

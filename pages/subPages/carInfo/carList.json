@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "bind-status": "/pages/components/bindStatus/bindStatus"
+  },
   "enablePullDownRefresh": true,
   "navigationBarTitleText": "我的车辆",
   "backgroundTextStyle": "dark"

@@ -1,19 +1,15 @@
 <!--pages/elecPlate/elecPlate.wxml-->
 <view class="">
-  <view class="top-title" wx:if="{{elecInfo.bindStatus == 'unbind'}}">
-    您的电子车牌已解绑, 首页扫一扫可再次绑定
-  </view>
   <!-- 车辆绑定状态banner区域 -->
-  <view
-    class="bind-box"
-    style="background-image:url({{bgImg}})">
-    <view class="content">
-      <view class="head-title fs16">{{elecInfo.plateNo}}</view>
-      <view class="head-title fs12 fc-ccc" wx:if="{{elecInfo.bindStatus == 'bind'}}">电子车牌: {{elecInfo.eviId}}</view>
-      <view class="head-title fs12 fc-ccc line-through" wx:if="{{elecInfo.bindStatus == 'unbind'}}">电子车牌: {{elecInfo.eviId}}</view>
-      <view class="head-title unbind" wx:if="{{elecInfo.bindStatus == 'apply'}}">未绑定</view>
-    </view>
+  <view class="box-status">
+    <bind-status
+      plateNo="{{elecInfo.plateNo}}"
+      eviId="{{elecInfo.eviId}}"
+      status="{{elecInfo.bindStatus}}"
+      showOp="{{false}}">
+    </bind-status>
   </view>
+  
   <!-- tab区域 -->
   <view class="tab-box" bindtap="tabClick">
     <view class="tab-item{{type == 'base' ? ' active-tab' : ''}}" data-type='base'>基础信息</view>
@@ -29,21 +25,26 @@
         <view class="info-left">申领时间</view>
         <view class="info-right">{{elecInfo.applyTime}}</view>
       </view>
-      <view class="info-item" wx:if="{{elecInfo.bindStatus == 'bind' || elecInfo.bindStatus == 'unbind'}}">
+      <view class="info-item" wx:if="{{elecInfo.bindStatus == 'bind' || elecInfo.bindStatus == 'scrap'}}">
         <view class="info-left">车辆贴卡照片</view>
         <navigator url="./uploadImg?id={{id}}">
           <view class="info-right upload">请上传</view>
         </navigator>
       </view>
     </view>
-    <view class="top-title" wx:if="{{elecInfo.bindStatus == 'apply'}}">
-      <view class="left-title">您可前往任意网点领取电子车牌并安装</view>
-      <view class="right-title">查看网点>></view>
+    <view class="top-title" wx:if="{{elecInfo.bindStatus == 'scrap'}}">
+      您的电子车牌已解绑, 首页扫一扫可再次绑定
     </view>
-    <view class="tips" wx:if="{{elecInfo.bindStatus == 'apply'}}">*请向网点工作人员出示该申领页面</view>
+    <view class="top-title" wx:if="{{elecInfo.bindStatus == 'delivery'}}">
+      <view class="left-title">您可前往任意网点领取电子车牌并安装</view>
+      <navigator url="/pages/main/morePoint">
+        <view class="right-title">查看网点>></view>
+      </navigator>
+    </view>
+    <view class="tips" wx:if="{{elecInfo.bindStatus == 'bind'}}">*请在工作人员的指导下完成安装</view>
   </view>
   <view class="base-box" hidden="{{type=='elec'}}">
     <base-info id="baseFormInfo"></base-info>
   </view>
 </view>
-<fixBtn bindtap="bindBtn" wx:if="{{elecInfo.bindStatus == 'apply'}}">绑定电子车牌</fixBtn>
+<fixBtn bindtap="bindBtn" wx:if="{{elecInfo.bindStatus == 'delivery'}}">绑定电子车牌</fixBtn>
