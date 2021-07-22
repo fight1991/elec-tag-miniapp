@@ -85,12 +85,13 @@ Page({
     })
   },
   // 根据经纬度解析地理位置
-  getPlaceDetail () {
+  getPlaceDetail (callback) {
     wx.getLocation({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
         this.reverseGeocoder(latitude, longitude)
+        callback && callback()
       },
       fail: (res) => {
         app.messageBox.common('获取位置失败')

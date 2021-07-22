@@ -58,8 +58,9 @@ Page({
   },
   // 数据回填方法
   backfill: function (e) {
-    var id = e.currentTarget.id;
+    var id = e.currentTarget.id
     // console.log(id)
+    if (!this.data.prePage) return
     this.data.prePage.setData({
       currentPlace: this.data.suggestion[id].title
     });
@@ -108,6 +109,15 @@ Page({
         console.log(res);
       }
     });
+  },
+  // 重新定位
+  regetPosition () {
+    if (!this.data.prePage) return
+    this.data.prePage.getPlaceDetail(() => {
+      wx.navigateBack({
+        delta: 1
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
