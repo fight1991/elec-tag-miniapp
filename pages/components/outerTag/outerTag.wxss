@@ -1,7 +1,8 @@
 /* pages/components/outerTag/outerTag.wxss */
 .tag {
   padding: 4rpx 20rpx;
-  border: 1px solid #808080;
+  border-width: 1px;
+  border-style: solid;
   display: inline-block;
   font-size: 26rpx;
   border-radius: 4rpx;

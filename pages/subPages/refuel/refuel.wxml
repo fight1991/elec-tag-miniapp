@@ -6,29 +6,32 @@
         placeHolder="搜索附近的加油站">
       </searchInput>
     </view>
-    <view class="select-box">
-      <view class="select-item">
-        <text class="select-text">3Km</text>
-        <iconfont size="20rpx" icon="arrow-down"></iconfont>
+    <view class="select-box" bindtap="selectBtn">
+      <view class="select-item" data-tab="distance">
+        <text class="select-text stopTap">{{tabValue.distance}}</text>
+        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
       </view>
-      <view class="select-item">
-        <text class="select-text">92#</text>
-        <iconfont size="20rpx" icon="arrow-down"></iconfont>
+      <view class="select-item" data-tab="oil">
+        <text class="select-text stopTap">{{tabValue.oil}}</text>
+        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
       </view>
-      <view class="select-item">
-        <text class="select-text">距离最近</text>
-        <iconfont size="20rpx" icon="arrow-down"></iconfont>
+      <view class="select-item" data-tab="other">
+        <text class="select-text stopTap">{{tabValue.other}}</text>
+        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
       </view>
     </view>
   </view>
   <view class="content-box">
-    <view class="mask-box" bindtap="maskTap">
-      <view class="select-tag">
-        <tag>3km</tag>
-        <tag>3km</tag>
-        <tag>3km</tag>
-        <tag>3km</tag>
-        <tag>3km</tag>
+    <view hidden="{{!showMask}}" class="mask-box" bindtap="maskTap">
+      <view class="select-tag" catchtap="itemsTap">
+        <tag
+          active="{{item.label==tabValue[currentTabName]}}"
+          wx:for="{{tabs[currentTabName]}}"
+          bindtap="tagTap"
+          id="{{index}}"
+          wx:key="value">
+          {{item.label}}
+        </tag>
       </view>
     </view>
   </view>

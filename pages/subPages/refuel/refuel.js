@@ -5,7 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showMask: false,
+    currentTabName: 'distance', // 当前选择的tab
+    tabValue: {
+      distance: '3km',
+      oil: '92#',
+      other: '距离最近'
+    },
+    tabs: { // tab渲染项
+      distance: [
+        {label: '3km', value: 3},
+        {label: '5km', value: 5},
+        {label: '10km', value: 10},
+        {label: '15km', value: 15},
+        {label: '不限', value: 'none'}
+      ],
+      oil: [
+        {label: '92#', value: 92},
+        {label: '95#', value: 95},
+        {label: '98#', value: 98},
+        {label: '0#', value: 0}
+      ],
+      other: [
+        {label: '距离最近', value: 'near'},
+        {label: '价格最低', value: 'low'},
+      ]
+    }
   },
 
   /**
@@ -14,7 +39,32 @@ Page({
   onLoad: function (options) {
 
   },
+  // 筛选条件按钮
+  selectBtn (e) {
+    let currentTab = e.target.dataset.tab
+    this.setData({
+      showMask: true,
+      currentTabName: currentTab
+    })
+  },
+  // 下方筛选项 
+  tagTap (e) {
+    let index = e.currentTarget.id
+    let { currentTabName: currTab, tabs } = this.data
+    this.setData({
+      ['tabValue.' + [currTab]]: tabs[currTab][index]['label'],
+      showMask: false
+    })
+  },
+  // 点击模态框
+  maskTap () {
+    this.setData({
+      showMask: false
+    })
+  },
+  itemsTap () {
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
