@@ -14,7 +14,9 @@ Page({
     },
     total: 0, // 安装点总数
     pointList: [],
-    carTotal: 0
+    carTotal: 0,
+    longitude: '',
+    latitude: ''
   },
 
   /**
@@ -29,14 +31,9 @@ Page({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
+        this.data.latitude = latitude
+        this.data.longitude = longitude
         this.getPointList(longitude, latitude)
-        // wx.chooseLocation({
-        //   latitude,
-        //   longitude,
-        //   success: (res) => {
-        //     console.log(res)
-        //   }
-        // })
       },
       fail: (res) => {
         app.messageBox.common('获取位置失败')
@@ -58,6 +55,7 @@ Page({
         total: page.total
       })
     }
+    return true
   },
   // 更多按钮
   moreBtn () {
@@ -151,8 +149,10 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh: async function () {
+    let { longitude, latitude } = this.data
+    await this.getPointList(longitude, latitude)
+    wx.stopPullDownRefresh()
   },
 
   /**

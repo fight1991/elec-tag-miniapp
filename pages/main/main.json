@@ -3,5 +3,7 @@
     "recommend-point": "./components/recommendPoint",
     "card-show": "./components/cardShow"
   },
-  "navigationBarTitleText": "首页"
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
