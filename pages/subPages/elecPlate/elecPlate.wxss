@@ -42,7 +42,7 @@
   color: #76A0FF;
 }
 .tips {
-  color: #A6A6A6;
+  color: #FF7E37;
   margin: 20rpx 30rpx;
   padding: 0 10rpx;
   font-size: 24rpx;

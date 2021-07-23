@@ -37,14 +37,15 @@ Page({
       app.messageBox.common('暂无未绑定电子车牌的车辆')
       return
     }
+    var id = brandList[pickerIndex]['vehicleId']
     let { result } = await evi_bind({
-      vehicleId: brandList[pickerIndex]['vehicleId'],
+      vehicleId: id,
       eviNo: elecBrandNum,
       eviUrl: plateNo
     })
     if (result) {
       wx.navigateTo({
-        url: './bindStatus',
+        url: './bindStatus?id=' + id,
       })
     }
   },

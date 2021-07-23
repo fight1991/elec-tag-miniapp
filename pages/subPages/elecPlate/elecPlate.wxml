@@ -4,7 +4,7 @@
   <view class="box-status">
     <bind-status
       plateNo="{{elecInfo.plateNo}}"
-      eviId="{{elecInfo.eviId}}"
+      eviNo="{{elecInfo.eviNo}}"
       status="{{elecInfo.bindStatus}}"
       showOp="{{false}}">
     </bind-status>

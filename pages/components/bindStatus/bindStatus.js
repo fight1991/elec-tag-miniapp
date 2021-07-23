@@ -9,7 +9,7 @@ Component({
       type: String,
       value: 'delivery'
     },
-    eviId: {
+    eviNo: {
       type: String,
       value: ''
     },

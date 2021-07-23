@@ -4,8 +4,8 @@
     style="background-image:url({{bgObj[status]}})">
     <view class="content">
       <view class="head-title fs16">{{plateNo}}</view>
-      <view class="head-title fs12 fc-ccc" wx:if="{{status == 'bind' || status == 'installed'}}">电子车牌: {{eviId}}</view>
-      <view class="head-title fs12 fc-ccc line-through" wx:if="{{status == 'scrap'}}">电子车牌: {{eviId}}</view>
+      <view class="head-title fs12 fc-ccc" wx:if="{{status == 'bind' || status == 'installed'}}">电子车牌: {{eviNo}}</view>
+      <view class="head-title fs12 fc-ccc line-through" wx:if="{{status == 'scrap'}}">电子车牌: {{eviNo}}</view>
       <view class="head-title brand-status" wx:if="{{statusText[status]}}">{{statusText[status]}}</view>
     </view>
     <view wx:if="{{showOp}}" class="dot-box" id="{{vehicleId}}" catchtap="showSheet">

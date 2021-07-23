@@ -4,6 +4,6 @@
     <view class="text fs16">绑定成功</view>
   </success>
 </view>
-<navigator url="/pages/subPages/elecPlate/uploadImg">
+<navigator url="/pages/subPages/elecPlate/uploadImg?id={{id}}">
   <fixBtn>上传车辆照片</fixBtn>
 </navigator>

@@ -10,7 +10,7 @@
         showOp="{{true}}"
         vehicleId="{{item.vehicleId}}"
         bindshowSheet="showSheet"
-        eviId="{{item.eviId}}">
+        eviNo="{{item.eviNo}}">
       </bind-status>
     </navigator>
   </block>
