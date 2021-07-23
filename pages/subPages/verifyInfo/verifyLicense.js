@@ -76,6 +76,7 @@ Page({
   // 上传完成开始ocr识别
   async getImgInfo (e) {
     // url为 e.detail
+    if (!e.detail) return
     let { result } = await licenseOcr(e.detail)
     if (result) {
       let { licenseInfo } = this.data

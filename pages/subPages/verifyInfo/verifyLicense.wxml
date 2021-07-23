@@ -29,7 +29,6 @@
       <!-- 身份证正面区域 -->
       <view class="license-front license-box">
         <upload 
-          closeIcon="{{false}}"
           bindgetImgInfo="getImgInfo"
           model:img-src="{{frontImgUrl}}"
           staticSrc="/pages/image/driver-original.png"
@@ -42,7 +41,6 @@
       <!-- 身份证反面区域 -->
       <view class="license-back license-box">
         <upload 
-          closeIcon="{{false}}"
           bindgetImgInfo="getImgInfo"
           model:img-src="{{backImgUrl}}"
           staticSrc="/pages/image/driver-copy.png"

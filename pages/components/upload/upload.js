@@ -52,8 +52,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // 点击图片按钮
+    // 点击图片按钮, 如果存在删除按钮则预览, 否则直接选择/上传文件
     chooseBtn (e) {
+      if (this.data.closeIcon && this.data.tempSrc) {
+        wx.previewImage({
+          urls: [this.data.tempSrc] // 当前显示图片的http链接
+        })
+        return
+      }
       wx.showActionSheet({
         itemList: ['拍照','从相册中选择'],
         success: (res) => {
