@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "tag": "/pages/components/outerTag/outerTag"
+  },
   "navigationBarTitleText": "无感加油"
 }

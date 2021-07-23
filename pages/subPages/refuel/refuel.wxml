@@ -1,2 +1,35 @@
 <!--pages/subPages/refuel/refuel.wxml-->
-<text>pages/subPages/refuel/refuel.wxml</text>
+<view class="box">
+  <view class="top-box">
+    <view class="search-box">
+      <searchInput
+        placeHolder="搜索附近的加油站">
+      </searchInput>
+    </view>
+    <view class="select-box">
+      <view class="select-item">
+        <text class="select-text">3Km</text>
+        <iconfont size="20rpx" icon="arrow-down"></iconfont>
+      </view>
+      <view class="select-item">
+        <text class="select-text">92#</text>
+        <iconfont size="20rpx" icon="arrow-down"></iconfont>
+      </view>
+      <view class="select-item">
+        <text class="select-text">距离最近</text>
+        <iconfont size="20rpx" icon="arrow-down"></iconfont>
+      </view>
+    </view>
+  </view>
+  <view class="content-box">
+    <view class="mask-box" bindtap="maskTap">
+      <view class="select-tag">
+        <tag>3km</tag>
+        <tag>3km</tag>
+        <tag>3km</tag>
+        <tag>3km</tag>
+        <tag>3km</tag>
+      </view>
+    </view>
+  </view>
+</view>

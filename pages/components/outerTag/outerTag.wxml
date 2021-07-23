@@ -1,0 +1,6 @@
+<!--pages/components/outerTag/outerTag.wxml-->
+<view
+  class="tag"
+  style="color: {{active? '#447FFF':'#808080'}};'border-color':{{active? '#447FFF':'#808080'}}">
+  <slot></slot>
+</view>

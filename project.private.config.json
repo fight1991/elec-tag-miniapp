@@ -107,6 +107,12 @@
           "pathName": "pages/subPages/citySelector/citySelector",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "无感加油",
+          "pathName": "pages/subPages/refuel/refuel",
+          "query": "",
+          "scene": null
         }
       ]
     }
