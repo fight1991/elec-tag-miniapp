@@ -21,12 +21,12 @@ Component({
     bgData: {
       delivery: app.utils.imgTobase64('/pages/image/swiper-bg.png'),
       bind: app.utils.imgTobase64('/pages/image/swiper-bg.png'),
-      installed: app.utils.imgTobase64('/pages/image/unbind-bg.png'),
+      installed: app.utils.imgTobase64('/pages/image/swiper-bg.png'),
       scrap: app.utils.imgTobase64('/pages/image/unbind-bg.png')
     },
     statusText: {
       delivery: '未绑定',
-      bind: '已绑定',
+      bind: '待安装',
       installed: '已安装',
       scrap: '已报废'
     }

@@ -52,6 +52,7 @@ Page({
     })
     if (result) {
       app.globalData.userInfo.authPersonal = true
+      app.globalData.userInfo.userName = idName
       app.messageBox.success('实名认证成功')
       wx.navigateBack({
         delta: 2
