@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/login/signIn",
     "pages/main/main",
     "pages/main/morePoint",
     "pages/my/my",
@@ -53,6 +54,7 @@
       "name": "verifyInfo",
       "pages": [
         "index",
+        "idcardVerify",
         "verifyRealName",
         "verifyLicense",
         "applyWays"

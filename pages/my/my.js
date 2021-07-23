@@ -73,6 +73,11 @@ Page({
       userName
     })
   },
+  goRealName () {
+    wx.navigateTo({
+      url: '/pages/subPages/verifyInfo/idcardVerify',
+    })
+  },
   routePage (e) {
     let { authPersonal } = this.data
     if (!authPersonal) {
