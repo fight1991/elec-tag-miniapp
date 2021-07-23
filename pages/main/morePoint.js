@@ -12,7 +12,9 @@ Page({
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     loading: false, // 正在加载
-    list: []
+    list: [],
+    longitude: '',
+    latitude: ''
   },
 
   /**
@@ -28,8 +30,8 @@ Page({
       success: (res) => {
         let { latitude, longitude } = res
         this.setData({
-          lon: longitude,
-          lat: latitude
+          longitude,
+          latitude
         })
         this.initList()
       },
@@ -42,12 +44,12 @@ Page({
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize, lon, lat } = this.data
+    let { pageSize, longitude, latitude } = this.data
     pageIndex ++
     let { result, page } = await point_list({
       data: {
-        lon,
-        lat
+        longitude,
+        latitude
       },
       page: {
         pageIndex,

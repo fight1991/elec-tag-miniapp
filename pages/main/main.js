@@ -44,11 +44,11 @@ Page({
     })
   },
   // 获取网点列表
-  async getPointList (lon, lat) {
+  async getPointList (longitude, latitude) {
     let { result, page } = await point_list({
       data: {
-        lat,
-        lon
+        latitude,
+        longitude
       },
       page: this.data.pagination
     })
