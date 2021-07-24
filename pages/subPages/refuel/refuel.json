@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "tag": "/pages/components/outerTag/outerTag"
+    "tag": "/pages/components/outerTag/outerTag",
+    "oil-card": "/pages/components/oilCard/oilCard"
   },
   "navigationBarTitleText": "无感加油"
 }

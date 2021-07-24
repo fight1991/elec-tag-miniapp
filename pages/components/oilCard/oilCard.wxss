@@ -1,0 +1,32 @@
+/* pages/components/oilCard/oilCard.wxss */
+.box {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  justify-content: space-between;
+  position: relative;
+}
+.head-box {
+  display: flex;
+  align-items: center;
+}
+.title-box {
+  padding-left: 40rpx;
+}
+.title {
+  padding: 6rpx 0;
+}
+.main-title {
+  color: #1D1D25;
+}
+.sub-title {
+  color: #808080;
+}
+
+.text {
+  min-width: 100rpx;
+  text-align: center;
+}
