@@ -163,7 +163,11 @@
     "searchInput": "/pages/components/searchInput/searchInput",
     "listTitle": "/pages/components/listTitle/listTitle",
     "success": "/pages/components/success/success",
-    "iconImg": "/pages/components/iconImg/iconImg"
+    "iconImg": "/pages/components/iconImg/iconImg",
+    "mp-tabs": "@miniprogram-component-plus/tabs"
+  },
+  "useExtendedLib": {
+    "weui": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
