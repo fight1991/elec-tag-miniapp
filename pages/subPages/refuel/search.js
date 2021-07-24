@@ -8,7 +8,8 @@ Page({
   data: {
     value: '',
     focus: false,
-    historyList: []
+    historyList: [],
+    hiddenDeleteSection: true, // 隐藏删除icon
   },
 
   /**
@@ -52,6 +53,15 @@ Page({
   },
   // 点击历史记录
   historyBtn (e) {
+    let { hiddenDeleteSection, historyList } = this.data
+    if (!hiddenDeleteSection) {
+      let index = e.target.dataset.index
+      historyList.splice(index, 1)
+      this.setData({
+        historyList
+      })
+      return
+    }
     let str = e.target.id
     this.getPrePage((prePage) => {
       prePage.setData({
@@ -62,10 +72,36 @@ Page({
       })
     })
   },
+  // 清空历史记录
+  clearHistory () {
+    this.setData({
+      hiddenDeleteSection: false
+    })
+  },
+  // 全部删除
+  deleteAll () {
+    this.setData({
+      historyList: []
+    })
+    wx.removeStorage({
+      key: 'historyList',
+    })
+  },
+  // 删除操作完成
+  deleteOverBtn () {
+    this.setData({
+      hiddenDeleteSection: true
+    })
+    let { historyList } = this.data
+    wx.setStorage({
+      key: 'historyList',
+      data: historyList
+    })
+  },
   // 存储历史记录
   setHistory (str) {
     let { historyList } = this.data
-    if (historyList.indexOf(str) > 0) return
+    if (historyList.indexOf(str) >= 0) return
     if (historyList.length > 9) {
       historyList.pop()
     }

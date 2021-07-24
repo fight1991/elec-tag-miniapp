@@ -5,13 +5,21 @@
     bindconfirm="confirmBtn"
     value="{{value}}">
   </searchInput>
-  <view class="history">
+  <view class="history" wx:if="{{historyList.length>0}}">
     <text class="his-text">历史记录</text>
-    <iconfont size="44rpx" icon="delete"></iconfont>
+    <iconfont bindtap="clearHistory" wx:if="{{hiddenDeleteSection}}" size="44rpx" icon="delete"></iconfont>
+    <view class="delete-select" hidden="{{hiddenDeleteSection}}">
+      <text class="delete-all" bindtap="deleteAll">全部删除</text>
+      <text class="shuxian">|</text>
+      <text class="delete-over" bindtap="deleteOverBtn">完成</text>
+    </view>
   </view>
   <view class="history-box" bindtap="historyBtn">
     <block wx:for="{{historyList}}" wx:key="index">
-      <view id="{{item}}" class="history-item text-cut">{{item}}</view>
+      <view id="{{item}}" data-index="{{index}}" class="history-item text-cut">
+        <text class="stopTap">{{item}}</text>
+        <iconfont wx:if="{{!hiddenDeleteSection}}" class="close-icon stopTap" icon="close" size="20rpx"></iconfont>
+      </view>
     </block>  
   </view>
 </view>

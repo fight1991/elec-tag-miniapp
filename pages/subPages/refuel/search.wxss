@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 30rpx 0;
+  height: 55rpx;
 }
 .his-text {
   font-size: 30rpx;
@@ -15,10 +16,32 @@
 .history-item {
   color: #4E4E4E;
   float: left;
-  padding: 8rpx 20rpx;
+  padding: 8rpx 24rpx;
   border-radius: 6rpx;
   background-color: #fff;
-  margin:0 10rpx 20rpx;
+  margin:0 10rpx 20rpx 0;
   max-width: 300rpx;
   font-size: 26rpx;
+  position: relative;
+}
+.close-icon {
+  position: absolute;
+  right: 2rpx;
+  top: -2rpx;
+}
+.delete-select {
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+}
+.shuxian {
+  color: #ccc;
+}
+.delete-all {
+  padding-right: 20rpx;
+  color: #666;
+}
+.delete-over {
+  padding-left: 20rpx;
+  color: red;
 }
