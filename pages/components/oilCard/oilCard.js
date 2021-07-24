@@ -12,6 +12,14 @@ Component({
       type: String,
       value: '-'
     },
+    oldPrice: {
+      type: String,
+      value: '-'
+    },
+    newPrice: {
+      type: String,
+      value: '-'
+    }
   },
 
   /**

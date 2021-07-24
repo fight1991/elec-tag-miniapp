@@ -41,7 +41,10 @@
     <view class="card-box">
       <oil-card 
         title="加油站"
-        subTitle="无锡市江阴滨江洗"></oil-card>
+        subTitle="无锡市江阴滨江洗"
+        oldPrice="3.44"
+        newPrice="4.44">
+      </oil-card>
     </view>
   </view>
 </view>

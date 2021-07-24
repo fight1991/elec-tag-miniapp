@@ -7,6 +7,10 @@
     <view class="title-box">
       <view class="main-title title">{{title}}</view>
       <view class="sub-title title">{{subTitle}}</view>
+      <view class="oil-price">
+        <view class="new-price">¥{{oldPrice}}</view>
+        <view class="old-price">油站 ¥{{newPrice}}</view>
+      </view>
     </view>
   </view>
   <view>

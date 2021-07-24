@@ -15,6 +15,13 @@
 }
 .title-box {
   padding-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.oil-price {
+  display: flex;
+  align-items: center;
 }
 .title {
   padding: 6rpx 0;
@@ -22,10 +29,18 @@
 .main-title {
   color: #1D1D25;
 }
-.sub-title {
+.sub-title,.old-price {
   color: #808080;
+  font-size: 22rpx;
 }
-
+.new-price {
+  color: #FF7E37;
+  padding: 0 4rpx;
+}
+.old-price {
+  text-decoration: line-through;
+  padding: 0 4rpx;
+}
 .text {
   min-width: 100rpx;
   text-align: center;
