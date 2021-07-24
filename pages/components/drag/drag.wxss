@@ -1,0 +1,60 @@
+/* pages/components/drag/drap.wxss */
+.map-list .list {
+  position: relative;
+  height: 120rpx;
+}
+
+.map-list .list::after {
+  content: '';
+  width: 660rpx;
+  height: 2rpx;
+  background-color: #eee;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.map-list .list .xt {
+  display: block;
+  width: 95rpx;
+  height: 77rpx;
+  position: absolute;
+  left: 93rpx;
+  top: 20rpx;
+}
+
+.map-list .list .more {
+  display: block;
+  width: 48rpx;
+  height: 38rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 40rpx;
+}
+
+.map-list .list .info {
+  display: block;
+  width: 380rpx;
+  height: 80rpx;
+  position: absolute;
+  left: 220rpx;
+  top: 20rpx;
+  font-size: 30rpx;
+}
+
+.map-list .list .info .sub-name {
+  font-size: 28rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #646567;
+}
+
+.map-list .list .index {
+  color: #e4463b;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: absolute;
+  left: 35rpx;
+  top: 40rpx;
+}

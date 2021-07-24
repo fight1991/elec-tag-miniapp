@@ -1,0 +1,23 @@
+<!--pages/components/drag/drap.wxml-->
+<view class='listbox'>
+    <view class='list kelong' hidden='{{!showkelong}}' style='top:{{kelong.top}}px'>
+      <view class='index'>?</view>
+      <image src='{{kelong.xt}}' class='xt'></image>
+      <view class='info'>
+        <view class="name">{{kelong.name}}</view>
+        <view class='sub-name'>{{kelong.subname}}</view>
+      </view>
+      <image src='/images/sl_36.png' class='more'></image>
+    </view>
+
+    <view class='list' wx:for="{{optionList}}" wx:key="">
+      <view class='index'>{{index+1}}</view>
+      <image src='{{item.xt}}' class='xt'></image>
+      <view class='info'>
+        <view class="name">{{item.name}}</view>
+        <view class='sub-name'>{{item.subname}}</view>
+      </view>
+      <image src='/images/sl_36.png' class='more'></image>
+      <view class='moreiconpl' data-index='{{index}}' catchtouchstart='dragStart' catchtouchmove='dragMove' catchtouchend='dragEnd'></view>
+    </view>
+  </view>
