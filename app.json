@@ -13,7 +13,8 @@
       "root": "pages/subPages/refuel",
       "name": "refuel",
       "pages": [
-        "refuel"
+        "refuel",
+        "search"
       ]
     },
     {

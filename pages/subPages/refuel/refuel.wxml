@@ -1,11 +1,15 @@
 <!--pages/subPages/refuel/refuel.wxml-->
 <view class="box">
   <view class="top-box">
-    <view class="search-box">
-      <searchInput
-        placeHolder="搜索附近的加油站">
-      </searchInput>
-    </view>
+    <navigator hover-class="none" url="/pages/subPages/refuel/search?searchStr={{searchStr}}">
+      <view class="search-box" disabled>
+        <searchInput
+          disabled
+          value="{{searchStr}}"
+          placeHolder="搜索附近的加油站">
+        </searchInput>
+      </view>
+    </navigator>
     <view class="select-box" bindtap="selectBtn">
       <view class="select-item" data-tab="distance">
         <text class="select-text stopTap">{{tabValue.distance}}</text>

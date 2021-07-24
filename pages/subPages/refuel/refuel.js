@@ -7,6 +7,7 @@ Page({
   data: {
     showMask: false,
     currentTabName: 'distance', // 当前选择的tab
+    searchStr: '', // 搜索的关键词
     tabValue: {
       distance: '3km',
       oil: '92#',

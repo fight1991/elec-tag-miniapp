@@ -12,6 +12,14 @@ Component({
       type: String,
       value: ''
     },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    focus: {
+      type: Boolean,
+      value: false
+    },
     bgc: {
       type: String,
       value: '#fff'

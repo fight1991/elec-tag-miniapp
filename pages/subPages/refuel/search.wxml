@@ -1,0 +1,17 @@
+<!--pages/subPages/refuel/search.wxml-->
+<view class="outer">
+  <searchInput
+    focus="{{focus}}"
+    bindconfirm="confirmBtn"
+    value="{{value}}">
+  </searchInput>
+  <view class="history">
+    <text class="his-text">历史记录</text>
+    <iconfont size="44rpx" icon="delete"></iconfont>
+  </view>
+  <view class="history-box" bindtap="historyBtn">
+    <block wx:for="{{historyList}}" wx:key="index">
+      <view id="{{item}}" class="history-item text-cut">{{item}}</view>
+    </block>  
+  </view>
+</view>

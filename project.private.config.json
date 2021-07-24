@@ -113,6 +113,12 @@
           "pathName": "pages/subPages/refuel/refuel",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "无感加油搜索",
+          "pathName": "pages/subPages/refuel/search",
+          "query": "",
+          "scene": null
         }
       ]
     }
