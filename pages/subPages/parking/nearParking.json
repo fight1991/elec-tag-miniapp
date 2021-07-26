@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "business-card": "/pages/components/businessCard/businessCard"
+  },
+  "navigationBarTitleText": "找车位"
+}

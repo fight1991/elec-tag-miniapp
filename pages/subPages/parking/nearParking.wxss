@@ -1,0 +1,26 @@
+/* pages/subPages/parking/nearParking.wxss */
+.box {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+.bottom-box {
+  height: 50%;
+  position: absolute;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  padding: 0 30rpx;
+}
+.item-box {
+  height: calc(100% - 82rpx);
+  overflow-y: auto;
+}
+.search-box {
+  margin-bottom: 20rpx;
+  box-shadow: 1px 1px 10px 0 #ccc;
+}

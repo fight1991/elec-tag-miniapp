@@ -1,0 +1,31 @@
+<!--pages/subPages/parking/parkingDetail.wxml-->
+<view>
+  <!-- 自定义导航栏 -->
+  <view class="self-nav" style="top:{{navTop}}rpx;height:{{navHeight}}rpx">
+    <navigator open-type="navigateBack">
+      <view class="menu">
+        <iconfont icon="arrow-left" color="#fff"></iconfont>
+        <text>返回</text>
+      </view>
+    </navigator>
+  </view>
+  <view class="bg">
+    <image class="img" mode="widthFix" src="/pages/image/record_banner.jpg"></image>
+  </view>
+  <view class="oil-detail">
+    <view class="oil-title">中国海油协和加油站</view>
+    <view class="address">
+      <iconfont icon="position" size="30rpx"></iconfont>
+      <text class="distance">3.33km</text>
+      <text class="add-txt">无锡建银是西昌路444号</text>
+    </view>
+    <view class="time">
+      <iconfont class="clock" icon="clock" size="30rpx"></iconfont>
+      <text>00:00</text>
+      <text>-</text>
+      <text>22:30</text>
+    </view>
+  </view>
+</view>
+<fixBtn>立即前往</fixBtn>
+

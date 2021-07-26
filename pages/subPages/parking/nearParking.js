@@ -1,4 +1,5 @@
-// pages/subPages/refuel/oilDetail.js
+// pages/subPages/parking/nearParking.js
+const chooseLocation = requirePlugin('chooseLocation')
 var app = getApp()
 Page({
 
@@ -6,37 +7,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navTop: 0,
-    navHeight: 0,
-    selection: ['92#', '95#', '98#', '0#'],
-    selectionIndex: 0
-  },
+    destination: '' // 目的地
+  },  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initTopHeight()
+
   },
-  // 初始化状态栏的高度
-  initTopHeight () {
-    this.setData({
-      navTop: app.navTop,
-      navHeight: app.navHeight
+  searchPlace () {
+    let { key, referer } = app.appLBS
+    wx.navigateTo({
+      url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer
     })
   },
-  // 打开选择油号面板
-  showSheet () {
-    wx.showActionSheet({
-      itemList: this.data.selection,
-      success: res => {
-        if (res.cancel) return
-        if (res.tapIndex == this.data.selectionIndex) return
-        this.setData({
-          selectionIndex: res.tapIndex
-        })
-      }
-    })
+  // 从地图上选点返回
+  getMapPoint () {
+    const location = chooseLocation.getLocation()
+    if (location) {
+      console.log(location)
+      this.setData({
+        destination: location.name
+      })
+      // 重新查找附近的停车场
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -49,7 +44,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getMapPoint()
   },
 
   /**
@@ -63,7 +58,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    chooseLocation.setLocation(null)
   },
 
   /**

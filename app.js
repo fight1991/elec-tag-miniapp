@@ -23,7 +23,7 @@ const QQMapWX = require('./utils/qqmap-wx-jssdk.js')
 
 App({
   onLaunch() {
-
+    this.getSystem()
   },
   // 绑定公共方法
   utils: utils,
@@ -37,6 +37,8 @@ App({
   },
   messageBox: messageBox, // 弹框
   redirect: '', // 记录token失效时当前的页面地址
+  navTop: 0, // 状态栏高度
+  navHeight: 0, // 导航栏高度
   appLBS: { // 腾讯位置服务
     key: 'ZMYBZ-P6OKU-YWWV5-45AVL-4SMA5-FDB5X', // 腾讯位置服务申请的key
     referer: '航天吉光小程序', // 调用插件的app的名称
@@ -52,6 +54,17 @@ App({
       key
     })
     return this.qqmapsdk
+  },
+  // 获取导航栏/状态栏的高度
+  getSystem () {
+    let systemInfo = wx.getSystemInfoSync()
+    let pxToRpxScale = 750 / systemInfo.windowWidth
+    // 状态栏的高度
+    let ktxStatusHeight = systemInfo.statusBarHeight * pxToRpxScale
+    // 导航栏的高度
+    let navigationHeight = 44 * pxToRpxScale
+    this.navTop = ktxStatusHeight
+    this.navHeight = navigationHeight
   },
   getWechatCode () {
     return new Promise((relove, reject) => {

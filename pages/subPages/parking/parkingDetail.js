@@ -1,4 +1,4 @@
-// pages/subPages/refuel/oilDetail.js
+// pages/subPages/parking/parkingDetail.js
 var app = getApp()
 Page({
 
@@ -7,9 +7,7 @@ Page({
    */
   data: {
     navTop: 0,
-    navHeight: 0,
-    selection: ['92#', '95#', '98#', '0#'],
-    selectionIndex: 0
+    navHeight: 0
   },
 
   /**
@@ -23,19 +21,6 @@ Page({
     this.setData({
       navTop: app.navTop,
       navHeight: app.navHeight
-    })
-  },
-  // 打开选择油号面板
-  showSheet () {
-    wx.showActionSheet({
-      itemList: this.data.selection,
-      success: res => {
-        if (res.cancel) return
-        if (res.tapIndex == this.data.selectionIndex) return
-        this.setData({
-          selectionIndex: res.tapIndex
-        })
-      }
     })
   },
   /**
