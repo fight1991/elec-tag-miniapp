@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "shopAddress": "../components/shopAddress/shopAddress"
+  },
   "navigationStyle": "custom"
 }

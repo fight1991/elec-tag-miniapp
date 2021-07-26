@@ -6,22 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navTop: 0,
-    navHeight: 0
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initTopHeight()
-  },
-  // 初始化状态栏的高度
-  initTopHeight () {
-    this.setData({
-      navTop: app.navTop,
-      navHeight: app.navHeight
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

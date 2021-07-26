@@ -171,6 +171,7 @@
     "listTitle": "/pages/components/listTitle/listTitle",
     "success": "/pages/components/success/success",
     "iconImg": "/pages/components/iconImg/iconImg",
+    "fullBanner": "/pages/components/fullBanner/fullBanner",
     "mp-tabs": "@miniprogram-component-plus/tabs"
   },
   "useExtendedLib": {

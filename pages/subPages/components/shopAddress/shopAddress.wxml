@@ -1,0 +1,15 @@
+<!--pages/subPages/components/shopAddress/shopAddress.wxml-->
+<view class="oil-detail">
+  <view class="oil-title">{{title}}</view>
+  <view class="address">
+    <iconfont icon="position" size="30rpx"></iconfont>
+    <text class="distance">{{distance}}</text>
+    <text class="add-txt">{{address}}</text>
+  </view>
+  <view class="time">
+    <iconfont class="clock" icon="clock" size="30rpx"></iconfont>
+    <text>{{startTime}}</text>
+    <text>-</text>
+    <text>{{endTime}}</text>
+  </view>
+</view>

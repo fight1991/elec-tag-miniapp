@@ -137,6 +137,12 @@
           "pathName": "pages/subPages/parking/nearParking",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "附近停车场详情",
+          "pathName": "pages/subPages/parking/parkingDetail",
+          "query": "",
+          "scene": null
         }
       ]
     }

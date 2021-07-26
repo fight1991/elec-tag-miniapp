@@ -1,0 +1,21 @@
+/* pages/subPages/components/shopAddress/shopAddress.wxss */
+
+.oil-detail {
+  padding: 30rpx 40rpx;
+  background-color: #fff;
+}
+.oil-title {
+  font-size: 32rpx;
+}
+.address {
+  padding: 10rpx 0;
+}
+.add-txt {
+  padding-left: 20rpx;
+}
+.time {
+  padding-top: 10rpx;
+}
+.clock {
+  margin-right: 10rpx;
+}
