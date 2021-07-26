@@ -1,2 +1,34 @@
 <!--pages/subPages/parking/parkingRecord.wxml-->
-<text>pages/subPages/parking/parkingRecord.wxml</text>
+<view class="box">
+  <view class="search-box">
+    <searchInput
+      value="{{value}}"
+      placeHolder="请输入停车场名称">
+    </searchInput>
+  </view>
+  <view class="list-box">
+    <block wx:for="{{5}}" wx:key="index">
+      <navigator url="./recordDetail">
+        <view class="list-item">
+          <view class="item">
+            <view class="name">
+              <view class="name-left"> 听恒昌</view>
+              <view class="name-right theme-color"> 苏B1343P</view>
+            </view>
+          </view>
+          <view class="item middle sub-title">
+            入场时间: <text class="time">{{'errere'}}</text>
+          </view>
+          <view class="item sub-title">
+            停车时长: <text class="time">{{'errere'}}</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+    
+  </view>
+  <view class="has-more" wx:if="{{resultList.length > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
+  <view wx:else>
+    <nodata>暂无数据</nodata>
+  </view>
+</view>

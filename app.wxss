@@ -164,3 +164,6 @@ page {
 .no-bottom-border {
   border-bottom: none;
 }
+.theme-color {
+  color: #447fff;
+}

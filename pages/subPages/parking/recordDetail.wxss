@@ -1,0 +1,27 @@
+/* pages/subPages/parking/recordDetail.wxss */
+.line-box {
+  background-color: #fff;
+  padding: 40rpx 30rpx;
+}
+.title,.subTitle {
+  font-size: 34rpx;
+  text-align: center;
+}
+.subTitle {
+  padding: 16rpx 0;
+}
+.line-item {
+  display: flex;
+  padding: 10rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.left {
+  color: #808080;
+}
+.right {
+  color: #4D4D4D;
+}
+.price {
+  color: #FF7E37;
+}

@@ -39,7 +39,8 @@
         "parking",
         "nearParking",
         "parkingDetail",
-        "parkingRecord"
+        "parkingRecord",
+        "recordDetail"
       ]
     },
     {

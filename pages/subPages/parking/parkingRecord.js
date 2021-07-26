@@ -12,7 +12,8 @@ Page({
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     loading: false, // 正在加载
-    resultList: []
+    resultList: [],
+    value: ''
   },
 
   /**

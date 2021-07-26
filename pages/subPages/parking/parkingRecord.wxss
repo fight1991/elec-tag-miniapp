@@ -1,1 +1,29 @@
 /* pages/subPages/parking/parkingRecord.wxss */
+.box {
+  padding: 0 30rpx;
+}
+.search-box {
+  padding: 30rpx 0;
+}
+.list-item {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+.name {
+  color:#1D1D25;
+  font-size: 32rpx;
+}
+.sub-title {
+  color: #808080;
+  font-size: 26rpx;
+}
+.middle {
+  padding: 10rpx 0;
+}
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
