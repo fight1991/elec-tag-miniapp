@@ -4,6 +4,9 @@ Page({
   /**
    * 页面的初始数据
    */
+  options: {
+    multipleSlots: true
+  },
   data: {
     showMask: false,
     currentTabName: 'distance', // 当前选择的tab
@@ -63,9 +66,9 @@ Page({
       showMask: false
     })
   },
-  itemsTap () {
-
-  },
+  itemsTap () {},
+  // 导航按钮
+  navigatorBtn () {},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -15,6 +15,14 @@ Component({
       type: String,
       value: '-'
     },
+    subTitleRight: {
+      type: String,
+      value: '-'
+    },
+    src: {
+      type: String,
+      value: '/pages/image/default.png'
+    },
     oldPrice: {
       type: String,
       value: '-'

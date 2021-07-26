@@ -3,5 +3,7 @@
     "tag": "/pages/components/outerTag/outerTag",
     "oil-card": "/pages/components/oilCard/oilCard"
   },
-  "navigationBarTitleText": "无感加油"
+  "navigationBarTitleText": "无感加油",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

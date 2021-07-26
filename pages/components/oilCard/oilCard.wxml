@@ -3,16 +3,16 @@
   <view class="head-box">
     <view class="head-img">
       <!-- <slot name="pref"></slot> -->
-      <image class="img" mode="widthFix" src="/pages/image/application.png"></image>
+      <image class="img" mode="widthFix" src="{{src}}"></image>
     </view>
     <view class="title-box">
       <view class="main-title title">
         <text class="title-text text-cut">{{title}}</text>
-        <iconfont icon="navigator" size="38rpx" color="#447FFF" catchtap="navigatorBtn"></iconfont>
+        <slot name="suffixIcon"></slot>
       </view>
       <view class="sub-title title">
         <text class="title-text text-cut">{{subTitle}}</text>
-        <text class="sub-suffix">12</text>
+        <text class="sub-suffix">{{subTitleRight}}</text>
       </view>
       <view class="oil-price">
         <view class="new-price">¥{{oldPrice}}</view>

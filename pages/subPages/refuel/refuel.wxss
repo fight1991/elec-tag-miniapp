@@ -22,7 +22,7 @@ page {
 .select-box {
   display: flex;
   align-items: center;
-  margin: 20rpx 0;
+  margin-top: 20rpx;
   font-size: 26rpx;
 }
 .select-text {
@@ -32,6 +32,13 @@ page {
   flex: 1;
   /* background-color: pink; */
   position: relative;
+  height: calc(100% - 212rpx);
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.card-box {
+  height: 100%;
+  overflow-y: auto;
 }
 .mask-box {
   width: 100%;
@@ -39,6 +46,7 @@ page {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 22;
   background-color: rgba(0,0,0,.3);
 }
 .select-tag {
@@ -48,4 +56,7 @@ page {
   grid-template-columns:repeat(4, 25%);
   row-gap: 30rpx;
   place-items: center;
+}
+.card-item {
+  margin: 0 30rpx;
 }
