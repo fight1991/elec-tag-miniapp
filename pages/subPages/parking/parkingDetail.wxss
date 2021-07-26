@@ -1,36 +1,17 @@
 /* pages/subPages/parking/parkingDetail.wxss */
-.img {
-  width: 100%;
-}
-.self-nav {
-  position: fixed;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.menu {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  color: #fff;
-}
-.oil-detail {
-  padding: 30rpx 40rpx;
-  background-color: #fff;
-}
-.oil-title {
+.title {
+  padding: 20rpx 30rpx;
   font-size: 32rpx;
 }
-.address {
+.detail {
+  padding: 20rpx 30rpx;
+  margin: 0 30rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10rpx 0;
-}
-.add-txt {
-  padding-left: 20rpx;
-}
-.time {
-  padding-top: 10rpx;
-}
-.clock {
-  margin-right: 10rpx;
 }

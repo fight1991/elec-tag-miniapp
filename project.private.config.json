@@ -143,6 +143,12 @@
           "pathName": "pages/subPages/parking/parkingDetail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "停车记录列表",
+          "pathName": "pages/subPages/parking/parkingRecord",
+          "query": "",
+          "scene": null
         }
       ]
     }

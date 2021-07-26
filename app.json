@@ -38,7 +38,8 @@
       "pages": [
         "parking",
         "nearParking",
-        "parkingDetail"
+        "parkingDetail",
+        "parkingRecord"
       ]
     },
     {
