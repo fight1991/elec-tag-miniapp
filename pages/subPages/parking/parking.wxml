@@ -20,13 +20,13 @@
     </view>
   </view>
   <view class="right-top">
-    <view class="icon-box">
+    <view class="icon-box" bindtap="findParking">
       <image class="icon-item" mode="widthFix"  src="/pages/image/businessCircle/parking-search.png"></image>
       <text>找车位</text>
     </view>
     <view class="icon-box">
       <image class="icon-item" mode="widthFix"  src="/pages/image/businessCircle/parking-record.png"></image>
-      <text>找车位</text>
+      <text>停车记录</text>
     </view>
   </view>
 </view>

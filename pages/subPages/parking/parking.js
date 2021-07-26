@@ -1,4 +1,6 @@
 // pages/subPages/parking/parking.js
+const chooseLocation = requirePlugin('chooseLocation')
+var app = getApp()
 Page({
 
   /**
@@ -21,14 +23,27 @@ Page({
   onReady: function () {
 
   },
-
+  // 找车位
+  findParking () {
+    let { key, referer } = app.appLBS
+    wx.navigateTo({
+      url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getMapPoint()
   },
-
+  // 从地图上选点返回
+  getMapPoint () {
+    const location = chooseLocation.getLocation()
+    if (location) {
+      console.log(location)
+      // 重新查找附近的停车场
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -40,7 +55,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    chooseLocation.setLocation(null)
   },
 
   /**
