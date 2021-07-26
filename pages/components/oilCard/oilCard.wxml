@@ -2,11 +2,18 @@
 <view class="box">
   <view class="head-box">
     <view class="head-img">
-      <slot name="pref"></slot>
+      <!-- <slot name="pref"></slot> -->
+      <image class="img" mode="widthFix" src="/pages/image/application.png"></image>
     </view>
     <view class="title-box">
-      <view class="main-title title">{{title}}</view>
-      <view class="sub-title title">{{subTitle}}</view>
+      <view class="main-title title">
+        <text class="title-text text-cut">{{title}}</text>
+        <iconfont icon="navigator" size="38rpx" color="#447FFF" catchtap="navigatorBtn"></iconfont>
+      </view>
+      <view class="sub-title title">
+        <text class="title-text text-cut">{{subTitle}}</text>
+        <text class="sub-suffix">12</text>
+      </view>
       <view class="oil-price">
         <view class="new-price">¥{{oldPrice}}</view>
         <view class="old-price">油站 ¥{{newPrice}}</view>
@@ -14,6 +21,6 @@
     </view>
   </view>
   <view>
-    <slot name="suffix"></slot>
+    <slot name="foot"></slot>
   </view>
 </view>

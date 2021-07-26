@@ -1,33 +1,52 @@
 /* pages/components/oilCard/oilCard.wxss */
 .box {
-  display: flex;
-  align-items: center;
   padding: 30rpx;
   background-color: #fff;
   margin-bottom: 20rpx;
   border-radius: 8rpx;
-  justify-content: space-between;
   position: relative;
+}
+.head-img {
+  width: 140rpx;
+}
+.img {
+  width: 100%;
 }
 .head-box {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .title-box {
-  padding-left: 40rpx;
+  padding-left: 30rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 100%;
 }
 .oil-price {
   display: flex;
   align-items: center;
 }
 .title {
-  padding: 6rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
 }
+.sub-suffix {
+  color: #447fff;
+}
+.title-text {
+  flex: 1;
+}
+
 .main-title {
   color: #1D1D25;
+}
+.sub-title {
+  padding: 6rpx 0;
 }
 .sub-title,.old-price {
   color: #808080;
