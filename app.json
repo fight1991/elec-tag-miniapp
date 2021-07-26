@@ -14,7 +14,8 @@
       "name": "refuel",
       "pages": [
         "refuel",
-        "search"
+        "search",
+        "oilDetail"
       ]
     },
     {

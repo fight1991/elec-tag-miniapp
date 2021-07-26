@@ -1,0 +1,68 @@
+/* pages/subPages/refuel/oilDetail.wxss */
+.img {
+  width: 100%;
+}
+.self-nav {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.menu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.oil-detail {
+  padding: 30rpx 40rpx;
+  background-color: #fff;
+}
+.oil-title {
+  font-size: 32rpx;
+}
+.address {
+  padding: 10rpx 0;
+}
+.add-txt {
+  padding-left: 20rpx;
+}
+.time {
+  padding-top: 10rpx;
+}
+.clock {
+  margin-right: 10rpx;
+}
+.price-box {
+  padding: 30rpx 40rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price-item {
+  display: flex;
+  color: #808080;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.oil-num text {
+  padding-right: 14rpx;
+}
+.discount {
+  color: #FF7E37;
+}
+.title {
+  padding-bottom: 10rpx;
+}
+.big {
+  font-size: 36rpx;
+}
+.shuxian {
+  width: 1px;
+  height: 50rpx;
+  background-color: #EBEBEB;
+}

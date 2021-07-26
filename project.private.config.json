@@ -119,6 +119,12 @@
           "pathName": "pages/subPages/refuel/search",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "无感加油详情",
+          "pathName": "pages/subPages/refuel/oilDetail",
+          "query": "",
+          "scene": null
         }
       ]
     }
