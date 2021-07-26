@@ -125,6 +125,12 @@
           "pathName": "pages/subPages/refuel/oilDetail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "智慧停车",
+          "pathName": "pages/subPages/parking/parking",
+          "query": "",
+          "scene": null
         }
       ]
     }

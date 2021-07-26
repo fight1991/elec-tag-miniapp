@@ -1,5 +1,4 @@
 // pages/circle/circle.js
-var QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
 var qqmapsdk = null
 var app = getApp()
 Page({
@@ -70,19 +69,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initMapSdk()
+    // 实例化sdk
+    qqmapsdk = app.initMapSdk()
     this.getPlaceDetail()
-  },
-  // 实例化sdk
-  initMapSdk (){
-    if (app.qqmapsdk) {
-      qqmapsdk = app.qqmapsdk
-      return
-    }
-    var key = app.appLBS.key
-    app.qqmapsdk = qqmapsdk = new QQMapWX({
-      key
-    })
   },
   // 根据经纬度解析地理位置
   getPlaceDetail (callback) {

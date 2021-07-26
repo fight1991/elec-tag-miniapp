@@ -3,8 +3,6 @@ import './utils/fetch'
 // 批量请求注册
 import './utils/fetch_all'
 
-// 工具类注册
-const utils = require('./utils/util')
 // 弹框注册
 import messageBox from './utils/messageBox'
 // 上传api注册
@@ -17,6 +15,11 @@ import * as elecApi from './api/elecBrand'
 import * as bankApi from './api/bank'
 // 字典相关api
 import * as dictApi from './api/dictionary'
+
+// 工具类注册
+const utils = require('./utils/util')
+// 引入地图服务sdk
+const QQMapWX = require('./utils/qqmap-wx-jssdk.js')
 
 App({
   onLaunch() {
@@ -40,6 +43,16 @@ App({
     hotCitys: '无锡,北京,上海,杭州,深圳,广州,成都,苏州', // 自定义热门城市
   },
   qqmapsdk: null, // mapsdk实例对象
+  initMapSdk () {
+    if (this.qqmapsdk) {
+      return this.qqmapsdk
+    }
+    var key = this.appLBS.key
+    this.qqmapsdk = new QQMapWX({
+      key
+    })
+    return this.qqmapsdk
+  },
   getWechatCode () {
     return new Promise((relove, reject) => {
       wx.login({

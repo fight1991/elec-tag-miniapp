@@ -1,6 +1,5 @@
 // pages/subPages/citySelector/citySelector.js
 const citySelector = requirePlugin('citySelector')
-var QQMapWX = require('../../../utils/qqmap-wx-jssdk.js')
 var qqmapsdk = null
 var app = getApp()
 Page({
@@ -21,7 +20,8 @@ Page({
    */
   onLoad: function (options) {
     this.initPoisData()
-    this.initMapSdk()
+    // 实例化sdk
+    qqmapsdk = app.initMapSdk()
   },
   // 跳转到选择城市组件页
   selectCity () {
@@ -44,17 +44,6 @@ Page({
         suggestion: pois
       })
     }
-  },
-  // 实例化sdk
-  initMapSdk () {
-    if (app.qqmapsdk) {
-      qqmapsdk = app.qqmapsdk
-      return
-    }
-    var key = app.appLBS.key
-    app.qqmapsdk = qqmapsdk = new QQMapWX({
-      key
-    })
   },
   // 数据回填方法
   backfill: function (e) {
