@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "business-card": "/pages/components/businessCard/businessCard"
+  },
   "navigationBarTitleText": "智慧停车"
 }

@@ -1,4 +1,4 @@
-<!--pages/components/oilCard/oilCard.wxml-->
+<!--pages/components/businessCard/businessCard.wxml-->
 <view class="box">
   <view class="head-box">
     <view class="head-img">
@@ -14,7 +14,7 @@
         <text class="title-text text-cut">{{subTitle}}</text>
         <text class="sub-suffix">{{subTitleRight}}</text>
       </view>
-      <view class="oil-price">
+      <view class="oil-price" wx:if="{{oilInfo}}">
         <view class="new-price">¥{{oldPrice}}</view>
         <view class="old-price">油站 ¥{{newPrice}}</view>
       </view>

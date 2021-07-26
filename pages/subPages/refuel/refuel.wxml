@@ -41,14 +41,14 @@
     <view class="card-box">
       <view class="card-item" wx:for="{{12}}" wx:key="item">
         <navigator url="./oilDetail">
-          <oil-card 
+          <business-card 
             title="加油站"
             subTitleRight="12.4km"
           subTitle="无锡市江阴滨江洗"
             oldPrice="3.44"
             newPrice="4.44">
             <iconfont slot="suffixIcon" icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
-          </oil-card>
+          </business-card>
         </navigator>
       </view>
     </view> 

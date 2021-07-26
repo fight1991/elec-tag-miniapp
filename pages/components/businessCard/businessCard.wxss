@@ -1,4 +1,4 @@
-/* pages/components/oilCard/oilCard.wxss */
+/* pages/components/businessCard/businessCard.wxss */
 .box {
   padding: 30rpx;
   background-color: #fff;

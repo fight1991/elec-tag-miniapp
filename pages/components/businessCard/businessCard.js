@@ -1,4 +1,4 @@
-// pages/components/oilCard/oilCard.js
+// pages/components/businessCard/businessCard.js
 Component({
   /**
    * 组件的属性列表
@@ -30,6 +30,10 @@ Component({
     newPrice: {
       type: String,
       value: '-'
+    },
+    oilInfo: {
+      type: Boolean,
+      value: true
     }
   },
 

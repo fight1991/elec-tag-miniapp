@@ -1,1 +1,51 @@
 /* pages/subPages/parking/parking.wxss */
+.box {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+.bottom-box {
+  position: absolute;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  padding: 0 30rpx;
+}
+.near-top {
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+}
+
+.car-num {
+  color: #447fff;
+  font-size: 32rpx;
+}
+.right-top {
+  position: absolute;
+  right: 30rpx;
+  top: 100rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+.icon-item {
+  width: 110rpx;
+}
+.icon-box {
+  padding: 10rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+}
+.near-bottom,.near-top,.right-top {
+  box-shadow: 1px 1px 10px 0 #ccc;
+}

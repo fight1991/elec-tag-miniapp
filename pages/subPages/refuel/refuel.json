@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "tag": "/pages/components/outerTag/outerTag",
-    "oil-card": "/pages/components/oilCard/oilCard"
+    "business-card": "/pages/components/businessCard/businessCard"
   },
   "navigationBarTitleText": "无感加油",
   "enablePullDownRefresh": true,
