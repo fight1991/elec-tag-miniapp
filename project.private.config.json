@@ -155,6 +155,12 @@
           "pathName": "pages/subPages/parking/recordDetail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "洗车美容",
+          "pathName": "pages/subPages/wash/wash",
+          "query": "",
+          "scene": null
         }
       ]
     }

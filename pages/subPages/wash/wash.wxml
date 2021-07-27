@@ -1,2 +1,22 @@
 <!--pages/subPages/wash/wash.wxml-->
-<text>pages/subPages/wash/wash.wxml</text>
+<view class="box">
+  <view class="item-box">
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/standard-wash.png"></image>
+      <text class="img-text">标准洗车</text>
+    </view>
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/full-wash.png"></image>
+      <text class="img-text">全车精洗</text>
+    </view>
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/inside-wash.png"></image>
+      <text class="img-text">内饰精洗</text>
+    </view>
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/beauty-wash.png"></image>
+      <text class="img-text">打蜡美容</text>
+    </view>
+  </view>
+
+</view>
