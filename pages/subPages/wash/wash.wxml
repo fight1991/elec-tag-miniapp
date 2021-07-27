@@ -42,8 +42,11 @@
           title="洗车店"
           thumb="/pages/image/default.png">
           <view slot="footer">
-            <van-button size="mini">按钮</van-button>
-            <van-button size="mini">按钮</van-button>
+            <view class="foot-box">
+              <van-tag plain type="primary">服务</van-tag>
+              <view class="gap"></view>
+              <text>标准洗-五座轿车</text>
+            </view> 
           </view>
           <view slot="tags">
             <van-tag plain type="primary">标签</van-tag>
