@@ -17,7 +17,11 @@ Page({
       { text: '价格最低', value: 'low'}
     ],
     distance: 0,
-    other: 'near'
+    other: 'near',
+    // 下拉刷新
+    listData: [],
+    loading: false, // 列表数据是否处于加载中
+		end: false, // 列表数据加载完成
   },
 
   /**
@@ -26,7 +30,22 @@ Page({
   onLoad: function (options) {
 
   },
-
+  getList () {
+    this.setData({
+			loading: true
+		})
+    setTimeout(() => {
+      this.setData({
+				loading: false
+			})
+    }, 3000);
+  },
+  refresh () {
+    this.getList()
+  },
+  more () {
+    console.log('哈哈')
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
