@@ -1,2 +1,23 @@
 <!--pages/subPages/wash/washDetail.wxml-->
-<text>pages/subPages/wash/washDetail.wxml</text>
+<view>
+  <fullBanner bgSrc="/pages/image/record_banner.jpg"></fullBanner>
+  <view class="title">套餐介绍</view>
+  <van-cell-group inset>
+    <van-cell>
+      <view slot="title">
+        <text class="line-title">整车泡沫冲洗擦干、轮胎轮毂冲洗清洁、车内吸尘、内饰脚垫等简单清理</text>
+      </view>
+    </van-cell>
+    <van-cell title="门市价" value="¥30.00" />
+    <van-cell title="平台优惠" value="¥30.00"/>
+    <van-cell title="优惠后价格">
+      <text class="discount">¥30.00</text>
+    </van-cell>
+    <van-cell>
+      <view slot="title">
+        <text class="discount">新用户首次消费</text>
+      </view>
+      <text class="discount">¥30.00</text>
+    </van-cell>
+  </van-cell-group>
+</view>

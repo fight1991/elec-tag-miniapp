@@ -167,6 +167,12 @@
           "pathName": "pages/subPages/wash/shopInfo",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "套餐详情",
+          "pathName": "pages/subPages/wash/washDetail",
+          "query": "",
+          "scene": null
         }
       ]
     }
