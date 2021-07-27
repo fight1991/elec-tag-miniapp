@@ -21,7 +21,10 @@ const utils = require('./utils/util')
 // 引入地图服务sdk
 const QQMapWX = require('./utils/qqmap-wx-jssdk.js')
 
+// 全局监听项
+import posNotify from './notify/positionModel'
 App({
+  ...posNotify,
   onLaunch() {
     this.getSystem()
   },
@@ -65,6 +68,9 @@ App({
     let navigationHeight = 44 * pxToRpxScale
     this.navTop = ktxStatusHeight
     this.navHeight = navigationHeight
+  },
+  test (v) {
+    subscribers.notify(12)
   },
   getWechatCode () {
     return new Promise((relove, reject) => {
