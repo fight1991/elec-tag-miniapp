@@ -19,7 +19,8 @@ Page({
     distance: 0,
     other: 'near',
     // 下拉刷新
-    listData: [],
+    listData: [1,2,3,4,5,6],
+    hasMore: true,
     loading: false, // 列表数据是否处于加载中
 		end: false, // 列表数据加载完成
   },

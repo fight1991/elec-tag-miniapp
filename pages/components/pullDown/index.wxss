@@ -1,7 +1,12 @@
 .movable-area {
   width: 100%;
 }
-
+.has-more {
+  font-size: 22rpx;
+  text-align: center;
+  padding: 10rpx 0;
+  color: #ccc;
+}
 .scroll {
   width: 100%;
   /* height: calc(100vh + 90rpx);  */

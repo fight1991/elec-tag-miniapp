@@ -11,36 +11,19 @@ Component({
 			value: false,
 			observer: 'loadingEnd',
 		},
-		// 加载完毕
-		end: {
+		hasMore: {
 			type: Boolean,
-			value: false,
-		},
-		// 控制空状态的显示
-		emptyShow: {
-			type: Boolean,
-			value: false,
+			value: true,
 		},
 		// 当前列表长度
 		listCount: {
 			type: Number,
 			value: 0,
 		},
-		// 空状态的图片
-		emptyUrl: {
-			type: String,
-			value: "/pages/image/no_data.png"
-		},
-		// 空状态的文字提示
-		emptyText: {
-			type: String,
-			value: "暂无数据"
-		},
 		// 下拉刷新的高度
 		refreshSize: {
 			type: Number,
-			value: 90,
-			observer: 'refreshChange'
+			value: 90
 		},
 		// 顶部高度
 		topSize: {
@@ -127,8 +110,7 @@ Component({
 				wx.vibrateShort();
 				this.setData({
 					refreshStatus: 3,
-					move: 0,
-					mode: 'refresh'
+					move: 0
 				});
 				this.triggerEvent('refresh');
 			} else if (refreshStatus === 1) {
@@ -141,40 +123,39 @@ Component({
 		 * 加载更多
 		 */
 		more() {
-			if (!this.properties.end) {
-				this.setData({
-					mode: 'more'
-				});
-				this.triggerEvent('more');
-			}
+			this.triggerEvent('more')
 		},
 		/**
 		 * 监听 loading 字段变化, 来处理下拉刷新对应的状态变化
 		 */
 		loadingEnd(newVal, oldVal) {
-			if (this.data.mode === 'more') return;
+			console.log(newVal)
 			if (oldVal === true && newVal === false) {
-				setTimeout(() => {
-					this.setData({
-						successShow: true,
-						refreshStatus: 4,
-						move: this.data.scrollHeight2
-					});
-					setTimeout(() => {
-						this.setData({
-							successTran: true,
-							move: this.data.scrollHeight1
-						});
-						setTimeout(() => {
-							this.setData({
-								refreshStatus: 1,
-								successShow: false,
-								successTran: false,
-								move: this.data.scrollHeight1
-							});
-						}, 350)
-					}, 1500)
-				}, 600)
+				// setTimeout(() => {
+				// 	this.setData({
+				// 		successShow: true,
+				// 		refreshStatus: 4,
+				// 		move: this.data.scrollHeight2
+				// 	});
+				// 	setTimeout(() => {
+				// 		this.setData({
+				// 			successTran: true,
+				// 			move: this.data.scrollHeight1
+				// 		});
+				// 		setTimeout(() => {
+				// 			this.setData({
+				// 				refreshStatus: 1,
+				// 				successShow: false,
+				// 				successTran: false,
+				// 				move: this.data.scrollHeight1
+				// 			});
+				// 		}, 350)
+				// 	}, 1500)
+				// }, 600)
+				this.setData({
+					refreshStatus: 1,
+					move: this.data.scrollHeight1
+				})
 			} else {
 				if (this.data.refreshStatus !== 3) {
 					this.setData({
@@ -185,18 +166,6 @@ Component({
 			}
 		},
 		/**
-		 * 监听下拉刷新高度变化, 如果改变重新初始化参数, 最小高度80rpx
-		 */
-		refreshChange(newVal, oldVal) {
-			if (newVal <= 80) {
-				this.setData({
-					refreshSize: 80
-				});
-			}
-			// 异步加载数据时候, 延迟执行 init 方法, 防止基础库 2.7.1 版本及以下无法正确获取 dom 信息
-			setTimeout(() => this.init(), 10);
-		},
-		/**
 		 * 初始化scroll组件参数, 动态获取 下拉刷新区域 和 success 的高度
 		 */
 		init() {
@@ -204,6 +173,7 @@ Component({
 			let successHeight = (windowWidth || 375) / 750 * 70;
 
 			this.createSelectorQuery().select("#refresh").boundingClientRect((res) => {
+				console.log(successHeight, res.height)
 				this.setData({
 					scrollHeight1: -res.height,
 					scrollHeight2: successHeight - res.height

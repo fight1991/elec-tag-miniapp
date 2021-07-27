@@ -33,7 +33,7 @@
       listCount="{{listData.length}}"
       bind:refresh="refresh"
       bind:more="more">
-      <view class="card-item" wx:for="{{10}}" wx:key="index">
+      <view class="card-item" wx:for="{{listData}}" wx:key="index">
         <van-card
           custom-class="bg-f"
           price="10.00"
