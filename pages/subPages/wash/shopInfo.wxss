@@ -1,0 +1,13 @@
+/* pages/subPages/wash/shopInfo.wxss */
+.box {
+  padding-bottom: 110rpx;
+}
+.title {
+  padding: 30rpx;
+}
+.content-box {
+  padding: 0 20rpx;
+}
+.card-item {
+  margin-bottom: 20rpx;
+}

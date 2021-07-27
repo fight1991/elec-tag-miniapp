@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "shopAddress": "/pages/subPages/components/shopAddress/shopAddress"
+  },
+  "navigationStyle": "custom"
+}

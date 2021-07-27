@@ -1,0 +1,32 @@
+<!--pages/subPages/wash/shopInfo.wxml-->
+<view class="box">
+  <fullBanner bgSrc="/pages/image/record_banner.jpg"></fullBanner>
+  <shopAddress
+    title="无锡哈哈哈"
+    distance="1213"
+    address="34号"
+    startTime="00:00"
+    endTime="24:00">
+  </shopAddress>
+  <view>
+    <view class="title">洗车美容</view>
+    <view class="content-box">
+      <view class="card-item" wx:for="{{listData}}" wx:key="index">
+        <navigator url="./washDetail">
+          <van-card
+            custom-class="bg-f"
+            price="10.00"
+            centered
+            origin-price="门市30.90"
+            title="洗车店"
+            thumb="/pages/image/default.png">
+          </van-card>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<view>
+  <fixBtn type="light" width="50vw" bindtap="makePhone">联系电话</fixBtn>
+  <fixBtn align="right" width="50vw" bindtap="goBtn">立即前往</fixBtn>
+</view>

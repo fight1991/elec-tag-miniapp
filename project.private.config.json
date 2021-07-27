@@ -161,6 +161,12 @@
           "pathName": "pages/subPages/wash/wash",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "汽车美容店",
+          "pathName": "pages/subPages/wash/shopInfo",
+          "query": "",
+          "scene": null
         }
       ]
     }

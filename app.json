@@ -29,7 +29,9 @@
       "root": "pages/subPages/wash",
       "name": "wash",
       "pages": [
-        "wash"
+        "wash",
+        "shopInfo",
+        "washDetail"
       ]
     },
     {
