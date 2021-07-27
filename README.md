@@ -44,3 +44,7 @@
 + searchInput 搜索框
 # 官方扩展组件
 ` 根据实际业务要求, 参考官方扩展组件https://developers.weixin.qq.com/miniprogram/dev/extended/ `
+# 引用vant-weapp组件
++ 删除 "style": "v2",
++ 在app.json中引用组件
++ 工具 > 构建npm即可

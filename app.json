@@ -174,11 +174,15 @@
     "success": "/pages/components/success/success",
     "iconImg": "/pages/components/iconImg/iconImg",
     "fullBanner": "/pages/components/fullBanner/fullBanner",
-    "mp-tabs": "@miniprogram-component-plus/tabs"
+    "mp-tabs": "@miniprogram-component-plus/tabs",
+    "van-button": "@vant/weapp/button/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-tag": "@vant/weapp/tag/index"
   },
   "useExtendedLib": {
     "weui": true
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

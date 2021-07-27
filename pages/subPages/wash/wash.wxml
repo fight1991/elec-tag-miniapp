@@ -18,5 +18,31 @@
       <text class="img-text">打蜡美容</text>
     </view>
   </view>
-
+  <view class="drop-down">
+    <van-dropdown-menu active-color="#447fff">
+      <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
+      <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
+      </van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <view class="content-box">
+    <view class="card-item" wx:for="{{10}}" wx:key="index">
+      <van-card
+        custom-class="bg-f"
+        price="10.00"
+        origin-price="门市30.90"
+        desc="无锡市江阴滨江洗337号"
+        title="洗车店"
+        thumb="/pages/image/default.png">
+        <view slot="footer">
+          <van-button size="mini">按钮</van-button>
+          <van-button size="mini">按钮</van-button>
+        </view>
+        <view slot="tags">
+          <van-tag plain type="primary">标签</van-tag>
+          <van-tag plain type="primary">标签</van-tag>
+        </view>
+      </van-card>
+    </view>
+  </view>
 </view>

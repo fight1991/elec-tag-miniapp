@@ -64,6 +64,9 @@ page {
 .fc-ccc {
   color: #ccc;
 }
+.bg-f {
+  background-color: #fff!important;
+}
 .fs24 {
   font-size: 24px;
 }

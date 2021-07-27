@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    distanceOption: [
+      { text: '3km', value: 0 },
+      { text: '5km', value: 1 },
+      { text: '10km', value: 2 },
+      { text: '15km', value: 15},
+      { text: '不限', value: 'none'}
+    ],
+    otherOption: [
+      { text: '距离最近', value: 'near'},
+      { text: '价格最低', value: 'low'}
+    ],
+    distance: 0,
+    other: 'near'
   },
 
   /**

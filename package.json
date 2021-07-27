@@ -4,7 +4,8 @@
   "description": "汽车电子标识发卡系统微信小程序项目\r # 说明\r > 1. 在app.json中注册全局的自定义组件 usingComponents\r # 分包原则\r > 1. 按照业务功能划分\r > 2. tabBar入口页面无需分包, 放在app主包, 以外的页面放在subPages\r # 目录说明\r + api -- 公共api\r + config -- api域名\r + pages -- 页面文件夹\r   + main -- tabBar首页\r   + circle -- tabBar商圈\r   + my -- tabBar我的\r   + subPages -- tabBar中的子页面放置位置\r   + index -- 初始化入口页面\r   + login -- 登录页面\r   + components -- 公共组件\r   + image -- 图片静态资源\r   + style -- iconfont文件样式\r   + wxs -- wxml中引用的方法\r + utils -- 公共方法/工具文件夹\r   + fetch_all.js 处理批量请求\r   + fetch_fun.js 网络请求公共方法\r   + fetch_upload.js 上传相关请求\r   + fetch.js 网络请求\r   + fetchInit 网络请求实例化\r   + messageBox.js 微信toast框封装 app.messageBox.common('hello world')\r   + util.js 日期格式化等其它通用工具\r   + weapp-qrcode.js 小程序端生成二维码\r   + WxValidate.js 校验工具\r + app.js 入口文件\r   ` 将api, 网络请求方法绑定到app上, 通过getApp()得到实例 `\r + app.json app配置文件\r + app.wxss 全局样式",
   "main": "app.js",
   "dependencies": {
-    "@miniprogram-component-plus/tabs": "^1.0.0"
+    "@miniprogram-component-plus/tabs": "^1.0.0",
+    "@vant/weapp": "^1.7.2"
   },
   "devDependencies": {},
   "scripts": {
