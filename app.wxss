@@ -67,6 +67,10 @@ page {
 .bg-f {
   background-color: #fff!important;
 }
+.gap {
+  display: inline-block;
+  width: 10rpx;
+}
 .fs24 {
   font-size: 24px;
 }
