@@ -13,13 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.notifyPos(this.updatePos)
-    setInterval(() => {
-      app.currentPos.address = '你好' + Math.random() * 10
-    }, 3000)
-  },
-  updatePos (e) {
-    console.log(e)
+    app.notifyPos(({ address }) => {})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
