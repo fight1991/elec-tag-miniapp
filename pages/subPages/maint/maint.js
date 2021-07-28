@@ -16,13 +16,13 @@ Page({
       { text: '距离最近', value: 'near'},
       { text: '价格最低', value: 'low'}
     ],
+    distance: 0,
+    other: 'near',
     pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',
       maint: '维修保养'
     },
-    distance: 0,
-    other: 'near',
     // 下拉刷新
     listData: [1,2,3,4,5,6],
     hasMore: true,

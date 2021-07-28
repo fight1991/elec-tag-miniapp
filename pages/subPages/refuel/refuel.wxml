@@ -10,7 +10,7 @@
         </searchInput>
       </view>
     </navigator>
-    <view class="select-box" bindtap="selectBtn">
+    <!-- <view class="select-box" bindtap="selectBtn">
       <view class="select-item" data-tab="distance">
         <text class="select-text stopTap">{{tabValue.distance}}</text>
         <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
@@ -23,21 +23,17 @@
         <text class="select-text stopTap">{{tabValue.other}}</text>
         <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
       </view>
+    </view> -->
+    <view class="select-box">
+      <van-dropdown-menu active-color="#447fff" bind:change="selectBtn">
+        <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
+        <van-dropdown-item value="{{ oil }}" options="{{ oilOption }}" />
+        <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
+        </van-dropdown-item>
+      </van-dropdown-menu>
     </view>
   </view>
   <view class="content-box">
-    <view hidden="{{!showMask}}" class="mask-box" bindtap="maskTap">
-      <view class="select-tag" catchtap="itemsTap">
-        <tag
-          active="{{item.label==tabValue[currentTabName]}}"
-          wx:for="{{tabs[currentTabName]}}"
-          bindtap="tagTap"
-          id="{{index}}"
-          wx:key="value">
-          {{item.label}}
-        </tag>
-      </view>
-    </view>
     <view class="card-box">
       <view class="card-item" wx:for="{{12}}" wx:key="item">
         <navigator url="./oilDetail">

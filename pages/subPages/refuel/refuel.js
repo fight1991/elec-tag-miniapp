@@ -11,30 +11,26 @@ Page({
     showMask: false,
     currentTabName: 'distance', // 当前选择的tab
     searchStr: '', // 搜索的关键词
-    tabValue: {
-      distance: '3km',
-      oil: '92#',
-      other: '距离最近'
-    },
-    tabs: { // tab渲染项
-      distance: [
-        {label: '3km', value: 3},
-        {label: '5km', value: 5},
-        {label: '10km', value: 10},
-        {label: '15km', value: 15},
-        {label: '不限', value: 'none'}
-      ],
-      oil: [
-        {label: '92#', value: 92},
-        {label: '95#', value: 95},
-        {label: '98#', value: 98},
-        {label: '0#', value: 0}
-      ],
-      other: [
-        {label: '距离最近', value: 'near'},
-        {label: '价格最低', value: 'low'},
-      ]
-    }
+    distanceOption: [
+      { text: '3km', value: 0 },
+      { text: '5km', value: 1 },
+      { text: '10km', value: 2 },
+      { text: '15km', value: 15},
+      { text: '不限', value: 'none'}
+    ],
+    oilOption: [
+      { text: '92#', value: 92 },
+      { text: '95#', value: 95 },
+      { text: '98#', value: 98 },
+      { text: '0#', value: 0 }
+    ],
+    otherOption: [
+      { text: '距离最近', value: 'near'},
+      { text: '价格最低', value: 'low'}
+    ],
+    distance: 0,
+    other: 'near',
+    oil: 92
   },
 
   /**
@@ -44,29 +40,9 @@ Page({
 
   },
   // 筛选条件按钮
-  selectBtn (e) {
-    let currentTab = e.target.dataset.tab
-    this.setData({
-      showMask: true,
-      currentTabName: currentTab
-    })
+  selectBtn (value) {
+    console.log(value)
   },
-  // 下方筛选项 
-  tagTap (e) {
-    let index = e.currentTarget.id
-    let { currentTabName: currTab, tabs } = this.data
-    this.setData({
-      ['tabValue.' + [currTab]]: tabs[currTab][index]['label'],
-      showMask: false
-    })
-  },
-  // 点击模态框
-  maskTap () {
-    this.setData({
-      showMask: false
-    })
-  },
-  itemsTap () {},
   // 导航按钮
   navigatorBtn () {},
   /**
