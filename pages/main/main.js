@@ -24,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     this.getCurrentPosition()
+    this.startOpenPositionChange()
   },
   // 获取用户当前位置
   getCurrentPosition () {
@@ -31,13 +32,27 @@ Page({
       type: 'gcj02',
       success: (res) => {
         let { latitude, longitude } = res
+        app.currentPos.latitude = latitude
+        app.currentPos.longitude = longitude
         this.data.latitude = latitude
         this.data.longitude = longitude
+        app.currentPos.tamp = Date.now()
         this.getPointList(longitude, latitude)
       },
       fail: (res) => {
         app.messageBox.common('获取位置失败')
       }
+    })
+  },
+  // 监听用户位置变化 
+  startOpenPositionChange () {
+    wx.onLocationChange(res => {
+      let { latitude, longitude } = res
+      this.data.latitude = latitude
+      this.data.longitude = longitude
+      app.currentPos.latitude = latitude
+      app.currentPos.longitude = longitude
+      app.currentPos.tamp = Date.now()
     })
   },
   // 获取网点列表
@@ -61,14 +76,6 @@ Page({
   moreBtn () {
     wx.navigateTo({
       url: `./morePoint`,
-    })
-  },
-  // 去这里按钮
-  goThisBtn (e) {
-    let { lon, lat } = this.data
-    wx.openLocation({
-      latitude: lat,
-      longitude: lon,
     })
   },
   // 车辆信息页面
@@ -143,7 +150,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.offLocationChange()
   },
 
   /**

@@ -71,25 +71,14 @@ Page({
   onLoad: function (options) {
     // 实例化sdk
     qqmapsdk = app.initMapSdk()
-    this.getPlaceDetail()
-  },
-  // 根据经纬度解析地理位置
-  getPlaceDetail (callback) {
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        let { latitude, longitude } = res
-        this.reverseGeocoder(latitude, longitude)
-        callback && callback()
-      },
-      fail: (res) => {
-        app.messageBox.common('获取位置失败')
-      }
+    app.notifyPos((res) => {
+      this.reverseGeocoder(res)
     })
+    // this.getPlaceDetail()
   },
   // 解析位置
-  reverseGeocoder (latitude, longitude) {
-    var _this = this;
+  reverseGeocoder ({ latitude, longitude }) {
+    if (!latitude || !longitude) return
     qqmapsdk.reverseGeocoder({
       location: {
         latitude,
