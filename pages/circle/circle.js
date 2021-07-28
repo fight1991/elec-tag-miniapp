@@ -121,8 +121,14 @@ Page({
       app.messageBox.common('敬请期待')
       return
     }
+    let pageArr = ['maint', 'wash'], pageFlag = ''
+    if (pageArr.indexOf(pageKey) > -1) {
+      pageFlag = pageKey
+      pageKey = 'maint'
+    }
+    let url = `/pages/subPages/${pageKey}/${pageKey}?pageFlag=` + pageFlag
     wx.navigateTo({
-      url: `/pages/subPages/${pageKey}/${pageKey}`,
+      url
     })
   },
   /**

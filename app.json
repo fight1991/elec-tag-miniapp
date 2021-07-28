@@ -22,16 +22,9 @@
       "root": "pages/subPages/maint",
       "name": "maint",
       "pages": [
-        "maint"
-      ]
-    },
-    {
-      "root": "pages/subPages/wash",
-      "name": "wash",
-      "pages": [
-        "wash",
+        "maint",
         "shopInfo",
-        "washDetail"
+        "detail"
       ]
     },
     {

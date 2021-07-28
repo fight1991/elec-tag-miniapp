@@ -157,20 +157,20 @@
           "scene": null
         },
         {
-          "name": "洗车美容",
-          "pathName": "pages/subPages/wash/wash",
+          "name": "维修保养/洗车美容",
+          "pathName": "pages/subPages/maint/maint",
           "query": "",
           "scene": null
         },
         {
-          "name": "汽车美容店",
-          "pathName": "pages/subPages/wash/shopInfo",
+          "name": "维保/洗车店铺详情",
+          "pathName": "pages/subPages/maint/shopInfo",
           "query": "",
           "scene": null
         },
         {
           "name": "套餐详情",
-          "pathName": "pages/subPages/wash/washDetail",
+          "pathName": "pages/subPages/maint/detail",
           "query": "",
           "scene": null
         }

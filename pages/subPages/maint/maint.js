@@ -1,20 +1,63 @@
-// pages/subPages/maint/maint.js
+// pages/subPages/wash/wash.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    distanceOption: [
+      { text: '3km', value: 0 },
+      { text: '5km', value: 1 },
+      { text: '10km', value: 2 },
+      { text: '15km', value: 15},
+      { text: '不限', value: 'none'}
+    ],
+    otherOption: [
+      { text: '距离最近', value: 'near'},
+      { text: '价格最低', value: 'low'}
+    ],
+    pageFlag: 'wash', // wash洗车 miant维修保养
+    pageTitle: {
+      wash: '洗车美容',
+      maint: '维修保养'
+    },
+    distance: 0,
+    other: 'near',
+    // 下拉刷新
+    listData: [1,2,3,4,5,6],
+    hasMore: true,
+    loading: false, // 列表数据是否处于加载中
+		end: false, // 列表数据加载完成
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let { pageFlag } = options
+    this.setData({
+      pageFlag
+    })
+    wx.setNavigationBarTitle({
+      title: this.data.pageTitle[pageFlag]
+    })
   },
-
+  getList () {
+    this.setData({
+			loading: true
+		})
+    setTimeout(() => {
+      this.setData({
+				loading: false
+			})
+    }, 3000);
+  },
+  refresh () {
+    this.getList()
+  },
+  more () {
+    console.log('哈哈')
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

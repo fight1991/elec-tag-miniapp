@@ -1,6 +1,5 @@
-<!--pages/subPages/wash/washDetail.wxml-->
+<!--pages/subPages/maint/components/washForm.wxml-->
 <view>
-  <fullBanner bgSrc="/pages/image/record_banner.jpg"></fullBanner>
   <view class="title">套餐介绍</view>
   <van-cell-group inset>
     <van-cell>

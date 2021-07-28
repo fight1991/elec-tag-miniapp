@@ -12,7 +12,7 @@
     <view class="title">洗车美容</view>
     <view class="content-box">
       <view class="card-item" wx:for="{{listData}}" wx:key="index">
-        <navigator url="./washDetail">
+        <navigator url="./detail">
           <van-card
             custom-class="bg-f"
             price="10.00"

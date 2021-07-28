@@ -1,4 +1,4 @@
-/* pages/subPages/wash/washDetail.wxss */
+/* pages/subPages/maint/components/maintForm.wxss */
 .title {
   padding:20rpx 30rpx;
 }

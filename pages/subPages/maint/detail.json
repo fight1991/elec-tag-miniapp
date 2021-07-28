@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "wash-form": "./components/washForm",
+    "maint-form": "./components/maintForm"
+  },
+  "navigationStyle": "custom"
+}

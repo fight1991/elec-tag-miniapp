@@ -1,1 +1,39 @@
-/* pages/subPages/maint/maint.wxss */
+/* pages/subPages/wash/wash.wxss */
+page {
+  height: 100%;
+}
+
+.box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content-box {
+  flex: 1;
+}
+.banner-img {
+  width: 100%;
+}
+.img {
+  width: 96rpx;
+  margin: 0 auto;
+  display: block;
+}
+.item-box {
+  display: flex;
+  text-align: center;
+  padding: 30rpx;
+}
+.item {
+  width: 25%;
+}
+.img-text {
+  font-size: 24rpx;
+  padding: 10rpx 0;
+}
+.content-box {
+  padding: 20rpx;
+}
+.card-item {
+  margin-bottom: 20rpx;
+}

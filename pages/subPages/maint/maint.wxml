@@ -1,2 +1,69 @@
-<!--pages/subPages/maint/maint.wxml-->
-<text>pages/subPages/maint/maint.wxml</text>
+<!--pages/subPages/wash/wash.wxml-->
+<view class="box">
+  <!-- 头部洗车组件 -->
+  <view class="item-box" wx:if="{{pageFlag=='wash'}}">
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/standard-wash.png"></image>
+      <text class="img-text">标准洗车</text>
+    </view>
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/full-wash.png"></image>
+      <text class="img-text">全车精洗</text>
+    </view>
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/inside-wash.png"></image>
+      <text class="img-text">内饰精洗</text>
+    </view>
+    <view class="item">
+      <image class="img" mode="widthFix" src="/pages/image/businessCircle/beauty-wash.png"></image>
+      <text class="img-text">打蜡美容</text>
+    </view>
+  </view>
+  <!-- 头部维修保养组件 -->
+  <view class="item-box" wx:if="{{pageFlag=='maint'}}">
+    <image class="banner-img" mode="widthFix" src="/pages/image/businessCircle/maint-banner.png"></image>
+  </view>
+  <!-- 筛选项区域 -->
+  <view class="drop-down">
+    <van-dropdown-menu active-color="#447fff">
+      <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
+      <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
+      </van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <!-- 内容区域 -->
+  <view class="content-box">
+    <pullDown
+      height="100%"
+      loading="{{loading}}"
+      end="{{end}}"
+      listCount="{{listData.length}}"
+      bind:refresh="refresh"
+      bind:more="more">
+      <view class="card-item" wx:for="{{listData}}" wx:key="index">
+        <navigator url="./shopInfo">
+          <van-card
+            custom-class="bg-f"
+            price="10.00"
+            origin-price="门市30.90"
+            desc="无锡市江阴滨江洗337号"
+            title="洗车店"
+            thumb="/pages/image/default.png">
+            <view slot="footer">
+              <view class="foot-box">
+                <van-tag plain type="primary">服务</van-tag>
+                <view class="gap"></view>
+                <text>标准洗-五座轿车</text>
+              </view> 
+            </view>
+            <view slot="tags">
+              <van-tag plain type="primary">标签</van-tag>
+              <view class="gap"></view>
+              <van-tag plain type="primary">标签</van-tag>
+            </view>
+          </van-card>
+        </navigator>
+      </view>
+    </pullDown>
+  </view>
+</view>

@@ -1,13 +1,13 @@
-<view style="position:relative;overflow:hidden">
+<view style="position:relative;overflow:hidden;height:{{height}}">
 	<view id="success"
 		  class="success {{successShow ? 'success--show' : ''}} {{successTran ? 'success--tran' : ''}}"
 		  style="top: {{topSize}}rpx;color: {{color}}">
 		<view class="info">加载成功</view>
 	</view>
-	<movable-area class="movable-area" style="height:{{height}}">
+	<movable-area class="movable-area" style="height:100%">
 		<movable-view
 				class="scroll"
-				style="height: calc({{height}} + 40rpx + {{refreshSize}}rpx)"
+				style="height: calc(100% + 40rpx + {{refreshSize}}rpx)"
 				bind:change="change"
 				bind:touchend="touchend"
 				direction="vertical"

@@ -1,0 +1,24 @@
+<!--pages/subPages/maint/components/maintForm.wxml-->
+<view>
+  <view class="title">套餐介绍</view>
+  <van-cell-group inset>
+    <van-cell>
+      <view slot="title">
+        <text class="line-title">整车泡沫冲洗擦干、轮胎轮毂冲洗清洁、车内吸尘、内饰脚垫等简单清理</text>
+      </view>
+    </van-cell>
+    <van-cell title="机油" value="¥30.00" />
+    <van-cell title="机滤" value="¥30.00"/>
+    <van-cell title="工时服务" value="¥30.00"/>
+    <van-cell title="平台优惠">
+      <text class="discount">¥30.00</text>
+    </van-cell>
+    <van-cell title="优惠后价格">
+      <text class="discount">¥30.00</text>
+    </van-cell>
+    <van-cell>
+      <text class="extra">*额外增值收费服务依据到店收费为准</text>
+    </van-cell>
+    <van-cell title="门店地址" value="无锡市滨湖区先爱好回复11号"/>
+  </van-cell-group>
+</view>
