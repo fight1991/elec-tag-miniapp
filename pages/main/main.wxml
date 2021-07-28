@@ -1,6 +1,11 @@
 <!--pages/main/main.wxml-->
 <view class="linear-box">
-  <card-show bindgetCarNum="getCarNum"></card-show>
+  <view class="top-bg">
+    <image class="image" mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
+  </view>
+  <view class="card-show-box">
+    <card-show bindgetCarNum="getCarNum"></card-show>
+  </view>
   <view class="outer">
     <!-- 电子车牌 车辆信息 扫一扫按钮 -->
     <view class="group-btn">

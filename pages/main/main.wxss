@@ -2,15 +2,30 @@
 page {
   height: 100%;
 }
+.card-show-box {
+  position: relative;
+  z-index: 2;
+  padding-top: 180rpx;
+}
 .linear-box {
   height: 100%;
   overflow-y: scroll;
-  background:linear-gradient(to bottom, #3E77FF, #f0f7ff 30%);
+  /* background:linear-gradient(to bottom, #3E77FF, #f0f7ff 30%); */
+  position: relative;
 }
-
+.top-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.image {
+  width: 100%;
+}
 .group-btn {
   display: flex;
-  margin: 10rpx 0 40rpx;
+  margin: 30rpx 0;
   justify-content: space-between;
 }
 .group-btn-item {
