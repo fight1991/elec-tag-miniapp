@@ -7,6 +7,13 @@ page {
   flex-direction: column;
   height: 100%;
 }
+.search-box {
+  padding-top: 30rpx;
+  margin: 0 30rpx;
+}
+.select-box {
+  margin-top: 20rpx;
+}
 .select-item {
   display: flex;
   align-items: center;
@@ -14,13 +21,6 @@ page {
   width: 33.3%;
   padding: 20rpx 0;
   background-color: #fff;
-}
-.search-box {
-  padding-top: 30rpx;
-  margin: 0 30rpx;
-}
-.select-box {
-  margin-top: 20rpx;
 }
 .select-text {
   padding-right: 20rpx;
