@@ -181,7 +181,8 @@
     "van-tag": "@vant/weapp/tag/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-switch": "@vant/weapp/switch/index"
+    "van-switch": "@vant/weapp/switch/index",
+    "van-sticky": "@vant/weapp/sticky/index"
   },
   "useExtendedLib": {
     "weui": true

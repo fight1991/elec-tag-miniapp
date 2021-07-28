@@ -24,14 +24,16 @@
         <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
       </view>
     </view> -->
-    <view class="select-box">
-      <van-dropdown-menu active-color="#447fff" bind:change="selectBtn">
-        <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
-        <van-dropdown-item value="{{ oil }}" options="{{ oilOption }}" />
-        <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
-        </van-dropdown-item>
-      </van-dropdown-menu>
-    </view>
+    <van-sticky>
+      <view class="select-box">
+        <van-dropdown-menu active-color="#447fff" bind:change="selectBtn">
+          <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
+          <van-dropdown-item value="{{ oil }}" options="{{ oilOption }}" />
+          <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
+          </van-dropdown-item>
+        </van-dropdown-menu>
+      </view>
+    </van-sticky>
   </view>
   <view class="content-box">
     <view class="card-box">
