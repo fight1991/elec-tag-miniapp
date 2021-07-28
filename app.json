@@ -10,8 +10,7 @@
     "pages/subPages/order/order",
     "pages/subPages/send/send"
   ],
-  "subPackages": [
-    {
+  "subPackages": [{
       "root": "pages/subPages/refuel",
       "name": "refuel",
       "pages": [
@@ -19,8 +18,7 @@
         "search",
         "oilDetail"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/maint",
       "name": "maint",
       "pages": [
@@ -28,8 +26,7 @@
         "shopInfo",
         "detail"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/parking",
       "name": "parking",
       "pages": [
@@ -39,8 +36,7 @@
         "parkingRecord",
         "recordDetail"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/card",
       "name": "card",
       "pages": [
@@ -51,8 +47,7 @@
         "check",
         "detail"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/verifyInfo",
       "name": "verifyInfo",
       "pages": [
@@ -62,47 +57,41 @@
         "verifyLicense",
         "applyWays"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/ticket",
       "name": "ticket",
       "pages": [
         "ticket"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/elecPlate",
       "name": "elecPlate",
       "pages": [
         "elecPlate",
         "uploadImg"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/carInfo",
       "name": "carInfo",
       "pages": [
         "carInfo",
         "carList"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/scanBind",
       "name": "scanBind",
       "pages": [
         "scanBind",
         "bindStatus"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/message",
       "name": "message",
       "pages": [
         "messageDetail",
         "messageList"
       ]
-    },
-    {
+    }, {
       "root": "pages/subPages/setting",
       "name": "setting",
       "pages": [
@@ -110,6 +99,9 @@
       ]
     }
   ],
+  "preloadRule": {
+
+  },
   "tabBar": {
     "color": "#808080",
     "selectedColor": "#4E91FF",
