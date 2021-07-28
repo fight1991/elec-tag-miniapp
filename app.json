@@ -6,7 +6,9 @@
     "pages/main/morePoint",
     "pages/my/my",
     "pages/circle/circle",
-    "pages/subPages/citySelector/citySelector"
+    "pages/subPages/citySelector/citySelector",
+    "pages/subPages/order/order",
+    "pages/subPages/send/send"
   ],
   "subPackages": [
     {
