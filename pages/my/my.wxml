@@ -1,8 +1,6 @@
 
 <view class="outer">
-  <view class="top-bg">
-    <image class="image" mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
-  </view>
+  <top-bg></top-bg>
   <view class="user-bg">
     <view class="user-left">
       <view class="fs18">{{userName || '--'}}</view>

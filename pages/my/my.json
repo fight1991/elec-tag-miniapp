@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "top-bg": "/pages/components/topBg/topBg"
+  },
   "navigationStyle": "custom"
 }

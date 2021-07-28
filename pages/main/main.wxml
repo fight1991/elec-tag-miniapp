@@ -1,8 +1,6 @@
 <!--pages/main/main.wxml-->
 <view class="linear-box">
-  <view class="top-bg">
-    <image class="image" mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
-  </view>
+  <top-bg></top-bg>
   <view class="card-show-box">
     <card-show bindgetCarNum="getCarNum"></card-show>
   </view>

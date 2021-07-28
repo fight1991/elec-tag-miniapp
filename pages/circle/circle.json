@@ -2,5 +2,6 @@
   "navigationBarTitleText": "商圈",
   "navigationStyle" : "custom",
   "usingComponents": {
+    "top-bg": "/pages/components/topBg/topBg"
   }
 }

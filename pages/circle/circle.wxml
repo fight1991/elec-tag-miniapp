@@ -1,8 +1,6 @@
 <!--pages/circle/circle.wxml-->
 <view class="box">
-  <view class="top-bg">
-    <image class="image" mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
-  </view>
+  <top-bg></top-bg>
   <view class="fun-box">
     <view class="grid-box">
       <view class="pos-info" bindtap="placeSearch">

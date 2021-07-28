@@ -1,0 +1,4 @@
+<!--pages/components/topBg/topBg.wxml-->
+<view class="top-bg">
+  <image class="image" mode="widthFix" src="/pages/image/businessCircle/top-bg.png"></image>
+</view>
