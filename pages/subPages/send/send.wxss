@@ -1,1 +1,5 @@
 /* pages/subPages/send/send.wxss */
+.box {
+  padding: 30rpx 0;
+}
+

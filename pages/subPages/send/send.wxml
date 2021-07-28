@@ -1,2 +1,7 @@
-<!--pages/subPages/send/send.wxml-->
-<text>pages/subPages/send/send.wxml</text>
+<view class="box">
+  <van-cell-group inset>
+    <van-cell center title="推送出入场消息" border="{{ false }}">
+      <van-switch inactive-color="#ccc" checked="{{ checked }}" size="40rpx" bind:change="onChange" />
+    </van-cell>
+  </van-cell-group>
+</view>
