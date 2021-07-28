@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tabs: [
+      {
+        title: '全部',
+        name: 'all'
+      }, {
+        title: '待支付',
+        name: 'a'
+      }, {
+        title: '已完成',
+        name: 'b'
+      }, {
+        title: '已关闭',
+        name: 'c'
+      }
+    ],
+    activeTab: 0,
+    listData: [1,2,3,4,5]
   },
 
   /**
@@ -14,7 +30,9 @@ Page({
   onLoad: function (options) {
 
   },
-
+  tabChange (e) {
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

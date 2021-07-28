@@ -179,6 +179,18 @@
           "pathName": "pages/my/my",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "订单管理",
+          "pathName": "pages/subPages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "推送设置",
+          "pathName": "pages/subPages/send/send",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -1,1 +1,10 @@
 /* pages/subPages/order/order.wxss */
+.content-box {
+  margin-top: 15rpx;
+}
+.card-item {
+  margin-bottom: 15rpx;
+}
+.waitpay {
+  color: #FF7F21;
+}
