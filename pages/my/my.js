@@ -22,15 +22,25 @@ Page({
       icon: 'ticket',
       color: '#447fff'
     }, {
-      url: '/pages/subPages/message/messageList',
-      label: '我的消息',
-      icon: 'info',
-      color: '#0dd7be'
+      url: '/pages/subPages/order/order',
+      label: '订单管理',
+      icon: 'order',
+      color: '#66afff'
     }, {
       url: '/pages/subPages/carInfo/carList',
       label: '我的车辆',
       icon: 'car',
       color: '#769dff'
+    }, {
+      url: '/pages/subPages/message/messageList',
+      label: '我的消息',
+      icon: 'info',
+      color: '#0dd7be'
+    }, {
+      url: '/pages/subPages/send/send',
+      label: '推送设置',
+      icon: 'send',
+      color: '#ffbe69'
     }]
   },
 
