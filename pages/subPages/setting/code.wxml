@@ -1,0 +1,6 @@
+<!--pages/subPages/setting/code.wxml-->
+<view class="box">
+	<view class="code-box">
+		<block-code></block-code>
+	</view>
+</view>

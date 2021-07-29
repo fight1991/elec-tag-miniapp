@@ -1,0 +1,19 @@
+<!--pages/subPages/setting/setting.wxml-->
+<view class="box">
+  <van-cell-group inset>
+    <van-cell
+      bind:click="setPwBtn"
+      title="设置交易密码"
+      is-link
+      value="未设置" />
+    <van-cell
+      bind:click="openLittleBtn"
+      title="小额免密支付"
+      is-link
+      value="未开启"
+      label="开启后,支付时无需输入密码"/>
+    <van-cell bind:click="descBtn" title="扣款顺序" is-link border="{{ false }}" />
+
+  </van-cell-group>
+
+</view>

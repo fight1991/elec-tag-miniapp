@@ -1,0 +1,4 @@
+/* pages/subPages/setting/setting.wxss */
+.box {
+  padding: 40rpx 0;
+}

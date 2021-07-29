@@ -42,9 +42,9 @@ Page({
       icon: 'send',
       color: '#ffbe69'
     }, {
-      url: '/pages/subPages/send/send',
-      label: '推送设置',
-      icon: 'send',
+      url: '/pages/subPages/setting/setting',
+      label: '个人设置',
+      icon: 'setting',
       color: '#ffbe69'
     }]
   },

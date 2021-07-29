@@ -1,0 +1,19 @@
+<!--pages/components/blockCode/blockCode.wxml-->
+<view class="verifical-input">
+		<input
+			class="verifical-input-hidden"
+			type="number" 
+			maxlength="{{blockNum}}"
+			focus="{{isFucus}}"
+			hold-keyboard
+			bind:input = "changeCodeInput"
+			model:value="{{inputCode}}"/>
+		<view class="verifical-input-real">
+			<block wx:for="{{blockNum}}" wx:key="index">
+				<view class="real-block{{index === activeIndex && codeType == 'block' ? ' block-active':''}}{{index === activeIndex && codeType == 'line'?' line-active':''}}{{errorType ? ' block-arror':''}}{{codeType == 'block'?' block-content':' line-content'}}">
+					<text class="real-block-line" wx:if="{{index === activeIndex || (errorType && index === 0)}}"></text>
+					<text class="real-block-number">{{inputText[index]}}</text>
+				</view>
+			</block>	
+		</view>
+</view>

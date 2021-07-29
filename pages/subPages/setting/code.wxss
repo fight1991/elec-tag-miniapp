@@ -1,0 +1,8 @@
+.box {
+  padding: 30rpx;
+}
+.code-box {
+  padding: 30rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}

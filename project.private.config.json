@@ -191,6 +191,18 @@
           "pathName": "pages/subPages/send/send",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "个人设置",
+          "pathName": "pages/subPages/setting/setting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "验证码",
+          "pathName": "pages/subPages/setting/code",
+          "query": "",
+          "scene": null
         }
       ]
     }
