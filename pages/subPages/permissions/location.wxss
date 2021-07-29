@@ -1,4 +1,4 @@
-/* pages/setting/setting.wxss */
+/* pages/permissions/location.wxss */
 .outer {
   padding: 40rpx;
   

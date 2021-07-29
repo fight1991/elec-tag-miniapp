@@ -1,4 +1,4 @@
-<!--pages/setting/setting.wxml-->
+<!--pages/permissions/location.wxml-->
 <view class="outer">
   <view class="title">摄像头未授权, 请按照以下步骤操作</view>
   <view class="step-box">

@@ -41,6 +41,11 @@ Page({
       label: '推送设置',
       icon: 'send',
       color: '#ffbe69'
+    }, {
+      url: '/pages/subPages/send/send',
+      label: '推送设置',
+      icon: 'send',
+      color: '#ffbe69'
     }]
   },
 

@@ -51,7 +51,7 @@ Page({
             },
             fail: res => {
               wx.navigateTo({
-                url: '/pages/subPages/setting/setting',
+                url: '/pages/subPages/permissions/location',
               })
             }
           })
