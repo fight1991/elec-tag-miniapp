@@ -5,6 +5,12 @@
 }
 .out-box {
 	border: 1px solid #ccc;
+	padding: 20rpx;
+	margin: 20rpx;
+	border-radius: 8rpx;
+}
+.active {
+	border-color: #447fff;
 }
 .input-item {
 	border: none;

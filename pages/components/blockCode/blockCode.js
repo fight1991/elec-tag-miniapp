@@ -24,16 +24,13 @@ Component({
       2: ' ',
       3: ' '
     },
-    disabled: true
+    isShow: false
   },
   lifetimes: {
     attached () {
       this.data.templateFocus = new Array(this.data.blockNum).fill(false)
       let temp = [...this.data.templateFocus]
       temp[0] = true
-      this.setData({
-        isFocus: temp
-      })
     }
   },
   /**
