@@ -1,0 +1,11 @@
+<view class="box" catchtap="itemClick">
+	<view class="cell">
+		<view class="cell__hd">
+			<image class="image" mode="aspectFill" src="{{itemData.images}}" alt=""/>
+		</view>
+		<view class="cell__bd desc-item">
+			<view class="name">{{itemData.title}}</view>
+			<view class="des">{{itemData.description}}</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,21 @@
+<page-meta scroll-top="{{pageMetaScrollTop}}"></page-meta>
+
+
+
+<!--  drag 组件 外层需要适当加一定距离的margin, 防止某些情况精度计算误差导致drag宽度大于屏幕宽度, 从而出现横向滚动条 -->
+<view>
+	<van-notice-bar
+		left-icon="info-o"
+		text="长按拖拽排序 , 系统将按顺序进行扣款"
+	/>
+	<view class="drag-box">
+		<drag id="drag"
+			generic:item="drag-item"
+			bind:sortend="sortEnd"
+			item-wrap-class="drag-item-wrap"
+			list-data="{{listData}}">
+		</drag>
+	</view>
+</view>
+
+

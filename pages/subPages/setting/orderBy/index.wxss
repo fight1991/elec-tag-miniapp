@@ -1,0 +1,17 @@
+
+.drag-item-wrap {
+  background: #f7f7f7;
+}
+.drag-box {
+  margin: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+
+
+
+
+
+
+

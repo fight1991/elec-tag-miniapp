@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"drag": "/pages/components/drag/index",
+		"drag-item": "./drag-item/index"
+	},
+	"navigationBarTitleText": "扣款顺序"
+}
