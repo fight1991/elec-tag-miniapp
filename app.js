@@ -69,9 +69,6 @@ App({
     this.navTop = ktxStatusHeight
     this.navHeight = navigationHeight
   },
-  test (v) {
-    subscribers.notify(12)
-  },
   getWechatCode () {
     return new Promise((relove, reject) => {
       wx.login({

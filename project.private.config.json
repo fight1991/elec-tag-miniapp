@@ -209,6 +209,12 @@
           "pathName": "pages/subPages/setting/trade",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "免密支付",
+          "pathName": "pages/subPages/setting/pay",
+          "query": "",
+          "scene": null
         }
       ]
     }

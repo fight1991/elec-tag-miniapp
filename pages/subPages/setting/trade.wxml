@@ -1,2 +1,25 @@
 <!--pages/subPages/setting/trade.wxml-->
-<text>pages/subPages/setting/trade.wxml</text>
+<view class="outer">
+  <van-cell-group>
+    <van-field
+      focus
+      password
+      required
+      model:value="{{ password }}"
+      placeholder="请输入交易密码"
+    />
+    <van-field
+      password
+      required
+      model:value="{{ password2 }}"
+      placeholder="请再次确认交易密码"
+      border="{{ false }}"
+    />
+  </van-cell-group>
+  <view class="check-box">
+    <van-checkbox value="{{ checked }}" icon-size="28rpx" bind:change="checkChange">
+      开启免密, 单笔限额500元
+    </van-checkbox>
+  </view>
+</view>
+<fixBtn bindtap="confirmBtn">确定</fixBtn>

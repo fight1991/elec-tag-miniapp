@@ -1,11 +1,12 @@
 // pages/subPages/setting/pay.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    check: '3'
   },
 
   /**
@@ -14,7 +15,28 @@ Page({
   onLoad: function (options) {
 
   },
+  // 开通
+  openBtn () {
 
+  },
+  // 关闭免密支付
+  closeBtn () {
+    app.utils.openConfirm({
+      content: '是否关闭关闭小额免密支付',
+      confirm: () => {}
+    })
+  },
+  onChange (event) {
+    this.setData({
+      check: event.detail
+    })
+  },
+  onClick (event) {
+    let { name } = event.currentTarget.dataset
+    this.setData({
+      check: name
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

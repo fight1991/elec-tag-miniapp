@@ -1,1 +1,9 @@
 /* pages/subPages/setting/trade.wxss */
+.outer {
+  padding-top: 40rpx;
+}
+.check-box {
+  padding: 30rpx 10rpx;
+  color: #808080;
+  font-size: 26rpx;
+}

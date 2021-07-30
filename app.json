@@ -187,7 +187,12 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-switch": "@vant/weapp/switch/index",
     "van-sticky": "@vant/weapp/sticky/index",
-    "van-count-down": "@vant/weapp/count-down/index"
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
   },
   "useExtendedLib": {
     "weui": true

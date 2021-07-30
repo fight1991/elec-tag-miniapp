@@ -1,11 +1,14 @@
 // pages/subPages/setting/trade.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    checked: true,
+    password: '',
+    password2: ''
   },
 
   /**
@@ -14,7 +17,31 @@ Page({
   onLoad: function (options) {
 
   },
-
+  // 确认按钮
+  confirmBtn () {
+    let { password, password2 } = this.data
+    if (!password.trim()) {
+      app.messageBox.common('交易密码不能为空')
+      return
+    }
+    if (!password2.trim()) {
+      app.messageBox.common('请输入确认密码')
+      return
+    }
+    if (password != password2) {
+      app.messageBox.common('2次输入的密码不一致')
+      return
+    }
+    // api请求
+    wx.navigateBack({
+      delta: 2
+    })
+  },
+  checkChange (e) {
+    this.setData({
+      checked: e.detail
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

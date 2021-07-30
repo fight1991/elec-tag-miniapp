@@ -1,1 +1,9 @@
 /* pages/subPages/setting/pay.wxss */
+.box {
+  padding: 40rpx 30rpx;
+}
+.tips {
+  font-size: 24rpx;
+  padding: 30rpx 10rpx;
+  color: #808080;
+}
