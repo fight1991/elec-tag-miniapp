@@ -16,19 +16,12 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isFocus: [],
-    templateFocus: [],
-    values: {},
-    isShow: false
+    isFocus: true,
+    value: ''
   },
   lifetimes: {
     attached () {
-      this.data.templateFocus = new Array(this.data.blockNum).fill(false)
-      let temp = [...this.data.templateFocus]
-      temp[0] = true
-      this.setData({
-        isFocus: temp
-      })
+
     }
   },
   pageLifetimes: {
@@ -39,76 +32,17 @@ Component({
    */
   methods: {
     blockBtn (e) {
-      console.log(e)
-      let index = e.target.id *1
-      let { blockNum, isFocus, values } = this.data
-      if (index == (this.data.blockNum - 1)) {
-        let temp = [...isFocus]
-        temp[index] = true
-        let tempV = values[index]
-        this.setData({
-          isFocus: temp,
-          ['values.' + index]: tempV
-        })
-      }
+      this.setData({
+        isFocus: true
+      })
     },
     inputChange (e) {
-      /*
-        1. 正常输入值后, 跳转到下一个输入框
-        2. 默认需要添加一个空字符串, 否则捕捉不到键盘上的删除按钮
-       */
-      let { value, keyCode } = e.detail
-      let index = e.target.id *1
-      let { blockNum } = this.data
-      console.log(e)
-      if (value.trim()) { // 说明正在输入值
-        let temp = [...this.data.templateFocus]
-        let nextIndex = index + 1
-        if (nextIndex < blockNum) {
-          temp[nextIndex] = true
-        } else {
-          temp[index] = true
-        }
-        console.log(value)
-        this.setData({
-          isFocus: temp,
-          ['values.' + index]: value
-        })
-      }
-      // 点击了删除按钮, keyCode==8
-      if (keyCode == 8) {
-        let temp = [...this.data.templateFocus]
-        if (index == 0) {
-          temp[index] = true
-          this.setData({
-            ['values.' + index]: ' ',
-            isFocus: temp
-          })
-          return
-        }
-        if (index == (blockNum - 1)) {
-          temp[index] = true
-          if (value) {
-            this.setData({
-              ['values.' + index]: ' ',
-              isFocus: temp
-            })
-          } else {
-            temp[index - 1] = true
-            this.setData({
-              ['values.' + index]: ' ',
-              ['values.' + (index - 1)]: ' ',
-              isFocus: temp
-            })
-          }
-          return
-        }
-        temp[index - 1] = true
-        this.setData({
-          ['values.' + index]: ' ',
-          ['values.' + (index - 1)]: ' ',
-          isFocus: temp
-        })
+      let value = e.detail.value.trim()
+      this.setData({
+        value: value
+      })
+      if (value.length == this.data.blockNum) {
+        this.triggerEvent('done', value)
       }
     }
   }
