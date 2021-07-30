@@ -18,12 +18,7 @@ Component({
   data: {
     isFocus: [],
     templateFocus: [],
-    values: {
-      0: ' ',
-      1: ' ',
-      2: ' ',
-      3: ' '
-    },
+    values: {},
     isShow: false
   },
   lifetimes: {
@@ -31,15 +26,18 @@ Component({
       this.data.templateFocus = new Array(this.data.blockNum).fill(false)
       let temp = [...this.data.templateFocus]
       temp[0] = true
+      this.setData({
+        isFocus: temp
+      })
     }
+  },
+  pageLifetimes: {
+
   },
   /**
    * 组件的方法列表
    */
   methods: {
-    keyboard (e) {
-      console.log('键盘', e)
-    },
     blockBtn (e) {
       console.log(e)
       let index = e.target.id *1
@@ -62,6 +60,7 @@ Component({
       let { value, keyCode } = e.detail
       let index = e.target.id *1
       let { blockNum } = this.data
+      console.log(e)
       if (value.trim()) { // 说明正在输入值
         let temp = [...this.data.templateFocus]
         let nextIndex = index + 1
@@ -70,8 +69,10 @@ Component({
         } else {
           temp[index] = true
         }
+        console.log(value)
         this.setData({
-          isFocus: temp
+          isFocus: temp,
+          ['values.' + index]: value
         })
       }
       // 点击了删除按钮, keyCode==8
@@ -109,7 +110,6 @@ Component({
           isFocus: temp
         })
       }
-      this.data.values[index] = value
     }
   }
 })

@@ -1,6 +1,6 @@
 <!--pages/components/blockCode/blockCode.wxml-->
 <view class="input-box">
-	<view class="out-box {{item ? ' active':''}}" bindtap="blockBtn" wx:for="{{isFocus}}" wx:key="index">
-		<input bindkeyboardheightchange="keyboard" bindinput="inputChange" id="{{index}}" disabled="{{!isFocus[index]}}" focus="{{isFocus[index]}}" value="{{values[index]}}" class="input-item" type="number"/>
+	<view class="out-box {{item ? ' active':''}}" bindtap="blockBtn" wx:for="{{isFocus}}" wx:key="item">
+		<input hold-keyboard maxlength="1" bindinput="inputChange" id="{{index}}" disabled="{{!isFocus[index]}}" focus="{{isFocus[index]}}" value="{{values[index]}}" class="input-item" type="number"/>
 	</view>
 </view>
