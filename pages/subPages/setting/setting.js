@@ -28,6 +28,8 @@ Page({
   },
   // 扣款顺序
   descBtn () {
-
+    wx.navigateTo({
+      url: './orderBy',
+    })
   }
 })

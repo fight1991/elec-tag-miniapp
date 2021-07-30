@@ -215,6 +215,12 @@
           "pathName": "pages/subPages/setting/pay",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "扣款顺序",
+          "pathName": "pages/subPages/setting/orderBy",
+          "query": "",
+          "scene": null
         }
       ]
     }
