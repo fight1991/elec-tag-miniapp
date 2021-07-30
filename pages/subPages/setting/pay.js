@@ -17,13 +17,19 @@ Page({
   },
   // 开通
   openBtn () {
-
+   wx.navigateBack({
+     delta: 2
+   })
   },
   // 关闭免密支付
   closeBtn () {
     app.utils.openConfirm({
       content: '是否关闭关闭小额免密支付',
-      confirm: () => {}
+      confirm: () => {
+        wx.navigateBack({
+          delta: 2
+        })
+      }
     })
   },
   onChange (event) {

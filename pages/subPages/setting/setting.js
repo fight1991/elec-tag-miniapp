@@ -23,7 +23,7 @@ Page({
   // 免密支付按钮
   openLittleBtn () {
     wx.navigateTo({
-      url: './code?page' + 'pay',
+      url: './code?page=' + 'pay',
     })
   },
   // 扣款顺序
