@@ -6,3 +6,15 @@
   border-radius: 10rpx;
   background-color: #fff;
 }
+.mobile-title,.cut-down {
+  padding: 10rpx 0 30rpx 0;
+  color: #A8A8A8;
+  font-size: 24rpx;
+}
+.cut-down {
+  text-align: right;
+  padding: 30rpx 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

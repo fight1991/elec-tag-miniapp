@@ -1,6 +1,11 @@
 <!--pages/subPages/setting/code.wxml-->
 <view class="box">
 	<view class="code-box">
-		<block-code></block-code>
+		<view class="mobile-title">验证码已发送至{{mobile}}</view>
+		<block-code binddone="confirmCode"></block-code>
+		<view class="cut-down">
+			<van-count-down auto-start="{{openTime}}" bind:finish="timeFinish" format="ss" time="{{ time }}"/>
+			<text>S后再次发送</text>
+		</view>
 	</view>
 </view>

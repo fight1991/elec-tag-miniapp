@@ -203,6 +203,12 @@
           "pathName": "pages/subPages/setting/code",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "交易密码",
+          "pathName": "pages/subPages/setting/trade",
+          "query": "",
+          "scene": null
         }
       ]
     }

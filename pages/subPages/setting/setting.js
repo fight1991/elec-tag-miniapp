@@ -17,13 +17,13 @@ Page({
   // 设置交易密码
   setPwBtn () {
     wx.navigateTo({
-      url: './code',
+      url: './code?page=' + 'trade',
     })
   },
   // 免密支付按钮
   openLittleBtn () {
     wx.navigateTo({
-      url: './code',
+      url: './code?page' + 'pay',
     })
   },
   // 扣款顺序
