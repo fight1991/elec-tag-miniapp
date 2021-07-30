@@ -12,7 +12,7 @@ Page({
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     loading: false, // 正在加载
-    resultList: []
+    list: []
   },
 
   /**
@@ -25,11 +25,11 @@ Page({
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize, resultList } = this.data
+    let { pageSize, list } = this.data
     let createTime = ''
     let id = ''
-    if (resultList.length > 0) {
-      var lastData = resultList[resultList.length - 1]
+    if (list.length > 0) {
+      var lastData = list[list.length - 1]
       createTime = lastData.createTime
       id = lastData.id
     }

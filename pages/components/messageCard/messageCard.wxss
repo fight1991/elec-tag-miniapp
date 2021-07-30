@@ -38,6 +38,7 @@
 }
 .text-line {
   padding-left: 20rpx;
+  flex: 1;
 }
 .head-icon .img {
   width: 100%;

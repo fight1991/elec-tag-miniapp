@@ -6,9 +6,7 @@
   border-radius: 10rpx;
   box-shadow:0 2rpx 16rpx rgba(118, 182, 255, 0.25)
 }
-.card-show {
-  padding: 40rpx 0 0;
-}
+
 .card-box {
   margin: 0 auto;
   background-color: #fff;

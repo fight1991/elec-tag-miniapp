@@ -1,6 +1,6 @@
 <!--pages/message/messageList.wxml-->
   <view class="outer">
-    <block wx:for="{{resultList}}" wx:key="messageId">
+    <block wx:for="{{list}}" wx:key="messageId">
       <navigator url="/pages/subPages/message/messageDetail?id={{item.messageId}}&isRead={{item.readStatus}}">
         <messageCard
           type="{{item.msgType}}"
@@ -11,7 +11,7 @@
         </messageCard>
       </navigator>
     </block>
-    <view class="has-more" wx:if="{{resultList.length > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
+    <view class="has-more" wx:if="{{list.length > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
     <view wx:else>
       <nodata>暂无数据</nodata>
     </view>
