@@ -38,14 +38,21 @@
   <view class="content-box">
     <view class="card-box">
       <view class="card-item" wx:for="{{list}}" wx:key="index">
-        <navigator url="./oilDetail">
-          <business-card 
+        <navigator url="./oilDetail?id={{item.orgId}}">
+          <business-card
+            src="{{item.urlIcon}}"
             title="{{item.orgName}}"
             subTitleRight="{{item.distance}}"
             subTitle="{{item.address}}"
             oldPrice="{{item.price}}"
             newPrice="{{item.discountPrice}}">
             <iconfont slot="suffixIcon" icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
+            <view slot="foot" style="padding-left:140rpx;display:flex">
+              <view style="padding-right:10rpx;" wx:for="{{item.tagList}}" wx:key="item">
+                <van-tag plain type="primary">{{item}}</van-tag>
+              </view>
+              <van-tag wx:if="{{item.businessTimeBucketType}}" plain>{{item.businessTimeBucketType}}</van-tag>
+            </view>
           </business-card>
         </navigator>
       </view>

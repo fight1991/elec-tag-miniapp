@@ -1,5 +1,6 @@
 // pages/subPages/refuel/oilDetail.js
 var app = getApp()
+const { oilDetail } = app.api
 Page({
 
   /**
