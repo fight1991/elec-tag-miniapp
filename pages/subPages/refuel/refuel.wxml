@@ -26,10 +26,10 @@
     </view> -->
     <van-sticky>
       <view class="select-box">
-        <van-dropdown-menu active-color="#447fff" bind:change="selectBtn">
-          <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
-          <van-dropdown-item value="{{ oil }}" options="{{ oilOption }}" />
-          <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
+        <van-dropdown-menu active-color="#447fff">
+          <van-dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
+          <van-dropdown-item bind:change="selectBtn" model:value="{{ oil }}" options="{{ oilOption }}" />
+          <van-dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
           </van-dropdown-item>
         </van-dropdown-menu>
       </view>
@@ -37,17 +37,21 @@
   </view>
   <view class="content-box">
     <view class="card-box">
-      <view class="card-item" wx:for="{{12}}" wx:key="item">
+      <view class="card-item" wx:for="{{list}}" wx:key="index">
         <navigator url="./oilDetail">
           <business-card 
-            title="加油站"
-            subTitleRight="12.4km"
-          subTitle="无锡市江阴滨江洗"
-            oldPrice="3.44"
-            newPrice="4.44">
+            title="{{item.orgName}}"
+            subTitleRight="{{item.distance}}"
+            subTitle="{{item.address}}"
+            oldPrice="{{item.price}}"
+            newPrice="{{item.discountPrice}}">
             <iconfont slot="suffixIcon" icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
           </business-card>
         </navigator>
+      </view>
+      <view class="has-more" wx:if="{{list.length > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
+      <view wx:else>
+        <nodata>暂无数据</nodata>
       </view>
     </view> 
   </view>

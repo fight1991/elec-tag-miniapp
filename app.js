@@ -15,6 +15,8 @@ import * as elecApi from './api/elecBrand'
 import * as bankApi from './api/bank'
 // 字典相关api
 import * as dictApi from './api/dictionary'
+// 商圈api
+import * as circleApi from './api/circle'
 
 // 工具类注册
 const utils = require('./utils/util')
@@ -36,7 +38,8 @@ App({
     ...usersApi, // 用户相关
     ...elecApi, // 电子车牌相关
     ...bankApi, // 银行卡相关
-    ...dictApi // 字典相关
+    ...dictApi, // 字典相关
+    ...circleApi // 商圈相关
   },
   messageBox: messageBox, // 弹框
   redirect: '', // 记录token失效时当前的页面地址

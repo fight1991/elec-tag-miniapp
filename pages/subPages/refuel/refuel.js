@@ -1,4 +1,6 @@
 // pages/subPages/refuel/refuel.js
+var app = getApp()
+const { oilList: listApi } = app.api
 Page({
 
   /**
@@ -12,85 +14,108 @@ Page({
     currentTabName: 'distance', // 当前选择的tab
     searchStr: '', // 搜索的关键词
     distanceOption: [
-      { text: '3km', value: 0 },
-      { text: '5km', value: 1 },
-      { text: '10km', value: 2 },
+      { text: '3km', value: 3 },
+      { text: '5km', value: 5 },
+      { text: '10km', value: 10 },
       { text: '15km', value: 15},
-      { text: '不限', value: 'none'}
+      { text: '不限', value: ''}
     ],
     oilOption: [
-      { text: '92#', value: 92 },
-      { text: '95#', value: 95 },
-      { text: '98#', value: 98 },
-      { text: '0#', value: 0 }
+      { text: '92#', value: '92#' },
+      { text: '95#', value: '95#' },
+      { text: '98#', value: '98#' },
+      { text: '0#', value: '0#' }
     ],
     otherOption: [
-      { text: '距离最近', value: 'near'},
-      { text: '价格最低', value: 'low'}
+      { text: '距离最近', value: 'distance'},
+      { text: '价格最低', value: 'price'}
     ],
-    distance: 0,
-    other: 'near',
-    oil: 92
+    distance: 3,
+    other: 'distance',
+    oil: '92#',
+    searchStr: '',
+    latitude: '',
+    longitude: '',
+    hasMore: true,
+    pageIndex: 0, // 当前页
+    pageSize: 10, // 每页请求数量
+    total: 0, // 条目数
+    loading: false, // 正在加载
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let { latitude, longitude } = app.currentPos
+    this.data.latitude = latitude
+    this.data.longitude = longitude
   },
   // 筛选条件按钮
   selectBtn (value) {
-    console.log(value)
+    this.initList()
   },
   // 导航按钮
   navigatorBtn () {},
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.initList()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 获取列表
+  async getList (pageIndex, callback) {
+    if (this.loading) return
+    this.loading = true
+    let { pageSize, latitude, longitude, oil, distance, searchStr, other } = this.data
+    pageIndex ++
+    let { result, page } = await listApi({
+      data: {
+        latitude,
+        longitude,
+        oilType: oil,
+        radius: distance,
+        searchStr: searchStr,
+        sortType: other
+      },
+      page: {
+        pageIndex,
+        pageSize
+      }
+    })
+    if (result) {
+      callback && callback(result || [], page)
+    }
+    this.loading = false
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 列表初始化查询
+  initList () {
+    this.getList(0, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: resList,
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+      wx.stopPullDownRefresh()
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
-
+    this.initList()
+    // 停止下拉刷新
+    // wx.stopPullDownRefresh()
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    if (!this.data.hasMore) return
+    let { pageIndex, list } = this.data
+    this.getList(pageIndex, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: [...list, ...resList],
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+    })
   }
 })
