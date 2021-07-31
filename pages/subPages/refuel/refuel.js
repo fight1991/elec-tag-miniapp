@@ -73,7 +73,8 @@ Page({
   // 模态框
   onClickHide () {
     this.setData({
-      showMask: false
+      showMask: false,
+      hasSelect: true
     })
     this.initList()
   },

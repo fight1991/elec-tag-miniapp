@@ -75,6 +75,7 @@
             wx:key="value"
             title="{{item.text}}"
             clickable
+            border="{{index != (oilOption.length-1)}}"
             data-name="{{item.value}}"
             bind:click="masktabclick">
             <van-radio slot="right-icon" name="{{item.value}}" />
