@@ -72,3 +72,17 @@ export const OCR_bankCard = (data) => {
     data
   })
 }
+// 获取扣款顺序
+export const sequenceList = (data) => {
+  return wx.$post_business({
+    url: '/user-center/bankCard/getSequenceList',
+    data
+  })
+}
+// 更新扣款顺序
+export const updateSequenceList = (data) => {
+  return wx.$post_business({
+    url: '/user-center/bankCard/batchUpdateSequenceList',
+    data
+  })
+}

@@ -92,3 +92,47 @@ export const point_list = ({data, page}) => {
     page
   })
 }
+// 订单管理
+// 订单列表
+export const orderList = ({data, page}) => {
+  return wx.$post_business({
+    url: '/user-center/trade/getTradeList',
+    data,
+    page
+  })
+}
+// 订单详情
+export const orderDetail = (data) => {
+  return wx.$post_business({
+    url: '/user-center/trade/getTrade',
+    data
+  })
+}
+// 支付
+export const orderPay = (data) => {
+  return wx.$post_business({
+    url: '/user-center/trade/addPay',
+    data
+  })
+}
+// 个人设置 -- 设置交易密码
+export const tradePw = (data) => {
+  return wx.$post_business({
+    url: '/user-center/user-setting/setPassword',
+    data
+  })
+}
+// 设置选择常用油标号
+export const oilNum = (data) => {
+  return wx.$post_business({
+    url: '/user-center/user-setting/setCommonOilType',
+    data
+  })
+}
+// 个人设置 -- 设置免密额度
+export const tradePay = (data) => {
+  return wx.$post_business({
+    url: '/user-center/user-setting/setQuickPay',
+    data
+  })
+}

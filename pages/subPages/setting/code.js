@@ -1,5 +1,6 @@
 // pages/subPages/setting/code.js
 var app = getApp()
+const { getCodeApi } = app.api
 Page({
 
   /**
@@ -10,7 +11,7 @@ Page({
     cutDown: 0,
     time: 60*1000,
     pageTo: 'trade',
-    openTime: true // 是否开启倒计时
+    openTime: false // 是否开启倒计时
   },
   /**
    * 生命周期函数--监听页面加载
@@ -22,7 +23,20 @@ Page({
     })
   },
   timeFinish () {
-
+    this.getCode()
+  },
+  // 获取手机号验证码
+  async getCode () {
+    let { result } = getCodeApi({
+      type: 'setTradePwd',
+      mobile: this.data.mobile
+    })
+    if (result) {
+      app.messageBox.common('验证码发送成功')
+      this.setData({
+        openTime: true
+      })
+    }
   },
   // 验证码输入完成
   confirmCode (e) {
@@ -32,52 +46,17 @@ Page({
       url: `./${this.data.pageTo}`,
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onHide () {
+    this.setData({
+      openTime: false,
+      item: 60*1000
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

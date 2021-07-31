@@ -1,4 +1,6 @@
 // pages/subPages/order/order.js
+var app = getApp()
+const { orderList: listApi } = app.api
 Page({
 
   /**
@@ -21,7 +23,7 @@ Page({
       }
     ],
     activeTab: 0,
-    listData: [1,2,3,4,5]
+    list: [1,2,3,4,5]
   },
 
   /**
@@ -33,52 +35,49 @@ Page({
   tabChange (e) {
     console.log(e)
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 获取列表
+  async getList (pageIndex, callback) {
+    if (this.loading) return
+    this.loading = true
+    let { pageSize } = this.data
+    pageIndex ++
+    let { result, page } = await listApi({
+      data: {},
+      page: {
+        pageIndex,
+        pageSize
+      }
+    })
+    if (result) {
+      callback && callback(result || [], page)
+    }
+    this.loading = false
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 列表初始化查询
+  initList () {
+    this.getList(0, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: resList,
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+      wx.stopPullDownRefresh()
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
-
+    this.initList()
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    if (!this.data.hasMore) return
+    let { pageIndex, list } = this.data
+    this.getList(pageIndex, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: [...list, ...resList],
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+    })
   }
 })

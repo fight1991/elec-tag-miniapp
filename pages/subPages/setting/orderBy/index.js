@@ -1,5 +1,5 @@
 const app = getApp()
-
+const { sequenceList, updateSequenceList } = app.api
 let listData = [
 	{
 		dragId: "item0",
@@ -64,4 +64,26 @@ Page({
 			pageMetaScrollTop: e.detail.scrollTop
 		})
 	},
+	// 获取列表
+	async getList () {
+		let { result } = await sequenceList()
+		if (result && result.length > 0) {
+			let tempList = result.map(v => ({
+				dragId: v.bankCardNo,
+				title: v.bankName,
+				description: '',
+				images: v.logoUrl,
+			}))
+			this.setData({
+				
+			})
+		}
+	},
+	// 更新列表
+	async updateList (list) {
+		let { result } = await updateSequenceList(list)
+		if (result) {
+
+		}
+	}
 })

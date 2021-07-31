@@ -1,5 +1,6 @@
 // pages/subPages/setting/trade.js
 var app = getApp()
+const { tradePw } = app.api
 Page({
 
   /**
@@ -40,6 +41,15 @@ Page({
   checkChange (e) {
     this.setData({
       checked: e.detail
+    })
+  },
+  // 设置交易密码
+  async setTradePw () {
+    let { result } = await tradePw({
+      authCode: '', // 验证码
+      tradePwd: '', // 交易密码
+      limitAmount: '', // 限额
+      openTradePwd: true, // 是否开启免密支付
     })
   },
   /**

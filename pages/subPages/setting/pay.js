@@ -1,5 +1,6 @@
 // pages/subPages/setting/pay.js
 var app = getApp()
+const { tradePay } = app.api
 Page({
 
   /**
@@ -41,6 +42,13 @@ Page({
     let { name } = event.currentTarget.dataset
     this.setData({
       check: name
+    })
+  },
+  async payWithoutPw () {
+    let { result } = await tradePay({
+      limitAmount: '',
+      openTradePwd: true,
+      authCode: ''
     })
   },
   /**
