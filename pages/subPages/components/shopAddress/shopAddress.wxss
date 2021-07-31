@@ -3,9 +3,10 @@
 .oil-detail {
   padding: 30rpx 40rpx;
   background-color: #fff;
+  color: #4d4d4d;
 }
 .oil-title {
-  font-size: 32rpx;
+  font-size: 30rpx;
 }
 .address {
   padding: 10rpx 0;
@@ -13,8 +14,12 @@
 .add-txt {
   padding-left: 20rpx;
 }
+.address,.time {
+  font-size: 24rpx;
+}
 .time {
   padding-top: 10rpx;
+  color: #808080;
 }
 .clock {
   margin-right: 10rpx;

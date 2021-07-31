@@ -38,11 +38,11 @@
   <view class="content-box">
     <view class="card-box">
       <view class="card-item" wx:for="{{list}}" wx:key="index">
-        <navigator url="./oilDetail?id={{item.orgId}}">
+        <navigator url="./oilDetail?id={{item.orgId}}&distance={{item.distance}}&lat={{item.latitude}}&lon={{item.longitude}}">
           <business-card
             src="{{item.urlIcon}}"
             title="{{item.orgName}}"
-            subTitleRight="{{item.distance}}"
+            subTitleRight="{{item.distance + 'km'}}"
             subTitle="{{item.address}}"
             oldPrice="{{item.price}}"
             newPrice="{{item.discountPrice}}">
@@ -63,7 +63,7 @@
     </view> 
   </view>
 </view>
-<!-- 显示展昭 -->
+<!-- 显示遮罩 -->
 <van-overlay z-index="99" show="{{ showMask }}" bind:click="onClickHide">
   <view class="wrap">
     <view class="inner-box">

@@ -89,6 +89,7 @@ Page({
         if (res.status == 0) {
           let tempRes = res.result
           this.data.pois = tempRes.pois
+          app.currentPos.province = tempRes.address_component.province
           this.setData({
             currentPlace: tempRes.formatted_addresses.recommend,
             city: tempRes.address_component.city

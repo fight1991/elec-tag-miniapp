@@ -1,8 +1,14 @@
 <!--pages/subPages/refuel/oilDetail.wxml-->
 <view>
   <!-- 自定义导航栏 -->
-  <fullBanner bgSrc="/pages/image/record_banner.jpg"></fullBanner>
-  <shopAddress title="无锡哈哈哈" distance="1213" address="34号" startTime="00:00" endTime="24:00"></shopAddress>
+  <fullBanner bgSrc="{{orgBusiness.urlOutletImage}}"></fullBanner>
+  <shopAddress
+    title="{{orgBusiness.orgName}}"
+    distance="{{distance + 'km'}}"
+    address="{{orgBusiness.address}}"
+    startTime="{{businessTimeList[0] || '00:00'}}"
+    endTime="{{businessTimeList[1] || '23:59'}}">
+  </shopAddress>
   <view class="price-box">
     <view class="oil-num flex-center-x" bindtap="showSheet">
       <text>{{selection[selectionIndex]}}</text>
@@ -10,18 +16,18 @@
     </view>
     <view class="price-item discount">
       <view class="title">参考优惠价</view>
-      <view class="price">¥<text class="big">33.3</text></view>
+      <view class="price">¥<text class="big">{{currentPrice.discountPrice || '-'}}</text></view>
     </view>
     <view class="shuxian"></view>
     <view class="price-item">
       <view class="title">油站价</view>
-      <view class="price">¥<text class="big">33.3</text></view>
+      <view class="price">¥<text class="big">{{currentPrice.price || '-'}}</text></view>
     </view>
     <view class="shuxian"></view>
     <view class="price-item">
       <view class="title">国标价</view>
-      <view class="price">¥<text class="big">33.3</text></view>
+      <view class="price">¥<text class="big">{{currentPrice.standardPrice || '-'}}</text></view>
     </view>
   </view>
 </view>
-<fixBtn>立即前往</fixBtn>
+<fixBtn bindtap="goThis">立即前往</fixBtn>

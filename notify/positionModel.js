@@ -4,6 +4,7 @@ export default {
     latitude: '',
     longitude: '',
     address: '',
+    province: '', // 存储省/直辖市名称
     tamp: '0' // 戳标记
   },
   notifyPos (callback) {

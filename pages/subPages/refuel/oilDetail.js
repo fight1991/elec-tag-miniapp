@@ -7,34 +7,71 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navTop: 0,
-    navHeight: 0,
-    selection: ['92#', '95#', '98#', '0#'],
-    selectionIndex: 0
+    selection: [],
+    selectionIndex: 0,
+    orgBusiness: {},
+    priceList:[],
+    currentPrice: {},
+    distance: '',
+    lat: '',
+    lon: '',
+    id: '' // 企业id
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initTopHeight()
-  },
-  // 初始化状态栏的高度
-  initTopHeight () {
+    this.data.id = options.id
+    this.data.lat = options.latitude
+    this.data.lon = options.longitude
+    console.log(options)
     this.setData({
-      navTop: app.navTop,
-      navHeight: app.navHeight
+      distance: options.distance
     })
+    this.getDetail()
+  },
+  // 获取详情
+  async getDetail () {
+    let { result } = await oilDetail({
+      orgId: this.data.id,
+      province: app.currentPos.province
+    })
+    if (result) {
+      this.setData({
+        orgBusiness: result.orgBusiness,
+        priceList: result.priceList
+      })
+      if (result.priceList.length > 0) {
+        let tempSelection = result.priceList.map(v => v.oilType)
+        this.setData({
+          currentPrice: result.priceList[0],
+          selection: tempSelection
+        })
+      }
+    }
+  },
+  // 立即前往
+  goThis () {
+    let { lat, lon, orgBusiness } = this.data
+      wx.openLocation({
+        latitude: lat*1,
+        longitude: lon*1,
+        name: orgBusiness.orgName,
+        address: orgBusiness.address
+      })
   },
   // 打开选择油号面板
   showSheet () {
+    let { priceList } = this.data
     wx.showActionSheet({
       itemList: this.data.selection,
       success: res => {
         if (res.cancel) return
         if (res.tapIndex == this.data.selectionIndex) return
         this.setData({
-          selectionIndex: res.tapIndex
+          selectionIndex: res.tapIndex,
+          currentPrice: priceList[res.tapIndex]
         })
       }
     })
@@ -50,41 +87,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })
