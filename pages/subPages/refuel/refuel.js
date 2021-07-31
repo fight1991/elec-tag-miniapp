@@ -13,6 +13,8 @@ Page({
     showMask: false,
     currentTabName: 'distance', // 当前选择的tab
     searchStr: '', // 搜索的关键词
+    hasSelect: false, // 是否已经选择了油号
+    currentOilSelection: '92#', // 默认选择的油号
     distanceOption: [
       { text: '3km', value: 3 },
       { text: '5km', value: 5 },
@@ -51,10 +53,43 @@ Page({
     let { latitude, longitude } = app.currentPos
     this.data.latitude = latitude
     this.data.longitude = longitude
+    // 判断是否选择了常用油号
+    let oil = wx.getStorageSync('oil')
+    if (!oil) {
+      this.setData({
+        showMask: true
+      })
+    } else {
+      this.setData({
+        oil,
+        hasSelect: true
+      })
+    }
   },
   // 筛选条件按钮
   selectBtn (value) {
     this.initList()
+  },
+  // 模态框
+  onClickHide () {
+    this.setData({
+      showMask: false
+    })
+    this.initList()
+  },
+  // 模态框选项
+  masktabclick (e) {
+    let value = e.target.dataset.name
+    this.setData({
+      currentOilSelection: value,
+      oil: value,
+      hasSelect: true
+    })
+    this.initList()
+    wx.setStorage({
+      key: 'oil',
+      data: value
+    })
   },
   // 导航按钮
   navigatorBtn () {},
@@ -62,7 +97,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.initList()
+    this.data.hasSelect && this.initList()
   },
   // 获取列表
   async getList (pageIndex, callback) {

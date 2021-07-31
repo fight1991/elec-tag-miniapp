@@ -14,6 +14,23 @@ page {
 .select-box {
   /* margin-top: 20rpx; */
 }
+.inner-title {
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.inner-box {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  width: 65%;
+  margin: 0 auto;
+}
 .select-item {
   display: flex;
   align-items: center;

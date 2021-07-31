@@ -63,3 +63,24 @@
     </view> 
   </view>
 </view>
+<!-- 显示展昭 -->
+<van-overlay z-index="99" show="{{ showMask }}" bind:click="onClickHide">
+  <view class="wrap">
+    <view class="inner-box">
+      <view class="inner-title">请选择常用油标号</view>
+      <van-radio-group value="{{ currentOilSelection }}">
+        <van-cell-group>
+          <van-cell
+            wx:for="{{oilOption}}"
+            wx:key="value"
+            title="{{item.text}}"
+            clickable
+            data-name="{{item.value}}"
+            bind:click="masktabclick">
+            <van-radio slot="right-icon" name="{{item.value}}" />
+          </van-cell>
+        </van-cell-group>
+      </van-radio-group>
+    </view>
+  </view>
+</van-overlay>
