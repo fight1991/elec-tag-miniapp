@@ -62,8 +62,9 @@ Page({
     })
     if (result) {
       app.globalData.userInfo.openTradePwd = true
-      if (limitAmount > 0 && checked) {
-        app.globalData.userInfo.limitAmount = true
+      if (checked) {
+        app.globalData.userInfo.quickPay = true
+        app.globalData.userInfo.limitAmount = 500
       }
       wx.navigateBack({
         delta: 1
