@@ -53,6 +53,10 @@ Page({
       openTradePwd: checked, // 是否开启免密支付
     })
     if (result) {
+      app.globalData.userInfo.openTradePwd = true
+      if (limitAmount > 0 && checked) {
+        app.globalData.userInfo.limitAmount = true
+      }
       wx.navigateBack({
         delta: 1
       })

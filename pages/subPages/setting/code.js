@@ -55,10 +55,10 @@ Page({
     }
   },
   onHide () {
-    this.setData({
-      openTime: false,
-      item: 60*1000
-    })
+    // this.setData({
+    //   openTime: false,
+    //   item: 60*1000
+    // })
   },
 
   /**
