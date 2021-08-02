@@ -1,0 +1,16 @@
+/* pages/subPages/order/detail.wxss */
+.box {
+  padding-bottom:110rpx;
+}
+.content-box {
+  padding: 0 10rpx;
+  background-color: #fff;
+}
+.line-item {
+  display: flex;
+  padding: 40rpx 60rpx;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  background-color: #FF7E37;
+}

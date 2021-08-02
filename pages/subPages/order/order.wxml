@@ -6,16 +6,15 @@
         <view class="content-box">
           <view class="card-item" wx:for="{{list}}" wx:key="index">
             <van-cell-group inset>
-              <van-cell title="{{index}}">
-                <text class="waitpay">待支付</text>
+              <van-cell title="{{item.merchantName}}">
+                <text class="waitpay">{{item.payStatus}}</text>
               </van-cell>
-              <van-cell border="{{false}}" title="苏B93k32">
-                <text class="waitpay">¥300</text>
+              <van-cell border="{{false}}" title="{{itemm.plateNo}}">
+                <text class="waitpay">¥{{item.totalAmount}}</text>
               </van-cell>
-              <van-cell border="{{false}}" title="加油" value="创建时间: {{'2012.03.03 00:00:00'}}"/>
+              <van-cell border="{{false}}" title="{{item.remark}}" value="创建时间: {{item.createdTime}}"/>
               <van-cell>
-                <!-- <van-tag plain type="primary">标签</van-tag> -->
-                <van-button size="small" plain type="info">朴素按钮</van-button>
+                <van-button size="small" plain type="info">去支付</van-button>
               </van-cell>
             </van-cell-group>
           </view>

@@ -15,6 +15,10 @@ Component({
     align: {
       type: String,
       value: 'left'
+    },
+    bgColor: {
+      type: String,
+      value: '#3E78FD'
     }
   },
   /**

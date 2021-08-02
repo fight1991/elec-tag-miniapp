@@ -221,6 +221,12 @@
           "pathName": "pages/subPages/setting/orderBy/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/subPages/order/detail",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -1,0 +1,28 @@
+<!--pages/subPages/order/detail.wxml-->
+<view class="box">
+  <view class="line-item wait">
+    <view class="left">待支付</view>
+    <view class="right">¥{{200}}</view>
+  </view>
+  <view class="line-item close">
+    <view class="left">已关闭</view>
+    <view class="right">¥{{200}}</view>
+  </view>
+  <view class="content-box">
+    <van-cell-group>
+      <van-cell title="商户名称" value="{{formData.aa || '-'}}" />
+      <van-cell title="车牌号" value="{{formData.aa || '-'}}" />
+      <van-cell title="消费类型" value="{{formData.aa || '-'}}" />
+      <van-cell title="油号" value="{{formData.aa || '-'}}" />
+      <van-cell title="加油升数" value="{{formData.aa || '-'}}" />
+      <van-cell title="交易金额" value="{{formData.aa || '-'}}" />
+      <van-cell title="优惠金额" value="{{formData.aa || '-'}}" />
+      <van-cell title="应付金额" value="{{formData.aa || '-'}}" />
+      <van-cell title="订单编号" value="{{formData.aa || '-'}}" />
+      <van-cell title="创建时间" value="{{formData.aa || '-'}}" />
+      <van-cell title="支付时间" value="{{formData.aa || '-'}}" />
+      <van-cell title="关闭时间" value="{{formData.aa || '-'}}" />
+    </van-cell-group>
+  </view>
+</view>
+<fixBtn bgColor="#FF7E37">去支付</fixBtn>
