@@ -10,7 +10,7 @@
       bind:click="openLittleBtn"
       title="小额免密支付"
       is-link
-      value="{{limitAmount>0?'已开启':'未开启'}}"
+      value="{{quickPay?'已开启':'未开启'}}"
       label="开启后,支付时无需输入密码"/>
       
     <van-cell bind:click="descBtn" title="扣款顺序" is-link border="{{ false }}" />

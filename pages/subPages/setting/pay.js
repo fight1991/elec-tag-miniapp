@@ -19,10 +19,10 @@ Page({
     this.data.code = options.code
   },
   mapPropsData () {
-    let limitAmount = app.globalData.userInfo.limitAmount
+    let { limitAmount, quickPay } = app.globalData.userInfo
     this.setData({
-      check: limitAmount > 0 ? limitAmount : 500,
-      isOpen: limitAmount > 0
+      check: quickPay ? limitAmount : 500,
+      isOpen: quickPay
     })
   },
   // 开通
@@ -47,14 +47,11 @@ Page({
   async payWithoutPw (status) {
     let { result } = await tradePay({
       limitAmount: this.data.check,
-      openTradePwd: status,
+      quickPay: status,
       authCode: this.data.code
     })
     if (result) {
-      app.globalData.userInfo.limitAmount = this.data.check
-      if (!status) {
-        app.globalData.userInfo.limitAmount = 0
-      }
+      app.globalData.userInfo.quickPay = status
       wx.navigateBack({
         delta: 1
       })
