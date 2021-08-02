@@ -16,7 +16,7 @@
       border="{{ false }}"
     />
   </van-cell-group>
-  <view class="check-box">
+  <view class="check-box" wx:if="{{!openTradePwd}}">
     <van-checkbox value="{{ checked }}" icon-size="28rpx" bind:change="checkChange">
       开启免密, 单笔限额{{limitAmount}}元
     </van-checkbox>

@@ -4,7 +4,12 @@
 		<view class="mobile-title">验证码已发送至{{mobile}}</view>
 		<block-code binddone="confirmCode"></block-code>
 		<view class="cut-down">
-			<van-count-down auto-start="{{openTime}}" bind:finish="timeFinish" format="ss" time="{{ time }}"/>
+			<van-count-down
+				class="control-count-down"
+				auto-start="{{false}}"
+				bind:finish="timeFinish"
+				format="ss"
+				time="{{ time }}"/>
 			<text>S后再次发送</text>
 		</view>
 	</view>

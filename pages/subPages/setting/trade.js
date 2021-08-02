@@ -11,7 +11,8 @@ Page({
     limitAmount: 500,
     password: '',
     password2: '',
-    code: ''
+    code: '',
+    openTradePwd: false
   },
 
   /**
@@ -19,6 +20,9 @@ Page({
    */
   onLoad: function (options) {
     this.data.code = options.code
+    this.setData({
+      openTradePwd: app.globalData.userInfo.openTradePwd
+    })
   },
   // 确认按钮
   confirmBtn () {

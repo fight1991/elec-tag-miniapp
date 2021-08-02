@@ -10,33 +10,32 @@ Page({
     mobile: '',
     cutDown: 0,
     time: 60*1000,
-    pageTo: 'trade',
-    openTime: false // 是否开启倒计时
+    pageTo: 'trade'
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.countDown = this.selectComponent('.control-count-down')
     this.data.pageTo = options.page
     this.setData({
       mobile: app.globalData.userInfo.mobile || ''
     })
     this.getCode()
   },
+
   timeFinish () {
     this.getCode()
   },
   // 获取手机号验证码
   async getCode () {
-    let { result } = getShortCode({
+    let { result } = await getShortCode({
       type: 'setTradePwd',
       mobile: this.data.mobile
     })
     if (result) {
       app.messageBox.common('验证码发送成功')
-      this.setData({
-        openTime: true
-      })
+      this.countDown && this.countDown.start()
     }
   },
   // 验证码输入完成
@@ -55,10 +54,7 @@ Page({
     }
   },
   onHide () {
-    // this.setData({
-    //   openTime: false,
-    //   item: 60*1000
-    // })
+    this.countDown && this.countDown.reset()
   },
 
   /**

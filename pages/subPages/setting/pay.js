@@ -56,6 +56,10 @@ Page({
       authCode: this.data.code
     })
     if (result) {
+      app.globalData.userInfo.limitAmount = this.data.check
+      if (!status) {
+        app.globalData.userInfo.limitAmount = 0
+      }
       wx.navigateBack({
         delta: 1
       })

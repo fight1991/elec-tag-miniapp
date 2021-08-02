@@ -34,6 +34,12 @@ Page({
   },
   // 免密支付按钮
   openLittleBtn () {
+    // 如果为设置交易密码,先设置交易密码
+    let { openTradePwd } = this.data
+    if (!openTradePwd) {
+      this.setPwBtn()
+      return
+    }
     wx.navigateTo({
       url: './code?page=' + 'pay',
     })
