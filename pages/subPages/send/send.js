@@ -1,23 +1,47 @@
 // pages/subPages/send/send.js
+var app = getApp()
+const { getParkNoticeSwitch, updateParkNoticeSwitch } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    checked: false
+    checked: false,
+    info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getParkNoticeSwitch()
   },
   onChange () {
-    this.setData({
-      checked: !this.data.checked
+    this.updateParkNoticeSwitch()
+  },
+  // 更新详情
+  async updateParkNoticeSwitch () {
+    let { info, checked } = this.data
+    let { result } = await updateParkNoticeSwitch({
+      ...info,
+      pushFlag: !checked
     })
+    if (result) {
+      this.setData({
+        checked: !checked
+      })
+    }
+  },
+  // 获取详情
+  async getParkNoticeSwitch () {
+    let { result } = await getParkNoticeSwitch()
+    if (result) {
+      this.data.info = result
+      this.setData({
+        checked: result.pushFlag
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

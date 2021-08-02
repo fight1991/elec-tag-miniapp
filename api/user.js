@@ -90,6 +90,20 @@ export const getMessageDetailApi = (data) => {
     data
   })
 }
+// 获取停车场推送消息开关
+export const getParkNoticeSwitch = (data) => {
+  return wx.$post_business({
+    url: '/user-center/notification/getParkNoticeSwitch',
+    data
+  })
+}
+// 更新停车场推送消息开关
+export const updateParkNoticeSwitch = (data) => {
+  return wx.$post_business({
+    url: '/user-center/notification/updateParkNoticeSwitch',
+    data
+  })
+}
 // 上传身份认证图片
 // 身份认证-上传头像 身份证正反面
 export const verifyPersonApi = (data) => {
