@@ -12,7 +12,7 @@
     <van-cell-group>
       <van-cell title="商户名称" value="{{formData.merchantName || '-'}}" />
       <van-cell title="车牌号" value="{{formData.plateNo || '-'}}" />
-      <van-cell title="消费类型" value="{{formData.merchantService || '-'}}" />
+      <van-cell title="消费类型" value="{{serviceText[formData.merchantService] || '-'}}" />
       <van-cell title="加油升数" value="{{formData.liters/1000 || '-'}}" />
       <van-cell title="交易金额" value="{{formData.totalAmount || '-'}}" />
       <van-cell title="优惠金额" value="{{formData.couponAmount || '-'}}" />

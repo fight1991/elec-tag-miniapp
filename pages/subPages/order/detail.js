@@ -7,15 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    formData: {}
+    formData: {},
+    serviceText: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let oderNum = options.orderNum
+    let orderNum = options.orderNum
     if (orderNum) {
+      let pages = getCurrentPages()
+      let prePage = pages[pages.length - 2]
+      this.setData({
+        serviceText: prePage.data.serviceText
+      })
       this.getDetail(orderNum)
     }
   },

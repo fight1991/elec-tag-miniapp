@@ -5,7 +5,7 @@
       <van-tab wx:key="index" wx:for-index="key" wx:for-item="value" name="{{key}}" wx:for="{{payStatusText}}" title="{{value}}">
         <view class="content-box">
           <view class="card-item" wx:for="{{list}}" wx:key="index">
-            <navigator url="./detail?oderNum={{item.tradeOrderNo}}">
+            <navigator url="./detail?orderNum={{item.tradeOrderNo}}">
               <van-cell-group inset>
                 <van-cell title="{{item.merchantName}}">
                   <text class="{{item.status}}">{{payStatusText[item.status]}}</text>
