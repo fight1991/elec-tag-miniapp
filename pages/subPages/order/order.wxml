@@ -2,7 +2,7 @@
 <view>
   <view class="tab-box">
     <van-tabs color="#447fff" sticky swipeable animated active="{{ activeTab }}" bind:change="tabChange">
-      <van-tab wx:key="index" wx:for="{{tabs}}" title="{{item.title}}">
+      <van-tab wx:key="index" wx:for-index="key" wx:for-item="value" name="{{key}}" wx:for="{{payStatusText}}" title="{{value}}">
         <view class="content-box">
           <view class="card-item" wx:for="{{list}}" wx:key="index">
             <van-cell-group inset>
@@ -14,7 +14,7 @@
               </van-cell>
               <van-cell border="{{false}}" title="{{serviceText[item.merchantService]}}" value="创建时间: {{item.createdTime}}"/>
               <van-cell>
-                <van-button size="small" plain type="info" wx:if="{{item.status==doing}}">去付款</van-button>
+                <van-button size="small" plain type="info" wx:if="{{item.status=='doing'}}">去付款</van-button>
               </van-cell>
             </van-cell-group>
           </view>

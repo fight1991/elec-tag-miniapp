@@ -7,29 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: [
-      {
-        title: '全部',
-        name: 'all'
-      }, {
-        title: '待支付',
-        name: 'a'
-      }, {
-        title: '已完成',
-        name: 'b'
-      }, {
-        title: '已关闭',
-        name: 'c'
-      }
-    ],
     activeTab: 0,
-    list: [],
+    currentName: '',
     payStatusText: {
+      all: '全部',
       doing: '待支付',
       done: '已完成',
       close: '已关闭'
     },
-    serviceText: {}
+    serviceText: {},
+    pageIndex: 0, // 当前页
+    pageSize: 10, // 每页请求数量
+    total: 0, // 条目数
+    loading: false, // 正在加载
+    list: []
   },
 
   /**
@@ -42,7 +33,11 @@ Page({
     })
   },
   tabChange (e) {
-    console.log(e)
+    let tabValue = e.detail.name
+    let status = tabValue == 'all' ? '' : tabValue
+    this.data.currentName = status
+    
+    this.initList()
   },
   // 获取列表
   async getList (pageIndex, callback) {
@@ -51,7 +46,9 @@ Page({
     let { pageSize } = this.data
     pageIndex ++
     let { result, page } = await listApi({
-      data: {},
+      data: {
+        status: this.data.currentName
+      },
       page: {
         pageIndex,
         pageSize
