@@ -7,14 +7,14 @@
           <view class="card-item" wx:for="{{list}}" wx:key="index">
             <van-cell-group inset>
               <van-cell title="{{item.merchantName}}">
-                <text class="waitpay">{{item.payStatus}}</text>
+                <text class="{{item.status}}">{{payStatusText[item.status]}}</text>
               </van-cell>
-              <van-cell border="{{false}}" title="{{itemm.plateNo}}">
-                <text class="waitpay">¥{{item.totalAmount}}</text>
+              <van-cell border="{{false}}" title="{{item.plateNo}}">
+                <text class="{{item.status}}">¥{{item.totalAmount}}</text>
               </van-cell>
-              <van-cell border="{{false}}" title="{{item.remark}}" value="创建时间: {{item.createdTime}}"/>
+              <van-cell border="{{false}}" title="{{serviceText[item.merchantService]}}" value="创建时间: {{item.createdTime}}"/>
               <van-cell>
-                <van-button size="small" plain type="info">去支付</van-button>
+                <van-button size="small" plain type="info" wx:if="{{item.status==doing}}">去付款</van-button>
               </van-cell>
             </van-cell-group>
           </view>

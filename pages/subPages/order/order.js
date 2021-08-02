@@ -1,6 +1,6 @@
 // pages/subPages/order/order.js
 var app = getApp()
-const { orderList: listApi } = app.api
+const { orderList: listApi, translateDic } = app.api
 Page({
 
   /**
@@ -23,14 +23,23 @@ Page({
       }
     ],
     activeTab: 0,
-    list: []
+    list: [],
+    payStatusText: {
+      doing: '待支付',
+      done: '已完成',
+      close: '已关闭'
+    },
+    serviceText: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    this.initList()
+    this.setData({
+      serviceText: await translateDic('orgServiceType')
+    })
   },
   tabChange (e) {
     console.log(e)
