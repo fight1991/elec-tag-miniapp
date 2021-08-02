@@ -99,10 +99,13 @@ const imgTobase64 = (path) => {
   return 'data:image/png;base64,' + base64
 }
  // 打开确认框
-const openConfirm = ({content, confirm, cancel}) => {
+const openConfirm = ({content, confirm, cancel, cancelText = '取消', confirmText = '确定'}) => {
   wx.showModal({
     title: '提示',
     content: content,
+    confirmColor: '#447fff',
+    cancelText,
+    confirmText,
     success: res => {
       if (res.confirm) {
         confirm && confirm()

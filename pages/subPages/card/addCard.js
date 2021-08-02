@@ -42,7 +42,7 @@ Page({
   },
   bindData (e) {
     var id = e.currentTarget.id
-    this.data.licenseInfo[id] = e.detail.value
+    this.data.formData[id] = e.detail.value
   },
   photoBtn () {
     this.$upload.chooseBtn()
