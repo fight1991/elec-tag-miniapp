@@ -38,11 +38,6 @@ Page({
       }
     })
   },
-  onChange (event) {
-    this.setData({
-      check: event.detail
-    })
-  },
   onClick (event) {
     let { name } = event.currentTarget.dataset
     this.setData({

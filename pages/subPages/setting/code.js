@@ -29,13 +29,20 @@ Page({
   },
   // 获取手机号验证码
   async getCode () {
-    let { result } = await getShortCode({
+    let { result, other } = await getShortCode({
       type: 'setTradePwd',
       mobile: this.data.mobile
     })
     if (result) {
       app.messageBox.common('验证码发送成功')
       this.countDown && this.countDown.start()
+    }
+    if (other) {
+      this.timer = setTimeout(() => {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1500)
     }
   },
   // 验证码输入完成
@@ -54,6 +61,7 @@ Page({
     }
   },
   onHide () {
+    this.timer && clearTimeout(this.timer)
     this.countDown && this.countDown.reset()
   },
 

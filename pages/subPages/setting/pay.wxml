@@ -1,6 +1,6 @@
 <!--pages/subPages/setting/pay.wxml-->
 <view class="box">
-  <van-radio-group value="{{ check }}" bind:change="onChange">
+  <van-radio-group value="{{ check }}">
     <van-cell-group>
       <van-cell title="200元/笔" clickable data-name="{{200}}" bind:click="onClick">
         <van-radio slot="right-icon" name="{{200}}" />
