@@ -1,4 +1,6 @@
 // pages/subPages/order/detail.js
+var app = getApp()
+const { orderDetail } = app.api
 Page({
 
   /**
@@ -12,9 +14,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let oderNum = options.orderNum
+    if (orderNum) {
+      this.getDetail(orderNum)
+    }
   },
-
+  // 获取详情
+  async getDetail (no) {
+    let { result } = await orderDetail(no)
+    if (result) {
+      this.setData({
+        formData: {
+          ...result,
+          ...result.extendObject
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

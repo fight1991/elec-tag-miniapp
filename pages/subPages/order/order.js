@@ -71,6 +71,8 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
+  // 去付款
+  goPay () {},
   onPullDownRefresh: function () {
     this.initList()
   },

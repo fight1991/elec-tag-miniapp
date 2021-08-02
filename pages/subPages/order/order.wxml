@@ -5,18 +5,20 @@
       <van-tab wx:key="index" wx:for-index="key" wx:for-item="value" name="{{key}}" wx:for="{{payStatusText}}" title="{{value}}">
         <view class="content-box">
           <view class="card-item" wx:for="{{list}}" wx:key="index">
-            <van-cell-group inset>
-              <van-cell title="{{item.merchantName}}">
-                <text class="{{item.status}}">{{payStatusText[item.status]}}</text>
-              </van-cell>
-              <van-cell border="{{false}}" title="{{item.plateNo}}">
-                <text class="{{item.status}}">¥{{item.totalAmount}}</text>
-              </van-cell>
-              <van-cell border="{{false}}" title="{{serviceText[item.merchantService]}}" value="创建时间: {{item.createdTime}}"/>
-              <van-cell>
-                <van-button size="small" plain type="info" wx:if="{{item.status=='doing'}}">去付款</van-button>
-              </van-cell>
-            </van-cell-group>
+            <navigator url="./detail?oderNum={{item.tradeOrderNo}}">
+              <van-cell-group inset>
+                <van-cell title="{{item.merchantName}}">
+                  <text class="{{item.status}}">{{payStatusText[item.status]}}</text>
+                </van-cell>
+                <van-cell border="{{false}}" title="{{item.plateNo}}">
+                  <text class="{{item.status}}">¥{{item.totalAmount}}</text>
+                </van-cell>
+                <van-cell border="{{false}}" title="{{serviceText[item.merchantService]}}" value="创建时间: {{item.createdTime}}"/>
+                <van-cell>
+                  <van-button size="small" plain type="info" wx:if="{{item.status=='doing'}}" catchtap="goPay">去付款</van-button>
+                </van-cell>
+              </van-cell-group>
+            </navigator>
           </view>
           <view class="has-more" wx:if="{{list.length > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
           <view wx:else>
