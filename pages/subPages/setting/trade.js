@@ -8,15 +8,17 @@ Page({
    */
   data: {
     checked: true,
+    limitAmount: 500,
     password: '',
-    password2: ''
+    password2: '',
+    code: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.data.code = options.code
   },
   // 确认按钮
   confirmBtn () {
@@ -34,9 +36,7 @@ Page({
       return
     }
     // api请求
-    wx.navigateBack({
-      delta: 2
-    })
+    this.setTradePw()
   },
   checkChange (e) {
     this.setData({
@@ -45,12 +45,18 @@ Page({
   },
   // 设置交易密码
   async setTradePw () {
+    let { code, password, checked, limitAmount } = this.data
     let { result } = await tradePw({
-      authCode: '', // 验证码
-      tradePwd: '', // 交易密码
-      limitAmount: '', // 限额
-      openTradePwd: true, // 是否开启免密支付
+      authCode: code, // 验证码
+      tradePwd: password, // 交易密码
+      limitAmount: limitAmount, // 限额
+      openTradePwd: checked, // 是否开启免密支付
     })
+    if (result) {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

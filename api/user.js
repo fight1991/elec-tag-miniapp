@@ -52,6 +52,20 @@ export const getImgCodeApi = (data) => {
     data
   })
 }
+// 获取验证码--个人设置用
+export const getShortCode = (data) => {
+  return wx.$post_business({
+    url: '/user-center/code/getAuthCode',
+    data
+  })
+}
+// 校验验证码
+export const checkCode = (data) => {
+  return wx.$post_business({
+    url: '/user-center/code/check',
+    data
+  })
+}
 
 // 实名认证
 export const verifyAuth = (data) => {

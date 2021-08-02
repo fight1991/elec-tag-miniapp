@@ -1,6 +1,6 @@
 // pages/subPages/setting/code.js
 var app = getApp()
-const { getCodeApi } = app.api
+const { getShortCode, checkCode } = app.api
 Page({
 
   /**
@@ -21,13 +21,14 @@ Page({
     this.setData({
       mobile: app.globalData.userInfo.mobile || ''
     })
+    this.getCode()
   },
   timeFinish () {
     this.getCode()
   },
   // 获取手机号验证码
   async getCode () {
-    let { result } = getCodeApi({
+    let { result } = getShortCode({
       type: 'setTradePwd',
       mobile: this.data.mobile
     })
@@ -39,12 +40,19 @@ Page({
     }
   },
   // 验证码输入完成
-  confirmCode (e) {
+  async confirmCode (e) {
     let code = e.detail
     // 校验验证码成功, 跳转到设置交易密码页面
-    wx.navigateTo({
-      url: `./${this.data.pageTo}`,
+    let { result } = await checkCode({
+      code,
+      mobile: this.data.mobile,
+      type: 'setTradePwd'
     })
+    if (result) {
+      wx.redirectTo({
+        url: `./${this.data.pageTo}?code=${code}`,
+      })
+    }
   },
   onHide () {
     this.setData({

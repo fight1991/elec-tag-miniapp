@@ -2,23 +2,23 @@
 <view class="box">
   <van-radio-group value="{{ check }}" bind:change="onChange">
     <van-cell-group>
-      <van-cell title="200元/笔" clickable data-name="1" bind:click="onClick">
-        <van-radio slot="right-icon" name="1" />
+      <van-cell title="200元/笔" clickable data-name="{{200}}" bind:click="onClick">
+        <van-radio slot="right-icon" name="{{200}}" />
       </van-cell>
-      <van-cell title="300元/笔" clickable data-name="2" bind:click="onClick">
-        <van-radio slot="right-icon" name="2" />
+      <van-cell title="300元/笔" clickable data-name="{{300}}" bind:click="onClick">
+        <van-radio slot="right-icon" name="{{300}}" />
       </van-cell>
-      <van-cell title="500元/笔" clickable data-name="3" bind:click="onClick">
-        <van-radio slot="right-icon" name="3" />
+      <van-cell title="500元/笔" clickable data-name="{{500}}" bind:click="onClick">
+        <van-radio slot="right-icon" name="{{500}}" />
       </van-cell>
     </van-cell-group>
   </van-radio-group>
   <view class="tips">支付金额≤500元/笔时无需输入密码</view>
 </view>
-<view>
+<view wx:if="{{!isOpen}}">
   <fixBtn bindtap="openBtn">开通</fixBtn>
 </view>
-<!-- <view>
+<view wx:else>
   <fixBtn type="light" width="50vw" bindtap="closeBtn">关闭</fixBtn>
   <fixBtn align="right" width="50vw" bindtap="openBtn">修改额度</fixBtn>
-</view> -->
+</view>
