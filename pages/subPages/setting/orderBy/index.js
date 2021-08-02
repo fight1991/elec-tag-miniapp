@@ -46,12 +46,7 @@ Page({
 	onLoad() {
 		this.drag = this.selectComponent('#drag');
 		// 模仿异步加载数据
-		setTimeout(() => {
-			this.setData({
-				listData: listData
-			});
-			this.drag.init();
-		}, 100)
+		this.getList()
 	},
 	// 排序结束
 	sortEnd(e) {
@@ -75,8 +70,9 @@ Page({
 				images: v.logoUrl,
 			}))
 			this.setData({
-				
+				listData: tempList
 			})
+			this.drag.init()
 		}
 	},
 	// 更新列表
