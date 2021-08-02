@@ -28,7 +28,11 @@ Page({
   confirmBtn () {
     let { password, password2 } = this.data
     if (!password.trim()) {
-      app.messageBox.common('交易密码不能为空')
+      app.messageBox.common('密码不能为空')
+      return
+    }
+    if (password.trim().length < 6) {
+      app.messageBox.common('密码长度为6位')
       return
     }
     if (!password2.trim()) {

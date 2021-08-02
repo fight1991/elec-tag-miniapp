@@ -5,12 +5,14 @@
       focus
       password
       required
+      maxlength="{{6}}"
       model:value="{{ password }}"
-      placeholder="请输入交易密码"
+      placeholder="请输入6位交易密码"
     />
     <van-field
       password
       required
+      maxlength="{{6}}"
       model:value="{{ password2 }}"
       placeholder="请再次确认交易密码"
       border="{{ false }}"
