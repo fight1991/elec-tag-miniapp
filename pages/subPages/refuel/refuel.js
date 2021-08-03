@@ -38,11 +38,11 @@ Page({
     searchStr: '',
     latitude: '',
     longitude: '',
+    collapse: false, // 下拉是否展开
     hasMore: true,
     pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
-    loading: false, // 正在加载
     list: []
   },
 
@@ -93,7 +93,16 @@ Page({
     })
   },
   // 导航按钮
-  navigatorBtn () {},
+  navigatorBtn (e) {
+    let index = e.currentTarget.dataset.index
+    let { latitude, longitude, address, orgName } = this.data.list[index]
+    wx.openLocation({
+      latitude,
+      longitude,
+      name: orgName,
+      address
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -124,8 +133,24 @@ Page({
       callback && callback(result || [], page)
     }
     this.loading = false
+    this.setData({
+      collapse: false
+    })
   },
-  // 列表初始化查询
+  // 上拉加载
+  upperList () {
+    if (!this.data.hasMore) return
+    let { pageIndex, list } = this.data
+    this.getList(pageIndex, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: [...list, ...resList],
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+    })
+  },
+  // 下拉刷新
   initList () {
     this.getList(0, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
@@ -137,21 +162,4 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
-  onPullDownRefresh: function () {
-    this.initList()
-    // 停止下拉刷新
-    // wx.stopPullDownRefresh()
-  },
-  onReachBottom: function () {
-    if (!this.data.hasMore) return
-    let { pageIndex, list } = this.data
-    this.getList(pageIndex, (resList, pagination) => {
-      var { pageIndex, total, pageSize } = pagination
-      this.setData({
-        pageIndex,
-        list: [...list, ...resList],
-        hasMore: pageIndex * pageSize >= total ? false : true
-      })
-    })
-  }
 })

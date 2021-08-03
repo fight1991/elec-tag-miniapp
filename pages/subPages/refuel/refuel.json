@@ -3,7 +3,5 @@
     "tag": "/pages/components/outerTag/outerTag",
     "business-card": "/pages/components/businessCard/businessCard"
   },
-  "navigationBarTitleText": "无感加油",
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "navigationBarTitleText": "无感加油"
 }

@@ -62,7 +62,6 @@ Page({
         list: resList,
         hasMore: pageIndex * pageSize >= total ? false : true
       })
-      wx.stopPullDownRefresh()
     })
   },
 })
