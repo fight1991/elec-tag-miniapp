@@ -10,7 +10,7 @@ Page({
       { text: '5km', value: 1 },
       { text: '10km', value: 2 },
       { text: '15km', value: 15},
-      { text: '不限', value: 'none'}
+      { text: '不限', value: '-1'}
     ],
     otherOption: [
       { text: '距离最近', value: 'near'},

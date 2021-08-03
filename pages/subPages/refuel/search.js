@@ -28,16 +28,16 @@ Page({
   confirmBtn (e) {
     console.log(e.detail)
     let str = e.detail.trim()
-    if (str.length == 0) {
-      app.messageBox.common('请输入关键字')
-      return
-    }
+    // if (str.length == 0) {
+    //   app.messageBox.common('请输入关键字')
+    //   return
+    // }
     this.getPrePage((prePage) => {
       prePage.setData({
         searchStr: str
       })
       // 存储搜索记录
-      this.setHistory(str)
+      str && this.setHistory(str)
       wx.navigateBack({
         delta: 1,
       })
@@ -65,7 +65,8 @@ Page({
     let str = e.target.id
     this.getPrePage((prePage) => {
       prePage.setData({
-        searchStr: str
+        searchStr: str,
+        distance: '-1'
       })
       wx.navigateBack({
         delta: 1,

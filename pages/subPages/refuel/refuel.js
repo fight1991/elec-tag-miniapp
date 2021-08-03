@@ -20,7 +20,7 @@ Page({
       { text: '5km', value: 5 },
       { text: '10km', value: 10 },
       { text: '15km', value: 15},
-      { text: '不限', value: ''}
+      { text: '不限', value: '-1'}
     ],
     oilOption: [
       { text: '92#', value: '92#' },
