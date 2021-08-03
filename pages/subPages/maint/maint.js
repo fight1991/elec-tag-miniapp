@@ -1,4 +1,6 @@
 // pages/subPages/wash/wash.js
+var app = getApp()
+const { oilList: listApi } = app.api
 Page({
 
   /**
@@ -25,9 +27,13 @@ Page({
     },
     // 下拉刷新
     listData: [1,2,3,4,5,6],
+    collapse: false, // 下拉是否展开
     hasMore: true,
-    loading: false, // 列表数据是否处于加载中
-		end: false, // 列表数据加载完成
+    pageIndex: 0, // 当前页
+    pageSize: 10, // 每页请求数量
+    total: 0, // 条目数
+    loading: false, // 正在加载
+    list: []
   },
 
   /**
@@ -42,68 +48,50 @@ Page({
       title: this.data.pageTitle[pageFlag]
     })
   },
-  getList () {
+  // 列表api
+  async getList (pageIndex, callback) {
+    if (this.loading) return
+    this.loading = true
+    let { pageSize } = this.data
+    pageIndex ++
+    let { result, page } = await listApi({
+      data: {},
+      page: {
+        pageIndex,
+        pageSize
+      }
+    })
+    if (result) {
+      callback && callback(result || [], page)
+    }
+    this.loading = false
     this.setData({
-			loading: true
-		})
-    setTimeout(() => {
+      collapse: false
+    })
+  },
+  // 上拉加载
+  upperList () {
+    if (!this.data.hasMore) return
+    let { pageIndex, list } = this.data
+    this.getList(pageIndex, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
       this.setData({
-				loading: false
-			})
-    }, 3000);
+        pageIndex,
+        list: [...list, ...resList],
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+    })
   },
-  refresh () {
-    this.getList()
+  // 下拉刷新
+  initList () {
+    this.getList(0, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: resList,
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+      wx.stopPullDownRefresh()
+    })
   },
-  more () {
-    console.log('哈哈')
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,6 +1,4 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "洗车美容",
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "navigationBarTitleText": "洗车美容"
 }

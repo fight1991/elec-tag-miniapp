@@ -24,48 +24,22 @@
     <image class="banner-img" mode="widthFix" src="/pages/image/businessCircle/maint-banner.png"></image>
   </view>
   <!-- 筛选项区域 -->
-  <van-sticky>
-    <view class="drop-down">
-      <van-dropdown-menu active-color="#447fff">
-        <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
-        <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
-        </van-dropdown-item>
-      </van-dropdown-menu>
-    </view>
-  </van-sticky>
+  <view class="drop-down">
+    <van-dropdown-menu active-color="#447fff">
+      <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
+      <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
+      </van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
   <!-- 内容区域 -->
   <view class="content-box">
-    <view class="card-item" wx:for="{{listData}}" wx:key="index">
-      <navigator url="./shopInfo">
-        <van-card
-          custom-class="bg-f"
-          price="10.00"
-          origin-price="门市30.90"
-          desc="无锡市江阴滨江洗337号"
-          title="洗车店"
-          thumb="/pages/image/default.png">
-          <view slot="footer">
-            <view class="foot-box">
-              <van-tag plain type="primary">服务</van-tag>
-              <view class="gap"></view>
-              <text>标准洗-五座轿车</text>
-            </view> 
-          </view>
-          <view slot="tags">
-            <van-tag plain type="primary">标签</van-tag>
-            <view class="gap"></view>
-            <van-tag plain type="primary">标签</van-tag>
-          </view>
-        </van-card>
-      </navigator>
-    </view>
-    <!-- <pullDown
+    <pull-refresh
       height="100%"
-      loading="{{loading}}"
-      end="{{end}}"
-      listCount="{{listData.length}}"
-      bind:refresh="refresh"
-      bind:more="more">
+      model:count="{{list.length}}"
+      model:hasMore="{{hasMore}}"
+      bind:pullDown="initList"
+      bind:reachBottom="upperList"
+      model:isRefresh="{{collapse}}">
       <view class="card-item" wx:for="{{listData}}" wx:key="index">
         <navigator url="./shopInfo">
           <van-card
@@ -90,6 +64,6 @@
           </van-card>
         </navigator>
       </view>
-    </pullDown> -->
+    </pull-refresh>
   </view>
 </view>
