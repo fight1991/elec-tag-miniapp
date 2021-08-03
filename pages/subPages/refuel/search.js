@@ -26,7 +26,6 @@ Page({
   },
   // 确定按钮
   confirmBtn (e) {
-    console.log(e.detail)
     let str = e.detail.trim()
     // if (str.length == 0) {
     //   app.messageBox.common('请输入关键字')
@@ -34,7 +33,8 @@ Page({
     // }
     this.getPrePage((prePage) => {
       prePage.setData({
-        searchStr: str
+        searchStr: str,
+        distance: '-1'
       })
       // 存储搜索记录
       str && this.setHistory(str)
