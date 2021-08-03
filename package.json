@@ -5,7 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "@miniprogram-component-plus/tabs": "^1.0.0",
-    "@vant/weapp": "^1.7.2"
+    "@vant/weapp": "^1.7.2",
+    "coolui-scroller": "^2.0.2"
   },
   "devDependencies": {},
   "scripts": {

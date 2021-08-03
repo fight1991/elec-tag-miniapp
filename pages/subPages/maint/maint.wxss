@@ -5,6 +5,7 @@ page {
 
 .box {
   height: 100%;
+  padding: 2rpx 0;
   display: flex;
   flex-direction: column;
 }
@@ -12,7 +13,8 @@ page {
   flex: 1;
 }
 .banner-img {
-  width: 100%;
+  width: 690rpx;
+  height: 200rpx;
 }
 .img {
   width: 96rpx;

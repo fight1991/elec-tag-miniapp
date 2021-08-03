@@ -178,6 +178,7 @@
     "iconImg": "/pages/components/iconImg/iconImg",
     "fullBanner": "/pages/components/fullBanner/fullBanner",
     "pullDown": "/pages/components/pullDown/index",
+    "coolui-scroll": "coolui-scroller/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-button": "@vant/weapp/button/index",
