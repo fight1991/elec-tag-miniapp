@@ -1,6 +1,5 @@
 <!--pages/main/morePoint.wxml-->
 <view class="outer">
-
   <view class="recommend-list">
     <block wx:for="{{list}}" wx:key="branchId">
       <recommend-point

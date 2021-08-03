@@ -19,6 +19,10 @@ Component({
     count: {
       type: Number,
       value: 0
+    },
+    isOpenUpper: { // 是否开启上拉加载
+      type: Boolean,
+      value: true
     }
   },
 
@@ -39,6 +43,7 @@ Component({
     },
     // 上滑到底
     upper (e) {
+      if (!this.data.isOpenUpper) return
       this.triggerEvent('reachBottom')
     }
   }

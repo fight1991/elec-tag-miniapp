@@ -1,0 +1,5 @@
+/* demo/listDemo.wxss */
+.content-box {
+  flex: 1;
+  overflow: hidden;
+}

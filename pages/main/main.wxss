@@ -68,10 +68,10 @@ page {
 }
 .content {
   flex: 1;
-  overflow-y: scroll;
+  overflow:hidden;
 }
 .recommend-list {
-  margin-bottom: 20rpx;
+  margin: 0 20rpx 20rpx;
 }
 .recommend-point .right {
   color: #666;

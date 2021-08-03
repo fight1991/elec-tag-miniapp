@@ -16,7 +16,11 @@ Page({
     pointList: [],
     carTotal: 0,
     longitude: '',
-    latitude: ''
+    latitude: '',
+    collapse: false, // 下拉是否展开
+    pageIndex: 0, // 当前页
+    pageSize: 10, // 每页请求数量
+    total: 0, // 条目数
   },
 
   /**
@@ -57,6 +61,8 @@ Page({
   },
   // 获取网点列表
   async getPointList (longitude, latitude) {
+    if (this.loading) return
+    this.loading = true
     let { result, page } = await point_list({
       data: {
         latitude,
@@ -67,10 +73,14 @@ Page({
     if (result) {
       this.setData({
         pointList: result,
-        total: page.total
+        total: page.total,
+        collapse: false
       })
     }
-    return true
+    this.setData({
+      collapse: false
+    })
+    this.loading = false
   },
   // 更多按钮
   moreBtn () {
@@ -124,13 +134,6 @@ Page({
     this.data.carTotal = e.detail
   },
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -139,27 +142,9 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    wx.offLocationChange()
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: async function () {
+  initList () {
     let { longitude, latitude } = this.data
-    await this.getPointList(longitude, latitude)
-    wx.stopPullDownRefresh()
+    this.getPointList(longitude, latitude)
   },
 
   /**
