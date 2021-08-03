@@ -4,28 +4,28 @@
   <view class="card-show-box">
     <card-show bindgetCarNum="getCarNum"></card-show>
   </view>
-  <view class="outer">
-    <!-- 电子车牌 车辆信息 扫一扫按钮 -->
-    <view class="group-btn">
-      <view class="group-btn-item" bindtap="elecBrandBtn">
-        <text>电子车牌</text>
-        <iconImg name="plate"></iconImg>
-        <text class="free-apply">免费申领</text>
-      </view>
-      <view class="group-btn-item" bindtap="carInfoBtn">
-        <text>我的车辆</text>
-        <iconImg name="car"></iconImg>
-      </view>
-      <view class="group-btn-item" bindtap="scanBtn">
-        <text>扫一扫</text>
-        <iconImg name="scan"></iconImg>
-      </view>
+  <!-- 电子车牌 车辆信息 扫一扫按钮 -->
+  <view class="group-btn">
+    <view class="group-btn-item" bindtap="elecBrandBtn">
+      <text>电子车牌</text>
+      <iconImg name="plate"></iconImg>
+      <text class="free-apply">免费申领</text>
     </view>
-    <!-- 推荐安装网点 -->
-    <view class="recommend-point">
-      <view class="left fs16">推荐安装网点</view>
-      <view class="right fs12" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
+    <view class="group-btn-item" bindtap="carInfoBtn">
+      <text>我的车辆</text>
+      <iconImg name="car"></iconImg>
     </view>
+    <view class="group-btn-item" bindtap="scanBtn">
+      <text>扫一扫</text>
+      <iconImg name="scan"></iconImg>
+    </view>
+  </view>
+  <!-- 推荐安装网点 -->
+  <view class="recommend-point">
+    <view class="left fs16">推荐安装网点</view>
+    <view class="right fs12" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
+  </view>
+  <view class="content p-aside">
     <view class="recommend-list" wx:if="{{pointList.length>0}}">
       <block wx:for="{{pointList}}" wx:key="branchId">
         <recommend-point
