@@ -1,0 +1,2 @@
+<!--pages/components/assetsImg/assetsImg.wxml-->
+<image mode="{{mode}}" src="{{host + public + module + '/' + name}}" style="height:{{height}};width:{{width}}"></image>

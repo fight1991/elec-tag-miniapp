@@ -3,7 +3,7 @@ export default {
   currentPos: {
     latitude: '',
     longitude: '',
-    address: '',
+    address: '', // 存储当前定位的地址
     province: '', // 存储省/直辖市名称
     tamp: '0' // 戳标记
   },

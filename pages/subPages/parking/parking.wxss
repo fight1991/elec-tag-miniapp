@@ -10,10 +10,13 @@
 }
 .bottom-box {
   position: absolute;
-  bottom: 60rpx;
+  bottom: 30rpx;
   left: 0;
   right: 0;
   padding: 0 30rpx;
+}
+.address {
+  max-width: 300rpx;
 }
 .near-top {
   background-color: #fff;

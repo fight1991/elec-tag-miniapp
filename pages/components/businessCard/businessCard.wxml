@@ -8,7 +8,7 @@
     <view class="title-box">
       <view class="main-title title">
         <text class="title-text text-cut">{{title}}</text>
-        <slot name="suffixIcon"></slot>
+        <iconfont icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
       </view>
       <view class="sub-title title">
         <text class="title-text text-cut">{{subTitle}}</text>

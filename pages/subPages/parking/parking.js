@@ -1,21 +1,61 @@
 // pages/subPages/parking/parking.js
 var app = getApp()
+const { parkingList } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    searchForm: {
+      latitude: '',
+      longitude: '',
+      sortType: 'distance'
+    },
+    parkingInfo: {},
+    total: 0,
+    currentAddress: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getCurrentPositionInfo()
   },
-
+  // 获取经纬度及地址信息
+  getCurrentPositionInfo () {
+    app.notifyPos(({ latitude, longitude, address }) => {
+      this.data.searchForm.latitude = latitude
+      this.data.searchForm.longitude = longitude
+      this.setData({
+        address
+      })
+      // 获取附近的停车场
+      this.getParkingList()
+    })
+  },
+  // 刷新按钮
+  refreshBtn () {
+    this.getParkingList()
+  },
+  // 附近的停车场
+  async getParkingList () {
+    let { searchForm } = this.data
+    let { result, page } = await parkingList({
+      data: searchForm,
+      page: {
+        pageSize: 1,
+        pageIndex: 1
+      }
+    })
+    if (result && result[0]) {
+      this.setData({
+        parkingInfo: result[0],
+        total: page.total
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

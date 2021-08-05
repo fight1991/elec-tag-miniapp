@@ -90,6 +90,7 @@ Page({
           let tempRes = res.result
           this.data.pois = tempRes.pois
           app.currentPos.province = tempRes.address_component.province
+          app.currentPos.address = tempRes.formatted_addresses.recommend
           this.setData({
             currentPlace: tempRes.formatted_addresses.recommend,
             city: tempRes.address_component.city

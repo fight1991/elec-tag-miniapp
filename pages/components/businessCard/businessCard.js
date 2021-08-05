@@ -34,6 +34,14 @@ Component({
     oilInfo: {
       type: Boolean,
       value: true
+    },
+    lat: {
+      type: Number,
+      value: 0
+    },
+    lng: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -48,6 +56,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    // 导航按钮
+    navigatorBtn () {
+      let { latitude, longitude, subTitle, title } = this.data
+      wx.openLocation({
+        latitude,
+        longitude,
+        name: title,
+        address: subTitle
+      })
+    },
   }
 })

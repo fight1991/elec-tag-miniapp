@@ -14,3 +14,18 @@ export const oilList = ({ data, page }) => {
     page
   })
 }
+// 附近的停车场 -列表
+export const parkingList = ({ data, page }) => {
+  return wx.$post_business({
+    url: '/vehicle-parking/parking/getParkingList',
+    data,
+    page
+  })
+}
+// 附近的停车场 -详情
+export const parkingDetail = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-parking/parking/getParkingList',
+    data
+  })
+}

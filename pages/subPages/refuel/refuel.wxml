@@ -48,10 +48,11 @@
               src="{{item.urlIcon}}"
               title="{{item.orgName}}"
               subTitleRight="{{item.distance + 'km'}}"
+              lat="{{item.latitude}}"
+              lng="{{item.longitude}}"
               subTitle="{{item.address}}"
               oldPrice="{{item.discountPrice}}"
               newPrice="{{item.price}}">
-              <iconfont data-index="{{index}}" slot="suffixIcon" icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
               <view slot="foot" style="padding-left:140rpx;display:flex">
                 <view style="padding-right:10rpx;" wx:for="{{item.tagList}}" wx:key="item">
                   <van-tag plain type="primary">{{item}}</van-tag>

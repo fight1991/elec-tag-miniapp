@@ -3,20 +3,30 @@
   <map id="map"></map>
   <view class="bottom-box">
     <view class="near-top">
-      <view class="left">附近<text class="car-num">5</text>个停车场</view>
-      <view class="position flex-center-x"><iconfont icon="position" size="30rpx"></iconfont>海创江南</view>
-      <view class="refresh">
+      <view class="left">附近<text class="car-num">{{total}}</text>个停车场</view>
+      <view class="position flex-center-x">
+        <iconfont icon="position" size="30rpx"></iconfont>
+        <text class="address text-cut">{{address}}</text>
+      </view>
+      <view class="refresh" bindtap="refreshBtn">
         <iconfont icon="refresh" size="40rpx"></iconfont>
       </view>
     </view>
     <view class="near-bottom">
       <business-card
-        title="停车场"
-        subTitle="无心hi已hi及i99号"
-        subTitleRight="489m"
+        src="{{parkingInfo.urlIcon}}"
+        title="{{parkingInfo.orgName}}"
+        address="{{parkingInfo.address}}"
+        subTitle="{{parkingInfo.address}}"
+        lat="{{parkingInfo.latitude}}"
+        lng="{{parkingInfo.longitude}}"
+        subTitleRight="{{parkingInfo.distance}}km"
         oilInfo="{{false}}">
-        <iconfont slot="suffixIcon" icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
       </business-card>
+    </view>
+    <!-- 广告 -->
+    <view class="ad-area">
+      <assetsImg mode="widthFix" width="690rpx" name="banner2.png"></assetsImg>
     </view>
   </view>
   <view class="right-top">
