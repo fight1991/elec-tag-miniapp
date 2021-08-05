@@ -58,7 +58,7 @@ Component({
   methods: {
     // 导航按钮
     navigatorBtn () {
-      let { latitude, longitude, subTitle, title } = this.data
+      let { lat: latitude, lng: longitude, subTitle, title } = this.data
       wx.openLocation({
         latitude,
         longitude,

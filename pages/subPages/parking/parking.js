@@ -1,6 +1,6 @@
 // pages/subPages/parking/parking.js
 var app = getApp()
-const { parkingList } = app.api
+const { parkingList, translateDic } = app.api
 Page({
 
   /**
@@ -12,6 +12,7 @@ Page({
       longitude: '',
       sortType: 'distance'
     },
+    serviceText: {},
     parkingInfo: {},
     total: 0,
     currentAddress: ''
@@ -20,8 +21,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     this.getCurrentPositionInfo()
+    this.setData({
+      serviceText: await translateDic('orgServiceTag')
+    })
   },
   // 获取经纬度及地址信息
   getCurrentPositionInfo () {

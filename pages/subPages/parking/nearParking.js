@@ -14,6 +14,7 @@ Page({
       longitude: '',
       sortType: 'distance'
     },
+    serviceText: {}, // 设施服务字典
     collapse: false, // 下拉是否展开
     hasMore: true,
     pageIndex: 0, // 当前页
@@ -31,6 +32,12 @@ Page({
       this.data.searchForm.longitude = longitude
       // 获取附近的停车场
       this.initList()
+    })
+    let pages = getCurrentPages()
+    let prePage = pages[pages.length - 2]
+    if (!prePage) return
+    this.setData({
+      serviceText: prePage.data.serviceText
     })
   },
   searchPlace () {
