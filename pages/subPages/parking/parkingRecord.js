@@ -1,18 +1,18 @@
 // pages/subPages/parking/parkingRecord.js
 var app = getApp()
-const { listApi } = app.api
+const { recordList: listApi } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    collapse: false, // 下拉是否展开
     hasMore: true,
     pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
-    loading: false, // 正在加载
-    resultList: [],
+    list: [],
     value: ''
   },
 
@@ -20,25 +20,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.initList()
+    this.initList()
   },
-  // 获取列表
+  // 清除按钮
+  clearBtn () {
+    this.data.value = ''
+    this.initList()
+  },
+  // 确认按钮
+  confirmBtn (e) {
+    let str = e.detail.trim()
+    if (str.length == 0) {
+      app.messageBox.common('请输入关键字')
+      return
+    }
+    this.data.value = str
+    this.initList()
+  },
+  // 列表api
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize, resultList } = this.data
-    let createTime = ''
-    let id = ''
-    if (resultList.length > 0) {
-      var lastData = resultList[resultList.length - 1]
-      createTime = lastData.createTime
-      id = lastData.id
-    }
+    let { pageSize } = this.data
     pageIndex ++
     let { result, page } = await listApi({
       data: {
-        createTime,
-        id
+        searchStr: this.data.value
       },
       page: {
         pageIndex,
@@ -49,25 +56,12 @@ Page({
       callback && callback(result || [], page)
     }
     this.loading = false
-  },
-  // 列表初始化查询
-  initList () {
-    this.getList(0, (resList, pagination) => {
-      var { pageIndex, total, pageSize } = pagination
-      this.setData({
-        pageIndex,
-        list: resList,
-        hasMore: pageIndex * pageSize >= total ? false : true
-      })
-      wx.stopPullDownRefresh()
+    this.setData({
+      collapse: false
     })
   },
-  onPullDownRefresh: function () {
-    this.initList()
-    // 停止下拉刷新
-    // wx.stopPullDownRefresh()
-  },
-  onReachBottom: function () {
+  // 上拉加载
+  upperList () {
     if (!this.data.hasMore) return
     let { pageIndex, list } = this.data
     this.getList(pageIndex, (resList, pagination) => {
@@ -79,24 +73,15 @@ Page({
       })
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 下拉刷新
+  initList () {
+    this.getList(0, (resList, pagination) => {
+      var { pageIndex, total, pageSize } = pagination
+      this.setData({
+        pageIndex,
+        list: resList,
+        hasMore: pageIndex * pageSize >= total ? false : true
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  }
 })

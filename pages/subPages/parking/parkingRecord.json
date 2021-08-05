@@ -1,6 +1,4 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "停车记录",
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "navigationBarTitleText": "停车记录"
 }

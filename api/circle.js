@@ -29,3 +29,18 @@ export const parkingDetail = (data) => {
     data
   })
 }
+// 停车记录-停车记录单
+export const recordList = ({ data, page }) => {
+  return wx.$post_business({
+    url: '/vehicle-parking/parking-order/getParkingOrderList',
+    data,
+    page
+  })
+}
+// 停车记录-停车记录单详情
+export const recordDetail = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-parking/parking-order/getParkingOrder',
+    data
+  })
+}

@@ -3,32 +3,37 @@
   <view class="search-box">
     <searchInput
       value="{{value}}"
+      bindconfirm="confirmBtn"
+      bindclear="clearBtn"
       placeHolder="请输入停车场名称">
     </searchInput>
   </view>
   <view class="list-box">
-    <block wx:for="{{5}}" wx:key="index">
-      <navigator url="./recordDetail">
-        <view class="list-item">
-          <view class="item">
-            <view class="name">
-              <view class="name-left"> 听恒昌</view>
-              <view class="name-right theme-color"> 苏B1343P</view>
+    <pull-refresh
+      height="100%"
+      model:count="{{list.length}}"
+      model:hasMore="{{hasMore}}"
+      bind:pullDown="initList"
+      bind:reachBottom="upperList"
+      model:isRefresh="{{collapse}}">
+      <block wx:for="{{list}}" wx:key="parkingNo">
+        <navigator url="./recordDetail?parkingNo={{item.parkingNo}}">
+          <view class="list-item">
+            <view class="item">
+              <view class="name">
+                <view class="name-left">{{item.parkingName || '-'}}</view>
+                <view class="name-right theme-color">{{item.plateNo || '-'}}</view>
+              </view>
+            </view>
+            <view class="item middle sub-title">
+              入场时间: <text class="time">{{item.inDate || '-'}}</text>
+            </view>
+            <view class="item sub-title">
+              停车时长: <text class="time">{{item.outDate || '-'}}</text>
             </view>
           </view>
-          <view class="item middle sub-title">
-            入场时间: <text class="time">{{'errere'}}</text>
-          </view>
-          <view class="item sub-title">
-            停车时长: <text class="time">{{'errere'}}</text>
-          </view>
-        </view>
-      </navigator>
-    </block>
-    
-  </view>
-  <view class="has-more" wx:if="{{resultList.length > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
-  <view wx:else>
-    <nodata>暂无数据</nodata>
+        </navigator>
+      </block>
+    </pull-refresh>
   </view>
 </view>
