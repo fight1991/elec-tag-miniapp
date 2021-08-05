@@ -1,31 +1,31 @@
 <!--pages/subPages/parking/recordDetail.wxml-->
 <view class="outer">
   <view class="line-box">
-    <view class="title">庇护万达听成海沧</view>
-    <view class="subTitle">苏B93k32</view>
+    <view class="title">{{dataForm.parkingName || '-'}}</view>
+    <view class="subTitle">{{dataForm.plateNo || '-'}}</view>
     <view class="line-item">
       <view class="left">支付金额</view>
-      <view class="right price">¥134</view>
+      <view class="right price">{{dataForm.totalAmount || '-'}}</view>
     </view>
     <view class="line-item">
       <view class="left">当前状态</view>
-      <view class="right">134</view>
+      <view class="right">{{statusText[dataForm.status] || '-'}}</view>
     </view>
     <view class="line-item">
       <view class="left">商户全称</view>
-      <view class="right">134</view>
+      <view class="right">{{dataForm.orgName || '-'}}</view>
     </view>
     <view class="line-item">
       <view class="left">入场时间</view>
-      <view class="right">134</view>
+      <view class="right">{{dataForm.inDate || '-'}}</view>
     </view>
     <view class="line-item">
       <view class="left">出厂时间</view>
-      <view class="right">134</view>
+      <view class="right">{{dataForm.outDate || '-'}}</view>
     </view>
     <view class="line-item">
       <view class="left">停车时长</view>
-      <view class="right">134</view>
+      <view class="right">{{dataForm.billingDuration || '-'}}</view>
     </view>
   </view>
 </view>

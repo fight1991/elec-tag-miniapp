@@ -159,6 +159,18 @@ const removePropertyOfNull = (obj) => {
   })
   return obj
 }
+// 秒转化成小时+分
+const formatHours = (time) => {
+  if (!time) return '-'
+  let h = parseInt(time / 3600)
+  let minute = parseInt(time / 60 % 60)
+  let second = Math.ceil(time % 60)
+  let hours = h < 10 ? '0' + h : h
+  console.log(hours)
+  console.log(minute)
+  let formatSecond = second > 59 ? 59 : second
+  return `${hours}小时${minute < 10 ? '0' + minute : minute}分钟${formatSecond < 10 ? '0' + formatSecond : formatSecond}秒`
+}
 module.exports = {
   formatTime,
   checkPhone,
@@ -172,5 +184,6 @@ module.exports = {
   isNull,
   setUrlParams,
   getUrlSearch,
-  removePropertyOfNull
+  removePropertyOfNull,
+  formatHours
 }

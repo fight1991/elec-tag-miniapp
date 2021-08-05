@@ -1,25 +1,38 @@
 // pages/subPages/parking/recordDetail.js
 var app = getApp()
+const { recordDetail } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    dataForm: {},
+    statusText: {
+      going: '进行中',
+      done: '已完成',
+      close: '已关闭'
+    },
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.notifyPos(({ address }) => {})
+    let parkingNo = options.parkingNo
+    this.getDetail(parkingNo)
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 获取详情
+  async getDetail (parkingNo) {
+    let { result } = await recordDetail({
+      parkingNo
+    })
+    if (result) {
+      result.billingDuration = app.utils.formatHours(result.billingDuration)
+      this.setData({
+        dataForm: result
+      })
+    }
   },
 
   /**
@@ -43,24 +56,5 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

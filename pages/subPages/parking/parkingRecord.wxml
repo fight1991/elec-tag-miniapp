@@ -36,4 +36,5 @@
       </block>
     </pull-refresh>
   </view>
+  <view class="empty"></view>
 </view>
