@@ -9,5 +9,5 @@
     </navigator>
   </view>
   <view class="bg">
-    <image class="img" mode="widthFix" src="/pages/image/record_banner.jpg"></image>
+    <image class="img" mode="{{mode}}" style="height:{{height}};width:{{width}}" src="{{bgSrc}}"></image>
   </view>

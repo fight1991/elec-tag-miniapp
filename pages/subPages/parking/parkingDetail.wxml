@@ -1,29 +1,33 @@
 <!--pages/subPages/parking/parkingDetail.wxml-->
-<view>
+<view class="box">
   <!-- 自定义导航栏 -->
-  <fullBanner bgSrc="/pages/image/record_banner.jpg"></fullBanner>
+  <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
   <shopAddress
-    title="无锡哈哈哈"
-    distance="1213"
-    address="34号"
-    startTime="00:00"
-    endTime="24:00">
+    title="{{dataForm.orgName || '-'}}"
+    distance="{{dataForm.distance || '-'}}"
+    address="{{dataForm.address || '-'}}"
+    startTime="{{dataForm.businessTimeList[0] || '00:00'}}"
+    endTime="{{dataForm.businessTimeList[1] || '24:00'}}">
   </shopAddress>
   <view class="title">停车场详情</view>
   <view class="detail">
     <view class="detail-item">
       <view class="left">车位信息</view>
-      <view class="right">300位</view>
+      <view class="right">{{dataForm.parkingNum || '-'}}位</view>
     </view>
     <view class="detail-item">
       <view class="left">收费标准</view>
-      <view class="right">¥0/h</view>
+      <view class="right">{{dataForm.chargingStandard || '-'}}</view>
     </view>
     <view class="detail-item">
       <view class="left">便利设施</view>
-      <view class="right">便利店、洗手间</view>
+      <view class="right">
+        <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
+          {{item}}
+        </view>
+      </view>
     </view>
   </view>
 </view>
-<fixBtn>立即前往</fixBtn>
+<fixBtn bindtap="goToBtn">立即前往</fixBtn>
 

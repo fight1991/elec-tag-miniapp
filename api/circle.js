@@ -25,7 +25,7 @@ export const parkingList = ({ data, page }) => {
 // 附近的停车场 -详情
 export const parkingDetail = (data) => {
   return wx.$post_business({
-    url: '/vehicle-parking/parking/getParkingList',
+    url: '/vehicle-parking/parking/getParking',
     data
   })
 }

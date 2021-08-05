@@ -8,6 +8,18 @@ Component({
     bgSrc: {
       type: String,
       value: ''
+    },
+    mode: {
+      type: String,
+      value: 'aspectFill'
+    },
+    width: {
+      type: String,
+      value: '100%'
+    },
+    height: {
+      type: String,
+      value: '410rpx'
     }
   },
 

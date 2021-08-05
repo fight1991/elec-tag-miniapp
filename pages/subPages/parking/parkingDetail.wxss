@@ -1,4 +1,8 @@
 /* pages/subPages/parking/parkingDetail.wxss */
+.box {
+  padding-bottom: 110rpx;
+  overflow-y: auto;
+}
 .title {
   padding: 20rpx 30rpx;
   font-size: 32rpx;
