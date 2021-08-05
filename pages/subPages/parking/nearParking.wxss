@@ -9,18 +9,23 @@
   height: 100%;
 }
 .bottom-box {
-  height: 50%;
+  max-height: 55%;
   position: absolute;
-  bottom: 60rpx;
+  bottom: 30rpx;
   left: 0;
   right: 0;
-  padding: 0 30rpx;
 }
 .item-box {
-  height: calc(100% - 82rpx);
-  overflow-y: auto;
+  margin: 0 30rpx;
 }
 .search-box {
-  margin-bottom: 20rpx;
+  position: absolute;
+  left: 0;
+  top: 40rpx;
+  width: 690rpx;
+  margin: 0 30rpx;
+  border-radius: 8rpx;
+  z-index: 22;
+  background-color: #fff;
   box-shadow: 1px 1px 10px 0 #ccc;
 }

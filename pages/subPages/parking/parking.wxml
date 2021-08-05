@@ -22,6 +22,12 @@
         lng="{{parkingInfo.longitude}}"
         subTitleRight="{{parkingInfo.distance}}km"
         oilInfo="{{false}}">
+        <view slot="foot" style="padding-left:140rpx;display:flex">
+          <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
+            <van-tag plain type="primary">{{item}}</van-tag>
+          </view>
+          <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24小时</van-tag>
+        </view>
       </business-card>
     </view>
     <!-- 广告 -->

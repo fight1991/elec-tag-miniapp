@@ -1,24 +1,40 @@
 <!--pages/subPages/parking/nearParking.wxml-->
 <view class="box">
+  <view class="search-box" bindtap="searchPlace">
+    <searchInput disabled placeHolder="请输入您的目的地" value="{{destination}}"></searchInput>
+  </view>
   <map id="map"></map>
   <view class="bottom-box">
-    <view class="search-box" bindtap="searchPlace">
-      <searchInput disabled placeHolder="请输入您的目的地" value="{{destination}}"></searchInput>
-    </view>
-    <view class="item-box">
-      <block wx:for="{{5}}" wx:key="index">
-      <navigator url="./parkingDetail">
-        <business-card
-          title="停车场"
-          subTitle="无心hi已hi及i99号"
-          subTitleRight="489m"
-          oilInfo="{{false}}">
-          <iconfont slot="suffixIcon" icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
-        </business-card>
-      </navigator>
-      </block>
-    </view>
+    <pull-refresh
+      height="100%"
+      model:count="{{list.length}}"
+      model:hasMore="{{hasMore}}"
+      bind:pullDown="initList"
+      bind:reachBottom="upperList"
+      model:isRefresh="{{collapse}}">
+      <view class="item-box">
+        <block wx:for="{{list}}" wx:key="orgIdd">
+          <navigator url="./parkingDetail?id={{item.orgId}}">
+            <business-card
+              src="{{item.urlIcon}}"
+              title="{{item.orgName}}"
+              address="{{item.address}}"
+              subTitle="{{item.address}}"
+              lat="{{item.latitude}}"
+              lng="{{item.longitude}}"
+              subTitleRight="{{item.distance}}km"
+              oilInfo="{{false}}">
+              <view slot="foot" style="padding-left:140rpx;display:flex">
+                <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
+                  <van-tag plain type="primary">{{item}}</van-tag>
+                </view>
+                <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24小时</van-tag>
+              </view>
+            </business-card>
+          </navigator>
+        </block>
+      </view>
+    </pull-refresh>
   </view>
-
 </view>
 
