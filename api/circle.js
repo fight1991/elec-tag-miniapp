@@ -44,3 +44,47 @@ export const recordDetail = (data) => {
     data
   })
 }
+// 洗车 - 商户详情
+export const washShopDetail = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-upkeep/car-wash/getOrg',
+    data
+  })
+}
+// 洗车 - 商户商品详情
+export const washGoodsDetail = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-upkeep/car-wash/getOrgGoods',
+    data
+  })
+}
+// 洗车 - 列表
+export const washList = ({ data, page }) => {
+  return wx.$post_business({
+    url: '/vehicle-upkeep/car-wash/getOrgList',
+    data,
+    page
+  })
+}
+// 维保 - 商户详情
+export const maintShopDetail = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-upkeep/upkeep/getUpkeep',
+    data
+  })
+}
+// 维保 - 商户商品详情
+export const maintGoodsDetail = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-upkeep/upkeep/getUpkeepGoods',
+    data
+  })
+}
+// 维保 - 列表
+export const maintList = ({ data, page }) => {
+  return wx.$post_business({
+    url: '/vehicle-upkeep/upkeep/getUpkeepList',
+    data,
+    page
+  })
+}

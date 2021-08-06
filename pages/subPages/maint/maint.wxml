@@ -26,8 +26,8 @@
   <!-- 筛选项区域 -->
   <view class="drop-down">
     <van-dropdown-menu active-color="#447fff">
-      <van-dropdown-item value="{{ distance }}" options="{{ distanceOption }}" />
-      <van-dropdown-item value="{{ other }}" options="{{ otherOption }}">
+      <van-dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
+      <van-dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
       </van-dropdown-item>
     </van-dropdown-menu>
   </view>
@@ -40,26 +40,33 @@
       bind:pullDown="initList"
       bind:reachBottom="upperList"
       model:isRefresh="{{collapse}}">
-      <view class="card-item" wx:for="{{listData}}" wx:key="index">
+      <view class="card-item" wx:for="{{list}}" wx:key="goodsId">
         <navigator url="./shopInfo">
           <van-card
             custom-class="bg-f"
-            price="10.00"
-            origin-price="门市30.90"
-            desc="无锡市江阴滨江洗337号"
-            title="洗车店"
-            thumb="/pages/image/default.png">
+            price="{{item.discountPrice}}"
+            origin-price="门市{{item.price}}"
+            desc="{{item.address}}"
+            title="{{item.orgName}}"
+            thumb="{{item.urlIcon}}">
             <view slot="footer">
               <view class="foot-box">
-                <van-tag plain type="primary">服务</van-tag>
-                <view class="gap"></view>
-                <text>标准洗-五座轿车</text>
+                <view
+                  style="padding-right:10rpx;"
+                  wx:for="{{item.orgServices}}"
+                  wx:key="item">
+                  <van-tag plain type="primary">{{serviceText[item]}}</van-tag>
+                </view>
+                <text>{{item.goodsName}}</text>
               </view> 
             </view>
-            <view slot="tags">
-              <van-tag plain type="primary">标签</van-tag>
-              <view class="gap"></view>
-              <van-tag plain type="primary">标签</van-tag>
+            <view slot="tags" style="display:flex">
+              <view
+                style="padding-right:10rpx;"
+                wx:for="{{item.orgTags}}"
+                wx:key="item">
+                <van-tag plain type="primary">{{tagText[item]}}</van-tag>
+              </view>
             </view>
           </van-card>
         </navigator>

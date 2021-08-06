@@ -1,6 +1,10 @@
 // pages/subPages/wash/wash.js
 var app = getApp()
-const { oilList: listApi } = app.api
+const { washList, maintList, translateDic } = app.api
+const listApi = {
+  wash: washList,
+  maint: maintList
+}
 Page({
 
   /**
@@ -15,18 +19,22 @@ Page({
       { text: '不限', value: '-1'}
     ],
     otherOption: [
-      { text: '距离最近', value: 'near'},
-      { text: '价格最低', value: 'low'}
+      { text: '距离最近', value: 'distance'},
+      { text: '价格最低', value: 'price'}
     ],
     distance: 0,
-    other: 'near',
+    other: 'distance',
     pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',
       maint: '维修保养'
     },
+    upkeepType: '', // 洗车类型
+    latitude: '',
+    longitude: '',
+    serviceText: {},
+    tagText: {},
     // 下拉刷新
-    listData: [1,2,3,4,5,6],
     collapse: false, // 下拉是否展开
     hasMore: true,
     pageIndex: 0, // 当前页
@@ -39,23 +47,41 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let { pageFlag } = options
-    this.setData({
-      pageFlag
-    })
     wx.setNavigationBarTitle({
       title: this.data.pageTitle[pageFlag]
     })
+    this.setData({
+      pageFlag,
+      serviceText: await translateDic('orgServiceType'),
+      tagText: await translateDic('orgServiceTag'),
+    })
+    app.notifyPos(({ latitude, longitude, address }) => {
+      this.data.latitude = latitude
+      this.data.longitude = longitude
+      // 获取附近的停车场
+      this.initList()
+    })
+  },
+  // 筛选按钮
+  selectBtn () {
+    this.initList()
   },
   // 列表api
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize } = this.data
+    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType} = this.data
     pageIndex ++
-    let { result, page } = await listApi({
-      data: {},
+    let { result, page } = await listApi[pageFlag]({
+      data: {
+        latitude,
+        longitude,
+        radius: distance,
+        sortType: other,
+        upkeepType
+      },
       page: {
         pageIndex,
         pageSize
