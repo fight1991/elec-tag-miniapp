@@ -3,7 +3,7 @@
   <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
   <shopAddress
     title="{{dataForm.orgName || '-'}}"
-    distance="{{dataForm.distance || '-'}}"
+    distance="{{distance || 0}}km"
     address="{{dataForm.address || '-'}}"
     startTime="{{dataForm.businessTimeList[0] || '00:00'}}"
     endTime="{{dataForm.businessTimeList[1] || '24:00'}}">
@@ -12,12 +12,12 @@
     <view class="title">{{pageTitle[pageFlag]}}</view>
     <view class="content-box">
       <view class="card-item" wx:for="{{dataForm.goodsList}}" wx:key="goodsId">
-        <navigator url="./detail?pageFlag={{pageFlag}}&goodsId={{item.goodsId}}">
+        <navigator url="./detail?orgId={{item.orgId}}&pageFlag={{pageFlag}}&goodsId={{item.goodsId}}">
           <van-card
             custom-class="bg-f"
-            price="¥{{item.goodsPlatPrice}}"
+            price="{{item.goodsPlatPrice}}"
             centered
-            origin-price="门市¥{{item.goodsMarketPrice}}"
+            origin-price="门市{{item.goodsMarketPrice}}"
             title="{{item.goodsName}}"
             thumb="{{item.goodsImage}}">
           </van-card>

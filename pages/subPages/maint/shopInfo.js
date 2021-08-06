@@ -21,22 +21,25 @@ Page({
     },
     pageFlag: '',
     goodsId: '',
-    orgId: ''
+    orgId: '',
+    distance: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { pageFlag, goodsId, orgId } = options
+    let { pageFlag, goodsId, orgId, distance } = options
     this.data.goodsId = goodsId
     this.data.orgId = orgId
     this.setData({
-      pageFlag
+      pageFlag,
+      distance
     })
     wx.setNavigationBarTitle({
       title: this.data.pageTitle[pageFlag] + '详情'
     })
+    this.getDetail()
   },
   // 获取商铺详情
   async getDetail () {
@@ -46,6 +49,11 @@ Page({
       goodsId
     })
     if (result) {
+      if (result.orgBusiness.businessTimeBucketType === '2') {
+        let temp = result.orgBusiness.businessTimeBucket
+        let times = temp.split('$')
+        result.orgBusiness.businessTimeList = times
+      }
       this.setData({
         dataForm: {
           ...result.orgBusiness,

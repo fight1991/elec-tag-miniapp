@@ -4,7 +4,7 @@
   <van-cell-group inset>
     <van-cell>
       <view slot="title">
-        <text class="line-title">{{dataForm.desc}}</text>
+        <text class="line-title">{{dataForm.goodsDesc}}</text>
       </view>
     </van-cell>
     <van-cell title="门市价" value="¥{{dataForm.goodsMarketPrice}}" />

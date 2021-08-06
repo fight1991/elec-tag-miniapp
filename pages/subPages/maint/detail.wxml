@@ -1,6 +1,12 @@
 <!--pages/subPages/wash/washDetail.wxml-->
 <view>
   <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
+  <view class="title">
+    {{dataForm.goodsName}}
+    <view style="padding-left:10rpx;" wx:for="{{dataForm.orgTags}}" wx:key="item">
+      <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
+    </view>
+  </view>
   <view wx:if="{{pageFlag=='wash'}}">
     <!-- 洗车套餐 -->
     <wash-form dataForm="{{dataForm}}"></wash-form>

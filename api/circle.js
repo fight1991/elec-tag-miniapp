@@ -44,6 +44,13 @@ export const recordDetail = (data) => {
     data
   })
 }
+// 获取洗车按钮列表
+export const washBtnList = (data) => {
+  return wx.$post_business({
+    url: '/vehicle-upkeep/car-wash/getDefault',
+    data
+  })
+}
 // 洗车 - 商户详情
 export const washShopDetail = (data) => {
   return wx.$post_business({

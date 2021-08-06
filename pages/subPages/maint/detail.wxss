@@ -1,1 +1,7 @@
 /* pages/subPages/wash/washDetail.wxss */
+.title {
+  padding: 30rpx 40rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}

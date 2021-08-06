@@ -1,6 +1,6 @@
 // pages/subPages/wash/wash.js
 var app = getApp()
-const { washList, maintList, translateDic } = app.api
+const { washList, maintList, washBtnList, translateDic } = app.api
 const listApi = {
   wash: washList,
   maint: maintList
@@ -12,9 +12,9 @@ Page({
    */
   data: {
     distanceOption: [
-      { text: '3km', value: 0 },
-      { text: '5km', value: 1 },
-      { text: '10km', value: 2 },
+      { text: '3km', value: 3 },
+      { text: '5km', value: 5 },
+      { text: '10km', value: 10 },
       { text: '15km', value: 15},
       { text: '不限', value: '-1'}
     ],
@@ -22,14 +22,16 @@ Page({
       { text: '距离最近', value: 'distance'},
       { text: '价格最低', value: 'price'}
     ],
-    distance: 0,
+    distance: 3,
     other: 'distance',
     pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',
       maint: '维修保养'
     },
+    washBtnList: [],
     upkeepType: '', // 洗车类型
+    activeTab: '', // 洗车当前tab
     latitude: '',
     longitude: '',
     serviceText: {},
@@ -52,6 +54,9 @@ Page({
     wx.setNavigationBarTitle({
       title: this.data.pageTitle[pageFlag]
     })
+    if (pageFlag == 'wash') {
+      this.getWashBtnList()
+    }
     this.setData({
       pageFlag,
       serviceText: await translateDic('orgServiceType'),
@@ -63,6 +68,27 @@ Page({
       // 获取附近的停车场
       this.initList()
     })
+  },
+  // 获取洗车按钮列表
+  async getWashBtnList () {
+    let { result } = await washBtnList()
+    if (result) {
+      this.setData({
+        washBtnList: result
+      })
+    }
+  },
+  // 洗车筛选按钮
+  washTabBtn (e) {
+    let current = e.target.dataset.type
+    if (current === this.data.activeTab) {
+      current = ''
+    }
+    this.setData({
+      activeTab: current
+    })
+    this.data.upkeepType = current
+    this.initList()
   },
   // 筛选按钮
   selectBtn () {

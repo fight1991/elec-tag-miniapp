@@ -1,22 +1,10 @@
 <!--pages/subPages/wash/wash.wxml-->
 <view class="box">
   <!-- 头部洗车组件 -->
-  <view class="item-box" wx:if="{{pageFlag=='wash'}}">
-    <view class="item">
-      <image class="img" mode="widthFix" src="/pages/image/businessCircle/standard-wash.png"></image>
-      <text class="img-text">标准洗车</text>
-    </view>
-    <view class="item">
-      <image class="img" mode="widthFix" src="/pages/image/businessCircle/full-wash.png"></image>
-      <text class="img-text">全车精洗</text>
-    </view>
-    <view class="item">
-      <image class="img" mode="widthFix" src="/pages/image/businessCircle/inside-wash.png"></image>
-      <text class="img-text">内饰精洗</text>
-    </view>
-    <view class="item">
-      <image class="img" mode="widthFix" src="/pages/image/businessCircle/beauty-wash.png"></image>
-      <text class="img-text">打蜡美容</text>
+  <view class="item-box" wx:if="{{pageFlag=='wash'}}" bindtap="washTabBtn">
+    <view class="item" data-type="{{item.goodsCategory}}" wx:for="{{washBtnList}}" wx:key="goodsDefaultId">
+      <image class="img stopTap" mode="widthFix" src="{{item.goodsCategoryIcon}}"></image>
+      <text class="stopTap img-text{{activeTab==item.goodsCategory?' active':''}}">{{item.goodsCategoryName}}</text>
     </view>
   </view>
   <!-- 头部维修保养组件 -->
@@ -41,7 +29,7 @@
       bind:reachBottom="upperList"
       model:isRefresh="{{collapse}}">
       <view class="card-item" wx:for="{{list}}" wx:key="goodsId">
-        <navigator url="./shopInfo?goodsId={{item.goodsId}}&orgId={{item.orgId}}&pageFlag={{pageFlag}}">
+        <navigator url="./shopInfo?distance={{item.distance}}&goodsId={{item.goodsId}}&orgId={{item.orgId}}&pageFlag={{pageFlag}}">
           <van-card
             custom-class="bg-f"
             price="{{item.discountPrice}}"

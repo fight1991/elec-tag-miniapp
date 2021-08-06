@@ -14,7 +14,7 @@
       <text class="discount">¥{{(dataForm.goodsMarketPrice - dataForm.goodsPlatPrice) || 0}}</text>
     </van-cell>
     <van-cell title="优惠后价格">
-      <text class="discount">¥{{dataForm.goodsPlatPrice}}</text>
+      <text class="discount">¥{{dataForm.goodsPlatPrice || 0}}</text>
     </van-cell>
     <van-cell>
       <text class="extra">*额外增值收费服务依据到店收费为准</text>

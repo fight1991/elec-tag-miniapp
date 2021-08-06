@@ -13,32 +13,40 @@ Page({
   data: {
     pageFlag: 'maint',
     goodsId: '',
+    orgId: '',
     dataForm: {
       items: []
-    }
+    },
+    serviceText: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    let pageFlag = options.pageFlag
+  onLoad: async function (options) {
+    let { pageFlag, goodsId, orgId } = options
     this.data.goodsId = goodsId
+    this.data.orgId = orgId
     this.setData({
       pageFlag
     })
     this.getDetail()
+    this.setData({
+      serviceText: await translateDic('orgServiceTag')
+    })
   },
   // 获取详情
   async getDetail () {
-    let { goodsId, pageFlag } = this.data
+    let { goodsId, pageFlag, orgId } = this.data
     let { result } = await detailApi[pageFlag]({
-      goodsId
+      goodsId,
+      orgId
     })
     if (result) {
       this.setData({
         dataForm: {
           address: result.orgBusiness.address,
+          orgTags: result.orgBusiness.orgTags || [],
           ...result.goodsInfo
         }
       })
