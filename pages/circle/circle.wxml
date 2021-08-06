@@ -21,5 +21,12 @@
       </block>
     </view>
   </view>
-  
+  <view class="banner-box">
+    <view class="item">
+      <assetsImg mode="widthFix" width="690rpx" module="marketing" name="20210806-banner5.png"></assetsImg>
+    </view>
+    <view class="item">
+      <assetsImg mode="widthFix" width="690rpx" module="marketing" name="20210806-banner6.png"></assetsImg>
+    </view>
+  </view>
 </view>

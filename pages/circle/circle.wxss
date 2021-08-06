@@ -44,3 +44,7 @@
   display: grid;
   grid-template-columns:repeat(4, 25%);
 }
+.item {
+  text-align: center;
+  margin-bottom: 10rpx;
+}
