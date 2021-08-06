@@ -41,7 +41,7 @@
       bind:reachBottom="upperList"
       model:isRefresh="{{collapse}}">
       <view class="card-item" wx:for="{{list}}" wx:key="goodsId">
-        <navigator url="./shopInfo">
+        <navigator url="./shopInfo?goodsId={{item.goodsId}}&orgId={{item.orgId}}&pageFlag={{pageFlag}}">
           <van-card
             custom-class="bg-f"
             price="{{item.discountPrice}}"
@@ -57,7 +57,7 @@
                   wx:key="item">
                   <van-tag plain type="primary">{{serviceText[item]}}</van-tag>
                 </view>
-                <text>{{item.goodsName}}</text>
+                <text>{{item.goodsName || '-'}}</text>
               </view> 
             </view>
             <view slot="tags" style="display:flex">

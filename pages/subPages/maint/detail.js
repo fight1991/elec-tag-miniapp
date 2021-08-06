@@ -1,20 +1,49 @@
 // pages/subPages/wash/washDetail.js
+var app = getApp()
+const { washGoodsDetail, maintGoodsDetail, translateDic } = app.api
+const detailApi = {
+  wash: washGoodsDetail,
+  maint: maintGoodsDetail
+}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageFlag: 'maint'
+    pageFlag: 'maint',
+    goodsId: '',
+    dataForm: {
+      items: []
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let pageFlag = options.pageFlag
+    this.data.goodsId = goodsId
+    this.setData({
+      pageFlag
+    })
+    this.getDetail()
   },
-
+  // 获取详情
+  async getDetail () {
+    let { goodsId, pageFlag } = this.data
+    let { result } = await detailApi[pageFlag]({
+      goodsId
+    })
+    if (result) {
+      this.setData({
+        dataForm: {
+          address: result.orgBusiness.address,
+          ...result.goodsInfo
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

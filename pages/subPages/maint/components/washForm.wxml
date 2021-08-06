@@ -4,19 +4,20 @@
   <van-cell-group inset>
     <van-cell>
       <view slot="title">
-        <text class="line-title">整车泡沫冲洗擦干、轮胎轮毂冲洗清洁、车内吸尘、内饰脚垫等简单清理</text>
+        <text class="line-title">{{dataForm.desc}}</text>
       </view>
     </van-cell>
-    <van-cell title="门市价" value="¥30.00" />
-    <van-cell title="平台优惠" value="¥30.00"/>
+    <van-cell title="门市价" value="¥{{dataForm.goodsMarketPrice}}" />
+    <van-cell title="平台优惠" value="¥{{(dataForm.goodsMarketPrice-dataForm.goodsPlatPrice) || 0}}"/>
     <van-cell title="优惠后价格">
-      <text class="discount">¥30.00</text>
+      <text class="discount">¥{{dataForm.goodsPlatPrice}}</text>
     </van-cell>
-    <van-cell>
+    <van-cell title="门店地址" value="{{dataForm.address}}"/>
+    <!-- <van-cell>
       <view slot="title">
         <text class="discount">新用户首次消费</text>
       </view>
       <text class="discount">¥30.00</text>
-    </van-cell>
+    </van-cell> -->
   </van-cell-group>
 </view>

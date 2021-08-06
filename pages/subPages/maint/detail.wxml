@@ -1,12 +1,12 @@
 <!--pages/subPages/wash/washDetail.wxml-->
 <view>
-  <fullBanner bgSrc="/pages/image/record_banner.jpg"></fullBanner>
+  <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
   <view wx:if="{{pageFlag=='wash'}}">
     <!-- 洗车套餐 -->
-    <wash-form></wash-form>
+    <wash-form dataForm="{{dataForm}}"></wash-form>
   </view>
   <view wx:if="{{pageFlag=='maint'}}">
     <!-- 维修套餐 -->
-    <maint-form></maint-form>
+    <maint-form dataForm="{{dataForm}}"></maint-form>
   </view>
 </view>

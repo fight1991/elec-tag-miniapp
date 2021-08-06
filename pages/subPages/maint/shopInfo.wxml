@@ -1,25 +1,25 @@
 <!--pages/subPages/wash/shopInfo.wxml-->
 <view class="box">
-  <fullBanner bgSrc="/pages/image/record_banner.jpg"></fullBanner>
+  <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
   <shopAddress
-    title="无锡哈哈哈"
-    distance="1213"
-    address="34号"
-    startTime="00:00"
-    endTime="24:00">
+    title="{{dataForm.orgName || '-'}}"
+    distance="{{dataForm.distance || '-'}}"
+    address="{{dataForm.address || '-'}}"
+    startTime="{{dataForm.businessTimeList[0] || '00:00'}}"
+    endTime="{{dataForm.businessTimeList[1] || '24:00'}}">
   </shopAddress>
   <view>
-    <view class="title">洗车美容</view>
+    <view class="title">{{pageTitle[pageFlag]}}</view>
     <view class="content-box">
-      <view class="card-item" wx:for="{{listData}}" wx:key="index">
-        <navigator url="./detail">
+      <view class="card-item" wx:for="{{dataForm.goodsList}}" wx:key="goodsId">
+        <navigator url="./detail?pageFlag={{pageFlag}}&goodsId={{item.goodsId}}">
           <van-card
             custom-class="bg-f"
-            price="10.00"
+            price="¥{{item.goodsPlatPrice}}"
             centered
-            origin-price="门市30.90"
-            title="洗车店"
-            thumb="/pages/image/default.png">
+            origin-price="门市¥{{item.goodsMarketPrice}}"
+            title="{{item.goodsName}}"
+            thumb="{{item.goodsImage}}">
           </van-card>
         </navigator>
       </view>
