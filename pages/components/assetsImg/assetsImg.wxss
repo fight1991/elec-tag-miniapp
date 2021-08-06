@@ -1,1 +1,4 @@
 /* pages/components/assetsImg/assetsImg.wxss */
+.box {
+  margin: 0 auto;
+}

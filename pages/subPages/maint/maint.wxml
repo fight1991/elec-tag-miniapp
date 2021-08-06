@@ -8,8 +8,8 @@
     </view>
   </view>
   <!-- 头部维修保养组件 -->
-  <view class="item-box" wx:if="{{pageFlag=='maint'}}">
-    <image class="banner-img" mode="widthFix" src="/pages/image/businessCircle/maint-banner.png"></image>
+  <view class="ad-box" wx:if="{{pageFlag=='maint'}}">
+    <assetsImg mode="widthFix" width="690rpx" module="marketing" name="20210806-banner5.png"></assetsImg>
   </view>
   <!-- 筛选项区域 -->
   <view class="drop-down">

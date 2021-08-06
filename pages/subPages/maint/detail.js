@@ -45,6 +45,7 @@ Page({
     if (result) {
       this.setData({
         dataForm: {
+          urlOutletImage:  result.orgBusiness.urlOutletImage,
           address: result.orgBusiness.address,
           orgTags: result.orgBusiness.orgTags || [],
           ...result.goodsInfo

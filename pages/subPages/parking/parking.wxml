@@ -12,7 +12,7 @@
         <iconfont icon="refresh" size="40rpx"></iconfont>
       </view>
     </view>
-    <view class="near-bottom">
+    <view class="near-bottom" wx:if="{{total > 0}}">
       <business-card
         src="{{parkingInfo.urlIcon}}"
         title="{{parkingInfo.orgName}}"
@@ -32,7 +32,7 @@
     </view>
     <!-- 广告 -->
     <view class="ad-area">
-      <assetsImg mode="widthFix" width="690rpx" name="banner2.png"></assetsImg>
+      <assetsImg mode="widthFix" width="690rpx" module="marketing" name="20210806-banner6.png"></assetsImg>
     </view>
   </view>
   <view class="right-top">

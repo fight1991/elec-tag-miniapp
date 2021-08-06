@@ -25,6 +25,9 @@ page {
   width: 100%;
   overflow-x: auto;
 }
+.ad-box {
+  padding: 30rpx 0;
+}
 .item {
   width: 25%;
 }

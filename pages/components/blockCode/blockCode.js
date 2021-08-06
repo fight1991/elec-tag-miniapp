@@ -16,16 +16,20 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isFocus: true,
+    isFocus: false,
     value: ''
   },
   lifetimes: {
     attached () {
-
+    },
+    ready () {
+      this.setData({
+        isFocus: true
+      })
     }
   },
   pageLifetimes: {
-
+    
   },
   /**
    * 组件的方法列表
