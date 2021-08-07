@@ -67,7 +67,13 @@ Page({
     }
   },
   // 筛选条件按钮
-  selectBtn (value) {
+  selectBtn (e) {
+    if (e.detail.indexOf('#') > -1) {
+      wx.setStorage({
+        key: 'oil',
+        data: e.detail
+      })
+    }
     this.initList()
   },
   // 模态框
