@@ -3,7 +3,7 @@
    export const setMarkersOnMap = (context, arr) => {
     let markers = arr.map(v => (
       {
-        id: v.orgId,
+        id: v.orgId * 1,
         longitude: v.longitude,
         latitude: v.latitude
       }
