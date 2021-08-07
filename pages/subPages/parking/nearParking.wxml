@@ -4,7 +4,7 @@
     <searchInput disabled placeHolder="请输入您的目的地" value="{{destination}}"></searchInput>
   </view>
   <!-- 地图组件 -->
-  <my-map></my-map>
+  <my-map id="myMap"></my-map>
   <view class="bottom-box">
     <pull-refresh
       height="100%"

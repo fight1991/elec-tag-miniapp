@@ -1,4 +1,5 @@
 // pages/subPages/parking/nearParking.js
+import { setMarkersOnMap, setCurrentPosOnMap } from './map/operator'
 const chooseLocation = requirePlugin('chooseLocation')
 var app = getApp()
 const { parkingList: listApi } = app.api
@@ -27,9 +28,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.myMap = this.selectComponent('#myMap')
     app.notifyPos(({ latitude, longitude, address }) => {
       this.data.searchForm.latitude = latitude
       this.data.searchForm.longitude = longitude
+      setCurrentPosOnMap(this.myMap, {
+        latitude,
+        longitude
+      })
       // 获取附近的停车场
       this.initList()
     })
@@ -98,6 +104,7 @@ Page({
         list: [...list, ...resList],
         hasMore: pageIndex * pageSize >= total ? false : true
       })
+      setMarkersOnMap(this.myMap, this.data.list)
     })
   },
   // 下拉刷新
@@ -109,6 +116,7 @@ Page({
         list: resList,
         hasMore: pageIndex * pageSize >= total ? false : true
       })
+      setMarkersOnMap(this.myMap, this.data.list)
     })
   },
 })

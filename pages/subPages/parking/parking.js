@@ -1,4 +1,5 @@
 // pages/subPages/parking/parking.js
+import { setMarkersOnMap, setCurrentPosOnMap } from './map/operator'
 var app = getApp()
 const { parkingList, translateDic } = app.api
 Page({
@@ -15,13 +16,7 @@ Page({
     serviceText: {},
     parkingInfo: {},
     total: 0,
-    currentAddress: '',
-    setting: {
-      showLocation: true,
-      latitude: 31.57,
-      longitude: 120.30,
-      markers: []
-    }
+    currentAddress: ''
   },
 
   /**
@@ -39,16 +34,12 @@ Page({
     app.notifyPos(({ latitude, longitude, address }) => {
       this.data.searchForm.latitude = latitude
       this.data.searchForm.longitude = longitude
-      this.myMap.initMap({
+      setCurrentPosOnMap(this.myMap, {
         latitude,
         longitude
       })
       this.setData({
-        address,
-        setting: {
-          latitude,
-          longitude
-        }
+        address
       })
       // 获取附近的停车场
       this.getParkingList()
@@ -73,6 +64,7 @@ Page({
         parkingInfo: result[0],
         total: page.total
       })
+      setMarkersOnMap(this.myMap, result)
     }
   },
   /**
@@ -97,40 +89,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })
