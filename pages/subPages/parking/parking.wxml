@@ -1,6 +1,7 @@
 <!--pages/subPages/parking/parking.wxml-->
 <view class="box">
-  <map id="map"></map>
+  <!-- 地图组件 -->
+  <my-map id="myMap"></my-map>
   <view class="bottom-box">
     <view class="near-top">
       <view class="left">附近<text class="car-num">{{total}}</text>个停车场</view>

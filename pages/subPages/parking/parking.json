@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "business-card": "/pages/components/businessCard/businessCard"
+    "business-card": "/pages/components/businessCard/businessCard",
+    "my-map": "./map/map"
   },
   "navigationBarTitleText": "智慧停车"
 }

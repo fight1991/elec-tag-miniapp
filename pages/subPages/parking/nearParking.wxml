@@ -3,7 +3,8 @@
   <view class="search-box" bindtap="searchPlace">
     <searchInput disabled placeHolder="请输入您的目的地" value="{{destination}}"></searchInput>
   </view>
-  <map id="map"></map>
+  <!-- 地图组件 -->
+  <my-map></my-map>
   <view class="bottom-box">
     <pull-refresh
       height="100%"

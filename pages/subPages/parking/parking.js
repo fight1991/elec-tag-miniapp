@@ -15,13 +15,20 @@ Page({
     serviceText: {},
     parkingInfo: {},
     total: 0,
-    currentAddress: ''
+    currentAddress: '',
+    setting: {
+      showLocation: true,
+      latitude: 31.57,
+      longitude: 120.30,
+      markers: []
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    this.myMap = this.selectComponent('#myMap')
     this.getCurrentPositionInfo()
     this.setData({
       serviceText: await translateDic('orgServiceTag')
@@ -32,8 +39,16 @@ Page({
     app.notifyPos(({ latitude, longitude, address }) => {
       this.data.searchForm.latitude = latitude
       this.data.searchForm.longitude = longitude
+      this.myMap.initMap({
+        latitude,
+        longitude
+      })
       this.setData({
-        address
+        address,
+        setting: {
+          latitude,
+          longitude
+        }
       })
       // 获取附近的停车场
       this.getParkingList()

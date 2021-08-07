@@ -1,0 +1,2 @@
+<!--pages/subPages/parking/map/map.wxml-->
+<map style="height:{{height}};width:{{width}}" id="map" setting="{{setting}}"></map>
