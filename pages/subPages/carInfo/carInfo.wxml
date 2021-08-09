@@ -8,7 +8,7 @@
 </view>
 <view class="info-box">
   <view class="info-item">
-    <view class="info-left">车身颜色</view>
+    <view class="info-left">车牌颜色</view>
     <view class="info-right">{{carInfo.plateColor || ''}}</view>
   </view>
   <view class="info-item">

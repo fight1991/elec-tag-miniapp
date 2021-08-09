@@ -43,7 +43,6 @@
       <view class="license-back license-box">
         <upload 
           closeIcon="{{false}}"
-          bindgetImgInfo="getImgInfo"
           model:img-src="{{backImgUrl}}"
           staticSrc="/pages/image/driver-copy.png"
           mode="aspectFit"
