@@ -16,7 +16,7 @@
     <view class="tips">
       <view class="title">拍摄并上传本人证件</view>
       <view class="tips-detail">
-        证件可选择: <text class="tips-text-sub">居民身份证、驾驶证、公民护照</text>
+        证件可选择: <text class="tips-text-sub">居民身份证</text>
       </view>
       <!-- 身份证正面区域 -->
       <view class="idcard idcard-front">
