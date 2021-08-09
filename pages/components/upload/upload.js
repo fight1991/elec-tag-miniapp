@@ -54,9 +54,10 @@ Component({
   methods: {
     // 点击图片按钮, 如果存在删除按钮则预览, 否则直接选择/上传文件
     chooseBtn (e) {
-      if (this.data.closeIcon && this.data.tempSrc) {
+      let imgURL = this.data.tempSrc || this.data.imgSrc
+      if (this.data.closeIcon && imgURL) {
         wx.previewImage({
-          urls: [this.data.tempSrc] // 当前显示图片的http链接
+          urls: [imgURL] // 当前显示图片的http链接
         })
         return
       }
