@@ -35,10 +35,15 @@ Component({
       type: Boolean,
       value: true
     },
+    preview: {
+      type: Boolean,
+      value: false
+    },
     imgSrc: { // 真实的图片地址
       type: String,
       value: ''
-    }
+    },
+
   },
   observers: {},
   /**
@@ -54,10 +59,13 @@ Component({
   methods: {
     // 点击图片按钮, 如果存在删除按钮则预览, 否则直接选择/上传文件
     chooseBtn (e) {
-      let imgURL = this.data.tempSrc || this.data.imgSrc
-      if (this.data.closeIcon && imgURL) {
+      let { tempSrc, imgSrc, preview } = this.data
+      let imgURL = tempSrc || imgSrc
+      // 开启预览模式
+      // 或存在closeIcon按钮
+      if (preview || (this.data.closeIcon && imgURL)) {
         wx.previewImage({
-          urls: [imgURL] // 当前显示图片的http链接
+          urls: [imgURL]
         })
         return
       }
