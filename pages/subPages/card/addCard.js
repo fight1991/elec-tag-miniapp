@@ -43,6 +43,16 @@ Page({
   bindData (e) {
     var id = e.currentTarget.id
     this.data.formData[id] = e.detail.value
+    if (id == 'bankCardNo') { // 查询银行
+      let value = e.detail.value
+      if (value.length >= 8) {
+        // 防抖
+        this.bounceTimer && clearTimeout(this.bounceTimer)
+        this.bounceTimer = setTimeout(() => {
+          this.getBankName()
+        }, 800)
+      }
+    }
   },
   photoBtn () {
     this.$upload.chooseBtn()
@@ -63,10 +73,10 @@ Page({
     }
   },
   // 根据卡号查询市哪家银行
-  async getBankName () {
+  async getBankName (other = true) {
     let { bankCardNo } = this.data.formData
     if (bankCardNo && bankCardNo.length >= 8) {
-      let { result } = await whichBank(bankCardNo)
+      let { result } = await whichBank(bankCardNo, other)
       if (result) {
         this.setData({
           'formData.bankName': result.bankName,
