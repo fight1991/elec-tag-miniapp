@@ -10,7 +10,8 @@
     "pages/subPages/order/order",
     "pages/subPages/send/send",
     "pages/subPages/order/detail",
-    "demo/listDemo"
+    "demo/listDemo",
+    "pages/index/board"
   ],
   "subPackages": [
     {

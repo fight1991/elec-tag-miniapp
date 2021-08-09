@@ -31,7 +31,6 @@
  id='myDialog'
  type="login"
  mobile="{{mobile}}"
- bindcancelEvent="colseDialog"
  bindconfirmEvent="checkImgCodeStatus">
 </dialog>
 

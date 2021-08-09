@@ -9,7 +9,9 @@
   bindscrolltolower="upper"
   bindrefresherrefresh="onRefresh">
   <slot></slot>
-  <view class="has-more" wx:if="{{count > 0}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</view>
+  <view class="has-more" wx:if="{{count > 0}}">
+    <text wx:if="{{showFooter}}">{{hasMore ? '上拉加载更多' : '~到底啦~'}}</text>
+  </view>
   <view wx:else>
     <nodata>暂无数据</nodata>
   </view>

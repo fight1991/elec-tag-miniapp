@@ -1,21 +1,26 @@
-<!--pages/main/main.wxml-->
+<!--pages/index/board.wxml-->
 <view class="linear-box">
   <top-bg></top-bg>
   <view class="card-show-box">
-    <card-show bindgetCarNum="getCarNum"></card-show>
+    <view class="refine-userInfo">
+      <stepBox></stepBox>
+      <view class="btn-box" bindtap="goToLoginBtn">
+        电子车牌新申领
+      </view>
+    </view>
   </view>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
   <view class="group-btn">
-    <view class="group-btn-item" bindtap="elecBrandBtn">
+    <view class="group-btn-item" bindtap="goToLoginBtn">
       <text>电子车牌</text>
       <iconImg name="plate"></iconImg>
       <text class="free-apply">免费申领</text>
     </view>
-    <view class="group-btn-item" bindtap="carInfoBtn">
+    <view class="group-btn-item" bindtap="goToLoginBtn">
       <text>我的车辆</text>
       <iconImg name="car"></iconImg>
     </view>
-    <view class="group-btn-item" bindtap="scanBtn">
+    <view class="group-btn-item" bindtap="goToLoginBtn">
       <text>扫一扫</text>
       <iconImg name="scan"></iconImg>
     </view>
@@ -23,7 +28,6 @@
   <!-- 推荐安装网点 -->
   <view class="recommend-point">
     <view class="left fs16">推荐安装网点</view>
-    <view class="right fs12" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
   </view>
   <view class="content">
     <pull-refresh
@@ -48,4 +52,5 @@
     </pull-refresh>
   </view>
 </view>
+
 

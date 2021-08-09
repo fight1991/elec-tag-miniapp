@@ -8,6 +8,10 @@ Component({
       type: Boolean,
       value: false
     },
+    showFooter: {
+      type: Boolean,
+      value: true
+    },
     height: {
       type: String,
       value: '50vh'

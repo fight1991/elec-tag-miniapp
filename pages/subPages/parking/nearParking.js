@@ -114,6 +114,7 @@ Page({
       this.setData({
         pageIndex,
         list: resList,
+        total,
         hasMore: pageIndex * pageSize >= total ? false : true
       })
       setMarkersOnMap(this.myMap, this.data.list)

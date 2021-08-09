@@ -60,6 +60,7 @@ Page({
       this.setData({
         pageIndex,
         list: resList,
+        total: total,
         hasMore: pageIndex * pageSize >= total ? false : true
       })
     })

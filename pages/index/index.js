@@ -33,14 +33,14 @@ Page({
     var token = wx.getStorageSync('token')
     // token不存在
     if (!token) {
-      this.routeTo('/pages/login/signIn')
+      this.routeTo('/pages/index/board')
       return
     }
     let res = await app.saveUserBusinessInfo(false)
     // 初始化用户信息报错
     if (!res) {
       this.timer = setTimeout(() => {
-        this.routeTo('/pages/login/signIn')
+        this.routeTo('/pages/index/board')
       }, 3000)
       return
     }
@@ -56,44 +56,9 @@ Page({
     })
   },
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
     this.timer && clearTimeout(this.timer)
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

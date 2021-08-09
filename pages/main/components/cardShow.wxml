@@ -1,4 +1,4 @@
-<!--pages/main/components/cardShow.wxml-->
+
 <!-- 电子车牌申领区域-->
   <view class="refine-userInfo" wx:if="{{list.length==0}}">
     <stepBox></stepBox>

@@ -11,7 +11,7 @@
   <view class="list-box">
     <pull-refresh
       height="100%"
-      model:count="{{list.length}}"
+      model:count="{{total}}"
       model:hasMore="{{hasMore}}"
       bind:pullDown="initList"
       bind:reachBottom="upperList"
