@@ -1,6 +1,6 @@
 <!--pages/components/upload/upload.wxml-->
 <view class="btn-box">
-  <view class="remove-icon" wx:if="{{closeIcon && imgSrc}}" catchtap="removeBg">
+  <view class="remove-icon" wx:if="{{closeIcon && imgSrc && !preview}}" catchtap="removeBg">
     <image src="/pages/image/remove.png" style="width:46rpx;height:46rpx;display:block"></image>
   </view>
   <view bindtap="chooseBtn" style="width:{{width}};height:{{height}}">

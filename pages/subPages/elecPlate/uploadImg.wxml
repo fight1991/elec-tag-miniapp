@@ -3,9 +3,9 @@
   <view class="box">
     <view class="title fs16" wx:if="{{opType=='add'}}">请上传车辆照片</view>
     <view class="upload-box">
-      <upload model:img-src="{{insideImage}}"></upload>
+      <upload model:img-src="{{insideImage}}" preview="{{opType=='look'}}"></upload>
       <view class="gap"></view>
-      <upload model:img-src="{{outsideImage}}"></upload>
+      <upload model:img-src="{{outsideImage}}" preview="{{opType=='look'}}"></upload>
     </view>
   </view>
 </view>
