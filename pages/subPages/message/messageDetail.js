@@ -37,7 +37,7 @@ Page({
   changeReadStatus (id) {
     let pages = getCurrentPages()
     var prevPage = pages[pages.length - 2]
-    var tempData = JSON.parse(JSON.stringify(prevPage.data.resultList))
+    var tempData = JSON.parse(JSON.stringify(prevPage.data.list))
     tempData.some(v => {
       if (v.messageId == id) {
         v.readStatus = true
