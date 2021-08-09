@@ -25,10 +25,16 @@
         <view class="info-left">申领时间</view>
         <view class="info-right">{{elecInfo.applyTime}}</view>
       </view>
-      <view class="info-item" wx:if="{{elecInfo.bindStatus == 'bind' || elecInfo.bindStatus == 'scrap'}}">
+      <view class="info-item" wx:if="{{elecInfo.bindStatus == 'bind'}}">
         <view class="info-left">车辆贴卡照片</view>
         <navigator url="./uploadImg?id={{id}}">
           <view class="info-right upload">请上传</view>
+        </navigator>
+      </view>
+      <view class="info-item" wx:if="{{elecInfo.bindStatus == 'scrap' || elecInfo.bindStatus == 'installed'}}">
+        <view class="info-left">车辆贴卡照片</view>
+        <navigator url="./uploadImg?id={{id}}&status={{elecInfo.bindStatus}}">
+          <view class="info-right upload">查看照片</view>
         </navigator>
       </view>
     </view>
