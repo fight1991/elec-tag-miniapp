@@ -2,7 +2,8 @@
 import './utils/fetch'
 // 批量请求注册
 import './utils/fetch_all'
-
+// 全局分享函数
+import share from './utils/share'
 // 弹框注册
 import messageBox from './utils/messageBox'
 // 上传api注册
@@ -25,6 +26,7 @@ const QQMapWX = require('./utils/qqmap-wx-jssdk.js')
 
 // 全局监听项
 import posNotify from './notify/positionModel'
+share()
 App({
   ...posNotify,
   onLaunch() {
@@ -46,7 +48,7 @@ App({
   navTop: 0, // 状态栏高度
   navHeight: 0, // 导航栏高度
   appLBS: { // 腾讯位置服务
-    key: 'ZMYBZ-P6OKU-YWWV5-45AVL-4SMA5-FDB5X', // 腾讯位置服务申请的key
+    key: 'W5RBZ-G5EKJ-UDLFK-K5ASE-YLQXV-HYFB4', // 腾讯位置服务申请的key
     referer: '航天吉光小程序', // 调用插件的app的名称
     hotCitys: '无锡,北京,上海,杭州,深圳,广州,成都,苏州', // 自定义热门城市
   },
