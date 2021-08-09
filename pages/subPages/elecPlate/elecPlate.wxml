@@ -33,7 +33,7 @@
       </view>
       <view class="info-item" wx:if="{{elecInfo.bindStatus == 'scrap' || elecInfo.bindStatus == 'installed'}}">
         <view class="info-left">车辆贴卡照片</view>
-        <navigator url="./uploadImg?id={{id}}&status={{elecInfo.bindStatus}}">
+        <navigator url="./uploadImg?id={{id}}&opType=look">
           <view class="info-right upload">查看照片</view>
         </navigator>
       </view>

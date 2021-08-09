@@ -10,7 +10,6 @@ Page({
   data: {
     bgImg: app.utils.imgTobase64('/pages/image/bind-bg.png'),
     elecInfo: {},
-    status: '',
     type: 'base',
     id: '' // 车辆id
   },
@@ -21,12 +20,11 @@ Page({
   onLoad: function (options) {
     // this.getElecInfo()
     this.baseFormInfoComponent = this.selectComponent('#baseFormInfo')
-    let { type, id, status } = options
+    let { type, id } = options
     if (type) {
       this.setData({
         type,
-        id,
-        status
+        id
       })
       this.baseFormInfoComponent.getCarInfo(id)
       this.getElecInfo()

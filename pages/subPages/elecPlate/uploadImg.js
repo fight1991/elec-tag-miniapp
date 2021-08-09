@@ -9,17 +9,30 @@ Page({
   data: {
     insideImage: null,
     outsideImage: null,
-    id: ''
+    id: '',
+    opType: 'add',
+    titleMap: {
+      add: '上传车辆照片',
+      look: '查看车辆照片'
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { id } = options
+    let { id, opType } = options
     if (id) {
       this.getImgInfo(id)
       this.data.id = id
+    }
+    if (opType) {
+      this.setData({
+        opType
+      })
+      wx.setNavigationBarTitle({
+        title: this.data.titleMap[opType]
+      })
     }
   },
   // 查询图片

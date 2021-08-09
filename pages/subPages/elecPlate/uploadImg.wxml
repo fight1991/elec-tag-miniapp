@@ -1,7 +1,7 @@
 <!--pages/elecPlate/uploadImg.wxml-->
 <view class="outer">
   <view class="box">
-    <view class="title fs16">请上传车辆照片</view>
+    <view class="title fs16" wx:if="{{opType=='add'}}">请上传车辆照片</view>
     <view class="upload-box">
       <upload model:img-src="{{insideImage}}"></upload>
       <view class="gap"></view>
@@ -9,4 +9,4 @@
     </view>
   </view>
 </view>
-<fixBtn bindtap="uploadBtn" hidden="{{status=='installed' || status=='scrap'}}">确定上传</fixBtn>
+<fixBtn bindtap="uploadBtn" wx:if="{{opType=='add'}}">确定上传</fixBtn>
