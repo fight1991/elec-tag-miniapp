@@ -45,7 +45,7 @@ Page({
       }
     })
     prevPage.setData({
-      resultList: tempData
+      list: tempData
     })
   },
   /**
