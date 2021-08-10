@@ -28,7 +28,8 @@ Page({
     let { pageSize, list } = this.data
     let createTime = ''
     let id = ''
-    if (list.length > 0) {
+    // 上拉的时候
+    if (list.length > 0 && pageIndex > 0) {
       var lastData = list[list.length - 1]
       createTime = lastData.createTime
       id = lastData.id
