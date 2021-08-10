@@ -35,6 +35,7 @@ Page({
     })
     if (result) {
       app.messageBox.common('验证码发送成功')
+      this.countDown && this.countDown.reset()
       this.countDown && this.countDown.start()
     }
     if (other) {

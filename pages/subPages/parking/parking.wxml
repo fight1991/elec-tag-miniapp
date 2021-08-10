@@ -14,22 +14,24 @@
       </view>
     </view>
     <view class="near-bottom" wx:if="{{total > 0}}">
-      <business-card
-        src="{{parkingInfo.urlIcon}}"
-        title="{{parkingInfo.orgName}}"
-        address="{{parkingInfo.address}}"
-        subTitle="{{parkingInfo.address}}"
-        lat="{{parkingInfo.latitude}}"
-        lng="{{parkingInfo.longitude}}"
-        subTitleRight="{{parkingInfo.distance}}km"
-        oilInfo="{{false}}">
-        <view slot="foot" style="padding-left:140rpx;display:flex">
-          <view style="padding-right:10rpx;" wx:for="{{parkingInfo.orgTags}}" wx:key="item">
-            <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
+      <navigator url="./parkingDetail?id={{item.orgId}}">
+        <business-card
+          src="{{parkingInfo.urlIcon}}"
+          title="{{parkingInfo.orgName}}"
+          address="{{parkingInfo.address}}"
+          subTitle="{{parkingInfo.address}}"
+          lat="{{parkingInfo.latitude}}"
+          lng="{{parkingInfo.longitude}}"
+          subTitleRight="{{parkingInfo.distance}}km"
+          oilInfo="{{false}}">
+          <view slot="foot" style="padding-left:140rpx;display:flex">
+            <view style="padding-right:10rpx;" wx:for="{{parkingInfo.orgTags}}" wx:key="item">
+              <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
+            </view>
+            <van-tag wx:if="{{parkingInfo.businessTimeBucketType == 1}}" plain>24小时</van-tag>
           </view>
-          <van-tag wx:if="{{parkingInfo.businessTimeBucketType == 1}}" plain>24小时</van-tag>
-        </view>
-      </business-card>
+        </business-card>
+      </navigator>
     </view>
     <!-- 广告 -->
     <view class="ad-area">
