@@ -38,10 +38,7 @@ Page({
       this.countDown && this.countDown.reset()
       this.countDown && this.countDown.start()
     }
-    if (error) {
-      
-    }
-    if (other) {
+    if (other || error) {
       this.timer = setTimeout(() => {
         wx.navigateBack({
           delta: 1
