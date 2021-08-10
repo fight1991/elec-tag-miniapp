@@ -52,7 +52,8 @@
         "addCard",
         "uploadCard",
         "check",
-        "detail"
+        "detail",
+        "license"
       ]
     },
     {
@@ -145,7 +146,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3E77FF",
-    "navigationBarTitleText": "汽车电子标识",
+    "navigationBarTitleText": "吉光车生活",
     "navigationBarTextStyle": "white"
   },
   "permission": {

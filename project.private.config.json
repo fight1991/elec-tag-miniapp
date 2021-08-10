@@ -86,13 +86,13 @@
         },
         {
           "name": "添加银行卡",
-          "pathName": "pages/card/addCard",
+          "pathName": "pages/subPages/card/addCard",
           "query": "",
           "scene": null
         },
         {
-          "name": "银行卡-手机号验证",
-          "pathName": "pages/card/check",
+          "name": "银行卡手机号验证",
+          "pathName": "pages/subPages/card/check",
           "query": "",
           "scene": null
         },
@@ -225,6 +225,12 @@
         {
           "name": "订单详情",
           "pathName": "pages/subPages/order/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "支付协议",
+          "pathName": "pages/subPages/card/license",
           "query": "",
           "scene": null
         }

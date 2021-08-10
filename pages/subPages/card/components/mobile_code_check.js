@@ -146,6 +146,6 @@ Component({
         }
       }, 1000)
       this.data.timerId = timerIdTemp
-    },
+    }
   }
 })

@@ -74,3 +74,7 @@
 .declare {
   color: #3C79FF;
 }
+.license {
+  display: flex;
+  align-items: center;
+}

@@ -18,9 +18,11 @@
   </view>
    <view class="agree-content">
     <view class="radioBtn{{!isAgree ? ' agree-select' : ''}}" bindtap="switchAgree"></view>
-    <view>
-      <text>阅读并同意</text>
-      <text class="declare">{{"《吉光快捷支付协议》"}}</text>
+    <view class="license">
+      <view>阅读并同意</view>
+      <navigator url="/pages/subPages/card/license">
+        <view class="declare">{{"《吉光快捷支付协议》"}}</view>
+      </navigator>
     </view>
   </view>
   <fixBtn bindtap="submitBtn">同意协议并提交</fixBtn>

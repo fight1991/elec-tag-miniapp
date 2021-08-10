@@ -51,12 +51,13 @@ Page({
       ...this.data.idcardInfo
     })
     if (result) {
-      app.globalData.userInfo.authPersonal = true
-      app.globalData.userInfo.userName = idName
-      app.messageBox.success('实名认证成功')
-      wx.navigateBack({
-        delta: 2
-      })
+      // 重新查询用户信息
+      let res = await app.saveUserBusinessInfo()
+      if (res) {
+        wx.navigateBack({
+          delta: 2
+        })
+      }
     }
   },
   /**

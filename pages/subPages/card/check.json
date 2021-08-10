@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "check-code": "./components/mobile_code_check"
-  }
+  },
+  "navigationBarTitleText": "银行卡验证码"
 }
