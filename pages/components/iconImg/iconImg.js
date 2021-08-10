@@ -6,7 +6,7 @@ Component({
   properties: {
     size: {
       type: String,
-      value: '40rpx'
+      value: '42rpx'
     },
     name:{
       type: String,

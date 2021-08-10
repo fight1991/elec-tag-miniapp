@@ -6,16 +6,16 @@
   </view>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
   <view class="group-btn">
-    <view class="group-btn-item" bindtap="elecBrandBtn">
+    <view class="group-btn-item" style="background-image:url({{bgImg.plate}})" bindtap="elecBrandBtn">
       <text>电子车牌</text>
       <iconImg name="plate"></iconImg>
       <text class="free-apply">免费申领</text>
     </view>
-    <view class="group-btn-item" bindtap="carInfoBtn">
+    <view class="group-btn-item" style="background-image:url({{bgImg.car}})" bindtap="carInfoBtn">
       <text>我的车辆</text>
       <iconImg name="car"></iconImg>
     </view>
-    <view class="group-btn-item" bindtap="scanBtn">
+    <view class="group-btn-item" style="background-image:url({{bgImg.scan}})"  bindtap="scanBtn">
       <text>扫一扫</text>
       <iconImg name="scan"></iconImg>
     </view>

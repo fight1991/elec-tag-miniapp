@@ -21,6 +21,11 @@ Page({
     pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
+    bgImg: {
+      car: app.utils.imgTobase64('/pages/image/icons/car-bg.png'),
+      plate: app.utils.imgTobase64('/pages/image/icons/plate-bg.png'),
+      scan: app.utils.imgTobase64('/pages/image/icons/scan-bg.png')
+    }
   },
 
   /**

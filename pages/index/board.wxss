@@ -42,7 +42,8 @@ page {
 }
 .group-btn-item {
   width: 210rpx;
-  height: 80rpx;
+  height: 90rpx;
+  background-size: 210rpx 90rpx;
   box-sizing: border-box;
   padding: 0 15rpx;
   color: #fff;
@@ -50,7 +51,6 @@ page {
   justify-content: space-between;
   display: flex;
   align-items: center;
-  border-radius: 10rpx;
 }
 .free-apply {
   position: absolute;
@@ -63,18 +63,6 @@ page {
   line-height: 30rpx;
   background-color: #FD8141;
   border-radius: 15rpx;
-}
-.group-btn-item:nth-child(1) {
-  background: linear-gradient(92deg, #A899FF 0%, #CBC2FF 100%);
-  box-shadow: 0px 6px 30px rgba(172, 161, 240, 0.42);
-}
-.group-btn-item:nth-child(2) {
-  background: linear-gradient(92deg, #FF8DA9 0%, #FFC3B7 100%);
-  box-shadow: 0px 6px 30px rgba(254, 152, 176, 0.42);
-}
-.group-btn-item:nth-child(3) {
-  background: linear-gradient(92deg, #FEBE5A 0%, #FEBE5A 0%, #FCD8A1 100%);
-  box-shadow: 0px 6px 30px rgba(245, 198, 124, 0.42);
 }
 .recommend-point {
   display: flex;
