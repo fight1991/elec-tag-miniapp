@@ -25,7 +25,7 @@
                 <iconfont icon="realname" color="#447FFF" size="40rpx"></iconfont>
                 <text class="fs12">车主已实名</text>
               </view>
-              <view class="show-item" wx:if="{{item.bindStatus=='bind'}}">
+              <view class="show-item" wx:if="{{item.bindStatus=='bind' || item.bindStatus=='installed'}}">
                 <iconfont icon="brand" color="#447FFF" size="40rpx"></iconfont>
                 <text class="fs12">电子车牌</text>
               </view>
