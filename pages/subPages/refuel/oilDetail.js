@@ -22,9 +22,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.data.id = options.id
-    this.data.lat = options.latitude
-    this.data.lon = options.longitude
+    this.data.lat = options.lat
+    this.data.lon = options.lon
     this.setData({
       distance: options.distance
     })
@@ -54,8 +55,8 @@ Page({
   goThis () {
     let { lat, lon, orgBusiness } = this.data
       wx.openLocation({
-        latitude: parseFloat(lat),
-        longitude: parseFloat(lon),
+        latitude: lat*1,
+        longitude: lon*1,
         name: orgBusiness.orgName,
         address: orgBusiness.address
       })

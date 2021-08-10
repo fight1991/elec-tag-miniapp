@@ -29,7 +29,7 @@ Page({
   },
   // 获取手机号验证码
   async getCode () {
-    let { result, other } = await getShortCode({
+    let { result, other, error } = await getShortCode({
       type: 'setTradePwd',
       mobile: this.data.mobile
     })
@@ -37,6 +37,9 @@ Page({
       app.messageBox.common('验证码发送成功')
       this.countDown && this.countDown.reset()
       this.countDown && this.countDown.start()
+    }
+    if (error) {
+      
     }
     if (other) {
       this.timer = setTimeout(() => {
