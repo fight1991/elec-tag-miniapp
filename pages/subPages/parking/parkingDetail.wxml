@@ -4,7 +4,7 @@
   <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
   <shopAddress
     title="{{dataForm.orgName || '-'}}"
-    distance="{{dataForm.distance || '-'}}"
+    distance="{{distance || 0}}km"
     address="{{dataForm.address || '-'}}"
     startTime="{{dataForm.businessTimeList[0] || '00:00'}}"
     endTime="{{dataForm.businessTimeList[1] || '24:00'}}">

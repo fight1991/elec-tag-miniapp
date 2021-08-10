@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="near-bottom" wx:if="{{total > 0}}">
-      <navigator url="./parkingDetail?id={{parkingInfo.orgId}}">
+      <navigator url="./parkingDetail?id={{parkingInfo.orgId}}&distance={{parkingInfo.distance}}">
         <business-card
           src="{{parkingInfo.urlIcon}}"
           title="{{parkingInfo.orgName}}"

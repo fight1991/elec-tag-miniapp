@@ -15,7 +15,7 @@
       model:isRefresh="{{collapse}}">
       <view class="item-box">
         <block wx:for="{{list}}" wx:key="orgIdd">
-          <navigator url="./parkingDetail?id={{item.orgId}}">
+          <navigator url="./parkingDetail?id={{item.orgId}}&distance={{item.distance}}">
             <business-card
               src="{{item.urlIcon}}"
               title="{{item.orgName}}"
