@@ -5,7 +5,7 @@
 .card-item {
   margin-bottom: 15rpx;
 }
-.doing {
+.doing,.warning {
   color: #FF7F21;
 }
 .van-tabs__wrap {

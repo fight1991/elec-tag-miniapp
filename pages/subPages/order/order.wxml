@@ -11,7 +11,7 @@
                   <text class="{{item.status}}">{{payStatusText[item.status]}}</text>
                 </van-cell>
                 <van-cell border="{{false}}" title="{{item.plateNo}}">
-                  <text class="{{item.status}}">¥{{item.totalAmount}}</text>
+                  <text class="warning">¥{{item.totalAmount}}</text>
                 </van-cell>
                 <van-cell border="{{false}}" title="{{serviceText[item.merchantService]}}" value="创建时间: {{item.createdTime}}"/>
                 <van-cell>
