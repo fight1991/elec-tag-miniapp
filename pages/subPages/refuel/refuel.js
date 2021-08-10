@@ -68,7 +68,7 @@ Page({
   },
   // 筛选条件按钮
   selectBtn (e) {
-    if (e.detail.indexOf('#') > -1) {
+    if (typeof e.detail == 'string' && e.detail.indexOf('#') > -1) {
       wx.setStorage({
         key: 'oil',
         data: e.detail
