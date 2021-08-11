@@ -6,14 +6,31 @@
     "pages/main/morePoint",
     "pages/my/my",
     "pages/circle/circle",
-    "pages/subPages/citySelector/citySelector",
-    "pages/subPages/order/order",
-    "pages/subPages/send/send",
-    "pages/subPages/order/detail",
-    "demo/listDemo",
     "pages/index/board"
   ],
   "subPackages": [
+    {
+      "root": "pages/subPages/send",
+      "name": "send",
+      "pages": [
+        "send"
+      ]
+    },
+    {
+      "root": "pages/subPages/citySelector",
+      "name": "citySelector",
+      "pages": [
+        "citySelector"
+      ]
+    },
+    {
+      "root": "pages/subPages/order",
+      "name": "order",
+      "pages": [
+        "order",
+        "detail"
+      ]
+    },
     {
       "root": "pages/subPages/refuel",
       "name": "refuel",

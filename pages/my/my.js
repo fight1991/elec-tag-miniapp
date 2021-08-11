@@ -11,6 +11,7 @@ Page({
     authPersonal: false, // 是否已实名
     authVehicleLicense: false, // 是否行驶证认证
     userName: '',
+    uid: '',
     tabList: [{
       url: '/pages/subPages/card/card',
       label: '我的银行卡',
@@ -68,10 +69,17 @@ Page({
               title: '退出成功!',
               duration: 1500,
               success: () => {
-                wx.reLaunch({
-                  url: '/pages/login/signIn',
-                })
+                // wx.reLaunch({
+                //   url: '/pages/index/index',
+                // })
                 wx.removeStorageSync('token')
+                app.globalData.userInfo = {}
+                this.mapStateToProps()
+                if (wx.pageScrollTo) {
+                  wx.pageScrollTo({
+                    scrollTop: 0
+                  })
+                }            
               }
             })
           }
@@ -81,11 +89,12 @@ Page({
   },
   // 读取global数据
   mapStateToProps () {
-    let { authPersonal, authVehicleLicense = false, userName } = app.globalData.userInfo
+    let { authPersonal = false, authVehicleLicense = false, userName = '', uid = '' } = app.globalData.userInfo
     this.setData({
       authPersonal,
       authVehicleLicense,
-      userName
+      userName,
+      uid
     })
   },
   goRealName () {
@@ -94,6 +103,10 @@ Page({
     })
   },
   routePage (e) {
+    if (!app.isLogin()) {
+      app.utils.openCheckLogin()
+      return
+    }
     let { authPersonal } = this.data
     if (!authPersonal) {
       app.messageBox.common('您还未实名认证, 请先认证哦')

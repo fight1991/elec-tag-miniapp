@@ -95,6 +95,10 @@ Page({
   },
   // 车辆信息页面
   carInfoBtn () {
+    if (!app.isLogin()) {
+      app.utils.openCheckLogin()
+      return
+    }
     let { isAuth } = this.data
     if (isAuth) {
       wx.navigateTo({
@@ -108,6 +112,10 @@ Page({
   },
   // 打开扫码
   scanBtn () {
+    if (!app.isLogin()) {
+      app.utils.openCheckLogin()
+      return
+    }
     wx.scanCode({
       onlyFromCamera: true,
       success: res => {
@@ -124,8 +132,12 @@ Page({
       }
     })
   },
-  // 电子车牌新申领页面
+  // 电子车牌按钮
   elecBrandBtn () {
+    if (!app.isLogin()) {
+      app.utils.openCheckLogin()
+      return
+    }
     if (this.data.carTotal > 2) {
       app.messageBox.common('您申请的电子车牌次数已达上限')
       return

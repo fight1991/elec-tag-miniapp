@@ -48,3 +48,5 @@
 + 删除 "style": "v2",
 + 在app.json中引用组件
 + 工具 > 构建npm即可
+# 小程序relauch问题
++ a页面 => relauch到login页面, 点击小房子按钮或relauch某一页, a页面会重新执行

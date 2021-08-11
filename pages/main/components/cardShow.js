@@ -10,7 +10,14 @@ Component({
   },
   pageLifetimes: {
     show: function () {
-      this.getList()
+      app.isLogin() && this.getList()
+      if (app.isLogin()) {
+        this.getList()
+      } else {
+        this.setData({
+          list: []
+        })
+      }
     }
   },
   /**
@@ -47,6 +54,10 @@ Component({
     },
     // 跳转到用户信息页面
     goToUserInfoPage () {
+      if (!app.isLogin()) {
+        app.utils.openCheckLogin()
+        return
+      }
       wx.navigateTo({
         url: '/pages/subPages/verifyInfo/index',
       })

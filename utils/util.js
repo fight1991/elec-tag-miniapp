@@ -181,7 +181,7 @@ const openCheckLogin = () => {
     content: '您还尚未登录',
     confirmText: '去登录',
     confirm: () => {
-      wx.reLaunch({
+      wx.navigateTo({
         url: '/pages/login/signIn'
       })
     }

@@ -107,6 +107,10 @@ Page({
   },
   // 页面跳转
   routePage (e) {
+    if (!app.isLogin()) {
+      app.utils.openCheckLogin()
+      return
+    }
     let pageKey = e.currentTarget.dataset.page
     if (!pageKey) {
       app.messageBox.common('敬请期待')

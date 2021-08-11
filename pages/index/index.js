@@ -27,22 +27,22 @@ Page({
   },
   // 入口路由跳转
   // 1. 判断有无token
-  // 2. 无token调取api结果, 判断是去注册还是去登录
-  // 3. 有token 说明登录过 跳转到首页
+  // 2. 有token, 初始化用户信息
+  // 3. 没有token, 直接放行, 放行的页面需要做是否登录校验
   async routeValid (code) {
     var token = wx.getStorageSync('token')
-    // token不存在
-    if (!token) {
-      this.routeTo('/pages/index/board')
-      return
-    }
-    let res = await app.saveUserBusinessInfo(false)
-    // 初始化用户信息报错
-    if (!res) {
-      this.timer = setTimeout(() => {
-        this.routeTo('/pages/index/board')
-      }, 3000)
-      return
+    if (token) {
+      let res = await app.saveUserBusinessInfo(false)
+      // 初始化用户信息报错
+      if (!res) {
+        this.timer = setTimeout(() => {
+          wx.reLaunch({
+            url: '/pages/login/signIn',
+          })
+          this.timer && clearTimeout(this.timer)
+        }, 3000)
+        return
+      }
     }
     // 跳转到首页
     wx.switchTab({

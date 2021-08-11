@@ -25,8 +25,6 @@ const HandleBranch = (_res, other) => {
       }
       return { other: _res.data || true}
     case '0002': // token失效
-      wx.removeStorageSync('token')
-      // var app = getApp()
       // if (!app.redirect) {
       // wx.showToast({
       //   title: _res.message,
@@ -48,6 +46,9 @@ const HandleBranch = (_res, other) => {
       //   })
       // }
       if (!wx.tokenTimer) {
+        wx.removeStorageSync('token')
+        var app = getApp()
+        app.globalData.userInfo = {}
         wx.showToast({
           title: _res.message,
           duration: 1500,
