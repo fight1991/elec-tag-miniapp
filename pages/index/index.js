@@ -14,16 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.routeValid()
   },
   /**
  * 生命周期函数--监听页面显示
  */
   onShow: function () {
-    app.getWechatCode().then(res => {
-      app.globalData.jsCode = res.code
-      this.routeValid(res.code)
-    })
+    // app.getWechatCode().then(res => {
+    //   app.globalData.jsCode = res.code
+    //   this.routeValid(res.code)
+    // })
   },
   // 入口路由跳转
   // 1. 判断有无token
@@ -47,12 +47,6 @@ Page({
     // 跳转到首页
     wx.switchTab({
       url: '/pages/main/main',
-    })
-  },
-  // 跳转到相关页面
-  routeTo (url) {
-    wx.redirectTo({
-      url
     })
   },
   /**

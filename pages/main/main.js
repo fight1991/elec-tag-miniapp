@@ -45,7 +45,7 @@ Page({
         app.currentPos.longitude = longitude
         this.data.latitude = latitude
         this.data.longitude = longitude
-        app.currentPos.tamp = Date.now()
+        // app.currentPos.tamp = Date.now() 注意:更改此值, 每次打开此页面会触发订阅更新
         this.getPointList(longitude, latitude)
       },
       fail: (res) => {
@@ -155,7 +155,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      isAuth: app.globalData.userInfo.authPersonal
+      isAuth: app.globalData.userInfo.authPersonal || false
     })
   },
 
