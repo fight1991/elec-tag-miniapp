@@ -53,6 +53,16 @@ App({
     hotCitys: '无锡,北京,上海,杭州,深圳,广州,成都,苏州', // 自定义热门城市
   },
   qqmapsdk: null, // mapsdk实例对象
+  // 用户静态画像
+  static_user_logo: '/pages/image/user_static_logo.png',
+  // 全局共享数据
+  globalData: {
+    userInfo: {}, // 存储用户业务信息
+    elecBrandInfo: {}, // 电子车牌信息
+    userPermisson: [], // 用户权限
+    wxHeadImg: null,
+    jsCode: '',
+  },
   initMapSdk () {
     if (this.qqmapsdk) {
       return this.qqmapsdk
@@ -82,15 +92,9 @@ App({
       })
     })
   },
-  // 用户静态画像
-  static_user_logo: '/pages/image/user_static_logo.png',
-  // 全局共享数据
-  globalData: {
-    userInfo: {}, // 存储用户业务信息
-    elecBrandInfo: {}, // 电子车牌信息
-    userPermisson: [], // 用户权限
-    wxHeadImg: null,
-    jsCode: '',
+  // 是否登录
+  isLogin () {
+    return !!this.globalData.userInfo.uid
   },
   // 获取并保存用户业务信息和
   async saveUserBusinessInfo (isLoad) {

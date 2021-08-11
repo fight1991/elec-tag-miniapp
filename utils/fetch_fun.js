@@ -25,28 +25,41 @@ const HandleBranch = (_res, other) => {
       }
       return { other: _res.data || true}
     case '0002': // token失效
-      var token = wx.getStorageSync('token')
-      token && wx.removeStorageSync('token')
-      var app = getApp()
-      if (!app.redirect) {
+      wx.removeStorageSync('token')
+      // var app = getApp()
+      // if (!app.redirect) {
+      // wx.showToast({
+      //   title: _res.message,
+      //   duration: 1500,
+      //   icon:'none'
+      // })
+      //   var pages = getCurrentPages()
+      //   var curretPages = pages[pages.length - 1]
+      //   var route = curretPages.route
+      //   var params = setUrlParams(curretPages.options)
+      //   var redirect = '/' + route
+      //   if (params) {
+      //     redirect = '/' + route + '?' + params
+      //   }
+      //   var encodeRedirect = encodeURIComponent(redirect)
+      //   app.redirect = encodeRedirect
+      //   wx.reLaunch({
+      //     url: '/pages/login/signIn'
+      //   })
+      // }
+      if (!wx.tokenTimer) {
         wx.showToast({
           title: _res.message,
           duration: 1500,
           icon:'none'
         })
-        var pages = getCurrentPages()
-        var curretPages = pages[pages.length - 1]
-        var route = curretPages.route
-        var params = setUrlParams(curretPages.options)
-        var redirect = '/' + route
-        if (params) {
-          redirect = '/' + route + '?' + params
-        }
-        var encodeRedirect = encodeURIComponent(redirect)
-        app.redirect = encodeRedirect
-        wx.reLaunch({
-          url: '/pages/login/signIn'
-        })
+        wx.tokenTimer = setTimeout(() => {
+          wx.reLaunch({
+            url: '/pages/login/signIn'
+          })
+          wx.tokenTimer && clearTimeout(wx.tokenTimer)
+          wx.tokenTimer = null
+        }, 500)
       }
       return { result: null }
     default:

@@ -171,6 +171,22 @@ const formatHours = (time) => {
   let formatSecond = second > 59 ? 59 : second
   return `${hours}小时${minute < 10 ? '0' + minute : minute}分钟${formatSecond < 10 ? '0' + formatSecond : formatSecond}秒`
 }
+// 是否登录
+const checkLogin = () => {
+  return wx.getStorageSync('token')
+}
+// 打开登录确认框
+const openCheckLogin = () => {
+  openConfirm({
+    content: '您还尚未登录',
+    confirmText: '去登录',
+    confirm: () => {
+      wx.reLaunch({
+        url: '/pages/login/signIn'
+      })
+    }
+  })
+}
 module.exports = {
   formatTime,
   checkPhone,
@@ -185,5 +201,7 @@ module.exports = {
   setUrlParams,
   getUrlSearch,
   removePropertyOfNull,
-  formatHours
+  formatHours,
+  openCheckLogin,
+  checkLogin
 }
