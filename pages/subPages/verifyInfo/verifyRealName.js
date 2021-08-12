@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initIdcardInfo()
+    // this.initIdcardInfo()
   },
   // 身份证号正则校验
   checkIdcard (value) {
@@ -48,7 +48,8 @@ Page({
       return
     }
     let { result } = await verifyAuth({
-      ...this.data.idcardInfo
+      idName,
+      idNo
     })
     if (result) {
       // 重新查询用户信息
