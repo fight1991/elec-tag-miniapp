@@ -10,7 +10,6 @@ Component({
   },
   pageLifetimes: {
     show: function () {
-      app.isLogin() && this.getList()
       if (app.isLogin()) {
         this.getList()
       } else {
