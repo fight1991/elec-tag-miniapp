@@ -4,7 +4,7 @@
     <view class="left">待支付</view>
     <view class="right">¥{{formData.payAmount}}</view>
   </view>
-  <view class="line-item close" wx:if="{{formData.status=='close'}}">
+  <view class="line-item close" wx:if="{{formData.status=='closed'}}">
     <view class="left">已关闭</view>
     <view class="right">¥{{formData.payAmount}}</view>
   </view>

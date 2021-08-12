@@ -9,9 +9,9 @@ Page({
   data: {
     dataForm: {},
     statusText: {
-      going: '进行中',
+      doing: '进行中',
       done: '已完成',
-      close: '已关闭'
+      closed: '已关闭'
     },
   },
 
