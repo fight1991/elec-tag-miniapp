@@ -18,7 +18,7 @@ Page({
   // 跳转到实名认证页面
   goToRealName () {
     wx.navigateTo({
-      url: './idcardVerify',
+      url: './verifyRealName',
     })
   },
   // 行驶证认证

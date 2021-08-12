@@ -55,7 +55,7 @@ Page({
       let res = await app.saveUserBusinessInfo()
       if (res) {
         wx.navigateBack({
-          delta: 2
+          delta: 1
         })
       }
     }
