@@ -13,7 +13,7 @@ Page({
       all: '全部',
       doing: '待支付',
       done: '已完成',
-      close: '已关闭'
+      closed: '已关闭'
     },
     serviceText: {},
     pageIndex: 0, // 当前页
