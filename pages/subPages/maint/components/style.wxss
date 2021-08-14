@@ -1,0 +1,14 @@
+.title {
+  padding:20rpx 30rpx;
+  color: #1D1D25;
+  font-size: 30rpx;
+}
+.line-title {
+  color: #1D1D25;
+}
+.discount {
+  color: #FF7E37;
+}
+.box {
+  padding-bottom: 110rpx;
+}

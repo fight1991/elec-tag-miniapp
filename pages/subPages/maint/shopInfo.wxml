@@ -20,6 +20,7 @@
             origin-price="门市{{item.goodsMarketPrice}}"
             title="{{item.goodsName}}"
             thumb="{{item.goodsImage}}">
+            <view slot="desc"><text class="position">占位置没什么鸟用</text></view>
           </van-card>
         </navigator>
       </view>

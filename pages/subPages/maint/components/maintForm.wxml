@@ -1,5 +1,5 @@
 <!--pages/subPages/maint/components/maintForm.wxml-->
-<view>
+<view class="box">
   <view class="title">套餐介绍</view>
   <van-cell-group inset>
     <van-cell>
