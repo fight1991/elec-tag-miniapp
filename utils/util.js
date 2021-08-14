@@ -187,6 +187,14 @@ const openCheckLogin = () => {
     }
   })
 }
+// 当前是星期几
+const getCurrentWeek = () => {
+  var now = new Date()
+  var day = now.getDay()
+  var weeks = new Array('周日', '周一', '周二', '周三', '周四', '周五', '周六')
+  var week = weeks[day]
+  return week
+}
 module.exports = {
   formatTime,
   checkPhone,
@@ -203,5 +211,6 @@ module.exports = {
   removePropertyOfNull,
   formatHours,
   openCheckLogin,
-  checkLogin
+  checkLogin,
+  getCurrentWeek
 }

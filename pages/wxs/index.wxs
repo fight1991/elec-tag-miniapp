@@ -1,3 +1,11 @@
+var hasCurrentWeek = function (arr) {
+  var now = getDate() // Date会报错, 与js隔离
+  var day = now.getDay()
+  var weeks = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+  var week = weeks[day]
+  if (!arr) return false
+  return arr.indexOf(week) >= 0
+}
 var isIncludes = function (arr, prams) {
   if (!arr) return false
   if (!prams) return true
@@ -5,5 +13,6 @@ var isIncludes = function (arr, prams) {
 }
 // 导出
 module.exports = {
-  isIncludes: isIncludes
+  isIncludes: isIncludes,
+  hasCurrentWeek: hasCurrentWeek
 }

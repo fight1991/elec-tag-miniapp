@@ -48,3 +48,8 @@ page {
   color: #447fff;
   font-weight: bold;
 }
+.foot-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
