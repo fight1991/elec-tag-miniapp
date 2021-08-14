@@ -78,7 +78,6 @@
       "name": "verifyInfo",
       "pages": [
         "index",
-        "idcardVerify",
         "verifyRealName",
         "verifyLicense",
         "applyWays"

@@ -6,10 +6,10 @@
       <view class="input-label">姓名</view>
       <input class="input-element" type="text" id="accountName" disabled bindinput="bindData" value="{{formData.accountName}}"/>
     </view>
-    <view class="form-item">
+    <!-- <view class="form-item">
       <view class="input-label">身份证号</view>
       <input class="input-element" type="text" id="idNo" disabled bindinput="bindData" value="{{formData.idNo}}"/>
-    </view>
+    </view> -->
     <view class="form-item">
       <view class="input-label">银行卡号</view>
       <input class="input-element" type="text" id="bankCardNo" bindinput="bindData" value="{{formData.bankCardNo}}"/>
