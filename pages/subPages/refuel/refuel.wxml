@@ -43,7 +43,7 @@
       model:isRefresh="{{collapse}}">
       <view class="card-box">
         <view class="card-item" wx:for="{{list}}" wx:key="index">
-          <navigator url="./oilDetail?id={{item.orgId}}&distance={{item.distance}}&lat={{item.latitude}}&lon={{item.longitude}}">
+          <navigator url="./oilDetail?oil={{oil}}&id={{item.orgId}}&distance={{item.distance}}&lat={{item.latitude}}&lon={{item.longitude}}">
             <business-card
               src="{{item.urlIcon}}"
               title="{{item.orgName}}"

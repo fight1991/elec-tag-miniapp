@@ -7,7 +7,7 @@
     distance="{{distance + 'km'}}"
     address="{{orgBusiness.address}}"
     startTime="{{businessTimeList[0] || '00:00'}}"
-    endTime="{{businessTimeList[1] || '23:59'}}">
+    endTime="{{businessTimeList[1] || '24:00'}}">
   </shopAddress>
   <view class="price-box">
     <view class="oil-num flex-center-x" bindtap="showSheet">
