@@ -1,4 +1,4 @@
-<!--pages/subPages/wash/wash.wxml-->
+<wxs src="/pages/wxs/index.wxs" module="tools"></wxs>
 <view class="box">
   <!-- 头部洗车组件 -->
   <view class="item-box" wx:if="{{pageFlag=='wash'}}" bindtap="washTabBtn">
@@ -39,6 +39,9 @@
             thumb="{{item.urlIcon}}">
             <view slot="footer">
               <view class="foot-box">
+                <view style="padding-right:10rpx;" wx:if="{{!tools.hasCurrentWeek(item.businessTimeList)}}">
+                  <van-tag plain type="danger">休息</van-tag>
+                </view>
                 <view
                   style="padding-right:10rpx;"
                   wx:for="{{item.orgServices}}"
