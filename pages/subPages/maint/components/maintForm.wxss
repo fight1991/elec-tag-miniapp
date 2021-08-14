@@ -1,7 +1,1 @@
-/* pages/subPages/maint/components/maintForm.wxss */
-.title {
-  padding:20rpx 30rpx;
-}
-.discount {
-  color: #FF7E37;
-}
+@import './style.wxss';

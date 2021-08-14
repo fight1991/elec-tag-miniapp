@@ -11,3 +11,6 @@
 .card-item {
   margin-bottom: 20rpx;
 }
+.position {
+  opacity: 0;
+}

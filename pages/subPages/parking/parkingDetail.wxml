@@ -13,7 +13,7 @@
   <view class="detail">
     <view class="detail-item">
       <view class="left">车位信息</view>
-      <view class="right">{{dataForm.parkingNum || '-'}}位</view>
+      <view class="right">{{dataForm.parkingNum || '-'}}</view>
     </view>
     <view class="detail-item">
       <view class="left">收费标准</view>
