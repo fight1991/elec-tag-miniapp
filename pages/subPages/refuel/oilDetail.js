@@ -13,6 +13,7 @@ Page({
     priceList:[],
     currentPrice: {},
     distance: '',
+    oil: '',
     lat: '',
     lon: '',
     id: '' // 企业id
@@ -22,10 +23,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     this.data.id = options.id
     this.data.lat = options.lat
     this.data.lon = options.lon
+    this.data.oil = options.oil
     this.setData({
       distance: options.distance
     })
@@ -44,10 +45,13 @@ Page({
       })
       if (result.priceList.length > 0) {
         let tempSelection = result.priceList.map(v => v.oilType)
+        let index = tempSelection.indexOf(this.data.oil)
         this.setData({
-          currentPrice: result.priceList[0],
-          selection: tempSelection
+          currentPrice: result.priceList[index],
+          selection: tempSelection,
+          selectionIndex: index
         })
+
       }
     }
   },

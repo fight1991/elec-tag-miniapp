@@ -32,6 +32,8 @@ Page({
         let temp = result.orgBusiness.businessTimeBucket
         let times = temp.split('$')
         result.orgBusiness.businessTimeList = times
+      } else {
+        result.orgBusiness.businessTimeList = []
       }
       this.setData({
         dataForm: {
