@@ -8,7 +8,7 @@
     </view>
     <view class="form-item no-bottom-border">
       <view class="input-label">身份证号</view>
-      <input class="input-element" type="idcard" maxlength="18" model:value="{{idNo}}" disabled placeholder="请输入身份证号"/>
+      <input class="input-element" type="idcard" maxlength="18" model:value="{{idNo}}" placeholder="请输入身份证号"/>
     </view>
   </view>
 </view>
