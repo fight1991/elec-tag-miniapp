@@ -20,7 +20,7 @@
       <view class="right">{{dataForm.inDate || '-'}}</view>
     </view>
     <view class="line-item">
-      <view class="left">出厂时间</view>
+      <view class="left">出场时间</view>
       <view class="right">{{dataForm.outDate || '-'}}</view>
     </view>
     <view class="line-item">
