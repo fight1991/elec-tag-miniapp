@@ -1,11 +1,13 @@
 // 一般请求方法注册
-import './utils/fetch'
+import './publicBag/request/fetch'
 // 批量请求注册
-import './utils/fetch_all'
-// 全局分享函数
-import share from './utils/share'
+import './publicBag/request/fetch_all'
 // 弹框注册
-import messageBox from './utils/messageBox'
+import messageBox from './publicBag/plugin/messageBox'
+
+// 全局分享函数
+import share from './sharePage/index'
+
 // 上传api注册
 import * as uploadApi from './api/upload'
 // 用户相关api注册
@@ -20,9 +22,9 @@ import * as dictApi from './api/dictionary'
 import * as circleApi from './api/circle'
 
 // 工具类注册
-const utils = require('./utils/util')
+const utils = require('./publicBag/utils/util')
 // 引入地图服务sdk
-const QQMapWX = require('./utils/qqmap-wx-jssdk.js')
+const QQMapWX = require('./publicBag/plugin/qqmap-wx-jssdk')
 
 // 全局监听项
 import posNotify from './notify/positionModel'
