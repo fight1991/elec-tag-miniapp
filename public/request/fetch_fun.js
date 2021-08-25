@@ -1,17 +1,17 @@
-import { setUrlParams } from './util.js'
+import { setUrlParams } from '../utils/util'
 // 显示loading
-const showLoading = (text = '') => {
+export const showLoading = (text = '') => {
   wx.showLoading({
     title: text,
     mask: true
   })
 }
 // 隐藏loading
-const closeLoading = () => {
+export const closeLoading = () => {
   wx.hideLoading()
 }
 // 处理业务分支
-const HandleBranch = (_res, other) => {
+export const HandleBranch = (_res, other) => {
   switch (_res.code) {
     case '0000': // 成功
       return { result: _res.data || true, page: _res.page }
@@ -86,4 +86,3 @@ const HandleBranch = (_res, other) => {
 //       return {result: null}
 //   }
 // }
-export { showLoading, closeLoading, HandleBranch }

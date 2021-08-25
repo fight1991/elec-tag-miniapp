@@ -1,4 +1,4 @@
-import config from '../config/index'
+import config from '/config/index'
 const accessType = 'wechat-app'
 // 请求构造函数get/put/delete/post等
 class Fetch {

@@ -1,5 +1,5 @@
 import { userInstance, businessInstance } from './fetchInit'
-const { showLoading, closeLoading } = require('../utils/fetch_fun')
+import { showLoading, closeLoading } from './fetch_fun.js'
 
 let instanceObj = {
   user: userInstance,

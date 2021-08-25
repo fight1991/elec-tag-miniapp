@@ -1,4 +1,4 @@
-const { showLoading, closeLoading, HandleBranch } = require('../utils/fetch_fun')
+import { showLoading, closeLoading, HandleBranch } from './fetch_fun'
 import { userInstance, businessInstance } from './fetchInit'
 import { uploadInstance } from './fetch_upload'
 
