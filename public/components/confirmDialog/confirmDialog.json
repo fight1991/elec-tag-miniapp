@@ -1,6 +1,3 @@
 {
-  "component": true,
-  "usingComponents": {
-    "mask": "/pages/components/mask/mask"
-  }
+  "component": true
 }

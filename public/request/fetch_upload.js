@@ -1,4 +1,4 @@
-import config from '/config/index'
+import config from '../../config/index'
 
 // 文件上传封装
 export const uploadInstance = (url, data) => {
