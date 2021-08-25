@@ -1,4 +1,0 @@
-<!--pages/components/button/commonBtn.wxml-->
-<view style="width:{{width}};background-color:{{bgc}}" class="btn-box" bindtap="tapBtn">
-  <slot></slot>
-</view>
