@@ -144,21 +144,26 @@ Component({
           data: mobile,
           key: 'mobile',
         })
+        if (app.redirect) {
+          let pageMain = app.redirect.indexOf('pages/main/main') > -1
+          let pageCircle = app.redirect.indexOf('pages/circle/circle') > -1
+          let pageMy = app.redirect.indexOf('pages/my/my') > -1
+          if (pageMain || pageCircle || pageMy) {
+            wx.switchTab({
+              url: app.redirect,
+            })
+            app.redirect = null
+            return
+          }
+          wx.redirectTo({
+            url: app.redirect
+          })
+          app.redirect = null
+          return
+        }
         wx.switchTab({
           url: '/pages/main/main',
         })
-        // let redirect = app.redirect
-        // if (redirect) {
-        //   var url = decodeURIComponent(redirect)
-        //   app.redirect = ''
-        //   wx.reLaunch({
-        //     url: url
-        //   })
-        // } else {
-        //   wx.switchTab({
-        //     url: '/pages/main/main',
-        //   })
-        // }
       }
     },
     // 修改手机号api

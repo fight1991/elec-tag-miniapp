@@ -1,0 +1,15 @@
+<!--pages/user/livelihoodBusiness_corp/common/listTitle.wxml-->
+<view class="box">
+  <view class="head-box">
+    <view class="head-img">
+      <slot name="pref"></slot>
+    </view>
+    <view class="title-box">
+      <view class="main-title title">{{title}}</view>
+      <view class="sub-title title">{{subTitle}}</view>
+    </view>
+  </view>
+  <view>
+    <slot name="suffix"></slot>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<!--pages/components/assetsImg/assetsImg.wxml-->
+<view class="box" style="width: {{width}}">
+  <image mode="{{mode}}" src="{{host + public + module + '/' + name}}" style="height:{{height}};width:{{width}};display:block"></image>
+</view>

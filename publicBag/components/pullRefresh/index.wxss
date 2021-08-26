@@ -1,0 +1,7 @@
+/* pages/components/pullRefresh/index.wxss */
+.has-more {
+  font-size: 22rpx;
+  text-align: center;
+  padding: 10rpx 0;
+  color: #ccc;
+}

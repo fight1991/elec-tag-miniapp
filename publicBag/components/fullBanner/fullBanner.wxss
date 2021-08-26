@@ -1,0 +1,17 @@
+/* pages/subPages/components/fullBanner/fullBanner.wxss */
+.img {
+  width: 100%;
+}
+.self-nav {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.menu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}

@@ -1,0 +1,11 @@
+<view class="step-box">
+    <view class="step-item">
+      <view class="num">1</view>
+      <view class="name">实名认证</view>
+    </view>
+    <view class="line-through"></view>
+    <view class="step-item">
+      <view class="num">2</view>
+      <view class="name">行驶证认证</view>
+    </view>
+  </view>

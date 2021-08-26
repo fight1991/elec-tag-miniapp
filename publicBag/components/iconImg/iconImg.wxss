@@ -1,0 +1,4 @@
+/* pages/components/icon/icon.wxss */
+.img {
+  display: block;
+}

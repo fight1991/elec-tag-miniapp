@@ -1,0 +1,14 @@
+/* pages/components/button/commonBtn.wxss */
+.btn-box {
+  border-radius: 10rpx;
+  text-align: center;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 32rpx;
+  margin: 40rpx 0;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
