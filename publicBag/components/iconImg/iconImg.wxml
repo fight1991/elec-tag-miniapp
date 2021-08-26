@@ -1,4 +1,0 @@
-<!--pages/components/icon/icon.wxml-->
-<view class="icon-box">
-  <image class="img" style="height:{{size}};width:{{size}};" src="/pages/image/icons/{{name}}.png" mode="{{mode}}"></image>
-</view>
