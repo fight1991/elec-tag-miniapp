@@ -74,7 +74,12 @@ Page({
     app.notifyPos((res) => {
       this.reverseGeocoder(res)
     })
-    // this.getPlaceDetail()
+  },
+  // 获取解析当前位置
+  getPlaceDetail () {
+    app.getCurrentPosition(({ latitude, longitude }) => {
+      this.reverseGeocoder({ latitude, longitude })
+    })
   },
   // 解析位置
   reverseGeocoder ({ latitude, longitude }) {

@@ -21,23 +21,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCurrentPosition()
-  },
-  // 获取用户当前位置
-  getCurrentPosition () {
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        let { latitude, longitude } = res
-        this.setData({
-          longitude,
-          latitude
-        })
-        this.initList()
-      },
-      fail: (res) => {
-        app.messageBox.common('获取位置失败')
-      }
+    app.getCurrentPosition(({ latitude, longitude }) => {
+      this.setData({
+        longitude,
+        latitude
+      })
+      this.initList()
     })
   },
   // 获取列表

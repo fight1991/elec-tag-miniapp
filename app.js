@@ -4,87 +4,51 @@ import './publicBag/request/fetch'
 import './publicBag/request/fetch_all'
 // 弹框注册
 import messageBox from './publicBag/plugin/messageBox'
-
-// 全局分享函数
-import share from './sharePage/index'
-
-// 上传api注册
-import * as uploadApi from './api/upload'
-// 用户相关api注册
-import * as usersApi from './api/user'
-// 电子车牌相关
-import * as elecApi from './api/elecBrand'
-// 银行卡相关
-import * as bankApi from './api/bank'
-// 字典相关api
-import * as dictApi from './api/dictionary'
-// 商圈api
-import * as circleApi from './api/circle'
-
+// 地图sdk注册
+import initMapSdk from './publicBag/plugin/initMapSdk'
+// 获取导航栏navbar高度信息
+import getSystemBarInfo from './publicBag/plugin/getSystemBarInfo'
 // 工具类注册
 const utils = require('./publicBag/utils/util')
-// 引入地图服务sdk
-const QQMapWX = require('./publicBag/plugin/qqmap-wx-jssdk')
-
 // 全局监听项
 import posNotify from './notify/positionModel'
+// 全局分享函数
+import share from './sharePage/index'
+// api导入
+import api from './api/index'
+
 share()
 App({
-  ...posNotify,
   onLaunch() {
-    this.getSystem()
+    this.getSystemBarInfo()
   },
-  // 绑定公共方法
-  utils: utils,
-  // 绑定api
-  api: {
-    ...uploadApi, // 上传相关
-    ...usersApi, // 用户相关
-    ...elecApi, // 电子车牌相关
-    ...bankApi, // 银行卡相关
-    ...dictApi, // 字典相关
-    ...circleApi // 商圈相关
-  },
-  messageBox: messageBox, // 弹框
+  utils, // 绑定公共方法
+  api, // 绑定api
+  messageBox, // 绑定全局弹框
+  ...posNotify, // 监听位置信息
+  ...initMapSdk, // 初始化地图sdk
+  ...getSystemBarInfo, // 获取导航栏高度信息
   redirect: '', // 记录token失效时当前的页面地址
-  navTop: 0, // 状态栏高度
-  navHeight: 0, // 导航栏高度
-  appLBS: { // 腾讯位置服务
-    key: 'W5RBZ-G5EKJ-UDLFK-K5ASE-YLQXV-HYFB4', // 腾讯位置服务申请的key
-    referer: '航天吉光小程序', // 调用插件的app的名称
-    hotCitys: '无锡,北京,上海,杭州,深圳,广州,成都,苏州', // 自定义热门城市
-  },
-  qqmapsdk: null, // mapsdk实例对象
-  // 用户静态画像
-  static_user_logo: '/pages/image/user_static_logo.png',
-  // 全局共享数据
-  globalData: {
+  static_user_logo: '/pages/image/user_static_logo.png', // 用户静态画像
+  globalData: { // 全局共享数据
     userInfo: {}, // 存储用户业务信息
     elecBrandInfo: {}, // 电子车牌信息
     userPermisson: [], // 用户权限
     wxHeadImg: null,
     jsCode: '',
   },
-  initMapSdk () {
-    if (this.qqmapsdk) {
-      return this.qqmapsdk
-    }
-    var key = this.appLBS.key
-    this.qqmapsdk = new QQMapWX({
-      key
+  // 获取当前用户位置
+  getCurrentPosition (callback) {
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        let { latitude, longitude } = res
+        callback && callback({ latitude, longitude })
+      },
+      fail: (res) => {
+        this.messageBox.common('获取位置失败')
+      }
     })
-    return this.qqmapsdk
-  },
-  // 获取导航栏/状态栏的高度
-  getSystem () {
-    let systemInfo = wx.getSystemInfoSync()
-    let pxToRpxScale = 750 / systemInfo.windowWidth
-    // 状态栏的高度
-    let ktxStatusHeight = systemInfo.statusBarHeight * pxToRpxScale
-    // 导航栏的高度
-    let navigationHeight = 44 * pxToRpxScale
-    this.navTop = ktxStatusHeight
-    this.navHeight = navigationHeight
   },
   getWechatCode () {
     return new Promise((relove, reject) => {
