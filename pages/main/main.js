@@ -32,7 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getCurrentPosition(({ latitude, longitude }) => {
+    app.getCurrentPosition().then(({ latitude, longitude }) => {
       app.currentPos.latitude = latitude
       app.currentPos.longitude = longitude
       this.data.latitude = latitude

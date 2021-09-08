@@ -1,15 +1,11 @@
-// 一般请求方法注册
-import './publicBag/request/fetch'
-// 批量请求注册
-import './publicBag/request/fetch_all'
-// 弹框注册
-import messageBox from './publicBag/plugin/messageBox'
-// 地图sdk注册
-import initMapSdk from './publicBag/plugin/initMapSdk'
-// 获取导航栏navbar高度信息
-import getSystemBarInfo from './publicBag/plugin/getSystemBarInfo'
-// 工具类注册
-const utils = require('./publicBag/utils/util')
+import './publicBag/request/fetch' // 一般请求方法注册
+import './publicBag/request/fetch_all' // 批量请求注册
+import messageBox from './publicBag/plugin/messageBox' // 弹框注册
+import initMapSdk from './publicBag/plugin/initMapSdk' // 地图sdk注册
+import getSystemBarInfo from './publicBag/plugin/getSystemBarInfo' // 获取导航栏navbar高度信息
+import getCurrentPosition from './publicBag/plugin/getCurrentPosition' // 获取经纬度信息
+import getWechatCode from './publicBag/plugin/getWechatCode' // 获取微信code
+import * as utils from './publicBag/utils/util' // 工具类注册
 // 全局监听项
 import posNotify from './notify/positionModel'
 // 全局分享函数
@@ -28,6 +24,8 @@ App({
   ...posNotify, // 监听位置信息
   ...initMapSdk, // 初始化地图sdk
   ...getSystemBarInfo, // 获取导航栏高度信息
+  ...getCurrentPosition, // 获取经纬度信息
+  ...getWechatCode, // 获取jscode信息
   redirect: '', // 记录token失效时当前的页面地址
   static_user_logo: '/pages/image/user_static_logo.png', // 用户静态画像
   globalData: { // 全局共享数据
@@ -36,27 +34,6 @@ App({
     userPermisson: [], // 用户权限
     wxHeadImg: null,
     jsCode: '',
-  },
-  // 获取当前用户位置
-  getCurrentPosition (callback) {
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        let { latitude, longitude } = res
-        callback && callback({ latitude, longitude })
-      },
-      fail: (res) => {
-        this.messageBox.common('获取位置失败')
-      }
-    })
-  },
-  getWechatCode () {
-    return new Promise((relove, reject) => {
-      wx.login({
-        success: relove,
-        fail: reject
-      })
-    })
   },
   // 是否登录
   isLogin () {
