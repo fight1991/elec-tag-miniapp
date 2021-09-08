@@ -12,7 +12,7 @@
     <view class="radioBtn{{!isAgree ? ' agree-select' : ''}}" bindtap="switchAgree"></view>
     <view class="license">
       <view>登录即同意</view>
-      <navigator url="">
+      <navigator url="./licence">
         <view class="declare">{{"《用户服务协议和隐私政策》"}}</view>
       </navigator>
     </view>

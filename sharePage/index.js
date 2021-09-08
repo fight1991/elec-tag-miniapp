@@ -7,7 +7,7 @@ export default () => {
     pageConfig = Object.assign({
       onShareAppMessage: function(e) {
         return {
-          title: '航天吉光车生活平台',
+          title: '航天吉光智行平台',
           path: '/pages/index/index',
           imageUrl: '/pages/image/share.png'
         }
