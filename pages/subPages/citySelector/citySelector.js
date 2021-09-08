@@ -105,10 +105,13 @@ Page({
     wx.showLoading({
       title: '定位中',
     })
-    this.data.prePage.getPlaceDetail(() => {
-      wx.hideLoading()
-      wx.navigateBack({
-        delta: 1
+    app.getCurrentPosition()
+      .then(({ latitude, longitude }) => {
+      this.data.prePage.reverseGeocoder({ latitude, longitude }, () => {
+        wx.hideLoading()
+        wx.navigateBack({
+          delta: 1
+        })
       })
     })
   },

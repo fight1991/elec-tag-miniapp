@@ -75,12 +75,8 @@ Page({
       this.reverseGeocoder(res)
     })
   },
-  // 获取解析当前位置
-  getPlaceDetail () {
-    app.getCurrentPosition().then(({ latitude, longitude }) => this.reverseGeocoder({ latitude, longitude }))
-  },
   // 解析位置
-  reverseGeocoder ({ latitude, longitude }) {
+  reverseGeocoder ({ latitude, longitude }, callback) {
     if (!latitude || !longitude) return
     qqmapsdk.reverseGeocoder({
       location: {
@@ -98,6 +94,7 @@ Page({
             currentPlace: tempRes.formatted_addresses.recommend,
             city: tempRes.address_component.city
           })
+          callback && callback()
         }
       }
     })
