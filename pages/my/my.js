@@ -69,11 +69,7 @@ Page({
               title: '退出成功!',
               duration: 1500,
               success: () => {
-                // wx.reLaunch({
-                //   url: '/pages/index/index',
-                // })
-                wx.removeStorageSync('token')
-                app.globalData.userInfo = {}
+                app.resetLoginStatus()
                 this.mapStateToProps()
                 if (wx.pageScrollTo) {
                   wx.pageScrollTo({

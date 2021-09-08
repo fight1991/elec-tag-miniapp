@@ -27,20 +27,23 @@ App({
   ...getCurrentPosition, // 获取经纬度信息
   ...getWechatCode, // 获取jscode信息
   redirect: '', // 记录token失效时当前的页面地址
+  ssToken: '', // 登录令牌
   static_user_logo: '/pages/image/user_static_logo.png', // 用户静态画像
   globalData: { // 全局共享数据
     userInfo: {}, // 存储用户业务信息
-    elecBrandInfo: {}, // 电子车牌信息
     userPermisson: [], // 用户权限
     wxHeadImg: null,
     jsCode: '',
   },
-  // 是否登录
-  isLogin () {
+  isLogin () { // 判断是否登录过
     return !!this.globalData.userInfo.uid
   },
-  // 获取并保存用户业务信息和
-  async saveUserBusinessInfo (isLoad) {
+  resetLoginStatus () { // 重置登录态
+    wx.removeStorageSync('token')
+    this.globalData.userInfo = {}
+    this.ssToken = ''
+  },
+  async saveUserBusinessInfo (isLoad) { // 获取并保存用户业务信息和
     let { result } = await this.api.getUserTotalInfo(isLoad)
     if (result) {
       this.globalData.userInfo = result
@@ -51,8 +54,7 @@ App({
   /**  初始化所有用户信息
    * params: isLoad 是否开启loading
   */
-  // 将权限信息映射到相应的实例中
-  mapPermissions (instance) {
+  mapPermissions (instance) { // 将权限信息映射到相应的实例中
     let pers = this.globalData.userPermisson
     instance.setData({
       permissions: pers
