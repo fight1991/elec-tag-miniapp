@@ -1,4 +1,4 @@
-// pages/login/loginType.js
+var app = getApp()
 Page({
 
   /**
@@ -21,7 +21,13 @@ Page({
       isAgree: !isAgree
     })
   },
+  bindgetphonenumber (e) {
+    let { isAgree } = this.data
+    if (!isAgree) return
 
+    // 登录成功后
+    // app.loginSuccessToPage()
+  },
   /**
    * 生命周期函数--监听页面显示
    */
