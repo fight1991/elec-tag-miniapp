@@ -6,7 +6,8 @@
     "pages/main/morePoint",
     "pages/my/my",
     "pages/circle/circle",
-    "pages/index/board"
+    "pages/index/board",
+    "pages/login/loginType"
   ],
   "subPackages": [
     {

@@ -1,0 +1,32 @@
+<view class="outer">
+  <view class="box">
+    <view class="img-box">
+      <image class="img-src" src="/pages/image/pro.png" mode="widthFix"></image>
+    </view>
+    <view class="txt-content">
+        <view class="welcome-title">小吉友情提示:</view>
+        <view class="welcome-text">为了给您提供更好的服务, 我们需要您的授权!</view>
+    </view>
+  </view>
+  <view class="agree-content">
+    <view class="radioBtn{{!isAgree ? ' agree-select' : ''}}" bindtap="switchAgree"></view>
+    <view class="license">
+      <view>登录即同意</view>
+      <navigator url="">
+        <view class="declare">{{"《用户服务协议和隐私政策》"}}</view>
+      </navigator>
+    </view>
+  </view>
+  <view class="btn">
+    <button
+      style="font-size:16px;background: #07C160;height: 45px;display:flex;justify-content: center;align-items: center;"
+      type="primary"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="bindgetphonenumber">
+      微信授权登录
+    </button>
+    <navigator url="./signIn">
+      <view class="login-type-btn">手机验证码登录</view>
+    </navigator>
+  </view>
+</view>
