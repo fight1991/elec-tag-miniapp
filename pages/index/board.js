@@ -68,7 +68,7 @@ Page({
       confirmText: '去登录',
       confirm: () => {
         wx.reLaunch({
-          url: '/pages/login/signIn'
+          url: '/pages/login/loginType'
         })
       }
     })
