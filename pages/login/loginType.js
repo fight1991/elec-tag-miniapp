@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isAgree: true
+    isAgree: true,
+    jsCode: ''
   },
 
   /**
@@ -14,6 +15,15 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  onShow: function () {
+    wx.showLoading()
+    app.getWechatCode().then(res => {
+      this.data.jsCode = res.code
+      wx.hideLoading()
+    }).catch(() => {
+      wx.hideLoading()
+    })
   },
   // 点击同意按钮
   switchAgree () {
@@ -32,7 +42,7 @@ Page({
   },
   async loginByWechat ({ encryptedData, iv }) {
     let { result } = await loginApiByWechat({
-      jsCode: app.globalData.jsCode,
+      jsCode: this.data.jsCode,
       wechatLogin: {
         encryptedData,
         iv
@@ -42,11 +52,5 @@ Page({
       // 登录成功后
       app.loginSuccessToPage(result.token)
     }
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   }
 })

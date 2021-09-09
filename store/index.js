@@ -24,10 +24,12 @@ export default {
     this.ssToken = token
     await this.saveUserBusinessInfo()
     // 本地缓存手机号
-    wx.setStorage({
-      data: mobile,
-      key: 'mobile',
-    })
+    if (mobile) {
+      wx.setStorage({
+        data: mobile,
+        key: 'mobile',
+      })
+    }
     if (this.redirect) {
       let pageMain = this.redirect.indexOf('pages/main/main') > -1
       let pageCircle = this.redirect.indexOf('pages/circle/circle') > -1

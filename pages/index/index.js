@@ -14,11 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 先微信登录, 微信授权登录时可能用到
-    app.getWechatCode().then(res => {
-      app.globalData.jsCode = res
-      this.routeValid()
-    })
+    this.routeValid()
   },
   /**
  * 生命周期函数--监听页面显示
