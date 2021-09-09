@@ -1,4 +1,5 @@
 var app = getApp()
+const { loginApiByWechat } = app.api
 Page({
 
   /**
@@ -23,10 +24,24 @@ Page({
   },
   bindgetphonenumber (e) {
     let { isAgree } = this.data
-    if (!isAgree) return
-
-    // 登录成功后
-    // app.loginSuccessToPage()
+    if (!isAgree) {
+      app.messageBox.common('请同意用户协议')
+      return
+    }
+    this.loginByWechat(e.detail)
+  },
+  async loginByWechat ({ encryptedData, iv }) {
+    let { result } = await loginApiByWechat({
+      jsCode: app.globalData.jsCode,
+      wechatLogin: {
+        encryptedData,
+        iv
+      }
+    })
+    if (result) {
+      // 登录成功后
+      app.loginSuccessToPage(result.token)
+    }
   },
   /**
    * 生命周期函数--监听页面显示

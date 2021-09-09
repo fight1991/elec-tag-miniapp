@@ -8,7 +8,7 @@ export default {
     userInfo: {}, // 存储用户业务信息
     userPermisson: [], // 用户权限
     wxHeadImg: null,
-    jsCode: '',
+    jsCode: '', // 微信一键登录时用
   },
   isLogin () { // 判断是否登录过
     return !!this.globalData.userInfo.uid

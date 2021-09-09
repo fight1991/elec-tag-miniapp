@@ -16,6 +16,7 @@ Page({
   onLoad: function (options) {
     // 先微信登录, 微信授权登录时可能用到
     app.getWechatCode().then(res => {
+      app.globalData.jsCode = res
       this.routeValid()
     })
   },
