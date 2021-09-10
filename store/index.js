@@ -1,6 +1,7 @@
 import { getUserTotalInfo } from '../api/user'
 // 全局store
 export default {
+  wxUnpermissions: [], // 未获得的权限
   redirect: '', // 记录token失效时当前的页面地址
   ssToken: '', // 登录令牌
   static_user_logo: '/pages/image/user_static_logo.png', // 用户静态画像
