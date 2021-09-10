@@ -32,6 +32,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.initPointList()
+  },
+  onShow: function () {
+    this.setData({
+      isAuth: app.globalData.userInfo.authPersonal || false
+    })
+    this.checkPermission()
+  },
+  // 权限检测
+  checkPermission () {
+    app.utils.permissionHandler('scope.userLocation').then(() => {
+      this.initPointList()
+    }).catch(() => {
+      app.utils.openConfirm({
+        cancelText: '退出程序',
+        content: '检测到您未开通位置权限, 请前往开启',
+        confirmText: '去开启',
+        cancel: () => {
+          wx.exitMiniProgram()
+        },
+        confirm: () => {
+          wx.openSetting()
+        }
+      })
+    })
+  },
+  // 初始化网点列表
+  initPointList () {
     app.getCurrentPosition().then(({ latitude, longitude }) => {
       app.currentPos.latitude = latitude
       app.currentPos.longitude = longitude
@@ -139,18 +167,14 @@ Page({
   getCarNum (e) {
     this.data.carTotal = e.detail
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.setData({
-      isAuth: app.globalData.userInfo.authPersonal || false
-    })
-  },
-
   initList () {
     let { longitude, latitude } = this.data
-    if (!longitude && !latitude) return
+    if (!longitude && !latitude) {
+      this.setData({
+        collapse: false
+      })
+      return
+    }
     this.getPointList(longitude, latitude)
   }
 })
