@@ -32,26 +32,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCurrentPosition()
-    this.startOpenPositionChange()
-  },
-  // 获取用户当前位置
-  getCurrentPosition () {
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        let { latitude, longitude } = res
-        app.currentPos.latitude = latitude
-        app.currentPos.longitude = longitude
-        this.data.latitude = latitude
-        this.data.longitude = longitude
-        // app.currentPos.tamp = Date.now() 注意:更改此值, 每次打开此页面会触发订阅更新
-        this.getPointList(longitude, latitude)
-      },
-      fail: (res) => {
-        app.messageBox.common('获取位置失败')
-      }
+    app.getCurrentPosition().then(({ latitude, longitude }) => {
+      app.currentPos.latitude = latitude
+      app.currentPos.longitude = longitude
+      this.data.latitude = latitude
+      this.data.longitude = longitude
+      // app.currentPos.tamp = Date.now() 注意:更改此值, 每次打开此页面会触发订阅更新
+      this.getPointList(longitude, latitude)
     })
+    this.startOpenPositionChange()
   },
   // 监听用户位置变化 
   startOpenPositionChange () {

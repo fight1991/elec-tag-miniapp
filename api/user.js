@@ -6,6 +6,13 @@ export const loginApi = (data) => {
     data
   })
 }
+// 微信一键登录
+export const loginApiByWechat = (data) => {
+  return wx.$post_business({
+    url: '/user-center/member-login/loginByWechat',
+    data
+  })
+}
 // 查询权限编码
 export const getUserPermission = (isLoading) => {
   return wx.$post_business({

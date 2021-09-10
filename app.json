@@ -6,7 +6,9 @@
     "pages/main/morePoint",
     "pages/my/my",
     "pages/circle/circle",
-    "pages/index/board"
+    "pages/index/board",
+    "pages/login/loginType",
+    "pages/login/licence"
   ],
   "subPackages": [
     {
@@ -162,7 +164,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3E77FF",
-    "navigationBarTitleText": "吉光车生活",
+    "navigationBarTitleText": "吉光智行",
     "navigationBarTextStyle": "white"
   },
   "permission": {

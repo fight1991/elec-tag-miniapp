@@ -233,6 +233,12 @@
           "pathName": "pages/subPages/card/license",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "登录选择页面",
+          "pathName": "pages/login/loginType",
+          "query": "",
+          "scene": null
         }
       ]
     }

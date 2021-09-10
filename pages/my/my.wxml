@@ -8,7 +8,7 @@
         <view class="no-verify-item">未实名认证 , 请先认证</view>
       </view>
       <view class="no-verify user-line" wx:if="{{!uid}}">
-        <navigator url="/pages/login/signIn">
+        <navigator url="/pages/login/loginType">
           <view class="no-verify-item">登录/注册</view>
         </navigator>
       </view>

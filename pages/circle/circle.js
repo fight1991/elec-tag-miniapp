@@ -74,10 +74,9 @@ Page({
     app.notifyPos((res) => {
       this.reverseGeocoder(res)
     })
-    // this.getPlaceDetail()
   },
   // 解析位置
-  reverseGeocoder ({ latitude, longitude }) {
+  reverseGeocoder ({ latitude, longitude }, callback) {
     if (!latitude || !longitude) return
     qqmapsdk.reverseGeocoder({
       location: {
@@ -95,6 +94,7 @@ Page({
             currentPlace: tempRes.formatted_addresses.recommend,
             city: tempRes.address_component.city
           })
+          callback && callback()
         }
       }
     })

@@ -16,7 +16,7 @@
       </view>
     </view>
   </view>
-   <view class="agree-content">
+  <view class="agree-content">
     <view class="radioBtn{{!isAgree ? ' agree-select' : ''}}" bindtap="switchAgree"></view>
     <view class="license">
       <view>阅读并同意</view>

@@ -137,33 +137,7 @@ Component({
         mobile
       })
       if (result) {
-        result.token && wx.setStorageSync('token', result.token)
-        await app.saveUserBusinessInfo()
-        // 本地缓存手机号
-        wx.setStorage({
-          data: mobile,
-          key: 'mobile',
-        })
-        if (app.redirect) {
-          let pageMain = app.redirect.indexOf('pages/main/main') > -1
-          let pageCircle = app.redirect.indexOf('pages/circle/circle') > -1
-          let pageMy = app.redirect.indexOf('pages/my/my') > -1
-          if (pageMain || pageCircle || pageMy) {
-            wx.switchTab({
-              url: app.redirect,
-            })
-            app.redirect = null
-            return
-          }
-          wx.redirectTo({
-            url: app.redirect
-          })
-          app.redirect = null
-          return
-        }
-        wx.switchTab({
-          url: '/pages/main/main',
-        })
+        app.loginSuccessToPage(result.token, mobile)
       }
     },
     // 修改手机号api
