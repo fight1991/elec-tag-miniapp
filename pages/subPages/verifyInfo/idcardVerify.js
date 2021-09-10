@@ -33,34 +33,15 @@ Page({
   // 点击拍摄人脸按钮
   faceBtn () {
     // 先查看用户是否开启了摄像头权限
-    wx.showLoading({title: '权限检测中'})
-    wx.getSetting({
-      success: res => {
-        if (!res.authSetting['scope.camera']) {
-          // 如果用户拒绝授权后，短期内调用不会出现弹窗而是直接进入 fail 回调
-          // 手机端删除小程序后重新添加 就可以再次唤醒弹窗
-          wx.hideLoading()
-          wx.authorize({
-            scope: 'scope.camera',
-            success: () => {
-              // 用户已经同意小程序使用camera
-              wx.navigateTo({
-                url: '/pages/subPages/camera/front',
-              })
-            },
-            fail: res => {
-              wx.navigateTo({
-                url: '/pages/subPages/permissions/location',
-              })
-            }
-          })
-        } else {
-          wx.hideLoading()
-          wx.navigateTo({
-            url: '/pages/subPages/camera/front',
-          })
-        }
-      }
+    app.utils.permissionHandler('scope.camera').then(() => {
+      // 用户已经同意小程序使用camera
+      wx.navigateTo({
+        url: '/pages/subPages/camera/front',
+      })
+    }).catch(() => {
+      wx.navigateTo({
+        url: '/pages/subPages/permissions/location',
+      })
     })
     // wx.navigateTo({
     //   url: '/pages/subPages/camera/front',
