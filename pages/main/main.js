@@ -150,7 +150,12 @@ Page({
 
   initList () {
     let { longitude, latitude } = this.data
-    if (!longitude && !latitude) return
+    if (!longitude && !latitude) {
+      this.setData({
+        collapse: false
+      })
+      return
+    }
     this.getPointList(longitude, latitude)
   }
 })
