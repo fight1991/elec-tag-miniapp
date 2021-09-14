@@ -55,6 +55,8 @@ Page({
     })
   },
   async loginByWechat ({ encryptedData, iv }) {
+    // 用户拒绝
+    if (!encryptedData || !iv) return
     let { result } = await loginApiByWechat({
       jsCode: this.data.jsCode,
       wechatLogin: {
