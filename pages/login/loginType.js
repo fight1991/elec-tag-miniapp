@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isAgree: true,
+    isAgree: false,
     jsCode: ''
   },
 
@@ -32,13 +32,27 @@ Page({
       isAgree: !isAgree
     })
   },
-  bindgetphonenumber (e) {
+  // 判断是否勾选协议
+  weixinBtn () {
     let { isAgree } = this.data
     if (!isAgree) {
-      app.messageBox.common('请同意用户协议')
-      return
+      app.messageBox.common('请同意用户协议') 
     }
+    return isAgree
+  },
+  // 微信登录
+  bindgetphonenumber (e) {
+    let isCheck = this.weixinBtn()
+    if (!isCheck) return
     this.loginByWechat(e.detail)
+  },
+  // 跳转到验证码登录
+  codeLoginBtn () {
+    let isCheck = this.weixinBtn()
+    if (!isCheck) return
+    wx.navigateTo({
+      url: './signIn',
+    })
   },
   async loginByWechat ({ encryptedData, iv }) {
     let { result } = await loginApiByWechat({
