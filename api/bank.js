@@ -54,7 +54,7 @@ export const userDisabledBank = (data) => {
 // 查询支持的银行
 export const supportBankList = ({data, page}) => {
   return wx.$post_business({
-    url: '/user-center/configBank/list',
+    url: '/user-center/bankCard/getSupportList',
     data,
     page
   })

@@ -36,6 +36,16 @@
   color: #666;
   padding: 30rpx;
 }
+.zhanwei-btn {
+  font-size:16px;
+  background: #07C160;
+  height: 45px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 5px;
+}
 .login-type-btn {
   height: 45px;
   border-radius: 5px;
@@ -53,8 +63,8 @@
   margin: 50rpx auto 0;
 }
 .radioBtn {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background: #fff;
   border-radius: 50%;
   border: 1px solid #3C79FF;
@@ -64,8 +74,8 @@
   margin-right: 10rpx;
 }
 .radioBtn::after {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   content: '';
   background-color: #3C79FF;
