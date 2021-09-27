@@ -1,4 +1,5 @@
 // pages/main/main.js
+var qqmapsdk = null
 var app = getApp()
 const { point_list } = app.api
 Page({
@@ -8,30 +9,43 @@ Page({
    */
   data: {
     isAuth: false, // 是否已实名认证
-    pagination: {
-      pageIndex: 1,
-      pageSize: 5
-    },
-    total: 0, // 安装点总数
-    pointList: [],
     carTotal: 0,
-    longitude: '',
-    latitude: '',
-    collapse: false, // 下拉是否展开
-    pageIndex: 0, // 当前页
-    pageSize: 10, // 每页请求数量
-    total: 0, // 条目数
     bgImg: {
       car: app.utils.imgTobase64('/pages/image/icons/car-bg.png'),
       plate: app.utils.imgTobase64('/pages/image/icons/plate-bg.png'),
       scan: app.utils.imgTobase64('/pages/image/icons/scan-bg.png')
-    }
+    },
+    currentPos: '', // 当前地理位置
+    pois: [], // 当前位置的周边信息
+    city: '', // 城市名
+    gridIcon: [{
+      id: 'id1',
+      label: '无感加油',
+      icon: '/pages/image/businessCircle/oil.png',
+      pageKey: 'refuel' // 加油
+    }, {
+      id: 'id2',
+      label: '维修保养',
+      icon: '/pages/image/businessCircle/maintenance.png',
+      pageKey: 'maint' // 维保
+    }, {
+      id: 'id3',
+      label: '洗车美容',
+      icon: '/pages/image/businessCircle/wash.png',
+      pageKey: 'wash'
+    }, {
+      id: 'id4',
+      label: '智慧停车',
+      icon: '/pages/image/businessCircle/parking.png',
+      pageKey: 'parking'
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    qqmapsdk = app.initMapSdk()
     // this.initPointList()
   },
   onShow: function () {
@@ -58,15 +72,13 @@ Page({
       })
     })
   },
-  // 初始化网点列表
+  // 初始化位置信息
   initPointList () {
     app.getCurrentPosition().then(({ latitude, longitude }) => {
       app.currentPos.latitude = latitude
       app.currentPos.longitude = longitude
-      this.data.latitude = latitude
-      this.data.longitude = longitude
+      this.reverseGeocoder({ latitude, longitude })
       // app.currentPos.tamp = Date.now() 注意:更改此值, 每次打开此页面会触发订阅更新
-      this.getPointList(longitude, latitude)
     })
     this.startOpenPositionChange()
   },
@@ -74,42 +86,43 @@ Page({
   startOpenPositionChange () {
     wx.onLocationChange(res => {
       let { latitude, longitude } = res
-      this.data.latitude = latitude
-      this.data.longitude = longitude
       app.currentPos.latitude = latitude
       app.currentPos.longitude = longitude
+      this.reverseGeocoder(res)
       app.currentPos.tamp = Date.now()
     })
   },
-  // 获取网点列表
-  async getPointList (longitude, latitude) {
-    if (this.loading) return
-    this.loading = true
-    let { result, page } = await point_list({
-      data: {
+  // 解析位置
+  reverseGeocoder ({ latitude, longitude }, callback) {
+    if (!latitude || !longitude) return
+    qqmapsdk.reverseGeocoder({
+      location: {
         latitude,
         longitude
       },
-      page: this.data.pagination
+      get_poi: 1,
+      success: res => {
+        if (res.status == 0) {
+          let tempRes = res.result
+          this.data.pois = tempRes.pois
+          app.currentPos.province = tempRes.address_component.province
+          app.currentPos.address = tempRes.formatted_addresses.recommend
+          this.setData({
+            currentPlace: tempRes.formatted_addresses.recommend,
+            city: tempRes.address_component.city
+          })
+          callback && callback()
+        }
+      }
     })
-    if (result) {
-      this.setData({
-        pointList: result,
-        total: page.total,
-        collapse: false
-      })
-    }
-    this.setData({
-      collapse: false
-    })
-    this.loading = false
   },
-  // 更多按钮
-  moreBtn () {
+  // 城市选择
+  placeSearch () {
     wx.navigateTo({
-      url: `./morePoint`,
+      url: '/pages/subPages/citySelector/citySelector',
     })
   },
+ 
   // 车辆信息页面
   carInfoBtn () {
     if (!app.isLogin()) {
@@ -163,18 +176,30 @@ Page({
       url: '/pages/subPages/verifyInfo/index',
     })
   },
+  // 页面跳转
+  routePage (e) {
+    if (!app.isLogin()) {
+      app.utils.openCheckLogin()
+      return
+    }
+    let pageKey = e.currentTarget.dataset.page
+    if (!pageKey) {
+      //无pageKey为敬请期待
+      app.messageBox.common('敬请期待')
+      return
+    }
+    let pageArr = ['maint', 'wash'], pageFlag = ''
+    if (pageArr.indexOf(pageKey) > -1) {
+      pageFlag = pageKey
+      pageKey = 'maint'
+    }
+    let url = `/pages/subPages/${pageKey}/${pageKey}?pageFlag=` + pageFlag
+    wx.navigateTo({
+      url
+    })
+  },
   // 获取车辆数量
   getCarNum (e) {
     this.data.carTotal = e.detail
-  },
-  initList () {
-    let { longitude, latitude } = this.data
-    if (!longitude && !latitude) {
-      this.setData({
-        collapse: false
-      })
-      return
-    }
-    this.getPointList(longitude, latitude)
   }
 })

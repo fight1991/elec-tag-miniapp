@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "recommend-point": "./components/recommendPoint",
     "card-show": "./components/cardShow",
     "top-bg": "/pages/components/topBg/topBg"
   },

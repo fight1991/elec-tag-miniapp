@@ -49,24 +49,33 @@ page {
   background-color: #FD8141;
   border-radius: 15rpx;
 }
-.recommend-point {
+.pos-info {
+  z-index: 3;
+  padding: 10rpx 30rpx;
+  color: #fff;
   display: flex;
-  justify-content: space-between;
-  padding: 30rpx 40rpx;
-  color: #2E2E2E;
+  align-items: center;
 }
-.content {
-  flex: 1;
-  overflow:hidden;
+.address-name {
+  padding: 0 10rpx;
 }
-.recommend-list {
-  margin: 0 20rpx 20rpx;
+.grid-img {
+  width: 80rpx;
+  margin: 0 auto;
 }
-.recommend-point .right {
-  color: #666;
+.grid-item {
+  margin-bottom: 20rpx;
 }
-.point-place {
+.grid-box {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  color: #ccc;
-  margin-top: 100rpx;
+  border-radius: 12rpx;
+  padding: 30rpx 0;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns:repeat(4, 25%);
+}
+.image {
+  width: 100%;
 }

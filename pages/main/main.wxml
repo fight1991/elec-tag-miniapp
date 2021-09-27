@@ -2,6 +2,14 @@
 <view class="linear-box">
   <top-bg></top-bg>
   <view class="card-show-box">
+    <view class="pos-info" bindtap="placeSearch">
+      <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
+      <text class="address-name">
+        <text hidden="{{currentPlace}}">正在获取位置</text>
+        <text hidden="{{!currentPlace}}">{{currentPlace}}</text>
+      </text>
+      <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
+    </view>
     <card-show bindgetCarNum="getCarNum"></card-show>
   </view>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
@@ -20,32 +28,16 @@
       <iconImg name="scan"></iconImg>
     </view>
   </view>
-  <!-- 推荐安装网点 -->
-  <view class="recommend-point">
-    <view class="left fs16">推荐安装网点</view>
-    <view class="right fs12" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
-  </view>
-  <view class="content">
-    <pull-refresh
-      height="100%"
-      isOpenUpper="{{false}}"
-      model:count="{{total}}"
-      showFooter="{{false}}"
-      model:hasMore="{{false}}"
-      bind:pullDown="initList"
-      model:isRefresh="{{collapse}}">
-      <view class="recommend-list">
-        <block wx:for="{{pointList}}" wx:key="branchId">
-          <recommend-point
-            lat="{{item.latitude}}"
-            lon="{{item.longitude}}"
-            address="{{item.address || ''}}"
-            pointName="{{item.orgName}}"
-            pointDis="{{item.distance}}">
-          </recommend-point>
-        </block>
+  <!-- 导航 -->
+  <view class="grid-box">
+    <block wx:for="{{gridIcon}}" wx:key="id">
+      <view class="grid-item" bindtap="routePage" data-page="{{item.pageKey || ''}}">
+        <view class="grid-img">
+          <image class="image" src="{{item.icon}}" mode="widthFix"></image>
+        </view>
+        <view class="grid-text">{{item.label}}</view>
       </view>
-    </pull-refresh>
+    </block>
   </view>
 </view>
 
