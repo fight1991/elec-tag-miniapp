@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "business-card": "/pages/components/businessCard/businessCard",
+    "tag-group": "/pages/components/tag-group/tag-group",
     "my-map": "./map/map"
   },
   "navigationBarTitleText": "找车位"

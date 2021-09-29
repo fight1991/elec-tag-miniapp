@@ -27,7 +27,7 @@
               tagType="none"
               translator="{{serviceText}}"
               showTimer="{{parkingInfo.businessTimeBucketType == 1}}"
-              orgTags="{{item.orgTags}}">
+              orgTags="{{parkingInfo.orgTags}}">
             </tag-group>
           </view>
         </business-card>

@@ -23,11 +23,13 @@
               lat="{{item.latitude}}"
               lng="{{item.longitude}}"
               row2Suffix="{{item.distance}}km">
-              <view slot="row3" style="display:flex;flex-wrap: nowrap;">
-                <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
-                  <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
-                </view>
-                <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24h</van-tag>
+              <view slot="row3">
+                <tag-group
+                  tagType="none"
+                  translator="{{serviceText}}"
+                  showTimer="{{item.businessTimeBucketType == 1}}"
+                  orgTags="{{item.orgTags}}">
+                </tag-group>
               </view>
             </business-card>
           </navigator>
