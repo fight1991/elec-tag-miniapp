@@ -45,9 +45,10 @@ image {
 /* 水平方向弹性布局 */
 .flex-row {
   display: flex;
+  align-items: center;
 }
 /* 垂直平方向弹性布局 */
-.flex-row {
+.flex-column {
   display: flex;
   flex-direction: column;
 }
