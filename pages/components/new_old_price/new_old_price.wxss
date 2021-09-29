@@ -1,0 +1,15 @@
+.oil-price {
+  display: flex;
+  align-items: center;
+}
+.new-price {
+  color: #FF7E37;
+  padding: 0 6rpx;
+  font-size: 26rpx;
+}
+.old-price {
+  text-decoration: line-through;
+  padding: 0 6rpx;
+  color: #808080;
+  font-size: 24rpx;
+}

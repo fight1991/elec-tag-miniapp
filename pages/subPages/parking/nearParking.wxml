@@ -29,7 +29,7 @@
                 <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
                   <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
                 </view>
-                <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24小时</van-tag>
+                <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24h</van-tag>
               </view>
             </business-card>
           </navigator>

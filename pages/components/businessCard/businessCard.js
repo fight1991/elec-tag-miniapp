@@ -7,29 +7,21 @@ Component({
     multipleSlots: true
   },
   properties: {
-    title: {
+    row1Title: {
       type: String,
       value: '-'
     },
-    subTitle: {
+    row2Title: {
       type: String,
       value: '-'
     },
-    subTitleRight: {
+    row2Suffix: {
       type: String,
       value: '-'
     },
     src: {
       type: String,
       value: '/pages/image/default.png'
-    },
-    oldPrice: {
-      type: String,
-      value: '-'
-    },
-    newPrice: {
-      type: String,
-      value: '-'
     },
     oilInfo: {
       type: Boolean,

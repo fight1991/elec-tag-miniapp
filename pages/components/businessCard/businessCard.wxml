@@ -6,17 +6,25 @@
       <image class="img" mode="widthFix" src="{{src}}"></image>
     </view>
     <view class="title-box">
+      <!-- 图片右侧第1行 -->
       <view class="main-title title">
-        <text class="title-text text-cut">{{title}}</text>
-        <iconfont icon="navigator" size="38rpx" color="#447fff" catchtap="navigatorBtn"></iconfont>
+        <text class="title-text text-cut">{{row1Title}}</text>
+        <view catchtap="navigatorBtn" style="padding-left:20rpx;">
+          <iconfont icon="navigator" size="32rpx" color="#447fff"></iconfont>
+        </view>
       </view>
+      <!-- 图片右侧第2行 -->
       <view class="sub-title title">
-        <text class="title-text text-cut">{{subTitle}}</text>
-        <text class="sub-suffix">{{subTitleRight}}</text>
+        <text class="title-text text-cut">{{row2Title}}</text>
+        <text class="sub-suffix">{{row2Suffix}}</text>
       </view>
-      <view class="oil-price" wx:if="{{oilInfo}}">
-        <view class="new-price">¥{{oldPrice}}</view>
-        <view class="old-price">油站 ¥{{newPrice}}</view>
+      <!-- 图片右侧第3行 -->
+      <view class="row3">
+        <slot name="row3"></slot>
+      </view>
+      <!-- 图片右侧第3行 -->
+      <view class="row4">
+        <slot name="row4"></slot>
       </view>
     </view>
   </view>
