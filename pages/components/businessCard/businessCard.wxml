@@ -9,8 +9,15 @@
       <!-- 图片右侧第1行 -->
       <view class="main-title title">
         <text class="title-text text-cut">{{row1Title}}</text>
-        <view catchtap="navigatorBtn" style="padding-left:20rpx;">
-          <iconfont icon="navigator" size="32rpx" color="#447fff"></iconfont>
+        <view>
+          <iconfont
+            catchtap="navigatorBtn"
+            wx:if="{{lat && lng}}"
+            style="padding-left:20rpx;"
+            icon="navigator"
+            size="32rpx"
+            color="#447fff">
+          </iconfont>
         </view>
       </view>
       <!-- 图片右侧第2行 -->
@@ -26,6 +33,9 @@
       <view class="row4">
         <slot name="row4"></slot>
       </view>
+    </view>
+    <view class="action">
+      <slot name="action"></slot>
     </view>
   </view>
   <view>

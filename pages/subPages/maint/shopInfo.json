@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "shopAddress": "/pages/subPages/components/shopAddress/shopAddress"
+    "shopAddress": "/pages/subPages/components/shopAddress/shopAddress",
+    "business-card": "/pages/components/businessCard/businessCard",
+    "new-old-price": "/pages/components/new_old_price/new_old_price"
   },
   "navigationStyle": "custom"
 }

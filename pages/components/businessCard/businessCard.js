@@ -9,15 +9,15 @@ Component({
   properties: {
     row1Title: {
       type: String,
-      value: '-'
+      value: ''
     },
     row2Title: {
       type: String,
-      value: '-'
+      value: ''
     },
     row2Suffix: {
       type: String,
-      value: '-'
+      value: ''
     },
     src: {
       type: String,

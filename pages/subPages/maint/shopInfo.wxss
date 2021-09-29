@@ -14,3 +14,21 @@
 .position {
   opacity: 0;
 }
+.purchase-btn {
+  width: 158rpx;
+  height: 74rpx;
+  text-align: center;
+  background-color: #FE8746;
+  color: #fff;
+  border-radius: 6rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.purchase-btn .right-now {
+  font-size: 26rpx;
+}
+.purchase-btn .remain-num {
+  font-size: 20rpx;
+}
