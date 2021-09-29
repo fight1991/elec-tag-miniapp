@@ -23,10 +23,6 @@ Component({
       type: String,
       value: '/pages/image/default.png'
     },
-    oilInfo: {
-      type: Boolean,
-      value: true
-    },
     lat: {
       type: Number,
       value: 0

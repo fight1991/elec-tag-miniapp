@@ -8,9 +8,17 @@ Component({
       type: Array,
       value: []
     },
+    tagType: {
+      type: String,
+      value: 'primary'
+    },
     showTimer: {
       type: Boolean,
       value: false
+    },
+    translator: {
+      type: Object,
+      value: {}
     }
   },
 
