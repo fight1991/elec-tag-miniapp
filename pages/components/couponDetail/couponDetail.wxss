@@ -1,0 +1,60 @@
+/* pages/components/couponDetail/couponDetail.wxss */
+.coupon-top, .coupon-bottom {
+  background: #fff;
+  position: relative;
+}
+.line {
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2rpx;
+  background-image: linear-gradient(to right,#DCDCDC 0%, #DCDCDC 50%, transparent 50%);
+  background-size: 16rpx 100%;
+  background-repeat: repeat-x;
+}
+.left-wrap, .right-wrap {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  z-index: 1;
+  background: #F4F8FB;
+  border-radius: 16rpx;
+}
+.left-wrap {
+  bottom: -16rpx;
+  left: -16rpx;
+}
+.right-wrap {
+  bottom: -16rpx;
+  right: -16rpx;
+}
+.bottom-box {
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.bottom-item {
+  box-sizing: border-box;
+  padding: 34rpx 20rpx;
+  font-size: 30rpx;
+  color: #4C4C4C;
+  border-bottom: 1px solid #F5F5F5;
+}
+.bottom-item view {
+  flex: 1;
+}
+.bottom-item:last-child {
+  border-bottom: none;
+}
+.c-80 {
+  color: #808080;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.mb-12 {
+  margin-bottom: 12rpx;
+}

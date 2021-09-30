@@ -1,0 +1,45 @@
+<!--pages/components/couponDetail/couponDetail.wxml-->
+<view class="coupon-box">
+  <view class="coupon-top">
+    <slot name="button"></slot>
+    <view class="line"></view>
+    <view class="left-wrap"></view>
+    <view class="right-wrap"></view>
+  </view>
+  <view class="coupon-bottom">
+    <view class="bottom-box">
+      <view class="bottom-item flex-between">
+        <view>
+          到期时间
+        </view>
+        <view class="c-80">
+          2021.10.09 23:59:59
+        </view>
+      </view>
+      <view class="bottom-item flex-between">
+        <view>
+          领取说明
+        </view>
+        <view class="c-80">
+          领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明
+        </view>
+      </view>
+      <view class="bottom-item">
+        <view class="mb-12">
+          优惠券说明
+        </view>
+        <view class="c-80">
+          优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明
+        </view>
+      </view>
+      <view class="bottom-item">
+        <view class="mb-12">
+          使用须知
+        </view>
+        <view class="c-80">
+          优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明优惠券说明
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

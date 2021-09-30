@@ -1,2 +1,8 @@
 <!--pages/subPages/ticket/ticketDetail.wxml-->
-<text>pages/subPages/ticket/ticketDetail.wxml</text>
+<view class="outer">
+  <coupon-detail>
+    <view slot="button">
+      <commonBtn bindtap="goLoginBtn">{{btnText}}</commonBtn>
+    </view>
+  </coupon-detail>
+</view>

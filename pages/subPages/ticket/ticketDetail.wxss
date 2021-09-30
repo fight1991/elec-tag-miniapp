@@ -1,1 +1,5 @@
 /* pages/subPages/ticket/ticketDetail.wxss */
+.btn {
+  box-sizing: border-box;
+  padding: 15rpx 50rpx 10rpx 50rpx;
+}

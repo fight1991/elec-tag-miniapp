@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bgImg: app.utils.imgTobase64('/pages/image/coupon/card-bg1.png'),
+    bgImg:{
+      left: app.utils.imgTobase64('/pages/image/coupon/card-bg1.png'),
+      right: app.utils.imgTobase64('/pages/image/coupon/card-bg2.png'),
+    },
     collapse: false, // 下拉是否展开
     hasMore: true,
     pageIndex: 0, // 当前页

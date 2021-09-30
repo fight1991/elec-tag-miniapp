@@ -36,14 +36,19 @@
   box-sizing: border-box;
 }
 .use-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 0;
   right: 0;
   width: 99rpx;
   height: 190rpx;
-}
-.image {
-  width: 100%;
+  writing-mode: vertical-lr;
+  writing-mode: tb-lr;
+  letter-spacing: 10rpx;
+  color: #fff;
+  font-size: 26rpx;
 }
 .overflow-ellipsis {
   overflow: hidden;

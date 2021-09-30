@@ -9,7 +9,7 @@
   <view class="item-box">
     <block wx:for="{{list}}" wx:key="orgIdd">
       <navigator url="./ticketDetail?id={{item.id}}&type={{item.type}}">
-        <view class="coupon-item" style="background-image:url({{bgImg}});background-size:100%;">
+        <view class="coupon-item" style="background-image:url({{bgImg.left}});background-size:100% 100%;">
           <view class="left-box">
             <view class="overflow-ellipsis">
               ￥
@@ -30,8 +30,8 @@
               {{item.endTime}} 到期
             </view>
           </view>
-          <view class="use-box">
-            <image class="image" mode="widthFix" src="/pages/image/coupon/card-bg2.png"></image>
+          <view class="use-box" style="background-image:url({{bgImg.right}});background-size:100% 100%;">
+            去使用
           </view>
         </view>
       </navigator>
