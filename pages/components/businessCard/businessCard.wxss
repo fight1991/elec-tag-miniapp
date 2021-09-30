@@ -8,13 +8,13 @@
 }
 .head-img {
   width: 140rpx;
+  margin-top: 6rpx;
 }
 .img {
   width: 100%;
 }
 .head-box {
   display: flex;
-  align-items: center;
   width: 100%;
 }
 .title-box {
@@ -22,11 +22,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 100%;
+  flex: 1;
+  overflow: hidden;
 }
-.oil-price {
-  display: flex;
-  align-items: center;
+.action {
+  align-self: center;
 }
 .title {
   width: 100%;
@@ -47,20 +47,13 @@
   color: #1D1D25;
 }
 .sub-title {
-  padding: 6rpx 0;
+  padding-bottom: 6rpx;
 }
 .sub-title,.old-price {
   color: #808080;
   font-size: 22rpx;
 }
-.new-price {
-  color: #FF7E37;
-  padding: 0 4rpx;
-}
-.old-price {
-  text-decoration: line-through;
-  padding: 0 4rpx;
-}
+
 .text {
   min-width: 100rpx;
   text-align: center;

@@ -18,18 +18,18 @@
           <navigator url="./parkingDetail?id={{item.orgId}}&distance={{item.distance}}">
             <business-card
               src="{{item.urlIcon}}"
-              title="{{item.orgName}}"
-              address="{{item.address}}"
-              subTitle="{{item.address}}"
+              row1Title="{{item.orgName}}"
+              row2Title="{{item.address}}"
               lat="{{item.latitude}}"
               lng="{{item.longitude}}"
-              subTitleRight="{{item.distance}}km"
-              oilInfo="{{false}}">
-              <view slot="foot" style="padding-left:140rpx;display:flex">
-                <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
-                  <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
-                </view>
-                <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24小时</van-tag>
+              row2Suffix="{{item.distance}}km">
+              <view slot="row3">
+                <tag-group
+                  tagType="none"
+                  translator="{{serviceText}}"
+                  showTimer="{{item.businessTimeBucketType == 1}}"
+                  orgTags="{{item.orgTags}}">
+                </tag-group>
               </view>
             </business-card>
           </navigator>

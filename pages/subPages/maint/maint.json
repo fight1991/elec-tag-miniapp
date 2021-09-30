@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "business-card": "/pages/components/businessCard/businessCard",
+    "new-old-price": "/pages/components/new_old_price/new_old_price",
+    "tag-group": "/pages/components/tag-group/tag-group"
+  },
   "navigationBarTitleText": "洗车美容"
 }
