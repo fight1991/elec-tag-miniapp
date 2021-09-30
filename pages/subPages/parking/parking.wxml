@@ -17,18 +17,18 @@
       <navigator url="./parkingDetail?id={{parkingInfo.orgId}}&distance={{parkingInfo.distance}}">
         <business-card
           src="{{parkingInfo.urlIcon}}"
-          title="{{parkingInfo.orgName}}"
-          address="{{parkingInfo.address}}"
-          subTitle="{{parkingInfo.address}}"
+          row1Title="{{parkingInfo.orgName}}"
+          row2Title="{{parkingInfo.address}}"
+          row2Suffix="{{parkingInfo.distance}}km"
           lat="{{parkingInfo.latitude}}"
-          lng="{{parkingInfo.longitude}}"
-          subTitleRight="{{parkingInfo.distance}}km"
-          oilInfo="{{false}}">
-          <view slot="foot" style="padding-left:140rpx;display:flex">
-            <view style="padding-right:10rpx;" wx:for="{{parkingInfo.orgTags}}" wx:key="item">
-              <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
-            </view>
-            <van-tag wx:if="{{parkingInfo.businessTimeBucketType == 1}}" plain>24小时</van-tag>
+          lng="{{parkingInfo.longitude}}">
+          <view slot="row3">
+            <tag-group
+              tagType="none"
+              translator="{{serviceText}}"
+              showTimer="{{parkingInfo.businessTimeBucketType == 1}}"
+              orgTags="{{parkingInfo.orgTags}}">
+            </tag-group>
           </view>
         </business-card>
       </navigator>

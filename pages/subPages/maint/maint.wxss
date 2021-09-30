@@ -48,8 +48,50 @@ page {
   color: #447fff;
   font-weight: bold;
 }
-.foot-box {
+
+.goods-name {
+  font-size: 22rpx;
+  color: #808080;
+}
+.foot-line {
+  display: flex;
+  padding: 6rpx 0;
+  display: flex;
+  height: 64rpx;
+}
+.foot-left {
+  display: flex;
+  background-color: #F7F7F7;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rpx 10rpx;
+  flex: 1;
+  overflow: hidden;
+}
+.goods-desc {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  overflow: hidden;
+}
+.goods-name {
+  padding: 0 6rpx;
+}
+.purchase-btn {
+  width: 118rpx;
+  height: 74rpx;
+  text-align: center;
+  background-color: #FE8746;
+  color: #fff;
+  border-radius: 6rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.purchase-btn .right-now {
+  font-size: 22rpx;
+}
+.purchase-btn .remain-num {
+  font-size: 16rpx;
 }

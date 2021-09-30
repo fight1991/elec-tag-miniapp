@@ -13,15 +13,20 @@
     <view class="content-box">
       <view class="card-item" wx:for="{{dataForm.goodsList}}" wx:key="goodsId">
         <navigator url="./detail?orgId={{item.orgId}}&pageFlag={{pageFlag}}&goodsId={{item.goodsId}}">
-          <van-card
-            custom-class="bg-f"
-            price="{{item.goodsPlatPrice}}"
-            centered
-            origin-price="门市{{item.goodsMarketPrice}}"
-            title="{{item.goodsName}}"
-            thumb="{{item.goodsImage}}">
-            <view slot="desc"><text class="position">占位置没什么鸟用</text></view>
-          </van-card>
+          <business-card
+            src="{{item.goodsImage}}"
+            row1Title="{{item.goodsName}}">
+            <view slot="row3">
+              <new-old-price oldPrice="{{item.goodsMarketPrice}}" newPrice="{{item.goodsPlatPrice}}"></new-old-price>
+            </view>
+            <view slot="action">
+              <!-- <van-button color="#447FFF" size="mini" plain>查看</van-button> -->
+              <view class="purchase-btn" catchtap="">
+                <view class="right-now stopTap">立即抢</view>
+                <view class="remain-num stopTap">余5</view>
+              </view>
+            </view>
+          </business-card>
         </navigator>
       </view>
     </view>

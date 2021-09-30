@@ -46,18 +46,16 @@
           <navigator url="./oilDetail?oil={{oil}}&id={{item.orgId}}&distance={{item.distance}}&lat={{item.latitude}}&lon={{item.longitude}}">
             <business-card
               src="{{item.urlIcon}}"
-              title="{{item.orgName}}"
-              subTitleRight="{{item.distance + 'km'}}"
+              row1Title="{{item.orgName}}"
               lat="{{item.latitude}}"
               lng="{{item.longitude}}"
-              subTitle="{{item.address}}"
-              oldPrice="{{item.discountPrice}}"
-              newPrice="{{item.price}}">
-              <view slot="foot" style="padding-left:140rpx;display:flex">
-                <view style="padding-right:10rpx;" wx:for="{{item.tagList}}" wx:key="item">
-                  <van-tag plain type="primary">{{item}}</van-tag>
-                </view>
-                <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24小时</van-tag>
+              row2Title="{{item.address}}"
+              row2Suffix="{{item.distance + 'km'}}">
+              <view slot="row3">
+                <new-old-price oldPrice="{{item.discountPrice}}" newPrice="{{item.price}}"></new-old-price>
+              </view>
+              <view slot="row4">
+                <tag-group showTimer="{{item.businessTimeBucketType == 1}}" orgTags="{{item.orgTags}}"></tag-group>
               </view>
             </business-card>
           </navigator>

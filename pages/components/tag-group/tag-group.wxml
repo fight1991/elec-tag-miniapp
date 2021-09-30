@@ -1,0 +1,6 @@
+<view style="display:flex;flex-wrap: wrap;padding-right:10rpx;">
+  <view style="padding-right:10rpx;" wx:for="{{orgTags}}" wx:key="item">
+    <van-tag plain type="primary">{{translator[item] || item || '-'}}</van-tag>
+  </view>
+  <van-tag wx:if="{{showTimer}}" plain>24h</van-tag>
+</view>

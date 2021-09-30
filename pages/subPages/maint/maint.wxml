@@ -40,36 +40,44 @@
       model:isRefresh="{{collapse}}">
       <view class="card-item" wx:for="{{list}}" wx:key="goodsId">
         <navigator url="./shopInfo?distance={{item.distance}}&goodsId={{item.goodsId}}&orgId={{item.orgId}}&pageFlag={{pageFlag}}">
-          <van-card
-            custom-class="bg-f"
-            price="{{item.discountPrice}}"
-            origin-price="门市{{item.price}}"
-            desc="{{item.address}}"
-            title="{{item.orgName}}"
-            thumb="{{item.urlIcon}}">
-            <view slot="footer">
-              <view class="foot-box">
-                <view style="padding-right:10rpx;" wx:if="{{!tools.hasCurrentWeek(item.businessTimeList)}}">
-                  <van-tag plain type="danger">休息</van-tag>
-                </view>
-                <view
-                  style="padding-right:10rpx;"
-                  wx:for="{{item.orgServices}}"
-                  wx:key="item">
-                  <van-tag plain type="primary">{{serviceText[item]}}</van-tag>
-                </view>
-                <text>{{item.goodsName || '-'}}</text>
-              </view> 
-            </view>
-            <view slot="tags" style="display:flex">
-              <view
-                style="padding-right:10rpx;"
-                wx:for="{{item.orgTags}}"
-                wx:key="item">
-                <van-tag plain type="primary">{{tagText[item]}}</van-tag>
+          <business-card
+            src="{{item.urlIcon}}"
+            row1Title="{{item.orgName}}"
+            row2Title="{{item.address}}"
+            row2Suffix="{{item.distance}}km"
+            lat="{{item.latitude}}"
+            lng="{{item.longitude}}">
+            <view slot="row3">
+              <view class="flex-row">
+                <tag-group
+                  translator="{{serviceText}}"
+                  orgTags="{{item.orgServices}}">
+                </tag-group>
+                <tag-group
+                  tagType="none"
+                  translator="{{tagText}}"
+                  orgTags="{{item.orgTags}}">
+                </tag-group>
               </view>
             </view>
-          </van-card>
+            <view slot="foot">
+              <view class="foot-line">
+                <view class="foot-left">
+                  <view class="goods-desc">
+                    <van-tag plain type="danger" wx:if="{{!tools.hasCurrentWeek(item.businessTimeList)}}">休息</van-tag>
+                    <text class="goods-name text-cut">{{item.goodsName || '-'}}</text>
+                  </view>
+                  <view class="goods-price">
+                    <new-old-price oldPrice="{{item.discountPrice}}" newPrice="{{item.price}}"></new-old-price>
+                  </view>
+                </view>
+                <view class="foot-right purchase-btn">
+                  <view class="right-now">立即抢</view>
+                  <view class="remain-num">余5</view>
+                </view>
+              </view>
+            </view>
+          </business-card>
         </navigator>
       </view>
     </pull-refresh>
