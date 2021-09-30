@@ -14,6 +14,7 @@
   </view>
   <!-- 导航 -->
   <busniss-gird list="{{gridIcon}}" class="mg-30"></busniss-gird>
+  <dropdown-menu></dropdown-menu>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
   <group-btn class="mg-30" bindelecClick="elecBrandBtn" bindcarInfoClick="carInfoBtn" bindscanClick="scanBtn"></group-btn>
   <!-- 活动轮播 -->

@@ -1,0 +1,33 @@
+.select-box {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+}
+.select-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.3%;
+  padding: 20rpx 0;
+  background-color: #fff;
+}
+.select-text {
+  padding-right: 20rpx;
+}
+.content-box {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(0,0,0,.2);
+  z-index: 999;
+
+}
+.select-tag {
+  background-color: #fff;
+  padding: 30rpx;
+  display: grid;
+  grid-template-columns:repeat(4, 25%);
+  row-gap: 30rpx;
+  place-items: center;
+}

@@ -4,7 +4,8 @@
     "top-bg": "/pages/components/topBg/topBg",
     "banner": "/pages/components/banner/banner",
     "group-btn": "./components/groupBtn",
-    "busniss-gird": "./components/busnissGird"
+    "busniss-gird": "./components/busnissGird",
+    "dropdown-menu": "/pages/components/dropdownMenu/dropdownMenu"
   },
   "navigationStyle": "custom"
 }
