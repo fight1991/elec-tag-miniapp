@@ -1,3 +1,41 @@
 <view class="outer">
-<nodata>暂无卡券</nodata>
+<pull-refresh
+  height="100%"
+  model:count="{{total}}"
+  model:hasMore="{{hasMore}}"
+  bind:pullDown="initList"
+  bind:reachBottom="upperList"
+  model:isRefresh="{{collapse}}">
+  <view class="item-box">
+    <block wx:for="{{list}}" wx:key="orgIdd">
+      <navigator url="./ticketDetail?id={{item.id}}&type={{item.type}}">
+        <view class="coupon-item" style="background-image:url({{bgImg}});background-size:100%;">
+          <view class="left-box">
+            <view class="overflow-ellipsis">
+              ￥
+              <span class="fs-60">
+                {{item.type==='fixedPrice' ? item.fixedAmount : item.usedAmount}}
+              </span>
+            </view>
+            <view class="fs-24 overflow-ellipsis">
+              {{item.offerNotice}}
+            </view>
+            <view class="line"></view>
+          </view>
+          <view class="center-box">
+            <view class="overflow-ellipsis">
+              {{item.name}}
+            </view>
+            <view class="time-text">
+              {{item.endTime}} 到期
+            </view>
+          </view>
+          <view class="use-box">
+            <image class="image" mode="widthFix" src="/pages/image/coupon/card-bg2.png"></image>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</pull-refresh>
 </view>

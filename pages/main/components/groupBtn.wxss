@@ -1,0 +1,42 @@
+/* pages/main/components/groupBtn.wxss */
+.group-btn {
+  display: flex;
+  background-color: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-radius: 12rpx;
+}
+.left-box {
+  position: relative;
+  width: 314rpx;
+  height: 320rpx;
+  background-size: 314rpx 320rpx;
+  border-radius: 12rpx;
+}
+.right-item {
+  position: relative;
+  width: 314rpx;
+  height: 150rpx;
+  background-size: 314rpx 150rpx;
+  border-radius: 12rpx;
+}
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+.icon-box {
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  width: 48rpx;
+}
+.image {
+  width: 100%;
+}
+.group-text {
+  position: absolute;
+  top: 22rpx;
+  left: 22rpx;
+  font-size: 30rpx;
+  color: #4C4C4C;
+}

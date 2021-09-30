@@ -1,7 +1,7 @@
 // pages/main/main.js
 var qqmapsdk = null
 var app = getApp()
-const { point_list } = app.api
+const { point_list, getCouponBanner } = app.api
 Page({
 
   /**
@@ -11,10 +11,22 @@ Page({
     isAuth: false, // 是否已实名认证
     carTotal: 0,
     bgImg: {
-      car: app.utils.imgTobase64('/pages/image/icons/car-bg.png'),
-      plate: app.utils.imgTobase64('/pages/image/icons/plate-bg.png'),
-      scan: app.utils.imgTobase64('/pages/image/icons/scan-bg.png')
+      // car: app.utils.imgTobase64('/pages/image/icons/car-bg.png'),
+      // plate: app.utils.imgTobase64('/pages/image/icons/plate-bg.png'),
+      // scan: app.utils.imgTobase64('/pages/image/icons/scan-bg.png')
     },
+    bannerList:[
+      {
+        bannerId:1,
+        src:'/pages/image/businessCircle/banner1.png',
+        url:'/pages/subPages/maint/maint?type=base&id=1'
+      },
+      // {
+      //   bannerId:2,
+      //   src:'/pages/image/businessCircle/banner2.png',
+      //   url:'/pages/subPages/wash/wash'
+      // }
+    ],
     currentPos: '', // 当前地理位置
     pois: [], // 当前位置的周边信息
     city: '', // 城市名
@@ -53,6 +65,7 @@ Page({
       isAuth: app.globalData.userInfo.authPersonal || false
     })
     this.checkPermission()
+    this.getList()
   },
   // 权限检测
   checkPermission () {
@@ -116,6 +129,17 @@ Page({
       }
     })
   },
+
+  // 获取banner
+  getList () {
+    let { result } = getCouponBanner({bannerId: 1001})
+    if (result) {
+      this.setData({
+        bannerList: result.couponList
+      })
+    }
+  },
+  
   // 城市选择
   placeSearch () {
     wx.navigateTo({
@@ -174,28 +198,6 @@ Page({
     }
     wx.navigateTo({
       url: '/pages/subPages/verifyInfo/index',
-    })
-  },
-  // 页面跳转
-  routePage (e) {
-    if (!app.isLogin()) {
-      app.utils.openCheckLogin()
-      return
-    }
-    let pageKey = e.currentTarget.dataset.page
-    if (!pageKey) {
-      //无pageKey为敬请期待
-      app.messageBox.common('敬请期待')
-      return
-    }
-    let pageArr = ['maint', 'wash'], pageFlag = ''
-    if (pageArr.indexOf(pageKey) > -1) {
-      pageFlag = pageKey
-      pageKey = 'maint'
-    }
-    let url = `/pages/subPages/${pageKey}/${pageKey}?pageFlag=` + pageFlag
-    wx.navigateTo({
-      url
     })
   },
   // 获取车辆数量

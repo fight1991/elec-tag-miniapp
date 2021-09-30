@@ -22,8 +22,13 @@ Page({
       { text: '距离最近', value: 'distance'},
       { text: '价格最低', value: 'price'}
     ],
+    carTypeOption: [
+      { text: 'suv', value: 'suv'},
+      { text: '轿车', value: 'car'}
+    ],
     distance: 3,
     other: 'distance',
+    carType: 'car',
     pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',

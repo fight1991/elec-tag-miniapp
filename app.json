@@ -5,8 +5,6 @@
     "pages/main/main",
     "pages/main/morePoint",
     "pages/my/my",
-    "pages/circle/circle",
-    "pages/index/board",
     "pages/login/loginType",
     "pages/login/licence"
   ],
@@ -90,7 +88,8 @@
       "root": "pages/subPages/ticket",
       "name": "ticket",
       "pages": [
-        "ticket"
+        "ticket",
+        "ticketDetail"
       ]
     },
     {
@@ -147,12 +146,6 @@
         "text": "首页",
         "iconPath": "pages/image/home.png",
         "selectedIconPath": "pages/image/home-select.png"
-      },
-      {
-        "pagePath": "pages/circle/circle",
-        "text": "商圈",
-        "iconPath": "pages/image/business.png",
-        "selectedIconPath": "pages/image/business-fill.png"
       },
       {
         "pagePath": "pages/my/my",

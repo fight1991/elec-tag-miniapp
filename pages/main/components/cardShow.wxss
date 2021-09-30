@@ -2,7 +2,7 @@
 .refine-userInfo {
   background-color: #fff;
   padding: 40rpx;
-  margin: 0 30rpx;
+  margin: 0 30rpx 30rpx;
   border-radius: 10rpx;
   box-shadow:0 2rpx 16rpx rgba(118, 182, 255, 0.25)
 }

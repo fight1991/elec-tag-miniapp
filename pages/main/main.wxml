@@ -12,32 +12,11 @@
     </view>
     <card-show bindgetCarNum="getCarNum"></card-show>
   </view>
-  <!-- 电子车牌 车辆信息 扫一扫按钮 -->
-  <view class="group-btn">
-    <view class="group-btn-item" style="background-image:url({{bgImg.plate}})" bindtap="elecBrandBtn">
-      <text>电子车牌</text>
-      <iconImg name="plate"></iconImg>
-      <text class="free-apply">免费申领</text>
-    </view>
-    <view class="group-btn-item" style="background-image:url({{bgImg.car}})" bindtap="carInfoBtn">
-      <text>我的车辆</text>
-      <iconImg name="car"></iconImg>
-    </view>
-    <view class="group-btn-item" style="background-image:url({{bgImg.scan}})"  bindtap="scanBtn">
-      <text>扫一扫</text>
-      <iconImg name="scan"></iconImg>
-    </view>
-  </view>
   <!-- 导航 -->
-  <view class="grid-box">
-    <block wx:for="{{gridIcon}}" wx:key="id">
-      <view class="grid-item" bindtap="routePage" data-page="{{item.pageKey || ''}}">
-        <view class="grid-img">
-          <image class="image" src="{{item.icon}}" mode="widthFix"></image>
-        </view>
-        <view class="grid-text">{{item.label}}</view>
-      </view>
-    </block>
-  </view>
+  <busniss-gird list="{{gridIcon}}" class="mg-30"></busniss-gird>
+  <!-- 电子车牌 车辆信息 扫一扫按钮 -->
+  <group-btn class="mg-30" bindelecClick="elecBrandBtn" bindcarInfoClick="carInfoBtn" bindscanClick="scanBtn"></group-btn>
+  <!-- 活动轮播 -->
+  <banner class="mb-30" list="{{bannerList}}"></banner>
 </view>
 

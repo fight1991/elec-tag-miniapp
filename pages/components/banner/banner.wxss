@@ -1,0 +1,15 @@
+/* pages/components/banner/banner.wxss */
+.image {
+  width: 100%;
+}
+.swiper-box {
+  width: 100%;
+  height: 178rpx;
+}
+.banner-item {
+  display: flex;
+  justify-content: center;
+}
+.banner-box {
+  width: 690rpx;
+}

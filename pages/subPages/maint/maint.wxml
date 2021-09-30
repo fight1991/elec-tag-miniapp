@@ -13,9 +13,19 @@
   </view>
   <!-- 筛选项区域 -->
   <view class="drop-down">
+    <view class="pos-info" bindtap="placeSearch">
+      <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
+      <text class="address-name">
+        <text hidden="{{currentPlace}}">正在获取位置</text>
+        <text hidden="{{!currentPlace}}">{{currentPlace}}</text>
+      </text>
+      <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
+    </view>
     <van-dropdown-menu active-color="#447fff">
       <van-dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
       <van-dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
+      </van-dropdown-item>
+      <van-dropdown-item bind:change="selectBtn" model:value="{{ carType }}" options="{{ carTypeOption }}" wx:if="{{pageFlag==='wash'}}">
       </van-dropdown-item>
     </van-dropdown-menu>
   </view>
