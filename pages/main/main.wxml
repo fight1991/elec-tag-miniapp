@@ -2,6 +2,7 @@
 <view class="linear-box">
   <top-bg></top-bg>
   <view class="card-show-box">
+    <navigation></navigation>
     <view class="pos-info" bindtap="placeSearch">
       <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
       <text class="address-name">

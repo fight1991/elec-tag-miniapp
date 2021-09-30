@@ -5,7 +5,17 @@ Page({
      * 页面的初始数据
      */
     data: {
-        btnText:'立即使用'
+        btnText:'立即使用',
+        detailInfo: {
+            icon: "oil-card",
+            service: "加油",
+            type: "一口价",
+            price: "330",
+            endTime: '2021.10.09 23:59:59',
+            getNotice:'领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明',
+            offerNotice:'优惠说明',
+            useNotice:'使使用须知使用须知使用须知使用须知使用须知使用须知使用须知使用须知使用须知用须知',
+        }
     },
 
     /**
