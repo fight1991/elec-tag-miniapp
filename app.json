@@ -194,6 +194,7 @@
     "assetsImg": "/publicBag/components/assetsImg/assetsImg",
     "fullBanner": "/publicBag/components/fullBanner/fullBanner",
     "pull-refresh": "/publicBag/components/pullRefresh/index",
+    "my-tag": "/publicBag/components/outerTag/outerTag",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-button": "@vant/weapp/button/index",

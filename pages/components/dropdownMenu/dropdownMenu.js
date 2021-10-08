@@ -61,6 +61,7 @@ Component({
       const query = this.createSelectorQuery()
       query.select('#select-box').boundingClientRect()
       query.exec(function(res){
+        console.log(res)
         that.setData({
           height: res[0].bottom
         })
@@ -80,30 +81,5 @@ Component({
       var nodes = this.getRelationNodes('../dropdownItem/dropdownItem')
       console.log(nodes)
     },
-    // 筛选条件按钮
-    selectBtn (e) {
-      let currentTab = e.target.dataset.tab
-      this.setData({
-        showMask: true,
-        currentTabName: currentTab
-      })
-    },
-    // 下方筛选项 
-    tagTap (e) {
-      let index = e.currentTarget.id
-      console.log(index)
-      let { currentTabName: currTab, tabs } = this.data
-      this.setData({
-        ['tabValue.' + [currTab]]: tabs[currTab][index]['label'],
-        showMask: false
-      })
-    },
-    // 点击模态框
-    maskTap () {
-      this.setData({
-        showMask: false
-      })
-    },
-    itemsTap () {},
   }
 })

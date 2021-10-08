@@ -9,15 +9,23 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    options: {
+      type: Array,
+      value: [
+        {label: '3km', value: 3},
+        {label: '5km', value: 5},
+        {label: '10km', value: 10},
+        {label: '15km', value: 15},
+        {label: '不限', value: 'none'}
+      ]
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    test: '1212134',
-    text: 'chld'
+    showMask: false
   },
   lifetimes: {
     attached () {
@@ -30,6 +38,26 @@ Component({
   methods: {
     send () {
       notify.send(Date.now())
-    }
+    },
+    maskTap () {
+      this.setData({
+        showMask: !this.data.showMask
+      })
+    },
+    // 下方筛选项 
+    tabClick (e) {
+      this.setData({
+        showMask: !this.data.showMask
+      })
+    },
+    // 隐藏模态框
+    hiddenMask () {
+      this.setData({
+        showMask: false
+      })
+    },
+    itemsTap () {
+      this.hiddenMask()
+    },
   }
 })
