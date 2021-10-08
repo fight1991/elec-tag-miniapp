@@ -54,17 +54,8 @@ Component({
       this.getAllChildNodes()
     },
     attached () {
-      notify.stream(() => {
-        console.log('hah')
-      })
-      let that = this
-      const query = this.createSelectorQuery()
-      query.select('#select-box').boundingClientRect()
-      query.exec(function(res){
-        console.log(res)
-        that.setData({
-          height: res[0].bottom
-        })
+      notify.stream((id) => {
+        this.closeAllMask(id)
       })
     }
   },
@@ -78,8 +69,16 @@ Component({
   methods: {
     // 获取所有子节点
     getAllChildNodes () {
-      var nodes = this.getRelationNodes('../dropdownItem/dropdownItem')
-      console.log(nodes)
+      this.nodes = this.getRelationNodes('../dropdownItem/dropdownItem')
+      console.log(this.nodes)
     },
+    closeAllMask (id) { // 接收广播
+      this.nodes.forEach(instance => {
+        // 其它模态框关闭
+        if (instance.__wxExparserNodeId__ != id) {
+          instance.hiddenMask()
+        }
+      })
+    }
   }
 })

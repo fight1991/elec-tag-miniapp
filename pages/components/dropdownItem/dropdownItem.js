@@ -9,6 +9,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    value: {
+      type: String,
+      value: ''
+    },
     options: {
       type: Array,
       value: [
@@ -20,16 +24,22 @@ Component({
       ]
     }
   },
-
-  /**
-   * 组件的初始数据
-   */
+  observers: {
+    'value': function (value) {
+      let item = this.options.find(v => v.value == value)
+      this.setData({
+        currentLabel: item.label
+      })
+    }
+  },
   data: {
-    showMask: false
+    showMask: false,
+    height: 0,
+    currentLabel: ''
   },
   lifetimes: {
     attached () {
-      console.log('子组件钩子函数')
+      this.getDomPos()
     }
   },
   /**
@@ -37,7 +47,18 @@ Component({
    */
   methods: {
     send () {
-      notify.send(Date.now())
+      notify.send(this.__wxExparserNodeId__)
+    },
+    // 获取元素当前位置
+    getDomPos () {
+      let that = this
+      const query = this.createSelectorQuery()
+      query.select('.select-item').boundingClientRect()
+      query.exec(function(res){
+        that.setData({
+          height: res[0].bottom
+        })
+      })
     },
     maskTap () {
       this.setData({
@@ -46,6 +67,7 @@ Component({
     },
     // 下方筛选项 
     tabClick (e) {
+      this.send()
       this.setData({
         showMask: !this.data.showMask
       })
@@ -56,7 +78,15 @@ Component({
         showMask: false
       })
     },
-    itemsTap () {
+    itemsTap (e) {
+      console.log(e)
+      let index = e.target.id
+      let { options } = this.data
+      this.setData({
+        currentLabel: options[index].label,
+        value: options[index].value
+      })
+      this.triggerEvent('change', options[index])
       this.hiddenMask()
     },
   }

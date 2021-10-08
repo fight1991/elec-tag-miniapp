@@ -10,7 +10,7 @@ export default {
       enumerable: true,
       set: function (value) {
         tempValue = value
-        callback && callback()
+        callback && callback(value)
       },
       get: function () {
         return tempValue

@@ -7,7 +7,7 @@
     <view class="select-tag" catchtap="itemsTap">
       <my-tag
         wx:for="{{options}}"
-        bindtap="itemsTap"
+        catchtap="itemsTap"
         id="{{index}}"
         wx:key="value">
         {{item.label}}
