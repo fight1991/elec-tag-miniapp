@@ -34,13 +34,27 @@ Page({
       wash: '洗车美容',
       maint: '维修保养'
     },
+    bannerList:[
+      {
+        bannerId:1,
+        src:'/pages/image/businessCircle/banner1.png',
+        url:'/pages/subPages/maint/maint?type=base&id=1'
+      },
+      {
+        bannerId:2,
+        src:'/pages/image/businessCircle/banner2.png',
+        url:'/pages/subPages/wash/wash'
+      }
+    ],
     washBtnList: [],
     upkeepType: '', // 洗车类型
     activeTab: '', // 洗车当前tab
+    currentPlace: '', // 位置信息
     latitude: '',
     longitude: '',
     serviceText: {},
     tagText: {},
+    tipVisible: true, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
     hasMore: true,
@@ -67,12 +81,20 @@ Page({
       serviceText: await translateDic('orgServiceType'),
       tagText: await translateDic('orgServiceTag'),
     })
-    app.notifyPos(({ latitude, longitude, address }) => {
-      this.data.latitude = latitude
-      this.data.longitude = longitude
-      // 获取附近的停车场
-      this.initList()
-    })
+    this.initPoisData()
+    // app.notifyPos(({ latitude, longitude, address }) => {
+    //   this.data.latitude = latitude
+    //   this.data.longitude = longitude
+    //   // 获取附近的停车场
+    //   this.initList()
+    // })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
   },
   // 获取洗车按钮列表
   async getWashBtnList () {
@@ -94,6 +116,33 @@ Page({
     })
     this.data.upkeepType = current
     this.initList()
+  },
+  // 初始化附件位置
+  initPoisData () {
+    let pages = getCurrentPages()
+    let prePage = pages[pages.length - 2]
+    if (prePage) {
+      let { currentPlace, city, pois, latitude, longitude } = prePage.data
+      this.data.prePage = prePage
+      this.data.pois = pois
+      // if (prePage) {
+
+      // }
+      this.setData({
+        currentPlace,
+        city,
+        suggestion: pois,
+        latitude,
+        longitude
+      })
+      this.initList()
+    }
+  },
+  // 城市选择
+  placeSearch () {
+    wx.navigateTo({
+      url: '/pages/subPages/citySelector/citySelector',
+    })
   },
   // 筛选按钮
   selectBtn () {

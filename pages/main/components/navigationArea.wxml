@@ -1,0 +1,11 @@
+<!-- 自定义获取位置顶部栏 -->
+<view class="nav-bar" style="height:{{navBarHeight}}px;">
+    <view class="pos-info" bindtap="placeSearch" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{menuHeight}}px; bottom:{{menuBotton}}px;">
+      <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
+      <text class="address-name">
+        <text hidden="{{currentPlace}}">正在获取位置</text>
+        <text hidden="{{!currentPlace}}">{{currentPlace}}</text>
+      </text>
+      <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
+    </view>
+</view>

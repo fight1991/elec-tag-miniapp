@@ -48,11 +48,16 @@ Page({
   // 数据回填方法
   backfill: function (e) {
     var id = e.currentTarget.id
-    // console.log(id)
     if (!this.data.prePage) return
     this.data.prePage.setData({
-      currentPlace: this.data.suggestion[id].title
+      currentPlace: this.data.suggestion[id].title,
+      latitude: this.data.suggestion[id].location.lat,
+      longitude: this.data.suggestion[id].location.lng
     });
+    
+    if (this.data.prePage.route === 'pages/subPages/maint/maint') {
+      this.data.prePage.initList()
+    }
     wx.navigateBack({
       delta: 1,
     })

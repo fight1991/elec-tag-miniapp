@@ -8,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 组件参数设置，传递到组件
+    currentPlace: "", // 导航栏标题
+    navBarHeight: app.navHeight,
     isAuth: false, // 是否已实名认证
     carTotal: 0,
     bgImg: {
@@ -58,13 +61,12 @@ Page({
    */
   onLoad: function (options) {
     qqmapsdk = app.initMapSdk()
-    // this.initPointList()
+    this.checkPermission()
   },
   onShow: function () {
     this.setData({
       isAuth: app.globalData.userInfo.authPersonal || false
     })
-    // this.checkPermission()
     // this.getList()
   },
   // 权限检测
@@ -122,7 +124,10 @@ Page({
           app.currentPos.address = tempRes.formatted_addresses.recommend
           this.setData({
             currentPlace: tempRes.formatted_addresses.recommend,
-            city: tempRes.address_component.city
+            city: tempRes.address_component.city,
+            latitude,
+            longitude
+
           })
           callback && callback()
         }
@@ -138,13 +143,6 @@ Page({
         bannerList: result.couponList
       })
     }
-  },
-  
-  // 城市选择
-  placeSearch () {
-    wx.navigateTo({
-      url: '/pages/subPages/citySelector/citySelector',
-    })
   },
  
   // 车辆信息页面

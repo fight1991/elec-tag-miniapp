@@ -1,27 +1,24 @@
 <wxs src="/pages/wxs/index.wxs" module="tools"></wxs>
 <view class="box">
+  <!-- 活动轮播 -->
+  <banner class="mg-30" list="{{bannerList}}"></banner>
   <!-- 头部洗车组件 -->
-  <view class="item-box" wx:if="{{pageFlag=='wash'}}" bindtap="washTabBtn">
+  <view class="item-box" wx:if="{{pageFlag==='wash'}}" bindtap="washTabBtn">
     <view class="item" data-type="{{item.goodsCategory}}" wx:for="{{washBtnList}}" wx:key="goodsDefaultId">
       <image class="img stopTap" mode="widthFix" src="{{item.goodsCategoryIcon}}"></image>
       <text class="stopTap img-text{{activeTab==item.goodsCategory?' active':''}}">{{item.goodsCategoryName}}</text>
     </view>
   </view>
-  <!-- 头部维修保养组件 -->
-  <view class="ad-box" wx:if="{{pageFlag=='maint'}}">
-    <assetsImg mode="widthFix" width="690rpx" module="marketing" name="20210806-banner5.png"></assetsImg>
-  </view>
   <!-- 筛选项区域 -->
   <view class="drop-down">
-    <view class="pos-info" bindtap="placeSearch">
-      <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
+    <view class="pos-info" bindtap="placeSearch" style="{{pageFlag==='maint'?'width: 33.3%;':'width: 25%;'}}">
+      <iconfont size="40rpx" icon="position" color="#4D4D4D"></iconfont>
       <text class="address-name">
         <text hidden="{{currentPlace}}">正在获取位置</text>
         <text hidden="{{!currentPlace}}">{{currentPlace}}</text>
       </text>
-      <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
     </view>
-    <van-dropdown-menu active-color="#447fff">
+    <van-dropdown-menu active-color="#447fff" style="{{pageFlag==='maint'?'width: 66.6%;':'width: 75%;'}}">
       <van-dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
       <van-dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
       </van-dropdown-item>
@@ -83,3 +80,4 @@
     </pull-refresh>
   </view>
 </view>
+<tip-dialog visible="{{tipVisible}}"></tip-dialog>

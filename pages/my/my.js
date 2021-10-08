@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    navBarHeight: app.navHeight,
     wxUserImg: app.static_user_logo,
     authPersonal: false, // 是否已实名
     authVehicleLicense: false, // 是否行驶证认证

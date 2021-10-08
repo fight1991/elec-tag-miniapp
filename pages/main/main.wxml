@@ -1,16 +1,8 @@
 <!--pages/main/main.wxml-->
 <view class="linear-box">
   <top-bg></top-bg>
-  <view class="card-show-box">
-    <navigation></navigation>
-    <view class="pos-info" bindtap="placeSearch">
-      <iconfont size="40rpx" icon="position" color="#fff"></iconfont>
-      <text class="address-name">
-        <text hidden="{{currentPlace}}">正在获取位置</text>
-        <text hidden="{{!currentPlace}}">{{currentPlace}}</text>
-      </text>
-      <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
-    </view>
+  <view class="card-show-box mb-30" style="padding-top:{{navBarHeight+10}}px;">
+    <navigation-area current-place="{{currentPlace}}"></navigation-area>
     <card-show bindgetCarNum="getCarNum"></card-show>
   </view>
   <!-- 导航 -->

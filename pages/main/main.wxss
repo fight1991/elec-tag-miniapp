@@ -8,7 +8,6 @@ page {
 .card-show-box {
   position: relative;
   z-index: 2;
-  padding-top: 166rpx;
 }
 .linear-box {
   height: 100%;
@@ -17,23 +16,6 @@ page {
   /* overflow-y: scroll; */
   /* background:linear-gradient(to bottom, #3E77FF, #f0f7ff 30%); */
   position: relative;
-}
-.pos-info {
-  position: absolute;
-  top: 42rpx;
-  left: 10rpx;
-  z-index: 3;
-  padding: 10rpx 30rpx;
-  color: #fff;
-  display: flex;
-  align-items: center;
-}
-.address-name {
-  padding: 0 10rpx;
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -o-text-overflow:ellipsis;
 }
 
 .mg-30 {

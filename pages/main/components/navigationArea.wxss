@@ -1,0 +1,21 @@
+.nav-bar { 
+  z-index: 5;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  color: #fff;
+}
+.pos-info {
+  position: absolute;
+  left: 50rpx;
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.address-name {
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow:ellipsis;
+  word-break: break-all;
+}
