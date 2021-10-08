@@ -15,18 +15,16 @@ Component({
     },
     options: {
       type: Array,
-      value: [
-        {label: '3km', value: 3},
-        {label: '5km', value: 5},
-        {label: '10km', value: 10},
-        {label: '15km', value: 15},
-        {label: '不限', value: 'none'}
-      ]
+      value: []
+    },
+    test: {
+      type: String,
+      value: '你好'
     }
   },
   observers: {
     'value': function (value) {
-      let item = this.options.find(v => v.value == value)
+      let item = this.data.options.find(v => v.value == value)
       this.setData({
         currentLabel: item.label
       })

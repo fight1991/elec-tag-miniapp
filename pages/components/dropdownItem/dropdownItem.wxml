@@ -1,11 +1,12 @@
 <view class="select-item" bindtap="tabClick">
-  <text class="select-text stopTap">{{'tab1'}}</text>
+  <text class="select-text stopTap">{{currentLabel}}</text>
   <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
 </view>
 <view class="content-box" hidden="{{!showMask}}" style="height: {{height}}px" catchtouchstart="">
   <view class="mask-box" bindtap="maskTap">
     <view class="select-tag" catchtap="itemsTap">
       <my-tag
+        active="{{item.label == currentLabel}}"
         wx:for="{{options}}"
         catchtap="itemsTap"
         id="{{index}}"
