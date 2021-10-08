@@ -1,10 +1,17 @@
-// pages/components/dropdownMenu/dropdownMenu.js
+import notify from '../dropdownItem/notify'
 Component({
   /**
    * 组件的属性列表
    */
+  relations: {
+    '../dropdownItem/dropdownItem': {
+      type: 'child',
+      linked: function (target) {}
+    }
+  },
   options: {
-    addGlobalClass: true
+    addGlobalClass: true,
+    multipleSlots: true
   },
   properties: {
 
@@ -43,12 +50,17 @@ Component({
     }
   },
   lifetimes: {
-    attached: function () {
+    ready () {
+      this.getAllChildNodes()
+    },
+    attached () {
+      notify.stream(() => {
+        console.log('hah')
+      })
       let that = this
       const query = this.createSelectorQuery()
       query.select('#select-box').boundingClientRect()
       query.exec(function(res){
-        console.log(res)
         that.setData({
           height: res[0].bottom
         })
@@ -61,7 +73,13 @@ Component({
   /**
    * 组件的方法列表
    */
+
   methods: {
+    // 获取所有子节点
+    getAllChildNodes () {
+      var nodes = this.getRelationNodes('../dropdownItem/dropdownItem')
+      console.log(nodes)
+    },
     // 筛选条件按钮
     selectBtn (e) {
       let currentTab = e.target.dataset.tab

@@ -5,7 +5,8 @@
     "banner": "/pages/components/banner/banner",
     "group-btn": "./components/groupBtn",
     "busniss-gird": "./components/busnissGird",
-    "dropdown-menu": "/pages/components/dropdownMenu/dropdownMenu"
+    "dropdown-menu": "/pages/components/dropdownMenu/dropdownMenu",
+    "dropdown-item": "/pages/components/dropdownItem/dropdownItem"
   },
   "navigationStyle": "custom"
 }

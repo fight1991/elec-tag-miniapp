@@ -1,0 +1,4 @@
+<button bindtap="send">
+  <text>{{text}}</text>
+  <slot></slot>
+</button>

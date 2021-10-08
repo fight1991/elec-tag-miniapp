@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "tag": "/pages/components/outerTag/outerTag"
+    "tag": "/pages/components/outerTag/outerTag",
+    "dropdown-item": "/pages/components/dropdownItem/dropdownItem"
   }
 }

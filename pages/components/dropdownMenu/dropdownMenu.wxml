@@ -12,6 +12,10 @@
         <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
       </view>
     </view>
+    <view>
+      <slot></slot>
+    </view>
+
     <view class="content-box" style="height: {{height}}px" catchtouchstart="">
       <view hidden="{{!showMask}}" class="mask-box" bindtap="maskTap">
         <view class="select-tag" catchtap="itemsTap">
