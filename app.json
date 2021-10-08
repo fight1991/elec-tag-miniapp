@@ -195,6 +195,8 @@
     "fullBanner": "/publicBag/components/fullBanner/fullBanner",
     "pull-refresh": "/publicBag/components/pullRefresh/index",
     "my-tag": "/publicBag/components/outerTag/outerTag",
+    "dropdown-menu": "/publicBag/components/dropdownMenu/dropdownMenu",
+    "dropdown-item": "/publicBag/components/dropdownItem/dropdownItem",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-button": "@vant/weapp/button/index",
