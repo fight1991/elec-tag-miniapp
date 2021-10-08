@@ -2,6 +2,26 @@
 .coupon-top, .coupon-bottom {
   background: #fff;
   position: relative;
+  font-size: 30rpx;
+  color: #4D4D4D;
+}
+.icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 12rpx;
+}
+.top-tip {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 22rpx 24rpx 22rpx;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 26rpx;
+  color: #4B4B4B;
+}
+.coupon-center {
+  text-align: center;
+  padding-top: 34rpx;
 }
 .line {
   z-index: 1;
@@ -37,11 +57,10 @@
 .bottom-item {
   box-sizing: border-box;
   padding: 34rpx 20rpx;
-  font-size: 30rpx;
   color: #4C4C4C;
   border-bottom: 1px solid #F5F5F5;
 }
-.bottom-item view {
+.flex-1 {
   flex: 1;
 }
 .bottom-item:last-child {
@@ -57,4 +76,11 @@
 }
 .mb-12 {
   margin-bottom: 12rpx;
+}
+.fs-60 {
+  font-size: 60rpx;
+}
+.price {
+  color: #447FFF;
+  margin: 10rpx 0;
 }

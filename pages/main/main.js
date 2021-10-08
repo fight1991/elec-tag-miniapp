@@ -64,8 +64,8 @@ Page({
     this.setData({
       isAuth: app.globalData.userInfo.authPersonal || false
     })
-    this.checkPermission()
-    this.getList()
+    // this.checkPermission()
+    // this.getList()
   },
   // 权限检测
   checkPermission () {
