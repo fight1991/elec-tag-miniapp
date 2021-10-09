@@ -10,27 +10,12 @@
         </searchInput>
       </view>
     </navigator>
-    <!-- <view class="select-box" bindtap="selectBtn">
-      <view class="select-item" data-tab="distance">
-        <text class="select-text stopTap">{{tabValue.distance}}</text>
-        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
-      </view>
-      <view class="select-item" data-tab="oil">
-        <text class="select-text stopTap">{{tabValue.oil}}</text>
-        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
-      </view>
-      <view class="select-item" data-tab="other">
-        <text class="select-text stopTap">{{tabValue.other}}</text>
-        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
-      </view>
-    </view> -->
     <view class="select-box">
-      <van-dropdown-menu active-color="#447fff">
-        <van-dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
-        <van-dropdown-item bind:change="selectBtn" model:value="{{ oil }}" options="{{ oilOption }}" />
-        <van-dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
-        </van-dropdown-item>
-      </van-dropdown-menu>
+      <dropdown-menu>
+        <dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
+        <dropdown-item bind:change="selectBtn" model:value="{{ oil }}" options="{{ oilOption }}" />
+        <dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}"/>
+      </dropdown-menu>
     </view>
   </view>
   <view class="content-box">
