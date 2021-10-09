@@ -1,4 +1,4 @@
-  // 创建marker并添加
+  // 创建marker并添加, 并缩放视野展示所有经纬度
   // context 地图实例
    export const setMarkersOnMap = (context, arr) => {
     let markers = arr.map(v => (
@@ -9,7 +9,8 @@
       }
     ))
     context.initMap({
-      markers
+      markers,
+      includePoints: markers
     })
   }
   // 设置当前位置
