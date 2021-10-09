@@ -1,5 +1,4 @@
 // pages/subPages/parking/nearParking.js
-// import { setMarkersOnMap, setCurrentPosOnMap } from './map/operator'
 const chooseLocation = requirePlugin('chooseLocation')
 var app = getApp()
 const { parkingList: listApi, translateDic } = app.api
