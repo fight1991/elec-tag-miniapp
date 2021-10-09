@@ -10,7 +10,6 @@ Page({
     // 组件参数设置，传递到组件
     currentPlace: '', // 导航栏标题
     navBarHeight: app.navHeight,
-    isAuth: false, // 是否已实名认证
     carTotal: 0,
     bannerId: 1001,
     currentPos: '', // 当前地理位置
@@ -25,12 +24,7 @@ Page({
     qqmapsdk = app.initMapSdk()
     this.checkPermission()
   },
-  onShow: function () {
-    this.setData({
-      isAuth: app.globalData.userInfo.authPersonal || false
-    })
-    // this.getList()
-  },
+  onShow: function () {},
   // 权限检测
   checkPermission () {
     app.utils.permissionHandler('scope.userLocation').then(() => {

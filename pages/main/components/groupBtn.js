@@ -5,13 +5,20 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    carTotal: Number,
-    isAuth: Boolean
+    carTotal: Number
+  },
+  pageLifetimes: {
+    show: function () {
+      this.setData({
+        isAuth: app.globalData.userInfo.authPersonal || false
+      })
+    }
   },
   /**
    * 组件的初始数据
    */
   data: {
+    isAuth: false, // 是否已实名认证
     bgImg: {
       car: app.utils.imgTobase64('/pages/image/index/car-bg.png'),
       plate: app.utils.imgTobase64('/pages/image/index/plate-bg.png'),
