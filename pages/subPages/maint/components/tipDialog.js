@@ -1,4 +1,4 @@
-// pages/components/confirmDialog/confirmDialog.js
+// pages/subPages/maint/components/tipDialog.js
 var app = getApp()
 Component({
   /**

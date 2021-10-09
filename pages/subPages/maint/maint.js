@@ -12,19 +12,19 @@ Page({
    */
   data: {
     distanceOption: [
-      { text: '3km', value: 3 },
-      { text: '5km', value: 5 },
-      { text: '10km', value: 10 },
-      { text: '15km', value: 15},
-      { text: '不限', value: '-1'}
+      { label: '3km', value: 3 },
+      { label: '5km', value: 5 },
+      { label: '10km', value: 10 },
+      { label: '15km', value: 15},
+      { label: '不限', value: '-1'}
     ],
     otherOption: [
-      { text: '距离最近', value: 'distance'},
-      { text: '价格最低', value: 'price'}
+      { label: '距离最近', value: 'distance'},
+      { label: '价格最低', value: 'price'}
     ],
     carTypeOption: [
-      { text: 'suv', value: 'suv'},
-      { text: '轿车', value: 'car'}
+      { label: 'suv', value: 'suv'},
+      { label: '轿车', value: 'car'}
     ],
     distance: 3,
     other: 'distance',
@@ -54,7 +54,7 @@ Page({
     longitude: '',
     serviceText: {},
     tagText: {},
-    tipVisible: true, //温馨提示
+    tipVisible: false, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
     hasMore: true,
@@ -95,6 +95,10 @@ Page({
    */
   onShow: function () {
     
+  },
+  //确认领取
+  onConfirm () {
+    this.initList()
   },
   // 获取洗车按钮列表
   async getWashBtnList () {
