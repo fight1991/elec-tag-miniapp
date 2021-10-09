@@ -7,7 +7,10 @@ export default {
     province: '', // 存储省/直辖市名称
     tamp: '0' // 戳标记
   },
-  notifyPos (callback) {
+  sendPosition (value) { // 发送位置更改通知
+    this.currentPos.tamp = value
+  },
+  listenPosition (callback) { // 位置通知监听
     let that = this
     callback && callback(that.currentPos)
     Object.defineProperty(that.currentPos, 'tamp', {

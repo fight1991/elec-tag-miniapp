@@ -60,7 +60,8 @@ Page({
       app.currentPos.latitude = latitude
       app.currentPos.longitude = longitude
       this.reverseGeocoder(res)
-      app.currentPos.tamp = Date.now()
+      // 发送位置信息更改广播
+      app.sendPosition(Date.now())
     })
   },
   // 解析位置
