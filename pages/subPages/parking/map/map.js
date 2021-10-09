@@ -20,10 +20,8 @@ Component({
   data: {
     setting: {
       showLocation: true,
-      includePoints: [],
       latitude: 31.57,
       longitude: 120.30,
-      markers: [],
       showCompass: true
     }
   },
@@ -53,7 +51,18 @@ Component({
           latitude: v.latitude
         }
       ))
-      this.initMap({
+      /**
+       * 注意:经测试
+       * setData({
+          setting: {
+            markers: [] // 真机不支持
+            includePoint: [], // 真机和模拟器都不支持
+          }
+        })
+       * 
+       */
+      let MapContext = wx.createMapContext('map', this)
+      MapContext.addMarkers({
         markers
       })
       this.setIncludePoints(markers)
