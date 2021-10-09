@@ -10,7 +10,7 @@ Component({
   },
   pageLifetimes: {
     show () {
-      
+      // this.getList()
     }
   },
   /**
@@ -35,14 +35,13 @@ Component({
     interval: 3000,
     duration: 500,
   },
-
   /**
    * 组件的方法列表
    */
   methods: {
     // 获取banner
     getList () {
-      let { result } = getCouponBanner({bannerId})
+      let { result } = getCouponBanner({bannerId: this.data.bannerId})
       if (result) {
         this.setData({
           bannerList: result.couponList

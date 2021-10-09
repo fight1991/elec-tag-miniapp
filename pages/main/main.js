@@ -16,27 +16,6 @@ Page({
     currentPos: '', // 当前地理位置
     pois: [], // 当前位置的周边信息
     city: '', // 城市名
-    gridIcon: [{
-      id: 'id1',
-      label: '无感加油',
-      icon: '/pages/image/businessCircle/oil.png',
-      pageKey: 'refuel' // 加油
-    }, {
-      id: 'id2',
-      label: '维修保养',
-      icon: '/pages/image/businessCircle/maintenance.png',
-      pageKey: 'maint' // 维保
-    }, {
-      id: 'id3',
-      label: '洗车美容',
-      icon: '/pages/image/businessCircle/wash.png',
-      pageKey: 'wash'
-    }, {
-      id: 'id4',
-      label: '智慧停车',
-      icon: '/pages/image/businessCircle/parking.png',
-      pageKey: 'parking'
-    }]
   },
 
   /**
@@ -110,7 +89,6 @@ Page({
             city: tempRes.address_component.city,
             latitude,
             longitude
-
           })
           callback && callback()
         }
@@ -120,5 +98,8 @@ Page({
   // 获取车辆数量
   getCarNum (e) {
     this.data.carTotal = e.detail
+    this.setData({
+      carTotal: e.detail
+    })
   }
 })

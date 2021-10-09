@@ -5,7 +5,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    
+    carTotal: Number,
+    isAuth: Boolean
   },
   /**
    * 组件的初始数据
@@ -66,7 +67,8 @@ Component({
         app.utils.openCheckLogin()
         return
       }
-      if (this.data.carTotal > 2) {
+      let { carTotal } = this.data
+      if (carTotal > 2) {
         app.messageBox.common('您申请的电子车牌次数已达上限')
         return
       }

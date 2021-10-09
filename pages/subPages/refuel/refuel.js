@@ -10,6 +10,7 @@ Page({
     multipleSlots: true
   },
   data: {
+    bannerId: 2001,
     showMask: false,
     currentTabName: 'distance', // 当前选择的tab
     searchStr: '', // 搜索的关键词

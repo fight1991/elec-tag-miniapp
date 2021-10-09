@@ -15,7 +15,27 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    gridIcon: [{
+      id: 'id1',
+      label: '无感加油',
+      icon: '/pages/image/businessCircle/oil.png',
+      pageKey: 'refuel' // 加油
+    }, {
+      id: 'id2',
+      label: '维修保养',
+      icon: '/pages/image/businessCircle/maintenance.png',
+      pageKey: 'maint' // 维保
+    }, {
+      id: 'id3',
+      label: '洗车美容',
+      icon: '/pages/image/businessCircle/wash.png',
+      pageKey: 'wash'
+    }, {
+      id: 'id4',
+      label: '智慧停车',
+      icon: '/pages/image/businessCircle/parking.png',
+      pageKey: 'parking'
+    }]
   },
 
   /**
