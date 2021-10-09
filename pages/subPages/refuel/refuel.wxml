@@ -10,6 +10,9 @@
         </searchInput>
       </view>
     </navigator>
+    <!-- 活动轮播 -->
+    <banner bannerId="{{bannerId}}"></banner>
+    <!-- 筛选 -->
     <view class="select-box">
       <dropdown-menu>
         <dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />

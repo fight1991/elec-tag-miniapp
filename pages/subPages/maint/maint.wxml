@@ -1,7 +1,7 @@
 <wxs src="/pages/wxs/index.wxs" module="tools"></wxs>
 <view class="box">
   <!-- 活动轮播 -->
-  <banner class="mg-30" list="{{bannerList}}"></banner>
+  <banner class="mg-30" bannerId="{{bannerId}}"></banner>
   <!-- 头部洗车组件 -->
   <view class="item-box" wx:if="{{pageFlag==='wash'}}" bindtap="washTabBtn">
     <view class="item" data-type="{{item.goodsCategory}}" wx:for="{{washBtnList}}" wx:key="goodsDefaultId">

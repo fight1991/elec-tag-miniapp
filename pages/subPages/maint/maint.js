@@ -34,18 +34,7 @@ Page({
       wash: '洗车美容',
       maint: '维修保养'
     },
-    bannerList:[
-      {
-        bannerId:1,
-        src:'/pages/image/businessCircle/banner1.png',
-        url:'/pages/subPages/maint/maint?type=base&id=1'
-      },
-      {
-        bannerId:2,
-        src:'/pages/image/businessCircle/banner2.png',
-        url:'/pages/subPages/wash/wash'
-      }
-    ],
+    bannerId: 2201,//洗车2101 维保2201
     washBtnList: [],
     upkeepType: '', // 洗车类型
     activeTab: '', // 洗车当前tab
@@ -75,6 +64,9 @@ Page({
     })
     if (pageFlag == 'wash') {
       this.getWashBtnList()
+      this.setData({
+        bannerId: 2101
+      })
     }
     this.setData({
       pageFlag,

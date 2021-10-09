@@ -1,7 +1,6 @@
 // pages/main/main.js
 var qqmapsdk = null
 var app = getApp()
-const { point_list, getCouponBanner } = app.api
 Page({
 
   /**
@@ -13,42 +12,10 @@ Page({
     navBarHeight: app.navHeight,
     isAuth: false, // 是否已实名认证
     carTotal: 0,
-    bannerList:[
-      {
-        bannerId:1,
-        src:'/pages/image/businessCircle/banner1.png',
-        url:'/pages/subPages/maint/maint?type=base&id=1'
-      },
-      // {
-      //   bannerId:2,
-      //   src:'/pages/image/businessCircle/banner2.png',
-      //   url:'/pages/subPages/wash/wash'
-      // }
-    ],
+    bannerId: 1001,
     currentPos: '', // 当前地理位置
     pois: [], // 当前位置的周边信息
     city: '', // 城市名
-    gridIcon: [{
-      id: 'id1',
-      label: '无感加油',
-      icon: '/pages/image/businessCircle/oil.png',
-      pageKey: 'refuel' // 加油
-    }, {
-      id: 'id2',
-      label: '维修保养',
-      icon: '/pages/image/businessCircle/maintenance.png',
-      pageKey: 'maint' // 维保
-    }, {
-      id: 'id3',
-      label: '洗车美容',
-      icon: '/pages/image/businessCircle/wash.png',
-      pageKey: 'wash'
-    }, {
-      id: 'id4',
-      label: '智慧停车',
-      icon: '/pages/image/businessCircle/parking.png',
-      pageKey: 'parking'
-    }]
   },
 
   /**
@@ -122,79 +89,17 @@ Page({
             city: tempRes.address_component.city,
             latitude,
             longitude
-
           })
           callback && callback()
         }
       }
     })
   },
-
-  // 获取banner
-  getList () {
-    let { result } = getCouponBanner({bannerId: 1001})
-    if (result) {
-      this.setData({
-        bannerList: result.couponList
-      })
-    }
-  },
- 
-  // 车辆信息页面
-  carInfoBtn () {
-    if (!app.isLogin()) {
-      app.utils.openCheckLogin()
-      return
-    }
-    let { isAuth } = this.data
-    if (isAuth) {
-      wx.navigateTo({
-        url: '/pages/subPages/carInfo/carList',
-      })
-    } else {
-      wx.navigateTo({
-        url: '/pages/subPages/verifyInfo/index',
-      })
-    }
-  },
-  // 打开扫码
-  scanBtn () {
-    if (!app.isLogin()) {
-      app.utils.openCheckLogin()
-      return
-    }
-    wx.scanCode({
-      onlyFromCamera: true,
-      success: res => {
-        // res.result
-        let str = res.result
-        if (str.indexOf('/RFID/') > -1) {
-          wx.navigateTo({
-            url: '/pages/subPages/scanBind/scanBind?plateNo=' + str,
-          })
-        } else {
-          app.messageBox.common('无效的二维码')
-        }
-       
-      }
-    })
-  },
-  // 电子车牌按钮
-  elecBrandBtn () {
-    if (!app.isLogin()) {
-      app.utils.openCheckLogin()
-      return
-    }
-    if (this.data.carTotal > 2) {
-      app.messageBox.common('您申请的电子车牌次数已达上限')
-      return
-    }
-    wx.navigateTo({
-      url: '/pages/subPages/verifyInfo/index',
-    })
-  },
   // 获取车辆数量
   getCarNum (e) {
     this.data.carTotal = e.detail
+    this.setData({
+      carTotal: e.detail
+    })
   }
 })
