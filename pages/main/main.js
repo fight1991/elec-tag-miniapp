@@ -1,7 +1,6 @@
 // pages/main/main.js
 var qqmapsdk = null
 var app = getApp()
-const { point_list, getCouponBanner } = app.api
 Page({
 
   /**
@@ -18,18 +17,7 @@ Page({
       // plate: app.utils.imgTobase64('/pages/image/icons/plate-bg.png'),
       // scan: app.utils.imgTobase64('/pages/image/icons/scan-bg.png')
     },
-    bannerList:[
-      {
-        bannerId:1,
-        src:'/pages/image/businessCircle/banner1.png',
-        url:'/pages/subPages/maint/maint?type=base&id=1'
-      },
-      // {
-      //   bannerId:2,
-      //   src:'/pages/image/businessCircle/banner2.png',
-      //   url:'/pages/subPages/wash/wash'
-      // }
-    ],
+    bannerId: 1001,
     currentPos: '', // 当前地理位置
     pois: [], // 当前位置的周边信息
     city: '', // 城市名
@@ -132,70 +120,6 @@ Page({
           callback && callback()
         }
       }
-    })
-  },
-
-  // 获取banner
-  getList () {
-    let { result } = getCouponBanner({bannerId: 1001})
-    if (result) {
-      this.setData({
-        bannerList: result.couponList
-      })
-    }
-  },
- 
-  // 车辆信息页面
-  carInfoBtn () {
-    if (!app.isLogin()) {
-      app.utils.openCheckLogin()
-      return
-    }
-    let { isAuth } = this.data
-    if (isAuth) {
-      wx.navigateTo({
-        url: '/pages/subPages/carInfo/carList',
-      })
-    } else {
-      wx.navigateTo({
-        url: '/pages/subPages/verifyInfo/index',
-      })
-    }
-  },
-  // 打开扫码
-  scanBtn () {
-    if (!app.isLogin()) {
-      app.utils.openCheckLogin()
-      return
-    }
-    wx.scanCode({
-      onlyFromCamera: true,
-      success: res => {
-        // res.result
-        let str = res.result
-        if (str.indexOf('/RFID/') > -1) {
-          wx.navigateTo({
-            url: '/pages/subPages/scanBind/scanBind?plateNo=' + str,
-          })
-        } else {
-          app.messageBox.common('无效的二维码')
-        }
-       
-      }
-    })
-  },
-  // 电子车牌按钮
-  elecBrandBtn () {
-    if (!app.isLogin()) {
-      app.utils.openCheckLogin()
-      return
-    }
-    if (this.data.carTotal > 2) {
-      app.messageBox.common('您申请的电子车牌次数已达上限')
-      return
-    }
-    wx.navigateTo({
-      url: '/pages/subPages/verifyInfo/index',
     })
   },
   // 获取车辆数量

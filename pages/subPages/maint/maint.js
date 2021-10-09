@@ -54,7 +54,7 @@ Page({
     longitude: '',
     serviceText: {},
     tagText: {},
-    tipVisible: false, //温馨提示
+    tipVisible: true, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
     hasMore: true,
