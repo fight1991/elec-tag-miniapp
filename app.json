@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/login/signIn",
     "pages/main/main",
-    "pages/main/morePoint",
     "pages/my/my",
     "pages/login/loginType",
     "pages/login/licence"
@@ -97,6 +96,7 @@
       "name": "elecPlate",
       "pages": [
         "elecPlate",
+        "morePoint",
         "uploadImg"
       ]
     },
