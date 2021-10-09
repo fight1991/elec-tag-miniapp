@@ -8,7 +8,7 @@
   <!-- 导航 -->
   <busniss-gird list="{{gridIcon}}" class="mg-30"></busniss-gird>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
-  <group-btn class="mg-30" bindelecClick="elecBrandBtn" bindcarInfoClick="carInfoBtn" bindscanClick="scanBtn"></group-btn>
+  <group-btn class="mg-30" bind:elecClick="elecBrandBtn" bind:carInfoClick="carInfoBtn" bind:scanClick="scanBtn"></group-btn>
   <!-- 活动轮播 -->
   <banner class="mb-30" list="{{bannerList}}"></banner>
 </view>

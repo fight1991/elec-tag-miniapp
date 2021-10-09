@@ -1,20 +1,20 @@
 <view class="outer">
   <view wx:if="{{list.length>0}}">
-  <block
-    wx:for="{{list}}"
-    wx:key="vehicleId">
-    <navigator url="/pages/subPages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
-      <bind-status
-        plateNo="{{item.plateNo}}"
-        status="{{item.bindStatus}}"
-        showOp="{{true}}"
-        vehicleId="{{item.vehicleId}}"
-        bindshowSheet="showSheet"
-        eviNo="{{item.eviNo}}">
-      </bind-status>
-    </navigator>
-  </block>
-</view>
+    <block
+      wx:for="{{list}}"
+      wx:key="vehicleId">
+      <navigator url="/pages/subPages/elecPlate/elecPlate?type=base&id={{item.vehicleId}}">
+        <bind-status
+          plateNo="{{item.plateNo}}"
+          status="{{item.bindStatus}}"
+          showOp="{{true}}"
+          vehicleId="{{item.vehicleId}}"
+          bindshowSheet="showSheet"
+          eviNo="{{item.eviNo}}">
+        </bind-status>
+      </navigator>
+    </block>
+  </view>
   <view wx:else>
     <nodata>暂无数据</nodata>
   </view>

@@ -9,15 +9,10 @@ Page({
    */
   data: {
     // 组件参数设置，传递到组件
-    currentPlace: "", // 导航栏标题
+    currentPlace: '', // 导航栏标题
     navBarHeight: app.navHeight,
     isAuth: false, // 是否已实名认证
     carTotal: 0,
-    bgImg: {
-      // car: app.utils.imgTobase64('/pages/image/icons/car-bg.png'),
-      // plate: app.utils.imgTobase64('/pages/image/icons/plate-bg.png'),
-      // scan: app.utils.imgTobase64('/pages/image/icons/scan-bg.png')
-    },
     bannerList:[
       {
         bannerId:1,
