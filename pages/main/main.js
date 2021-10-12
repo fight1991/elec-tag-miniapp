@@ -11,7 +11,6 @@ Page({
     currentPlace: '', // 导航栏标题
     navBarHeight: app.navHeight,
     carTotal: 0,
-    bannerId: 1001,
     currentPos: '', // 当前地理位置
     pois: [], // 当前位置的周边信息
     city: '', // 城市名
@@ -60,7 +59,8 @@ Page({
       app.currentPos.latitude = latitude
       app.currentPos.longitude = longitude
       this.reverseGeocoder(res)
-      app.currentPos.tamp = Date.now()
+      // 发送位置信息更改广播
+      app.sendPosition(Date.now())
     })
   },
   // 解析位置

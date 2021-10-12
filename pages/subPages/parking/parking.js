@@ -1,5 +1,4 @@
 // pages/subPages/parking/nearParking.js
-// import { setMarkersOnMap, setCurrentPosOnMap } from './map/operator'
 const chooseLocation = requirePlugin('chooseLocation')
 var app = getApp()
 const { parkingList: listApi, translateDic } = app.api
@@ -45,7 +44,7 @@ Page({
   },
   // 获取经纬度及地址信息
   getCurrentPositionInfo () {
-    app.notifyPos(({ latitude, longitude, address }) => {
+    app.listenPosition(({ latitude, longitude, address }) => {
       this.data.searchForm.latitude = latitude
       this.data.searchForm.longitude = longitude
       this.myMap.setCurrentPosOnMap({

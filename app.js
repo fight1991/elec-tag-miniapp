@@ -6,8 +6,8 @@ import getSystemBarInfo from './publicBag/plugin/getSystemBarInfo' // 获取导�
 import getCurrentPosition from './publicBag/plugin/getCurrentPosition' // 获取经纬度信息
 import getWechatCode from './publicBag/plugin/getWechatCode' // 获取微信code
 import * as utils from './publicBag/utils/util' // 工具类注册
-// 全局监听项
-import posNotify from './notify/positionModel'
+// 监听位置信息
+import positionNotify from './notify/positionNotify'
 // 全局分享函数
 import share from './sharePage/index'
 // api导入
@@ -22,7 +22,7 @@ App({
   utils, // 绑定公共方法
   api, // 绑定api
   messageBox, // 绑定全局弹框
-  ...posNotify, // 监听位置信息
+  ...positionNotify, // 监听位置信息
   ...initMapSdk, // 初始化地图sdk
   ...getSystemBarInfo, // 获取导航栏高度信息
   ...getCurrentPosition, // 获取经纬度信息

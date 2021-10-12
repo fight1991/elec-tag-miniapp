@@ -74,7 +74,7 @@ Page({
       tagText: await translateDic('orgServiceTag'),
     })
     this.initPoisData()
-    // app.notifyPos(({ latitude, longitude, address }) => {
+    // app.listenPosition(({ latitude, longitude, address }) => {
     //   this.data.latitude = latitude
     //   this.data.longitude = longitude
     //   // 获取附近的停车场
