@@ -1,8 +1,4 @@
 <!--pages/subPages/ticket/ticketDetail.wxml-->
 <view class="outer">
-  <coupon-detail info="{{detailInfo}}">
-    <view class="btn">
-      <commonBtn bindtap="goLoginBtn">{{btnText}}</commonBtn>
-    </view>
-  </coupon-detail>
+  <coupon-detail params="{{params}}"></coupon-detail>
 </view>

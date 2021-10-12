@@ -1,26 +1,28 @@
-<!--pages/components/couponDetail/couponDetail.wxml-->
+<!--pages/ticket/components/couponDetail.wxml-->
 <view class="coupon-box">
   <view class="coupon-top">
     <view class="top-tip">
       <view class="icon">
-        <iconImg name="{{info.icon}}" size="{{'64rpx'}}"></iconImg>
+        <iconImg name="{{params.pageFlag}}-card" size="{{'64rpx'}}"></iconImg>
       </view>
       <view>
-        {{info.service}}权益
+        {{serviceText[info.service]}}权益
       </view>
     </view>
     <view class="coupon-center">
       <view>
-        {{info.type}}
+        {{info.name}}
       </view>
       <view class="price">
-        ￥<span class="fs-60">{{info.price}}</span>
+        ￥<span class="fs-60">{{info.usedAmount}}</span>
       </view>
       <view>
         {{info.offerNotice}}
       </view>
     </view>
-    <slot></slot>
+    <view class="btn">
+      <commonBtn bindtap="goLoginBtn" bgc="{{info.userCouponStatus==='received'?'#D5D5D5': ''}}">{{userCouponText[info.userCouponStatus]}}</commonBtn>
+    </view>
     <view class="line"></view>
     <view class="left-wrap"></view>
     <view class="right-wrap"></view>

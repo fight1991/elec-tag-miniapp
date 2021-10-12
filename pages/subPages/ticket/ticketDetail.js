@@ -5,24 +5,32 @@ Page({
      * 页面的初始数据
      */
     data: {
-        btnText:'立即使用',
-        detailInfo: {
-            icon: "oil-card",
-            service: "加油",
-            type: "一口价",
-            price: "330",
-            endTime: '2021.10.09 23:59:59',
-            getNotice:'领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明领取说明',
-            offerNotice:'优惠说明',
-            useNotice:'使使用须知使用须知使用须知使用须知使用须知使用须知使用须知使用须知使用须知用须知',
+        pageTitle: {
+            get: '优惠券',
+            use: '我的卡券'
+        },
+        params:{
+            pageOrigin: 'use', // get领券 use立即使用
+            pageFlag: 'carWash', // carWash洗车美容 upkeep保养 refueling加油
+            couponId: ''
         }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+     onLoad: async function (options) {
+        let { pageOrigin, pageFlag, couponId } = options
+        wx.setNavigationBarTitle({
+          title: this.data.pageTitle[pageOrigin]
+        })
+        let obj = this.data.params
+        obj.pageOrigin = pageOrigin
+        obj.pageFlag = pageFlag
+        obj.couponId = couponId
+        this.setData({
+            params: obj
+        })
     },
 
     /**

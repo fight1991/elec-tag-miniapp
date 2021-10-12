@@ -1,6 +1,7 @@
 <!--pages/components/banner/banner.wxml-->
 <view>
   <swiper
+    wx:if="{{bannerList.length}}"
     class="swiper-box"
     indicator-dots="{{bannerList.length > 1 ? true : false}}"
     indicator-color="{{indicatorColor}}"
@@ -9,10 +10,10 @@
     interval="{{interval}}"
     duration="{{duration}}"
     >
-    <block wx:for="{{bannerList}}" wx:key="bannerId">
+    <block wx:for="{{bannerList}}" wx:key="id">
       <swiper-item class="banner-item">
-        <navigator class="banner-box" url="{{item.url}}">
-          <image class="image" src="{{item.src}}" mode="widthFix"></image>
+        <navigator class="banner-box" url="{{item.page+'&&couponId='+item.couponList[0].couponId}}">
+          <image class="image" src="{{item.urlBanner}}" mode="widthFix"></image>
         </navigator>
       </swiper-item>
     </block>

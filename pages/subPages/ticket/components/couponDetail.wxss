@@ -1,4 +1,4 @@
-/* pages/components/couponDetail/couponDetail.wxss */
+/* pages/ticket/components/couponDetail.wxss */
 .coupon-top, .coupon-bottom {
   background: #fff;
   position: relative;
@@ -83,4 +83,14 @@
 .price {
   color: #447FFF;
   margin: 10rpx 0;
+}
+.btn {
+  box-sizing: border-box;
+  padding: 15rpx 50rpx 10rpx 50rpx;
+}
+.img {
+  display: block;
+}
+.c-d5{
+  color: #D5D5D5;
 }

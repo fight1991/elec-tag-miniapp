@@ -10,25 +10,14 @@ Component({
   },
   pageLifetimes: {
     show () {
-      // this.getList()
+      this.getList()
     }
   },
   /**
    * 组件的初始数据
    */
   data: {
-    bannerList:[
-      {
-        bannerId:1,
-        src:'/pages/image/businessCircle/banner1.png',
-        url:'/pages/subPages/maint/maint?type=base&id=1'
-      },
-      // {
-      //   bannerId:2,
-      //   src:'/pages/image/businessCircle/banner2.png',
-      //   url:'/pages/subPages/wash/wash'
-      // }
-    ],
+    bannerList:[],
     indicatorColor: 'rgba(255, 255, 255, .3)',
     indicatorActiveColor: 'rgba(255, 255, 255, 1)',
     autoplay: true,
@@ -40,13 +29,21 @@ Component({
    */
   methods: {
     // 获取banner
-    getList () {
-      let { result } = getCouponBanner({bannerId: this.data.bannerId})
+    async getList () {
+      let { result } = await getCouponBanner({
+        page: {
+          pageIndex: 1,
+          pageSize: 10
+        },
+        data: { bannerId: this.data.bannerId }
+      })
       if (result) {
         this.setData({
-          bannerList: result.couponList
+          bannerList: result
         })
+        console.log('result', result);
+        
       }
-    },
+    }
   }
 })

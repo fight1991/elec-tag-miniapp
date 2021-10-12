@@ -48,6 +48,12 @@ Component({
         this.setData({
           list: result
         })
+        let elecArr = result.filter(item => {
+         return item.bindStatus === 'bind' || item.bindStatus === 'installed'
+        })
+        if(elecArr.length) {
+          app.globalData.elecShow = true
+        }
         this.triggerEvent('getCarNum', result.length)
       }
     },

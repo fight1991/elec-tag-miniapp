@@ -9,21 +9,12 @@ Page({
   data: {
     navBarHeight: app.navHeight,
     wxUserImg: app.static_user_logo,
+    bindStatus: 'bind',
     authPersonal: false, // 是否已实名
     authVehicleLicense: false, // 是否行驶证认证
     userName: '',
     uid: '',
     tabList: [{
-      url: '/pages/subPages/card/card',
-      label: '我的银行卡',
-      icon: 'card-finance',
-      color: '#ffa44b'
-    }, {
-      url: '/pages/subPages/ticket/ticket',
-      label: '我的卡券',
-      icon: 'ticket',
-      color: '#447fff'
-    }, {
       url: '/pages/subPages/order/order',
       label: '订单管理',
       icon: 'order',

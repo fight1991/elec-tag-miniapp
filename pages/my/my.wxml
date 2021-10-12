@@ -12,10 +12,14 @@
           <view class="no-verify-item">登录/注册</view>
         </navigator>
       </view>
-      <view class="id-card" wx:if="{{authPersonal}}">
-        <view class="show-item verify-name">
+      <view class="id-card">
+        <view class="show-item verify-name" wx:if="{{authPersonal}}">
           <iconfont icon="realname" size="40rpx" color="#447FFF"></iconfont>
           车主已实名
+        </view>
+        <view class="show-item verify-name" wx:if="{{bindStatus =='bind' || bindStatus=='installed'}}">
+          <iconfont icon="brand" color="#447FFF" size="40rpx"></iconfont>
+          <text>电子车牌</text>
         </view>
       </view>
     </view>
@@ -24,6 +28,16 @@
     </view>
   </view>
   <view class="change-tab">
+    <view class="tab-top">
+      <view class="head" bindtap="routePage" data-url="/pages/subPages/card/card">
+        <iconfont icon="card-finance" color="#ffa44b"></iconfont>
+        <text class="head-text">银行卡</text>
+      </view>
+      <view class="head" bindtap="routePage" data-url="/pages/subPages/ticket/ticket">
+        <iconfont icon="ticket" color="#66afff"></iconfont>
+        <text class="head-text">卡券</text>
+      </view>
+    </view>
     <block wx:for="{{tabList}}" wx:key="url">
         <view class="tab-item" bindtap="routePage" data-url="{{item.url}}">
           <view class="head">
@@ -37,12 +51,13 @@
     </block>
   </view>
   <view class="login-out" wx:if="{{uid}}">
-    <view class="tab-item" bindtap="loginOut">
+    <commonBtn bindtap="loginOut">退出登录</commonBtn>
+    <!-- <view class="tab-item" bindtap="loginOut">
       <view class="head">
         <iconfont icon="logout" color="red"></iconfont>
         <text class="head-text">退出登录</text>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>
 
