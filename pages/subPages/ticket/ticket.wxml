@@ -7,27 +7,27 @@
   bind:reachBottom="upperList"
   model:isRefresh="{{collapse}}">
   <view class="item-box">
-    <block wx:for="{{list}}" wx:key="orgIdd">
-      <navigator url="./ticketDetail?id={{item.id}}&type={{item.type}}">
+    <block wx:for="{{list}}" wx:key="couponConfigId">
+      <navigator url="/pages/subPages/ticket/ticketDetail?couponId={{item.couponConfigId}}&pageFlag={{item.couponExt.service}}&pageOrigin=use">
         <view class="coupon-item" style="background-image:url({{bgImg.left}});background-size:100% 100%;">
           <view class="left-box">
             <view class="overflow-ellipsis">
               ￥
               <span class="fs-60">
-                {{item.type==='fixedPrice' ? item.fixedAmount : item.usedAmount}}
+                {{item.couponExt.type==='fixedPrice' ? item.couponExt.fixedAmount : item.couponExt.usedAmount}}
               </span>
             </view>
             <view class="fs-24 overflow-ellipsis">
-              {{item.offerNotice}}
+              {{item.couponExt.offerNotice}}
             </view>
             <view class="line"></view>
           </view>
           <view class="center-box">
             <view class="overflow-ellipsis">
-              {{item.name}}
+              {{item.couponExt.name}}
             </view>
             <view class="time-text">
-              {{item.endTime}} 到期
+              {{item.couponExt.endTime}} 到期
             </view>
           </view>
           <view class="use-box" style="background-image:url({{bgImg.right}});background-size:100% 100%;">

@@ -1,5 +1,8 @@
 <!--pages/ticket/components/couponDetail.wxml-->
-<view class="coupon-box">
+<import src="../ticketDetail.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{isShow}}" />
+
+<view class="coupon-box" wx:else>
   <view class="coupon-top">
     <view class="top-tip">
       <view class="icon">
@@ -14,14 +17,14 @@
         {{info.name}}
       </view>
       <view class="price">
-        ￥<span class="fs-60">{{info.usedAmount}}</span>
+        ￥<span class="fs-60">{{info.type === 'fixedPrice' ? info.fixedAmount : info.usedAmount}}</span>
       </view>
       <view>
         {{info.offerNotice}}
       </view>
     </view>
     <view class="btn">
-      <commonBtn bindtap="goLoginBtn" bgc="{{info.userCouponStatus==='received'?'#D5D5D5': ''}}">{{userCouponText[info.userCouponStatus]}}</commonBtn>
+      <commonBtn bindtap="clickBtn" bgc="{{info.userCouponStatus==='received'?'#D5D5D5': '#447FFF'}}">{{userCouponText[info.userCouponStatus]}}</commonBtn>
     </view>
     <view class="line"></view>
     <view class="left-wrap"></view>

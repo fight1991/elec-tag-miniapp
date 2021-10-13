@@ -12,7 +12,7 @@
     >
     <block wx:for="{{bannerList}}" wx:key="id">
       <swiper-item class="banner-item">
-        <navigator class="banner-box" url="{{item.page+'&&couponId='+item.couponList[0].couponId}}">
+        <navigator class="banner-box" url="{{item.page+'&couponId='+item.couponList[0].couponId}}">
           <image class="image" src="{{item.urlBanner}}" mode="widthFix"></image>
         </navigator>
       </swiper-item>

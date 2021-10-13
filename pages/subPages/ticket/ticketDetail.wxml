@@ -1,4 +1,5 @@
 <!--pages/subPages/ticket/ticketDetail.wxml-->
+
 <view class="outer">
   <coupon-detail params="{{params}}"></coupon-detail>
 </view>

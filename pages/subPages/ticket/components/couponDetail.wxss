@@ -1,4 +1,5 @@
 /* pages/ticket/components/couponDetail.wxss */
+@import "../ticketDetail.skeleton.wxss";
 .coupon-top, .coupon-bottom {
   background: #fff;
   position: relative;

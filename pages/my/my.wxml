@@ -17,7 +17,7 @@
           <iconfont icon="realname" size="40rpx" color="#447FFF"></iconfont>
           车主已实名
         </view>
-        <view class="show-item verify-name" wx:if="{{bindStatus =='bind' || bindStatus=='installed'}}">
+        <view class="show-item verify-name" wx:if="{{elecShow}}">
           <iconfont icon="brand" color="#447FFF" size="40rpx"></iconfont>
           <text>电子车牌</text>
         </view>

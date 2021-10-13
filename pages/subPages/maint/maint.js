@@ -104,6 +104,8 @@ Page({
   // 洗车筛选按钮
   washTabBtn (e) {
     let current = e.target.dataset.type
+    console.log('11', current, e);
+    
     if (current === this.data.activeTab) {
       current = ''
     }

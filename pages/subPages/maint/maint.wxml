@@ -4,9 +4,9 @@
   <banner class="mg-30" bannerId="{{bannerId}}"></banner>
   <!-- 头部洗车组件 -->
   <view class="item-box" wx:if="{{pageFlag==='wash'}}" bindtap="washTabBtn">
-    <view class="item" data-type="{{item.goodsCategory}}" wx:for="{{washBtnList}}" wx:key="goodsDefaultId">
+    <view class="item" data-type="{{item.goodsCategoryCode}}" wx:for="{{washBtnList}}" wx:key="goodsDefaultId">
       <image class="img stopTap" mode="widthFix" src="{{item.goodsCategoryIcon}}"></image>
-      <text class="stopTap img-text{{activeTab==item.goodsCategory?' active':''}}">{{item.goodsCategoryName}}</text>
+      <text class="stopTap img-text{{activeTab==item.goodsCategoryCode?' active':''}}">{{item.goodsCategoryName}}</text>
     </view>
   </view>
   <!-- 筛选项区域 -->

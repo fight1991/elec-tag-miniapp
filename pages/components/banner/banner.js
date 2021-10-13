@@ -9,8 +9,8 @@ Component({
     bannerId: Number,
   },
   pageLifetimes: {
-    show () {
-      this.getList()
+    show: async function () {
+     await this.getList()
     }
   },
   /**
@@ -41,8 +41,6 @@ Component({
         this.setData({
           bannerList: result
         })
-        console.log('result', result);
-        
       }
     }
   }

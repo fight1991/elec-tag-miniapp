@@ -1,6 +1,6 @@
 // pages/subPages/parking/nearParking.js
 var app = getApp()
-// const { getCouponList: listApi } = app.api
+const { getCouponList: listApi } = app.api
 Page({
 
   /**
@@ -16,26 +16,7 @@ Page({
     pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
-    list: [
-      {
-        id:1,
-        type:'fixedPrice',
-        offerNotice:"优惠优惠",
-        fixedAmount:"1",
-        usedAmount:"100",
-        name:"优惠券名称",
-        endTime:"2021.10.09 23:59:59",
-      },
-      {
-        id:2,
-        type:'couponType',
-        offerNotice:"优惠说明2",
-        fixedAmount:"1",
-        usedAmount:"500",
-        name:"优惠券名称2优惠券名称2优惠券名称2优惠券名称2优惠券名称2优惠券名称2",
-        endTime:"2021.10.09 23:59:59",
-      }
-    ]
+    list: []
   },  
 
   /**
@@ -45,7 +26,7 @@ Page({
     
   },
   onShow: function () {
-    // this.initList()
+    this.initList()
   },
   // 列表api
   async getList (pageIndex, callback) {

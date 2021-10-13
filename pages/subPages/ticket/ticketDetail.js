@@ -21,6 +21,8 @@ Page({
      */
      onLoad: async function (options) {
         let { pageOrigin, pageFlag, couponId } = options
+        console.log('options', pageOrigin, pageFlag, couponId);
+        
         wx.setNavigationBarTitle({
           title: this.data.pageTitle[pageOrigin]
         })
