@@ -20,6 +20,7 @@ Page({
       maint: '维修保养'
     },
     tipVisible: false, //温馨提示
+    couponId: '',
     pageFlag: '',
     goodsVehicleType: '',
     orgId: '',
@@ -73,6 +74,7 @@ Page({
   },
   //一口价弹窗
   openTip (e) {
+    console.log('e',e);
     this.setData({
       tipVisible: true,
       couponId: e.currentTarget.dataset.cid

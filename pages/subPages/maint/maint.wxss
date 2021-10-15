@@ -120,3 +120,6 @@ page {
 .mg-30 {
   margin: 30rpx 0;
 }
+view .van-tag {
+  font-size: 22rpx;
+}

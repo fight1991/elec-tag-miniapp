@@ -1,1 +1,4 @@
 /* pages/components/tag-group/tag-group.wxss */
+view .van-tag {
+  font-size: 22rpx;
+}

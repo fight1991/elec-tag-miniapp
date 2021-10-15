@@ -15,10 +15,10 @@
       <view class="content-center">
         <view class="flex-between">
           <view class="center-title2">
-            门市价
+            {{item.itemName==='工时费' ? '' : '门市价'}}
           </view>
           <view>
-            ¥{{dataForm.itemMarketPrice}}
+            ¥{{item.itemMarketPrice}}
           </view>
         </view>
       </view>
@@ -30,7 +30,7 @@
           <view class="center-title2">
             平台优惠
           </view>
-          <view>
+          <view class="discount">
             -¥{{(dataForm.goodsMarketPrice - dataForm.goodsPlatPrice) || 0}}
           </view>
         </view>
@@ -43,7 +43,7 @@
           <view class="center-title2">
             优惠后价格
           </view>
-          <view>
+          <view class="discount">
             ¥{{dataForm.goodsPlatPrice || 0}}
           </view>
         </view>
