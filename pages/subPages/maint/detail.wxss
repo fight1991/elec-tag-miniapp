@@ -5,3 +5,7 @@
   align-items: center;
   background-color: #fff;
 }
+.box {
+  padding-bottom: 110rpx;
+}
+

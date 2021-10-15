@@ -6,7 +6,7 @@
   <view class="coupon-top">
     <view class="top-tip">
       <view class="icon">
-        <iconImg name="{{params.pageFlag}}-card" size="{{'64rpx'}}"></iconImg>
+        <iconImg name="{{info.service}}-card" size="{{'64rpx'}}"></iconImg>
       </view>
       <view>
         {{serviceText[info.service]}}权益

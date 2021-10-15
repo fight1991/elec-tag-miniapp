@@ -70,3 +70,7 @@
   padding-top: 10rpx;
   box-sizing: border-box;
 }
+.left-content {
+  display: flex;
+  align-items: center;
+}

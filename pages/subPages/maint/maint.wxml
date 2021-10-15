@@ -22,7 +22,7 @@
       <dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
       <dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
       </dropdown-item>
-      <dropdown-item bind:change="selectBtn" model:value="{{ carType }}" options="{{ carTypeOption }}" wx:if="{{pageFlag==='wash'}}">
+      <dropdown-item bind:change="selectBtn" model:value="{{ carType }}" options="{{ carTypeOption }}" wx:if="{{pageFlag==='wash' && carTypeOption.length}}">
       </dropdown-item>
     </dropdown-menu>
   </view>
@@ -36,7 +36,7 @@
       bind:reachBottom="upperList"
       model:isRefresh="{{collapse}}">
       <view class="card-item" wx:for="{{list}}" wx:key="goodsId">
-        <navigator url="./shopInfo?distance={{item.distance}}&goodsId={{item.goodsId}}&orgId={{item.orgId}}&pageFlag={{pageFlag}}">
+        <view bindtap="goShopInfo" data-item="{{item}}">
           <business-card
             src="{{item.urlIcon}}"
             row1Title="{{item.orgName}}"
@@ -45,16 +45,13 @@
             lat="{{item.latitude}}"
             lng="{{item.longitude}}">
             <view slot="row3">
-              <view class="flex-row">
-                <tag-group
-                  translator="{{serviceText}}"
-                  orgTags="{{item.orgServices}}">
-                </tag-group>
-                <tag-group
-                  tagType="none"
-                  translator="{{tagText}}"
-                  orgTags="{{item.orgTags}}">
-                </tag-group>
+              <view class="flex-row" wx:if="{{item.orgTags.indexOf('activityCarWash') !== -1}}">
+                <view style="padding-right:10rpx;">
+                  <van-tag plain type="primary">一元洗车</van-tag>
+                </view>
+                <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
+                  <van-tag plain  wx:if="{{item !== 'activityCarWash'}}">{{tagText[item]}}</van-tag>
+                </view>
               </view>
             </view>
             <view slot="foot">
@@ -62,20 +59,22 @@
                 <view class="foot-left">
                   <view class="goods-desc">
                     <van-tag plain type="danger" wx:if="{{!tools.hasCurrentWeek(item.businessTimeList)}}">休息</van-tag>
-                    <text class="goods-name text-cut">{{item.goodsName || '-'}}</text>
+                    <van-tag plain type="primary" wx:if="{{tools.hasCurrentWeek(item.businessTimeList)}}">服务</van-tag>
+                    <text class="goods-name text-cut">{{item.orgGoodsExtList[0].goodsName || '-'}}</text>
                   </view>
                   <view class="goods-price">
-                    <new-old-price oldPrice="{{item.discountPrice}}" newPrice="{{item.price}}"></new-old-price>
+                    <new-old-price wx:if="{{item.orgGoodsExtList[0].couponList.length}}" oldPrice="{{item.orgGoodsExtList[0].couponList[0].fixedAmount}}" newPrice="{{' ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
+                    <new-old-price wx:else oldPrice="{{item.orgGoodsExtList[0].goodsPlatPrice}}" newPrice="{{'门市 ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
                   </view>
                 </view>
-                <view class="foot-right purchase-btn">
+                <view class="foot-right purchase-btn" data-cid="{{item.orgGoodsExtList[0].couponList[0].couponId}}" catchtap="openTip" wx:if="{{item.orgGoodsExtList[0].couponList.length}}">
                   <view class="right-now">立即抢</view>
-                  <view class="remain-num">余5</view>
+                  <view class="remain-num">余{{item.orgGoodsExtList[0].couponList[0].numberDailyRemaining+''}}</view>
                 </view>
               </view>
             </view>
           </business-card>
-        </navigator>
+        </view>
       </view>
     </pull-refresh>
   </view>

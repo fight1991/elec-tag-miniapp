@@ -1,4 +1,6 @@
 // pages/subPages/maint/components/washForm.js
+var app = getApp()
+const { translateDic } = app.api
 Component({
   /**
    * 组件的属性列表
@@ -6,7 +8,16 @@ Component({
   properties: {
     dataForm: {
       type: Object,
-      value: {}
+      value: {
+        items: []
+      }
+    }
+  },
+  lifetimes: {
+    attached: async function () {
+      this.setData({
+        carType: await translateDic('goodsVehicleType')
+      })
     }
   },
 
@@ -14,7 +25,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    carType: {}
   },
 
   /**

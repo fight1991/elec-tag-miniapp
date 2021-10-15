@@ -16,7 +16,12 @@ Page({
     pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
-    list: []
+    list: [],
+    pageUrl:{
+      'carWash':'/pages/subPages/maint/maint?pageFlag=wash',//洗车
+      'upkeep':'/pages/subPages/maint/maint?pageFlag=maint',//保养
+      'refueling': '/pages/subPages/refuel/refuel',//加油
+    }
   },  
 
   /**
@@ -27,6 +32,22 @@ Page({
   },
   onShow: function () {
     this.initList()
+  },
+  gotoPage (e) {
+    let { type, service } = e.currentTarget.dataset.item.couponExt
+    let { receiveOrgId, receiveGoodsId } = e.currentTarget.dataset.item
+    // 一元洗车跳到商户详情页
+    if (type === 'fixedPrice' && (service ==='carWash' || service ==='upkeep')) {
+      wx.navigateTo({
+        url: `/pages/subPages/maint/detail?orgId=${receiveOrgId}&pageFlag=${service==='carWash'?'wash':'maint'}&goodsId=${receiveGoodsId}`
+      })
+    }
+    // 满减跳到相应场景的的商户列表页
+    if (type === 'moneyOff') {
+      wx.navigateTo({
+        url: this.data.pageUrl[service]
+      })
+    }
   },
   // 列表api
   async getList (pageIndex, callback) {

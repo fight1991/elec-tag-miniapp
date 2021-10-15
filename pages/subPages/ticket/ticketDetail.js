@@ -11,8 +11,9 @@ Page({
         },
         params:{
             pageOrigin: 'use', // get领券 use立即使用
-            pageFlag: 'carWash', // carWash洗车美容 upkeep保养 refueling加油
-            couponId: ''
+            couponId: '',
+            orgId: '',
+            goodsId: ''
         }
     },
 
@@ -20,16 +21,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
      onLoad: async function (options) {
-        let { pageOrigin, pageFlag, couponId } = options
-        console.log('options', pageOrigin, pageFlag, couponId);
+        let { pageOrigin, couponId, orgId='', goodsId='' } = options
+        console.log('options', pageOrigin, couponId);
         
         wx.setNavigationBarTitle({
           title: this.data.pageTitle[pageOrigin]
         })
         let obj = this.data.params
         obj.pageOrigin = pageOrigin
-        obj.pageFlag = pageFlag
         obj.couponId = couponId
+        obj.orgId = orgId
+        obj.goodsId = goodsId
         this.setData({
             params: obj
         })

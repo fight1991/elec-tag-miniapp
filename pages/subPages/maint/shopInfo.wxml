@@ -12,22 +12,23 @@
     <view class="title">{{pageTitle[pageFlag]}}</view>
     <view class="content-box">
       <view class="card-item" wx:for="{{dataForm.goodsList}}" wx:key="goodsId">
-        <navigator url="./detail?orgId={{item.orgId}}&pageFlag={{pageFlag}}&goodsId={{item.goodsId}}">
+        <view bindtap="goDetail" data-item="{{item}}">
           <business-card
             src="{{item.goodsImage}}"
             row1Title="{{item.goodsName}}">
             <view slot="row3">
-              <new-old-price oldPrice="{{item.goodsMarketPrice}}" newPrice="{{item.goodsPlatPrice}}"></new-old-price>
+              <new-old-price wx:if="{{item.couponList.length}}" oldPrice="{{item.couponList[0].fixedAmount}}" newPrice="{{'门市 ¥' + item.goodsMarketPrice}}"></new-old-price>
+              <new-old-price wx:else oldPrice="{{item.goodsPlatPrice}}" newPrice="{{'门市 ¥' + item.goodsMarketPrice}}"></new-old-price>
             </view>
             <view slot="action">
-              <!-- <van-button color="#447FFF" size="mini" plain>查看</van-button> -->
-              <view class="purchase-btn" catchtap="">
+              <view class="purchase-btn" data-cid="{{item.couponList[0].couponId}}" catchtap="openTip" wx:if="{{item.couponList.length}}">
                 <view class="right-now stopTap">立即抢</view>
-                <view class="remain-num stopTap">余5</view>
+                <view class="remain-num stopTap">余{{item.couponList[0].numberDailyRemaining+''}}</view>
               </view>
+              <van-button color="#447FFF" size="mini" plain wx:else>查看</van-button>
             </view>
           </business-card>
-        </navigator>
+        </view>
       </view>
     </view>
   </view>
@@ -36,3 +37,4 @@
   <fixBtn type="light" width="50vw" bindtap="makePhone">联系电话</fixBtn>
   <fixBtn align="right" width="50vw" bindtap="goBtn">立即前往</fixBtn>
 </view>
+<tip-dialog visible="{{tipVisible}}" bind:close="onConfirm"></tip-dialog>

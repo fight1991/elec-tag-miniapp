@@ -1,5 +1,5 @@
 <!--pages/subPages/wash/washDetail.wxml-->
-<view>
+<view class="box">
   <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
   <view class="title">
     {{dataForm.goodsName}}
@@ -15,4 +15,8 @@
     <!-- 维修套餐 -->
     <maint-form dataForm="{{dataForm}}"></maint-form>
   </view>
+</view>
+<view>
+  <fixBtn type="light" width="50vw" bindtap="makePhone">联系电话</fixBtn>
+  <fixBtn align="right" width="50vw" bindtap="goBtn">立即前往</fixBtn>
 </view>

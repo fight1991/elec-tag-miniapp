@@ -45,13 +45,29 @@ Page({
     if (result) {
       this.setData({
         dataForm: {
-          urlOutletImage:  result.orgBusiness.urlOutletImage,
-          address: result.orgBusiness.address,
-          orgTags: result.orgBusiness.orgTags || [],
-          ...result.goodsInfo
+          orgTags: result.orgTags || [],
+          ...result,
+          ...result.orgGoodsExtList[0]
         }
       })
     }
+  },
+  // 联系电话
+  makePhone () {
+    let { contactPhone } = this.data.dataForm
+    wx.makePhoneCall({
+      phoneNumber: contactPhone,
+    })
+  },
+  // 立即前往
+  goBtn () {
+    let { latitude, longitude, orgName, address } = this.data.dataForm
+      wx.openLocation({
+        latitude,
+        longitude,
+        name: orgName,
+        address
+      })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

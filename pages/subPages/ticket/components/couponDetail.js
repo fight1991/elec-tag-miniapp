@@ -34,7 +34,7 @@ Component({
     info: {},
     pageUrl:{
       'carWash':'/pages/subPages/maint/maint?pageFlag=wash',//洗车
-      'upkeep':'/pages/subPages/maint/maint?pageFlag=maint',//洗车
+      'upkeep':'/pages/subPages/maint/maint?pageFlag=maint',//保养
       'refueling': '/pages/subPages/refuel/refuel',//加油
     }
   },
@@ -73,16 +73,19 @@ Component({
     },
     gotoPage () {
       let { type, service } = this.data.info
+      let { orgId, goodsId } = this.data.params
       // 一元洗车跳到商户详情页
-      if (type === 'fixedPrice') {
+      if (type === 'fixedPrice' && (service ==='carWash' || service ==='upkeep')) {
         wx.navigateTo({
-          // url: `/pages/subPages/maint/detail?orgId=${item.orgId}&pageFlag=${service==='carWash'?'wash':'maint'}&goodsId=${item.goodsId}`,
+          url: `/pages/subPages/maint/detail?orgId=${orgId}&pageFlag=${service==='carWash'?'wash':'maint'}&goodsId=${goodsId}`
         })
       }
       // 满减跳到相应场景的的商户列表页
-      wx.navigateTo({
-        url: this.data.pageUrl[service],
-      })
+      if (type === 'moneyOff') {
+        wx.navigateTo({
+          url: this.data.pageUrl[service]
+        })
+      }
     },
     async addCouponFun () {
       let { result } = await addCoupon({

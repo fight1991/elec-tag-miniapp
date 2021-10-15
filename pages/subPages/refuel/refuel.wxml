@@ -40,7 +40,7 @@
               row2Title="{{item.address}}"
               row2Suffix="{{item.distance + 'km'}}">
               <view slot="row3">
-                <new-old-price oldPrice="{{item.discountPrice}}" newPrice="{{item.price}}"></new-old-price>
+                <new-old-price oldPrice="{{item.discountPrice}}" newPrice="{{'油站 ¥'+item.price}}"></new-old-price>
               </view>
               <view slot="row4">
                 <tag-group showTimer="{{item.businessTimeBucketType == 1}}" orgTags="{{item.orgTags}}"></tag-group>

@@ -1,6 +1,6 @@
 // pages/subPages/wash/wash.js
 var app = getApp()
-const { washList, maintList, washBtnList, translateDic } = app.api
+const { washList, maintList, washBtnList, translateDic, addCoupon } = app.api
 const listApi = {
   wash: washList,
   maint: maintList
@@ -22,13 +22,10 @@ Page({
       { label: '距离最近', value: 'distance'},
       { label: '价格最低', value: 'price'}
     ],
-    carTypeOption: [
-      { label: 'suv', value: 'suv'},
-      { label: '轿车', value: 'car'}
-    ],
+    carTypeOption: [],
+    carType: '',
     distance: 3,
     other: 'distance',
-    carType: 'car',
     pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',
@@ -41,8 +38,8 @@ Page({
     currentPlace: '', // 位置信息
     latitude: '',
     longitude: '',
-    serviceText: {},
     tagText: {},
+    couponId: '',
     tipVisible: false, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
@@ -68,11 +65,18 @@ Page({
         bannerId: 2101
       })
     }
+    //车辆类型
+    let carType = await translateDic('goodsVehicleType')
+    let arr = Object.keys(carType).map(function(key){
+      return { value: key, label: carType[key] };
+    });
     this.setData({
       pageFlag,
-      serviceText: await translateDic('orgServiceType'),
+      carTypeOption: arr,
+      carType: 'car',
       tagText: await translateDic('orgServiceTag'),
     })
+    
     this.initPoisData()
     // app.listenPosition(({ latitude, longitude, address }) => {
     //   this.data.latitude = latitude
@@ -88,9 +92,31 @@ Page({
   onShow: function () {
     
   },
+  //一口价弹窗
+  openTip (e) {
+    this.setData({
+      tipVisible: true,
+      couponId: e.currentTarget.dataset.cid
+    })
+  },
+  goShopInfo (e) {
+    let { orgId, distance } = e.currentTarget.dataset.item
+    let { latitude, longitude, carType, pageFlag } = this.data
+    wx.navigateTo({
+      url: `./shopInfo?distance=${distance}&latitude=${latitude}&longitude=${longitude}&goodsVehicleType=${carType}&orgId=${orgId}&pageFlag=${pageFlag}`,
+    })
+  },
   //确认领取
-  onConfirm () {
-    this.initList()
+  async onConfirm () {
+    let { result } = await addCoupon({
+      couponConfigId: this.data.couponId
+    })
+    if (result) {
+      // 调用获取验证码api成功后, 开启倒计时
+      utils.showToast.success('领取成功', () => {
+        this.initList()
+      })
+    }
   },
   // 获取洗车按钮列表
   async getWashBtnList () {
@@ -104,8 +130,6 @@ Page({
   // 洗车筛选按钮
   washTabBtn (e) {
     let current = e.target.dataset.type
-    console.log('11', current, e);
-    
     if (current === this.data.activeTab) {
       current = ''
     }
@@ -150,7 +174,7 @@ Page({
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType} = this.data
+    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType, carType} = this.data
     pageIndex ++
     let { result, page } = await listApi[pageFlag]({
       data: {
@@ -158,7 +182,8 @@ Page({
         longitude,
         radius: distance,
         sortType: other,
-        upkeepType
+        upkeepType,
+        goodsVehicleType: pageFlag==='wash' ? carType : ''
       },
       page: {
         pageIndex,

@@ -1,24 +1,62 @@
 <!--pages/subPages/maint/components/maintForm.wxml-->
 <view class="box">
   <view class="title">套餐介绍</view>
-  <van-cell-group inset>
-    <van-cell>
-      <view slot="title">
-        <text class="line-title">{{dataForm.goodsDesc}}</text>
-      </view>
-    </van-cell>
-    <view wx:for="{{dataForm.items}}" wx:key="itemId">
-      <van-cell title="{{item.itemName}}" value="¥{{item.itemMarketPrice}}" />
+  <view class="form-box">
+    <view class="line-title">
+      {{dataForm.goodsDesc}}
     </view>
-    <van-cell title="平台优惠">
-      <text class="discount">¥{{(dataForm.goodsMarketPrice - dataForm.goodsPlatPrice) || 0}}</text>
-    </van-cell>
-    <van-cell title="优惠后价格">
-      <text class="discount">¥{{dataForm.goodsPlatPrice || 0}}</text>
-    </van-cell>
-    <van-cell>
-      <text class="extra">*额外增值收费服务依据到店收费为准</text>
-    </van-cell>
-    <van-cell title="门店地址" value="{{dataForm.address}}"/>
-  </van-cell-group>
+    <view class="content-box">
+      套餐内容
+    </view>
+    <view wx:for="{{dataForm.items}}" wx:key="itemId" class="flex">
+      <view class="w-220">
+        {{item.itemName}}
+      </view>
+      <view class="content-center">
+        <view class="flex-between">
+          <view class="center-title2">
+            门市价
+          </view>
+          <view>
+            ¥{{dataForm.itemMarketPrice}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="flex">
+      <view class="w-220"></view>
+      <view class="content-center">
+        <view class="flex-between">
+          <view class="center-title2">
+            平台优惠
+          </view>
+          <view>
+            -¥{{(dataForm.goodsMarketPrice - dataForm.goodsPlatPrice) || 0}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="flex">
+      <view class="w-220"></view>
+      <view class="content-center">
+        <view class="flex-between">
+          <view class="center-title2">
+            优惠后价格
+          </view>
+          <view>
+            ¥{{dataForm.goodsPlatPrice || 0}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="extra">*额外增值收费服务依据到店收费为准</view>
+    <view class="flex-between">
+      <view>
+        门店地址
+      </view>
+      <view>
+        {{dataForm.address}}
+      </view>
+    </view>
+  </view>
 </view>
