@@ -18,6 +18,7 @@ export default {
   resetLoginStatus () { // 重置登录态
     wx.removeStorageSync('token')
     this.globalData.userInfo = {}
+    this.globalData.elecShow = false
     this.ssToken = ''
   },
   async loginSuccessToPage (token, mobile) {
