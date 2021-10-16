@@ -16,7 +16,7 @@ page {
 .item-box {
   display: flex;
   text-align: center;
-  padding: 10rpx 0 20rpx 0;
+  margin: 30rpx 0;
   width: 100%;
   overflow-x: auto;
 }
@@ -96,19 +96,9 @@ page {
   display: flex;
   align-items: center;
 }
-.pos-info {
-  display: flex;
-  align-items: center;
-  padding-left: 10rpx;
-}
-.address-name {
+.pos-box {
   color: #4D4D4D;
   font-size: 26rpx;
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -o-text-overflow:ellipsis;
-  word-break: break-all;
 }
 .drop-down .van-dropdown-menu {
   box-shadow: none;
@@ -117,9 +107,9 @@ page {
   color: #4D4D4D;
   font-size: 26rpx;
 }
-.mg-30 {
-  margin: 30rpx 0;
+.mt-30 {
+  margin-top: 30rpx;
 }
-view .van-tag {
+.fs-22 {
   font-size: 22rpx;
 }

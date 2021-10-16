@@ -36,10 +36,12 @@ Page({
     upkeepType: '', // 洗车类型
     activeTab: '', // 洗车当前tab
     currentPlace: '', // 位置信息
+    city: '', // 城市名
+    pois: [], // 当前位置的周边信息
     latitude: '',
     longitude: '',
     tagText: {},
-    couponId: '',
+    couponItem: {},
     tipVisible: false, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
@@ -77,7 +79,8 @@ Page({
       tagText: await translateDic('orgServiceTag'),
     })
     
-    this.initPoisData()
+    await this.initPoisData()
+    await this.initList()
     // app.listenPosition(({ latitude, longitude, address }) => {
     //   this.data.latitude = latitude
     //   this.data.longitude = longitude
@@ -96,7 +99,7 @@ Page({
   openTip (e) {
     this.setData({
       tipVisible: true,
-      couponId: e.currentTarget.dataset.cid
+      couponItem: { ...e.currentTarget.dataset.citem }
     })
   },
   goShopInfo (e) {
@@ -108,8 +111,12 @@ Page({
   },
   //确认领取
   async onConfirm () {
+    let { orgId, goodsId } = this.data.couponItem
+    let { couponId: couponConfigId } = this.data.couponItem.couponList[0]
     let { result } = await addCoupon({
-      couponConfigId: this.data.couponId
+      orgId,
+      goodsId,
+      couponConfigId
     })
     if (result) {
       // 调用获取验证码api成功后, 开启倒计时
@@ -141,24 +148,15 @@ Page({
   },
   // 初始化附件位置
   initPoisData () {
-    let pages = getCurrentPages()
-    let prePage = pages[pages.length - 2]
-    if (prePage) {
-      let { currentPlace, city, pois, latitude, longitude } = prePage.data
-      this.data.prePage = prePage
-      this.data.pois = pois
-      // if (prePage) {
-
-      // }
-      this.setData({
-        currentPlace,
-        city,
-        suggestion: pois,
-        latitude,
-        longitude
-      })
-      this.initList()
-    }
+    let { title, city, pois, latitude, longitude } = app.currentPos
+    this.data.pois = pois
+    this.setData({
+      currentPlace:title,
+      city,
+      pois,
+      latitude,
+      longitude
+    })
   },
   // 城市选择
   placeSearch () {

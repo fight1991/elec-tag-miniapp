@@ -3,9 +3,11 @@ export default {
   currentPos: {
     latitude: '',
     longitude: '',
-    address: '', // 存储当前定位的地址
+    title: '', // 存储当前定位的名称
     province: '', // 存储省/直辖市名称
-    tamp: '0' // 戳标记
+    tamp: '0', // 戳标记
+    city: '', //城市名称
+    pois: [], // 当前位置的周边信息
   },
   sendPosition (value) { // 发送位置更改通知
     this.currentPos.tamp = value

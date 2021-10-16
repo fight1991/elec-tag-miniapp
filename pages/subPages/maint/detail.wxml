@@ -4,7 +4,7 @@
   <view class="title">
     {{dataForm.goodsName}}
     <view style="padding-left:20rpx;" wx:for="{{dataForm.orgTags}}" wx:key="item">
-      <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
+      <van-tag class="fs-22" plain type="primary">{{serviceText[item] || '-'}}</van-tag>
     </view>
   </view>
   <view wx:if="{{pageFlag=='wash'}}">

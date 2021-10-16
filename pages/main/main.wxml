@@ -8,8 +8,8 @@
   <!-- 导航 -->
   <busniss-gird class="mg-30"></busniss-gird>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
-  <group-btn class="mg-30" carTotal="{{carTotal}}" isAuth="{{isAuth}}"></group-btn>
+  <group-btn carTotal="{{carTotal}}" isAuth="{{isAuth}}"></group-btn>
   <!-- 活动轮播 -->
-  <banner class="mb-30" bannerId="1001"></banner>
+  <banner bannerId="1001"></banner>
 </view>
 

@@ -8,6 +8,6 @@
 .box {
   padding-bottom: 110rpx;
 }
-view .van-tag {
+.fs-22 {
   font-size: 22rpx;
 }

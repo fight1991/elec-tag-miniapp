@@ -19,8 +19,8 @@ Page({
       wash: '洗车美容',
       maint: '维修保养'
     },
+    couponItem: {},
     tipVisible: false, //温馨提示
-    couponId: '',
     pageFlag: '',
     goodsVehicleType: '',
     orgId: '',
@@ -74,26 +74,29 @@ Page({
   },
   //一口价弹窗
   openTip (e) {
-    console.log('e',e);
     this.setData({
       tipVisible: true,
-      couponId: e.currentTarget.dataset.cid
+      couponItem: { ...e.currentTarget.dataset.citem }
     })
   },
   //确认领取
   async onConfirm () {
+    let { orgId, goodsId } = this.data.couponItem
+    let { couponId: couponConfigId } = this.data.couponItem.couponList[0]
     let { result } = await addCoupon({
-      couponConfigId: this.data.couponId
+      couponConfigId,
+      orgId,
+      goodsId
     })
     if (result) {
       // 调用获取验证码api成功后, 开启倒计时
       utils.showToast.success('领取成功', () => {
-        this.goDetail()
+        this.getDetail()
       })
     }
   },
   goDetail (e) {
-    let { orgId,goodsId } = e.currentTarget.dataset.item
+    let { orgId, goodsId } = e.currentTarget.dataset.item
     wx.navigateTo({
       url: `./detail?orgId=${orgId}&pageFlag=${this.data.pageFlag}&goodsId=${goodsId}`,
     })

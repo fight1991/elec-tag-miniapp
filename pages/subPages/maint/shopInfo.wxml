@@ -21,7 +21,7 @@
               <new-old-price wx:else oldPrice="{{item.goodsPlatPrice}}" newPrice="{{'门市 ¥' + item.goodsMarketPrice}}"></new-old-price>
             </view>
             <view slot="action">
-              <view class="purchase-btn" data-cid="{{item.couponList[0].couponId}}" catchtap="openTip" wx:if="{{item.couponList.length}}">
+              <view class="purchase-btn" data-citem="{{item}}" catchtap="openTip" wx:if="{{item.couponList.length}}">
                 <view class="right-now stopTap">立即抢</view>
                 <view class="remain-num stopTap">余{{item.couponList[0].numberDailyRemaining+''}}</view>
               </view>

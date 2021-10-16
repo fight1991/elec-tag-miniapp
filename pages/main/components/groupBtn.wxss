@@ -6,6 +6,7 @@
   box-sizing: border-box;
   justify-content: space-between;
   border-radius: 12rpx;
+  margin: 0 30rpx;
 }
 .left-box {
   position: relative;

@@ -5,17 +5,9 @@
   top: 0;
   color: #fff;
 }
-.pos-info {
+.pos-box {
   position: absolute;
   left: 50rpx;
   width: 60%;
-  display: flex;
-  align-items: center;
-}
-.address-name {
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -o-text-overflow:ellipsis;
-  word-break: break-all;
+  color: #fff;
 }

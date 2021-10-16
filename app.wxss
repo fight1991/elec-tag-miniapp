@@ -179,6 +179,3 @@ image {
 .theme-color {
   color: #447fff;
 }
-.van-tag {
-  font-size: 22rpx;
-}

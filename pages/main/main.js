@@ -8,12 +8,11 @@ Page({
    */
   data: {
     // 组件参数设置，传递到组件
-    currentPlace: '', // 导航栏标题
     navBarHeight: app.navHeight,
     carTotal: 0,
-    currentPos: '', // 当前地理位置
-    pois: [], // 当前位置的周边信息
+    currentPlace: '', // 当前位置
     city: '', // 城市名
+    pois: [], // 当前位置的周边信息
   },
 
   /**
@@ -45,8 +44,6 @@ Page({
   // 初始化位置信息
   initPointList () {
     app.getCurrentPosition().then(({ latitude, longitude }) => {
-      app.currentPos.latitude = latitude
-      app.currentPos.longitude = longitude
       this.reverseGeocoder({ latitude, longitude })
       // app.currentPos.tamp = Date.now() 注意:更改此值, 每次打开此页面会触发订阅更新
     })
@@ -55,9 +52,6 @@ Page({
   // 监听用户位置变化 
   startOpenPositionChange () {
     wx.onLocationChange(res => {
-      let { latitude, longitude } = res
-      app.currentPos.latitude = latitude
-      app.currentPos.longitude = longitude
       this.reverseGeocoder(res)
       // 发送位置信息更改广播
       app.sendPosition(Date.now())
@@ -75,12 +69,23 @@ Page({
       success: res => {
         if (res.status == 0) {
           let tempRes = res.result
-          this.data.pois = tempRes.pois
+          let arr = []
+          arr = tempRes.pois.map(item => {
+            let obj = {}
+            obj = {...item, ...item.ad_info}
+            return obj
+          })
+          app.currentPos.latitude = latitude
+          app.currentPos.longitude = longitude
+          app.currentPos.pois = arr
           app.currentPos.province = tempRes.address_component.province
-          app.currentPos.address = tempRes.formatted_addresses.recommend
+          app.currentPos.title = tempRes.formatted_addresses.recommend
+          app.currentPos.city = tempRes.address_component.city
+
           this.setData({
-            currentPlace: tempRes.formatted_addresses.recommend,
+            currentPlace: app.currentPos.title,
             city: tempRes.address_component.city,
+            pois: arr,
             latitude,
             longitude
           })
