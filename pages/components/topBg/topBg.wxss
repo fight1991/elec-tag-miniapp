@@ -5,8 +5,5 @@
   left: 0;
   width: 100%;
   z-index: 1;
-}
-.image {
-  width: 100%;
-  height: auto;
+  background: #447FFF;
 }

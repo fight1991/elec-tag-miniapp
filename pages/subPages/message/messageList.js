@@ -1,4 +1,3 @@
-// pages/main/morePoint.js
 var app = getApp()
 const { getMessageListApi } = app.api
 Page({

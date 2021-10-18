@@ -1,0 +1,97 @@
+<!--
+此文件为开发者工具生成，生成时间: 2021/10/13 下午4:56:35
+使用方法：
+在 E:\htjg-car-minapp\pages\subPages\ticket\ticketDetail.wxml 引入模板
+
+```
+<import src="ticketDetail.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 E:\htjg-car-minapp\pages\subPages\ticket\ticketDetail.wxss 中引入样式
+```
+@import "./ticketDetail.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="outer">
+      <view is="pages/subPages/ticket/components/couponDetail">
+        <view class="couponDetail--coupon-box">
+          <view class="couponDetail--coupon-top">
+            <view class="couponDetail--top-tip" style="border: none;">
+              <view class="couponDetail--icon">
+                <view is="publicBag/components/iconImg/iconImg">
+                  <view class="iconImg--icon-box">
+                    <image class="iconImg--img sk-image" mode="scaleToFill" style="height:27px;width:27px;"></image>
+                  </view>
+                </view>
+              </view>
+              <view class="sk-transparent sk-text-18-7500-170 sk-text">
+                加油权益
+              </view>
+            </view>
+            <view class="couponDetail--coupon-center">
+              <view class="sk-transparent sk-text-18-7500-367 sk-text" style="background-position-x: 50%;">
+                加油满减
+              </view>
+              <view class="couponDetail--price sk-transparent">
+                ￥
+                <span class="couponDetail--fs-60 sk-transparent sk-text-18-7500-873 sk-text" style="background-position-x: 50%;">10</span>
+              </view>
+              <view class="sk-transparent sk-text-18-7500-941 sk-text" style="background-position-x: 50%;">
+                加油满200减10
+              </view>
+            </view>
+            <view class="couponDetail--btn">
+              <view is="publicBag/components/button/commonBtn">
+                <view class="commonBtn--btn-box sk-transparent sk-text-18-7500-263 sk-text" style="width: 100%; background-color: rgb(68, 127, 255); background-position-x: 50%;">立即使用</view>
+              </view>
+            </view>
+            <view class="couponDetail--line sk-image"></view>
+            <view class="couponDetail--left-wrap"></view>
+            <view class="couponDetail--right-wrap"></view>
+          </view>
+          <view class="couponDetail--coupon-bottom">
+            <view class="couponDetail--bottom-box">
+              <view class="couponDetail--bottom-item couponDetail--flex-between" style="border: none;">
+                <view class="couponDetail--flex-1 sk-transparent sk-text-18-7500-587 sk-text">
+                  到期时间
+                </view>
+                <view class="couponDetail--c-80 couponDetail--flex-1 sk-transparent sk-text-18-7500-187 sk-text">
+                  2021-10-13 23:59:59
+                </view>
+              </view>
+              <view class="couponDetail--bottom-item couponDetail--flex-between" style="border: none;">
+                <view class="couponDetail--flex-1 sk-transparent sk-text-18-7500-429 sk-text">
+                  领取说明
+                </view>
+                <view class="couponDetail--c-80 couponDetail--flex-1 sk-transparent sk-text-18-7500-989 sk-text">
+                  领取说明
+                </view>
+              </view>
+              <view class="couponDetail--bottom-item" style="border: none;">
+                <view class="couponDetail--mb-12 sk-transparent sk-text-18-7500-211 sk-text">
+                  优惠券说明
+                </view>
+                <view class="couponDetail--c-80 sk-transparent sk-text-18-7500-517 sk-text">
+                  加油满200减10
+                </view>
+              </view>
+              <view class="couponDetail--bottom-item">
+                <view class="couponDetail--mb-12 sk-transparent sk-text-18-7500-174 sk-text">
+                  使用须知
+                </view>
+                <view class="couponDetail--c-80 sk-transparent sk-text-18-7500-973 sk-text">
+                  使用须知
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

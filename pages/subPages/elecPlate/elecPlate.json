@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "base-info": "./carBaseInfo/carBaseInfo",
+    "base-info": "./components/carBaseInfo",
     "bind-status": "/pages/components/bindStatus/bindStatus"
   },
   "navigationBarTitleText": "电子车牌"

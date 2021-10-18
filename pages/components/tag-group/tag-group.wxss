@@ -1,0 +1,4 @@
+/* pages/components/tag-group/tag-group.wxss */
+.fs-22 {
+  font-size: 22rpx;
+}

@@ -1,1 +1,76 @@
 /* pages/ticket/ticket.wxss */
+.item-box {
+  padding-top: 30rpx;
+}
+.coupon-item {
+  position: relative;
+  height: 190rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #4D4D4D;
+}
+.left-box {
+  text-align: center;
+  padding: 0 25rpx;
+  width: 202rpx;
+  position: relative;
+  color: #447FFF;
+  box-sizing: border-box;
+}
+.line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rpx;
+  height: 140rpx;
+  background-image: linear-gradient(to bottom,#DCDCDC 0%, #DCDCDC 50%, transparent 50%);
+  background-size: 100% 16rpx;
+  background-repeat: repeat-y;
+}
+.center-box {
+  width: 384rpx;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+.use-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 99rpx;
+  height: 190rpx;
+  writing-mode: vertical-lr;
+  writing-mode: tb-lr;
+  letter-spacing: 10rpx;
+  color: #fff;
+  font-size: 26rpx;
+}
+.overflow-ellipsis {
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+.fs-24 {
+  font-size: 24rpx;
+}
+.fs-60 {
+  font-size: 60rpx;
+}
+.time-text {
+  font-size: 24rpx;
+  color: #808080;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+.left-content {
+  display: flex;
+  align-items: center;
+}

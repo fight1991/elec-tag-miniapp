@@ -62,6 +62,9 @@
   width: 640rpx;
   margin: 50rpx auto 0;
 }
+.radio-box {
+  padding: 10rpx;
+}
 .radioBtn {
   width: 12px;
   height: 12px;
@@ -71,7 +74,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 10rpx;
 }
 .radioBtn::after {
   width: 8px;

@@ -1,51 +1,15 @@
 <!--pages/main/main.wxml-->
 <view class="linear-box">
   <top-bg></top-bg>
-  <view class="card-show-box">
+  <view class="card-show-box mb-30" style="padding-top:{{navBarHeight+10}}px;">
+    <navigation-area current-place="{{currentPlace}}"></navigation-area>
     <card-show bindgetCarNum="getCarNum"></card-show>
   </view>
+  <!-- 导航 -->
+  <busniss-gird class="mg-30"></busniss-gird>
   <!-- 电子车牌 车辆信息 扫一扫按钮 -->
-  <view class="group-btn">
-    <view class="group-btn-item" style="background-image:url({{bgImg.plate}})" bindtap="elecBrandBtn">
-      <text>电子车牌</text>
-      <iconImg name="plate"></iconImg>
-      <text class="free-apply">免费申领</text>
-    </view>
-    <view class="group-btn-item" style="background-image:url({{bgImg.car}})" bindtap="carInfoBtn">
-      <text>我的车辆</text>
-      <iconImg name="car"></iconImg>
-    </view>
-    <view class="group-btn-item" style="background-image:url({{bgImg.scan}})"  bindtap="scanBtn">
-      <text>扫一扫</text>
-      <iconImg name="scan"></iconImg>
-    </view>
-  </view>
-  <!-- 推荐安装网点 -->
-  <view class="recommend-point">
-    <view class="left fs16">推荐安装网点</view>
-    <view class="right fs12" bindtap="moreBtn" wx:if="{{pointList.length>0 && total > 5}}">更多>></view>
-  </view>
-  <view class="content">
-    <pull-refresh
-      height="100%"
-      isOpenUpper="{{false}}"
-      model:count="{{total}}"
-      showFooter="{{false}}"
-      model:hasMore="{{false}}"
-      bind:pullDown="initList"
-      model:isRefresh="{{collapse}}">
-      <view class="recommend-list">
-        <block wx:for="{{pointList}}" wx:key="branchId">
-          <recommend-point
-            lat="{{item.latitude}}"
-            lon="{{item.longitude}}"
-            address="{{item.address || ''}}"
-            pointName="{{item.orgName}}"
-            pointDis="{{item.distance}}">
-          </recommend-point>
-        </block>
-      </view>
-    </pull-refresh>
-  </view>
+  <group-btn carTotal="{{carTotal}}" isAuth="{{isAuth}}"></group-btn>
+  <!-- 活动轮播 -->
+  <banner bannerId="1001"></banner>
 </view>
 

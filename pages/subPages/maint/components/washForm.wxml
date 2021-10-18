@@ -1,23 +1,65 @@
 <!--pages/subPages/maint/components/washForm.wxml-->
 <view class="box">
   <view class="title">套餐介绍</view>
-  <van-cell-group inset>
-    <van-cell>
-      <view slot="title">
-        <text class="line-title">{{dataForm.goodsDesc}}</text>
+  <view class="form-box">
+    <view class="line-title">
+      {{dataForm.goodsDesc}}
+    </view>
+    <view class="flex-between">
+      <view>
+        适用车型
       </view>
-    </van-cell>
-    <van-cell title="门市价" value="¥{{dataForm.goodsMarketPrice}}" />
-    <van-cell title="平台优惠" value="¥{{(dataForm.goodsMarketPrice-dataForm.goodsPlatPrice) || 0}}"/>
-    <van-cell title="优惠后价格">
-      <text class="discount">¥{{dataForm.goodsPlatPrice}}</text>
-    </van-cell>
-    <van-cell title="门店地址" value="{{dataForm.address}}"/>
-    <!-- <van-cell>
-      <view slot="title">
-        <text class="discount">新用户首次消费</text>
+      <view>
+        {{carType[dataForm.goodsVehicleType]}}
       </view>
-      <text class="discount">¥30.00</text>
-    </van-cell> -->
-  </van-cell-group>
+    </view>
+
+    <view class="flex">
+      <view class="w-170">
+        套餐价格
+      </view>
+      <view class="content-center">
+        <view class="flex-between">
+          <view class="center-title">
+            门市价
+          </view>
+          <view>
+            ¥{{dataForm.goodsMarketPrice}}
+          </view>
+        </view>
+        <view class="flex-between">
+          <view class="center-title">
+            平台优惠
+          </view>
+          <view>
+            -¥{{(dataForm.goodsMarketPrice - dataForm.goodsPlatPrice) || 0}}
+          </view>
+        </view>
+        <view class="flex-between">
+          <view class="center-title">
+            优惠后价格
+          </view>
+          <view class="discount">
+            ¥{{dataForm.goodsPlatPrice}}
+          </view>
+        </view>
+        <view class="flex-between">
+          <view class="discount center-title">
+            新用户首次消费
+          </view>
+          <view class="discount">
+            ¥1
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="flex-between">
+      <view>
+        门店地址
+      </view>
+      <view>
+        {{dataForm.address}}
+      </view>
+    </view>
+  </view>
 </view>

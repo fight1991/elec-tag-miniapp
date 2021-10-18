@@ -1,2 +1,4 @@
 <!--pages/subPages/parking/map/map.wxml-->
-<map style="height:{{height}};width:{{width}}" id="map" setting="{{setting}}"></map>
+<map style="height:{{height}};width:{{width}}" id="map" setting="{{setting}}" bindregionchange="regionchange">
+  <slot></slot>
+</map>

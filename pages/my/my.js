@@ -7,22 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    navBarHeight: app.navHeight,
     wxUserImg: app.static_user_logo,
+    elecShow: false, // 是否显示电子车牌
     authPersonal: false, // 是否已实名
     authVehicleLicense: false, // 是否行驶证认证
     userName: '',
     uid: '',
     tabList: [{
-      url: '/pages/subPages/card/card',
-      label: '我的银行卡',
-      icon: 'card-finance',
-      color: '#ffa44b'
-    }, {
-      url: '/pages/subPages/ticket/ticket',
-      label: '我的卡券',
-      icon: 'ticket',
-      color: '#447fff'
-    }, {
       url: '/pages/subPages/order/order',
       label: '订单管理',
       icon: 'order',
@@ -90,7 +82,8 @@ Page({
       authPersonal,
       authVehicleLicense,
       userName,
-      uid
+      uid,
+      elecShow: app.globalData.elecShow
     })
   },
   goRealName () {

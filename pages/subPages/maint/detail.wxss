@@ -5,3 +5,9 @@
   align-items: center;
   background-color: #fff;
 }
+.box {
+  padding-bottom: 110rpx;
+}
+.fs-22 {
+  font-size: 22rpx;
+}

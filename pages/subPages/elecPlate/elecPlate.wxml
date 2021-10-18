@@ -43,7 +43,7 @@
     </view>
     <view class="top-title" wx:if="{{elecInfo.bindStatus == 'delivery'}}">
       <view class="left-title">您可前往任意网点领取电子车牌并安装</view>
-      <navigator url="/pages/main/morePoint">
+      <navigator url="./morePoint">
         <view class="right-title">查看网点>></view>
       </navigator>
     </view>
