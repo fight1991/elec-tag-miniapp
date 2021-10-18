@@ -7,33 +7,21 @@ Component({
     multipleSlots: true
   },
   properties: {
-    title: {
+    row1Title: {
       type: String,
-      value: '-'
+      value: ''
     },
-    subTitle: {
+    row2Title: {
       type: String,
-      value: '-'
+      value: ''
     },
-    subTitleRight: {
+    row2Suffix: {
       type: String,
-      value: '-'
+      value: ''
     },
     src: {
       type: String,
       value: '/pages/image/default.png'
-    },
-    oldPrice: {
-      type: String,
-      value: '-'
-    },
-    newPrice: {
-      type: String,
-      value: '-'
-    },
-    oilInfo: {
-      type: Boolean,
-      value: true
     },
     lat: {
       type: Number,

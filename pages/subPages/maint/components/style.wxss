@@ -1,14 +1,57 @@
 .title {
-  padding:20rpx 30rpx;
-  color: #1D1D25;
+  padding:20rpx 40rpx;
+  color: #2E2E2E;
   font-size: 30rpx;
 }
 .line-title {
   color: #1D1D25;
+  padding-bottom: 30rpx;
 }
 .discount {
   color: #FF7E37;
 }
 .box {
   padding-bottom: 110rpx;
+}
+.form-box {
+  padding:44rpx 40rpx 16rpx 40rpx;
+  font-size: 26rpx;
+  color: #4D4D4D;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.flex {
+  display: flex;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+.w-170 {
+  width: 170rpx;
+}
+.w-220 {
+  width: 220rpx;
+}
+.content-box {
+  padding: 10rpx 0 30rpx 0;
+}
+.content-center {
+  flex: 1;
+}
+.center-title {
+  width: 200rpx;
+  text-align: right;
+}
+.center-title2 {
+  width: 132rpx;
+  text-align: right;
+}
+.extra {
+  width: 100%;
+  text-align: right;
+  color: #808080;
+  font-size: 24rpx;
+  padding-bottom: 30rpx;
 }

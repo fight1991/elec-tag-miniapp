@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "coupon-detail": "./components/couponDetail"
+  },
+  "navigationBarTitleText": "我的卡券"
+}

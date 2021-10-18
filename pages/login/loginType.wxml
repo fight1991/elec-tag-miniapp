@@ -9,7 +9,9 @@
     </view>
   </view>
   <view class="agree-content">
-    <view class="radioBtn{{!isAgree ? ' agree-select' : ''}}" bindtap="switchAgree"></view>
+    <view class="radio-box" bindtap="switchAgree">
+      <view class="radioBtn{{!isAgree ? ' agree-select' : ''}}"></view>
+    </view>
     <view class="license">
       <view>登录即同意</view>
       <navigator url="./licence">

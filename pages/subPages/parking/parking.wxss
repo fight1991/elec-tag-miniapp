@@ -1,50 +1,102 @@
-/* pages/subPages/parking/parking.wxss */
+/* pages/subPages/parking/nearParking.wxss */
+#myMap {
+  position: relative;
+}
 .box {
   width: 100vw;
   height: 100vh;
   position: relative;
 }
-.bottom-box {
-  position: absolute;
-  bottom: 30rpx;
-  left: 0;
-  right: 0;
+.list-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   padding: 0 30rpx;
-}
-.address {
-  max-width: 300rpx;
+  background-color: #F5F9FC;
 }
 .near-top {
   background-color: #fff;
-  padding: 10rpx 20rpx;
+  padding: 0 20rpx;
   display: flex;
+  margin: 30rpx 0 20rpx;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20rpx;
   border-radius: 8rpx;
+  position: relative;
+  font-size: 26rpx;
+  color: #4d4d4d;
 }
-
+.shuxian {
+  width: 1px;
+  background-color: #EBEBEB;
+  height: 40rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.near-left,.near-right {
+  width: 50%;
+}
 .car-num {
   color: #447fff;
   font-size: 32rpx;
 }
+.near-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+}
+.near-right .position {
+  flex: 1;
+  padding: 0 10rpx;
+  overflow: hidden;
+}
+
+.bottom-box {
+  flex: 1;
+  overflow: hidden;
+}
+.search-box {
+  position: absolute;
+  left: 0;
+  top: 30rpx;
+  width: 690rpx;
+  margin: 0 30rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 0 #ccc;
+  z-index: 22;
+}
 .right-top {
   position: absolute;
   right: 30rpx;
-  top: 100rpx;
+  top: 130rpx;
   background-color: #fff;
+  box-shadow: 1px 1px 10px 0 #ccc;
   border-radius: 8rpx;
+  z-index: 22;
 }
 .icon-item {
-  width: 110rpx;
+  width: 100rpx;
 }
 .icon-box {
-  padding: 10rpx 30rpx;
+  padding: 6rpx 20rpx 20rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 26rpx;
+  font-size: 22rpx;
 }
-.near-bottom,.near-top,.right-top {
+.reset-position {
+  position: absolute;
+  bottom: 20rpx;
+  right: 30rpx;
+  padding: 10rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
   box-shadow: 1px 1px 10px 0 #ccc;
+}
+.reset-icon {
+  width: 50rpx;
 }

@@ -1,0 +1,69 @@
+<!--pages/ticket/components/couponDetail.wxml-->
+<import src="../ticketDetail.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{isShow}}" />
+
+<view class="coupon-box" wx:else>
+  <view class="coupon-top">
+    <view class="top-tip">
+      <view class="icon">
+        <iconImg name="{{info.service}}-card" size="{{'64rpx'}}"></iconImg>
+      </view>
+      <view>
+        {{serviceText[info.service]}}权益
+      </view>
+    </view>
+    <view class="coupon-center">
+      <view>
+        {{info.name}}
+      </view>
+      <view class="price">
+        ￥<span class="fs-60">{{info.type === 'fixedPrice' ? info.fixedAmount : info.usedAmount}}</span>
+      </view>
+      <view>
+        {{info.offerNotice}}
+      </view>
+    </view>
+    <view class="btn">
+      <commonBtn bindtap="clickBtn" bgc="{{info.userCouponStatus==='received'?'#D5D5D5': '#447FFF'}}">{{userCouponText[info.userCouponStatus]}}</commonBtn>
+    </view>
+    <view class="line"></view>
+    <view class="left-wrap"></view>
+    <view class="right-wrap"></view>
+  </view>
+  <view class="coupon-bottom">
+    <view class="bottom-box">
+      <view class="bottom-item flex-between">
+        <view class="flex-1">
+          到期时间
+        </view>
+        <view class="c-80 flex-1">
+          {{info.endTime}}
+        </view>
+      </view>
+      <view class="bottom-item flex-between">
+        <view class="flex-1">
+          领取说明
+        </view>
+        <view class="c-80 flex-1">
+          {{info.getNotice}}
+        </view>
+      </view>
+      <view class="bottom-item">
+        <view class="mb-12">
+          优惠券说明
+        </view>
+        <view class="c-80">
+          {{info.offerNotice}}
+        </view>
+      </view>
+      <view class="bottom-item">
+        <view class="mb-12">
+          使用须知
+        </view>
+        <view class="c-80">
+          {{info.useNotice}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

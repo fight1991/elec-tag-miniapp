@@ -1,0 +1,4 @@
+<view class="oil-price">
+  <view class="new-price">¥{{oldPrice}}</view>
+  <view class="old-price">{{newPrice}}</view>
+</view>

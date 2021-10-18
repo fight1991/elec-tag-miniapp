@@ -1,0 +1,17 @@
+<!--pages/main/components/groupBtn.wxml-->
+<view class="group-btn">
+  <view class="left-box" style="background-image:url({{bgImg.plate}})" bindtap="elecBrandBtn">
+    <text class="group-text">电子车牌</text>
+    <view class="icon-box">
+      <image class="image" src="/pages/image/icons/free.png" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class="right-box">
+    <view class="right-item mb-20" style="background-image:url({{bgImg.car}})" bindtap="carInfoBtn">
+      <text class="group-text">我的车辆</text>
+    </view>
+    <view class="right-item" style="background-image:url({{bgImg.scan}})" bindtap="scanBtn">
+      <text class="group-text">扫一扫</text>
+    </view>
+  </view>
+</view>

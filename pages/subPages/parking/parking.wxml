@@ -1,51 +1,74 @@
-<!--pages/subPages/parking/parking.wxml-->
+<!--pages/subPages/parking/nearParking.wxml-->
 <view class="box">
-  <!-- 地图组件 -->
-  <my-map id="myMap"></my-map>
-  <view class="bottom-box">
-    <view class="near-top">
-      <view class="left">附近<text class="car-num">{{total}}</text>个停车场</view>
-      <view class="position flex-center-x">
-        <iconfont icon="position" size="30rpx"></iconfont>
-        <text class="address text-cut">{{address}}</text>
-      </view>
-      <view class="refresh" bindtap="refreshBtn">
-        <iconfont icon="refresh" size="40rpx"></iconfont>
-      </view>
-    </view>
-    <view class="near-bottom" wx:if="{{total > 0}}">
-      <navigator url="./parkingDetail?id={{parkingInfo.orgId}}&distance={{parkingInfo.distance}}">
-        <business-card
-          src="{{parkingInfo.urlIcon}}"
-          title="{{parkingInfo.orgName}}"
-          address="{{parkingInfo.address}}"
-          subTitle="{{parkingInfo.address}}"
-          lat="{{parkingInfo.latitude}}"
-          lng="{{parkingInfo.longitude}}"
-          subTitleRight="{{parkingInfo.distance}}km"
-          oilInfo="{{false}}">
-          <view slot="foot" style="padding-left:140rpx;display:flex">
-            <view style="padding-right:10rpx;" wx:for="{{parkingInfo.orgTags}}" wx:key="item">
-              <van-tag plain type="primary">{{serviceText[item] || '-'}}</van-tag>
-            </view>
-            <van-tag wx:if="{{parkingInfo.businessTimeBucketType == 1}}" plain>24小时</van-tag>
-          </view>
-        </business-card>
-      </navigator>
-    </view>
-    <!-- 广告 -->
-    <view class="ad-area">
-      <assetsImg mode="widthFix" width="690rpx" module="marketing" name="20210806-banner6.png"></assetsImg>
-    </view>
+  <view class="search-box" bindtap="searchPlace">
+    <searchInput bind:clear="initList" disabled placeHolder="请输入您的目的地" value="{{destination}}"></searchInput>
   </view>
   <view class="right-top">
-    <view class="icon-box" bindtap="findParking">
-      <image class="icon-item" mode="widthFix"  src="/pages/image/businessCircle/parking-search.png"></image>
-      <text>找车位</text>
-    </view>
     <view class="icon-box" bindtap="lookRecord">
       <image class="icon-item" mode="widthFix"  src="/pages/image/businessCircle/parking-record.png"></image>
       <text>停车记录</text>
     </view>
   </view>
+  <!-- 地图组件 -->
+  <my-map height="45vh" id="myMap" bind:regionchange="regionchange">
+    <!-- cover-view不能嵌套view标签 -->
+    <cover-view class="reset-position" bindtap="resetCurrentPosition">
+      <cover-image
+        class="reset-icon"
+        mode="widthFix"
+        src="/pages/image/icons/{{resetActiveIcon ? 'return' : 'return-no'}}.png">
+      </cover-image>
+    </cover-view>
+  </my-map>
+  <view class="list-container" style="height: 55vh;">
+    <view class="near-top">
+      <view class="near-left">
+        <view class="left">附近<text class="car-num">{{total}}</text>个停车场</view>
+      </view>
+      <view class="shuxian"></view>
+      <view class="near-right">
+        <view class="position flex-center-x">
+          <iconfont icon="position" size="30rpx"></iconfont>
+          <text class="address text-cut">{{address}}</text>
+        </view>
+        <view class="refresh" bindtap="initList">
+          <iconfont icon="refresh" size="40rpx"></iconfont>
+        </view>
+      </view>
+      
+    </view>
+    <view class="bottom-box">
+      <pull-refresh
+        height="100%"
+        model:count="{{total}}"
+        model:hasMore="{{hasMore}}"
+        bind:pullDown="initList"
+        bind:reachBottom="upperList"
+        model:isRefresh="{{collapse}}">
+        <view class="item-box">
+          <block wx:for="{{list}}" wx:key="orgIdd">
+            <navigator url="./parkingDetail?id={{item.orgId}}&distance={{item.distance}}">
+              <business-card
+                src="{{item.urlIcon}}"
+                row1Title="{{item.orgName}}"
+                row2Title="{{item.address}}"
+                lat="{{item.latitude}}"
+                lng="{{item.longitude}}"
+                row2Suffix="{{item.distance}}km">
+                <view slot="row3">
+                  <tag-group
+                    tagType="none"
+                    translator="{{serviceText}}"
+                    showTimer="{{item.businessTimeBucketType == 1}}"
+                    orgTags="{{item.orgTags}}">
+                  </tag-group>
+                </view>
+              </business-card>
+            </navigator>
+          </block>
+        </view>
+      </pull-refresh>
+    </view>
+  </view>
 </view>
+

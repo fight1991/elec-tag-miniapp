@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "recommend-point": "/pages/main/components/recommendPoint",
-    "top-bg": "/pages/components/topBg/topBg"
-  },
-  "navigationStyle": "custom"
-}
