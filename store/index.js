@@ -10,6 +10,7 @@ export default {
     userPermisson: [], // 用户权限
     wxHeadImg: null,
     jsCode: '', // 微信一键登录时用
+    elecShow: false, // 是否显示电子车牌icon
   },
   isLogin () { // 判断是否登录过
     return !!this.globalData.userInfo.uid
@@ -17,6 +18,7 @@ export default {
   resetLoginStatus () { // 重置登录态
     wx.removeStorageSync('token')
     this.globalData.userInfo = {}
+    this.globalData.elecShow = false
     this.ssToken = ''
   },
   async loginSuccessToPage (token, mobile) {

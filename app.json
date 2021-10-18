@@ -3,10 +3,7 @@
     "pages/index/index",
     "pages/login/signIn",
     "pages/main/main",
-    "pages/main/morePoint",
     "pages/my/my",
-    "pages/circle/circle",
-    "pages/index/board",
     "pages/login/loginType",
     "pages/login/licence"
   ],
@@ -56,7 +53,6 @@
       "name": "parking",
       "pages": [
         "parking",
-        "nearParking",
         "parkingDetail",
         "parkingRecord",
         "recordDetail"
@@ -90,7 +86,8 @@
       "root": "pages/subPages/ticket",
       "name": "ticket",
       "pages": [
-        "ticket"
+        "ticket",
+        "ticketDetail"
       ]
     },
     {
@@ -98,6 +95,7 @@
       "name": "elecPlate",
       "pages": [
         "elecPlate",
+        "morePoint",
         "uploadImg"
       ]
     },
@@ -149,12 +147,6 @@
         "selectedIconPath": "pages/image/home-select.png"
       },
       {
-        "pagePath": "pages/circle/circle",
-        "text": "商圈",
-        "iconPath": "pages/image/business.png",
-        "selectedIconPath": "pages/image/business-fill.png"
-      },
-      {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "pages/image/mine.png",
@@ -201,12 +193,12 @@
     "assetsImg": "/publicBag/components/assetsImg/assetsImg",
     "fullBanner": "/publicBag/components/fullBanner/fullBanner",
     "pull-refresh": "/publicBag/components/pullRefresh/index",
+    "my-tag": "/publicBag/components/outerTag/outerTag",
+    "dropdown-menu": "/publicBag/components/dropdownMenu/dropdownMenu",
+    "dropdown-item": "/publicBag/components/dropdownItem/dropdownItem",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-button": "@vant/weapp/button/index",
-    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
-    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
-    "van-card": "@vant/weapp/card/index",
     "van-tag": "@vant/weapp/tag/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",

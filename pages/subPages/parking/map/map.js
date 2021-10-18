@@ -22,7 +22,7 @@ Component({
       showLocation: true,
       latitude: 31.57,
       longitude: 120.30,
-      markers: []
+      showCompass: true
     }
   },
 
@@ -35,6 +35,52 @@ Component({
       this.setData({
         setting: obj
       })
+    },
+    setCurrentPosOnMap ({ latitude, longitude }) {
+      this.initMap({
+        latitude,
+        longitude
+      })
+    },
+    // 标点
+    setMarkersOnMap (arr) {
+      let markers = arr.map(v => (
+        {
+          id: v.orgId * 1,
+          longitude: v.longitude,
+          latitude: v.latitude
+        }
+      ))
+      /**
+       * 注意:经测试
+       * setData({
+          setting: {
+            markers: [] // 真机不支持
+            includePoint: [], // 真机和模拟器都不支持
+          }
+        })
+       * 
+       */
+      let MapContext = wx.createMapContext('map', this)
+      MapContext.addMarkers({
+        markers
+      })
+      this.setIncludePoints(markers)
+    },
+    // 将标点现实的在视图范围内
+    setIncludePoints (points) {
+      let MapContext = wx.createMapContext('map', this)
+      MapContext.includePoints({
+        points: points,
+        padding: [100, 100, 100, 100]
+      })
+    },
+    // 视野发生变化
+    regionchange (e) {
+      // 当手动滑动时引起的视野变化时触发
+      if (e.type == 'begin' && e.causedBy == 'gesture') {
+        this.triggerEvent('regionchange')
+      }
     }
   }
 })

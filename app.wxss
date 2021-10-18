@@ -1,7 +1,7 @@
 /**app.wxss**/
 page {
   font-size: 14px;
-  background-color: #f0f7ff;
+  background: #F5F9FC;
   font-family: MicrosoftYaHei;
 }
 /* 在真机上，打开页面的瞬间，image src 为本地图片的会闪一下。具体表现是，图片会瞬间拉长，然后变为正常。看上去就像闪烁了一下 */
@@ -45,9 +45,10 @@ image {
 /* 水平方向弹性布局 */
 .flex-row {
   display: flex;
+  align-items: center;
 }
 /* 垂直平方向弹性布局 */
-.flex-row {
+.flex-column {
   display: flex;
   flex-direction: column;
 }

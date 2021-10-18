@@ -1,6 +1,6 @@
 // pages/subPages/wash/wash.js
 var app = getApp()
-const { washList, maintList, washBtnList, translateDic } = app.api
+const { washList, maintList, washBtnList, translateDic, addCoupon } = app.api
 const listApi = {
   wash: washList,
   maint: maintList
@@ -12,16 +12,18 @@ Page({
    */
   data: {
     distanceOption: [
-      { text: '3km', value: 3 },
-      { text: '5km', value: 5 },
-      { text: '10km', value: 10 },
-      { text: '15km', value: 15},
-      { text: '不限', value: '-1'}
+      { label: '3km', value: 3 },
+      { label: '5km', value: 5 },
+      { label: '10km', value: 10 },
+      { label: '15km', value: 15},
+      { label: '不限', value: '-1'}
     ],
     otherOption: [
-      { text: '距离最近', value: 'distance'},
-      { text: '价格最低', value: 'price'}
+      { label: '距离最近', value: 'distance'},
+      { label: '价格最低', value: 'price'}
     ],
+    carTypeOption: [],
+    carType: '',
     distance: 3,
     other: 'distance',
     pageFlag: 'wash', // wash洗车 miant维修保养
@@ -29,13 +31,18 @@ Page({
       wash: '洗车美容',
       maint: '维修保养'
     },
+    bannerId: 2201,//洗车2101 维保2201
     washBtnList: [],
     upkeepType: '', // 洗车类型
     activeTab: '', // 洗车当前tab
+    currentPlace: '', // 位置信息
+    city: '', // 城市名
+    pois: [], // 当前位置的周边信息
     latitude: '',
     longitude: '',
-    serviceText: {},
     tagText: {},
+    couponItem: {},
+    tipVisible: false, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
     hasMore: true,
@@ -56,18 +63,67 @@ Page({
     })
     if (pageFlag == 'wash') {
       this.getWashBtnList()
+      this.setData({
+        bannerId: 2101
+      })
     }
+    //车辆类型
+    let carType = await translateDic('goodsVehicleType')
+    let arr = Object.keys(carType).map(function(key){
+      return { value: key, label: carType[key] };
+    });
     this.setData({
       pageFlag,
-      serviceText: await translateDic('orgServiceType'),
+      carTypeOption: arr,
+      carType: 'car',
       tagText: await translateDic('orgServiceTag'),
     })
-    app.notifyPos(({ latitude, longitude, address }) => {
-      this.data.latitude = latitude
-      this.data.longitude = longitude
-      // 获取附近的停车场
-      this.initList()
+    
+    await this.initPoisData()
+    await this.initList()
+    // app.listenPosition(({ latitude, longitude, address }) => {
+    //   this.data.latitude = latitude
+    //   this.data.longitude = longitude
+    //   // 获取附近的停车场
+    //   this.initList()
+    // })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
+  },
+  //一口价弹窗
+  openTip (e) {
+    this.setData({
+      tipVisible: true,
+      couponItem: { ...e.currentTarget.dataset.citem }
     })
+  },
+  goShopInfo (e) {
+    let { orgId, distance } = e.currentTarget.dataset.item
+    let { latitude, longitude, carType, pageFlag } = this.data
+    wx.navigateTo({
+      url: `./shopInfo?distance=${distance}&latitude=${latitude}&longitude=${longitude}&goodsVehicleType=${carType}&orgId=${orgId}&pageFlag=${pageFlag}`,
+    })
+  },
+  //确认领取
+  async onConfirm () {
+    let { orgId, goodsId } = this.data.couponItem
+    let { couponId: couponConfigId } = this.data.couponItem.couponList[0]
+    let { result } = await addCoupon({
+      orgId,
+      goodsId,
+      couponConfigId
+    })
+    if (result) {
+      // 调用获取验证码api成功后, 开启倒计时
+      utils.showToast.success('领取成功', () => {
+        this.initList()
+      })
+    }
   },
   // 获取洗车按钮列表
   async getWashBtnList () {
@@ -90,6 +146,24 @@ Page({
     this.data.upkeepType = current
     this.initList()
   },
+  // 初始化附件位置
+  initPoisData () {
+    let { title, city, pois, latitude, longitude } = app.currentPos
+    this.data.pois = pois
+    this.setData({
+      currentPlace:title,
+      city,
+      pois,
+      latitude,
+      longitude
+    })
+  },
+  // 城市选择
+  placeSearch () {
+    wx.navigateTo({
+      url: '/pages/subPages/citySelector/citySelector',
+    })
+  },
   // 筛选按钮
   selectBtn () {
     this.initList()
@@ -98,7 +172,7 @@ Page({
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType} = this.data
+    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType, carType} = this.data
     pageIndex ++
     let { result, page } = await listApi[pageFlag]({
       data: {
@@ -106,7 +180,8 @@ Page({
         longitude,
         radius: distance,
         sortType: other,
-        upkeepType
+        upkeepType,
+        goodsVehicleType: pageFlag==='wash' ? carType : ''
       },
       page: {
         pageIndex,

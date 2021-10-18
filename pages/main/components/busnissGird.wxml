@@ -1,0 +1,11 @@
+<!--pages/main/components/busnissGird.wxml-->
+<view class="grid-box">
+  <block wx:for="{{gridIcon}}" wx:key="id">
+    <view class="grid-item" bindtap="routePage" data-page="{{item.pageKey || ''}}">
+      <view class="grid-img">
+        <image class="image" src="{{item.icon}}" mode="widthFix"></image>
+      </view>
+      <view class="grid-text">{{item.label}}</view>
+    </view>
+  </block>
+</view>

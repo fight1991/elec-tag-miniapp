@@ -10,27 +10,28 @@ Page({
     multipleSlots: true
   },
   data: {
+    bannerId: 2001,
     showMask: false,
     currentTabName: 'distance', // 当前选择的tab
     searchStr: '', // 搜索的关键词
     hasSelect: false, // 是否已经选择了油号
     currentOilSelection: '92#', // 默认选择的油号
     distanceOption: [
-      { text: '3km', value: 3 },
-      { text: '5km', value: 5 },
-      { text: '10km', value: 10 },
-      { text: '15km', value: 15},
-      { text: '不限', value: '-1'}
+      { label: '3km', value: 3 },
+      { label: '5km', value: 5 },
+      { label: '10km', value: 10 },
+      { label: '15km', value: 15},
+      { label: '不限', value: '-1'}
     ],
     oilOption: [
-      { text: '92#', value: '92#' },
-      { text: '95#', value: '95#' },
-      { text: '98#', value: '98#' },
-      { text: '0#', value: '0#' }
+      { label: '92#', value: '92#' },
+      { label: '95#', value: '95#' },
+      { label: '98#', value: '98#' },
+      { label: '0#', value: '0#' }
     ],
     otherOption: [
-      { text: '距离最近', value: 'distance'},
-      { text: '价格最低', value: 'price'}
+      { label: '距离最近', value: 'distance'},
+      { label: '价格最低', value: 'price'}
     ],
     distance: 3,
     other: 'distance',
@@ -68,10 +69,11 @@ Page({
   },
   // 筛选条件按钮
   selectBtn (e) {
-    if (typeof e.detail == 'string' && e.detail.indexOf('#') > -1) {
+    let value = e.detail.value
+    if (typeof value == 'string' && value.indexOf('#') > -1) {
       wx.setStorage({
         key: 'oil',
-        data: e.detail
+        data: value
       })
     }
     this.initList()

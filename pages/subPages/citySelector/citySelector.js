@@ -35,7 +35,7 @@ Page({
     let pages = getCurrentPages()
     let prePage = pages[pages.length - 2]
     if (prePage) {
-      let { currentPlace, city, pois } = prePage.data
+      let { currentPlace, city, pois=[] } = prePage.data
       this.data.prePage = prePage
       this.data.pois = pois
       this.setData({
@@ -47,12 +47,28 @@ Page({
   },
   // 数据回填方法
   backfill: function (e) {
-    var id = e.currentTarget.id
-    // console.log(id)
+    let id = e.currentTarget.id
+    let select = {...this.data.suggestion[id]}
     if (!this.data.prePage) return
     this.data.prePage.setData({
-      currentPlace: this.data.suggestion[id].title
+      currentPlace: select.title,
+      latitude: select.location.lat,
+      longitude: select.location.lng,
+      city: this.data.city,
+      pois: this.data.suggestion,
     });
+    if (this.data.prePage.route === 'pages/main/main' && app.currentPos.province !== select.title) {
+      // 如果是首页跳转过来选择的要更新全局位置信息
+      app.currentPos.latitude = select.location.lat
+      app.currentPos.longitude = select.location.lng
+      app.currentPos.pois = this.data.suggestion || []
+      app.currentPos.province = select.province
+      app.currentPos.title = select.title
+      app.currentPos.city = select.city
+    }
+    if (this.data.prePage.route === 'pages/subPages/maint/maint' && this.data.currentPlace !== select.title) {
+      this.data.prePage.initList()
+    }
     wx.navigateBack({
       delta: 1,
     })
@@ -75,6 +91,7 @@ Page({
       region: _this.data.city, //设置城市名，限制关键词所示的地域范围，非必填参数
       success: function(res) {//搜索成功后的回调
         var sug = [];
+        
         for (var i = 0; i < res.data.length; i++) {
           sug.push({ // 获取返回结果，放到sug数组中
             title: res.data[i].title,
@@ -82,6 +99,7 @@ Page({
             address: res.data[i].address,
             city: res.data[i].city,
             district: res.data[i].district,
+            location: res.data[i].location,
             latitude: res.data[i].location.lat,
             longitude: res.data[i].location.lng
           });
@@ -90,6 +108,7 @@ Page({
           suggestion: sug,
           showDefault: false
         });
+        console.log('this.suggestion',sug);
       },
       fail: function(error) {
         console.error(error);

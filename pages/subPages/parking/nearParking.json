@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "business-card": "/pages/components/businessCard/businessCard",
-    "my-map": "./map/map"
-  },
-  "navigationBarTitleText": "找车位"
-}

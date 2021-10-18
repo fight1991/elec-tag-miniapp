@@ -10,27 +10,15 @@
         </searchInput>
       </view>
     </navigator>
-    <!-- <view class="select-box" bindtap="selectBtn">
-      <view class="select-item" data-tab="distance">
-        <text class="select-text stopTap">{{tabValue.distance}}</text>
-        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
-      </view>
-      <view class="select-item" data-tab="oil">
-        <text class="select-text stopTap">{{tabValue.oil}}</text>
-        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
-      </view>
-      <view class="select-item" data-tab="other">
-        <text class="select-text stopTap">{{tabValue.other}}</text>
-        <iconfont class="stopTap" size="20rpx" icon="arrow-down"></iconfont>
-      </view>
-    </view> -->
+    <!-- 活动轮播 -->
+    <banner bannerId="{{bannerId}}"></banner>
+    <!-- 筛选 -->
     <view class="select-box">
-      <van-dropdown-menu active-color="#447fff">
-        <van-dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
-        <van-dropdown-item bind:change="selectBtn" model:value="{{ oil }}" options="{{ oilOption }}" />
-        <van-dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
-        </van-dropdown-item>
-      </van-dropdown-menu>
+      <dropdown-menu>
+        <dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
+        <dropdown-item bind:change="selectBtn" model:value="{{ oil }}" options="{{ oilOption }}" />
+        <dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}"/>
+      </dropdown-menu>
     </view>
   </view>
   <view class="content-box">
@@ -46,18 +34,16 @@
           <navigator url="./oilDetail?oil={{oil}}&id={{item.orgId}}&distance={{item.distance}}&lat={{item.latitude}}&lon={{item.longitude}}">
             <business-card
               src="{{item.urlIcon}}"
-              title="{{item.orgName}}"
-              subTitleRight="{{item.distance + 'km'}}"
+              row1Title="{{item.orgName}}"
               lat="{{item.latitude}}"
               lng="{{item.longitude}}"
-              subTitle="{{item.address}}"
-              oldPrice="{{item.discountPrice}}"
-              newPrice="{{item.price}}">
-              <view slot="foot" style="padding-left:140rpx;display:flex">
-                <view style="padding-right:10rpx;" wx:for="{{item.tagList}}" wx:key="item">
-                  <van-tag plain type="primary">{{item}}</van-tag>
-                </view>
-                <van-tag wx:if="{{item.businessTimeBucketType == 1}}" plain>24小时</van-tag>
+              row2Title="{{item.address}}"
+              row2Suffix="{{item.distance + 'km'}}">
+              <view slot="row3">
+                <new-old-price oldPrice="{{item.discountPrice}}" newPrice="{{'油站 ¥'+item.price}}"></new-old-price>
+              </view>
+              <view slot="row4">
+                <tag-group showTimer="{{item.businessTimeBucketType == 1}}" orgTags="{{item.orgTags}}"></tag-group>
               </view>
             </business-card>
           </navigator>
@@ -76,7 +62,7 @@
           <van-cell
             wx:for="{{oilOption}}"
             wx:key="value"
-            title="{{item.text}}"
+            title="{{item.label}}"
             clickable
             border="{{index != (oilOption.length-1)}}"
             data-name="{{item.value}}"

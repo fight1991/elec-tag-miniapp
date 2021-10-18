@@ -1,0 +1,24 @@
+<!--pages/subPages/maint/components/tipDialog.wxml-->
+<mask model:initValue="{{!visible}}" showCloseBtn="{{false}}">
+  <view class="box">
+    <view class="top" style="background-image:url({{bgImg}})">
+      <span class="top-text">温馨提示</span>
+    </view>
+    <view class="content">
+      <view class="pl-36">
+        1.一元洗车券抢购成功仅当天有效
+      </view>
+      <view class="pl-36">
+        2.每人仅有一次 一元洗车券使用资格
+      </view>
+      <view class="pl-36">
+        3.仅限当前门店使用
+      </view>
+      <view class="btns">
+        <view class="cancel common" bindtap="cancelBtn">取消</view>
+        <view class="confirm common" bindtap="confirmBtn">确认领取</view>
+      </view>
+    </view>
+  </view>
+  
+</mask>
