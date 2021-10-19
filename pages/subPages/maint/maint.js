@@ -70,23 +70,17 @@ Page({
     //车辆类型
     let carType = await translateDic('goodsVehicleType')
     let arr = Object.keys(carType).map(function(key){
-      return { value: key, label: carType[key] };
-    });
+      return { value: key, label: carType[key] }
+    })
     this.setData({
       pageFlag,
       carTypeOption: arr,
       carType: 'car',
-      tagText: await translateDic('orgServiceTag'),
+      tagText: await translateDic('orgServiceTag')
     })
     
-    await this.initPoisData()
-    await this.initList()
-    // app.listenPosition(({ latitude, longitude, title }) => {
-    //   this.data.latitude = latitude
-    //   this.data.longitude = longitude
-    //   // 获取附近的停车场
-    //   this.initList()
-    // })
+    this.initPoisData()
+    this.initList()
   },
 
   /**
@@ -196,7 +190,7 @@ Page({
     if (result) {
       let arr = []
       if (result.length) {
-        arr = result.map(item=>{
+        arr = result.map(item => {
           if (item.orgGoodsExtList[0].couponList.length) {
             item['isShow'] = true
           } else {
