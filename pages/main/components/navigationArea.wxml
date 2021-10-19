@@ -1,6 +1,6 @@
 <!-- 自定义获取位置顶部栏 -->
-<view class="nav-bar" style="height:{{navBarHeight}}px;">
-  <view class="pos-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{menuHeight}}px; bottom:{{menuBotton}}px;">
+<view class="nav-bar" style="height:{{navInfo.navBarHeight}}px;">
+  <view class="pos-box" style="height:{{navInfo.menuHeight}}px; min-height:{{navInfo.menuHeight}}px; line-height:{navInfo.menuHeight}}px; bottom:{{navInfo.menuBotton}}px;">
     <current-position bindplaceSearch="placeSearch" current-place="{{currentPlace}}">
       <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
     </current-position>

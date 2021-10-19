@@ -8,13 +8,24 @@ Component({
         }
     },
     data: {
-        navBarHeight: app.navHeight,
-        menuRight: app.menuRight,
-        menuBotton: app.menuBotton,
-        menuHeight: app.menuHeight,
+        navInfo:{
+            navBarHeight: 60, // 导航栏高度
+            menuRight: 8, // 胶囊距右方间距（方保持左、右间距一致）
+            menuBotton: 4, // 胶囊距底部间距（保持底部间距一致）
+            menuHeight: 32, // 胶囊高度（自定义内容可与胶囊高度保证一致）
+        },
     },
-    attached: function() {
-
+    lifetimes: {
+        attached: function () {
+            let info = JSON.parse(wx.getStorageSync('navInfo'))
+            info.navBarHeight = info.navBarHeight
+            info.menuRight = info.menuRight
+            info.menuBotton = info.menuBotton
+            info.menuHeight = info.menuHeight
+            this.setData({
+                navInfo: info
+            })
+        },
     },
     methods: {
         // 城市选择

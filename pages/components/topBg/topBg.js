@@ -12,9 +12,16 @@ Component({
    * 组件的初始数据
    */
   data: {
-    navBarHeight: app.navHeight,
+    navBarHeight: 116,
   },
-
+  lifetimes: {
+    attached: function () {
+        let info = JSON.parse(wx.getStorageSync('navInfo'))
+        this.setData({
+          navBarHeight: info.navBarHeight+56
+        })
+    },
+},
   /**
    * 组件的方法列表
    */

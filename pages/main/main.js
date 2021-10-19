@@ -1,4 +1,5 @@
 // pages/main/main.js
+// import {setStorageInfo} from '../../publicBag/plugin/getSystemBarInfo'
 var qqmapsdk = null
 var app = getApp()
 Page({
@@ -8,7 +9,8 @@ Page({
    */
   data: {
     // 组件参数设置，传递到组件
-    navBarHeight: app.navHeight,
+    navBarHeight: 60,
+    menuButtonInfo:{},
     carTotal: 0,
     currentPlace: '', // 当前位置
     city: '', // 城市名
@@ -23,6 +25,23 @@ Page({
     this.checkPermission()
   },
   onShow: function () {},
+  onReady: function () {
+    const _this = this;
+    let info = JSON.parse(wx.getStorageSync('navInfo'))
+    if (info.top === 0) {
+      setTimeout(() => {
+        const menuButtonInfo = wx.getMenuButtonBoundingClientRect();
+        app.setStorageInfo(menuButtonInfo)
+        _this.setData({
+          navBarHeight: JSON.parse(wx.getStorageSync('navInfo')).navBarHeight,
+        });
+      }, 400);
+    } else {
+      _this.setData({
+        navBarHeight: info.navBarHeight,
+      });
+    }
+  },
   // 权限检测
   checkPermission () {
     app.utils.permissionHandler('scope.userLocation').then(() => {
