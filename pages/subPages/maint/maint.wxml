@@ -42,7 +42,7 @@
             lat="{{item.latitude}}"
             lng="{{item.longitude}}">
             <view slot="row3">
-              <view class="flex-row" wx:if="{{item.orgTags.indexOf('activityCarWash') !== -1}}">
+              <view class="flex-row" wx:if="{{item.orgTags && item.orgTags.indexOf('activityCarWash') !== -1}}">
                 <view style="padding-right:10rpx;">
                   <van-tag class="fs-22" plain type="primary">一元洗车</van-tag>
                 </view>
