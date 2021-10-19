@@ -12,8 +12,8 @@ page {
 }
 .linear-box {
   height: 100%;
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   /* overflow-y: scroll; */
   /* background:linear-gradient(to bottom, #3E77FF, #f0f7ff 30%); */
   position: relative;
