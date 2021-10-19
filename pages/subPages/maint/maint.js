@@ -33,8 +33,8 @@ Page({
     },
     bannerId: 2201,//洗车2101 维保2201
     washBtnList: [],
-    upkeepType: 'standardWash', // 洗车类型
-    activeTab: 'standardWash', // 洗车当前tab
+    upkeepType: '', // 洗车类型
+    activeTab: '', // 洗车当前tab
     currentPlace: '', // 位置信息
     city: '', // 城市名
     pois: [], // 当前位置的周边信息
@@ -62,10 +62,10 @@ Page({
       title: this.data.pageTitle[pageFlag]
     })
     if (pageFlag == 'wash') {
-      this.getWashBtnList()
       this.setData({
         bannerId: 2101
       })
+      await this.getWashBtnList()
     }
     //车辆类型
     let carType = await translateDic('goodsVehicleType')
@@ -134,9 +134,15 @@ Page({
   // 获取洗车按钮列表
   async getWashBtnList () {
     let { result } = await washBtnList()
-    if (result) {
+    if (result && result.length) {
       this.setData({
-        washBtnList: result
+        washBtnList: result,
+        upkeepType: result[0].goodsCategoryCode, // 洗车类型
+        activeTab: result[0].goodsCategoryCode // 洗车当前tab
+      })
+    } else {
+      this.setData({
+        washBtnList: []
       })
     }
   },
@@ -227,7 +233,6 @@ Page({
   },
   // 下拉刷新
   initList () {
-    console.log('11111',this.data.distance);
     this.getList(0, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
       this.setData({
