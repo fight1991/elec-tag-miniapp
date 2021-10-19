@@ -74,7 +74,7 @@ page {
 }
 .purchase-btn {
   width: 118rpx;
-  height: 74rpx;
+  height: 64rpx;
   text-align: center;
   background-color: #FE8746;
   color: #fff;
