@@ -1,10 +1,11 @@
 <!--pages/subPages/maint/components/tipDialog.wxml-->
-<mask model:initValue="{{!visible}}" showCloseBtn="{{false}}">
-  <view class="box">
-    <view class="top" style="background-image:url({{bgImg}})">
+<view class="wx_dialog_container" hidden="{{!visible}}">
+  <view class="wx-mask" bindtap="cancelBtn"></view>
+  <view class="wx-dialog">
+    <view class="wx-dialog-header" style="background-image:url({{bgImg}})">
       <span class="top-text">温馨提示</span>
     </view>
-    <view class="content">
+    <view class="wx-dialog-content">
       <view class="pl-36">
         1.一元洗车券抢购成功仅当天有效
       </view>
@@ -20,5 +21,5 @@
       </view>
     </view>
   </view>
-  
-</mask>
+</view>
+

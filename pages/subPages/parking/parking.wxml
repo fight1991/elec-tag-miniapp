@@ -55,7 +55,7 @@
                 lat="{{item.latitude}}"
                 lng="{{item.longitude}}"
                 row2Suffix="{{item.distance}}km">
-                <view slot="row3">
+                <view slot="row3" class="btn-cls">
                   <tag-group
                     tagType="none"
                     translator="{{serviceText}}"

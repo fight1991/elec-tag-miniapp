@@ -44,7 +44,7 @@ Page({
   },
   // 获取经纬度及地址信息
   getCurrentPositionInfo () {
-    app.listenPosition(({ latitude, longitude, address }) => {
+    app.listenPosition(({ latitude, longitude, title }) => {
       this.data.searchForm.latitude = latitude
       this.data.searchForm.longitude = longitude
       this.myMap.setCurrentPosOnMap({
@@ -52,7 +52,7 @@ Page({
         longitude
       })
       this.setData({
-        address
+        address: title
       })
       // 获取附近的停车场
       this.initList()
