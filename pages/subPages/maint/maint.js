@@ -26,7 +26,7 @@ Page({
     carType: '',
     distance: 3,
     other: 'distance',
-    pageFlag: 'wash', // wash洗车 miant维修保养
+    pageFlag: 'maint', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',
       maint: '维修保养'
@@ -81,7 +81,7 @@ Page({
     
     await this.initPoisData()
     await this.initList()
-    // app.listenPosition(({ latitude, longitude, address }) => {
+    // app.listenPosition(({ latitude, longitude, title }) => {
     //   this.data.latitude = latitude
     //   this.data.longitude = longitude
     //   // 获取附近的停车场
@@ -118,8 +118,10 @@ Page({
       goodsId,
       couponConfigId
     })
+    console.log('result',result);
+    
     if (result) {
-      // 调用获取验证码api成功后, 开启倒计时
+      // 领取成功后, 刷新状态
       utils.showToast.success('领取成功', () => {
         this.initList()
       })

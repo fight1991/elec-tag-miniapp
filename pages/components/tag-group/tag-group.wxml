@@ -1,4 +1,4 @@
-<view style="display:flex;flex-wrap: wrap;padding-right:10rpx;">
+<view class="tag-group-box">
   <view style="padding-right:10rpx;" wx:for="{{orgTags}}" wx:key="item">
     <van-tag class="fs-22" plain type="primary">{{translator[item] || item || '-'}}</van-tag>
   </view>
