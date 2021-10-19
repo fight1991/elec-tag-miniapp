@@ -10,7 +10,7 @@
         适用车型
       </view>
       <view class="flex-1 tr">
-        {{carType[dataForm.goodsVehicleType]}}
+        {{carType[dataForm.orgGoodsExtList[0].goodsDefaultConfig.goodsVehicleType]}}
       </view>
     </view>
 

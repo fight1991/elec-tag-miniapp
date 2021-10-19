@@ -35,13 +35,14 @@ Page({
     washBtnList: [],
     upkeepType: '', // 洗车类型
     activeTab: '', // 洗车当前tab
+    goodsCategoryId: '',
     currentPlace: '', // 位置信息
     city: '', // 城市名
     pois: [], // 当前位置的周边信息
     latitude: '',
     longitude: '',
     tagText: {},
-    couponItem: {},
+    selectIndex: null,
     tipVisible: false, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
@@ -93,7 +94,7 @@ Page({
   openTip (e) {
     this.setData({
       tipVisible: true,
-      couponItem: { ...e.currentTarget.dataset.citem }
+      selectIndex: e.currentTarget.dataset.index
     })
   },
   goShopInfo (e) {
@@ -105,8 +106,12 @@ Page({
   },
   //确认领取
   async onConfirm () {
-    let { orgId, goodsId } = this.data.couponItem
-    let { couponId: couponConfigId } = this.data.couponItem.couponList[0]
+    let goodItem = this.data.list[this.data.selectIndex].orgGoodsExtList[0]
+    this.setData({
+      list: arr
+    })
+    let { orgId, goodsId } = goodItem
+    let { couponId: couponConfigId } = goodItem.couponList[0]
     let { result } = await addCoupon({
       orgId,
       goodsId,
@@ -114,14 +119,9 @@ Page({
     })
     if (result) {
       // 领取成功后, 刷新状态
-      let arr = this.data.list.map(item => {
-        if(item.orgGoodsExtList[0].orgId === orgId && item.orgGoodsExtList[0].goodsId === goodsId) {
-          item.isShow = false
-        }
-        return item
-      });
+      goodItem.couponList = []
       this.setData({
-        list: arr
+        list: this.data.list
       })
     }
   },
@@ -132,22 +132,27 @@ Page({
       this.setData({
         washBtnList: result,
         upkeepType: result[0].goodsCategoryCode, // 洗车类型
-        activeTab: result[0].goodsCategoryCode // 洗车当前tab
+        activeTab: result[0].goodsCategoryCode, // 洗车当前tab
+        goodsCategoryId: result[0].goodsCategoryId
       })
     } else {
       this.setData({
-        washBtnList: []
+        washBtnList: [],
+        upkeepType: '',
+        activeTab: '',
+        goodsCategoryId: ''
       })
     }
   },
   // 洗车筛选按钮
   washTabBtn (e) {
-    let current = e.target.dataset.type
-    if (current !== this.data.activeTab) {
+    let current = this.data.washBtnList[e.target.dataset.index]
+    if (current.goodsCategoryCode !== this.data.activeTab) {
       this.setData({
-        activeTab: current
+        activeTab: current.goodsCategoryCode,
+        goodsCategoryId: current.goodsCategoryId
       })
-      this.data.upkeepType = current
+      this.data.upkeepType = current.goodsCategoryCode
       this.initList()
     }
   },
@@ -177,7 +182,7 @@ Page({
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType, carType} = this.data
+    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType, carType, goodsCategoryId} = this.data
     pageIndex ++
     let { result, page } = await listApi[pageFlag]({
       data: {
@@ -186,6 +191,7 @@ Page({
         radius: distance,
         sortType: other,
         upkeepType,
+        goodsCategoryId: pageFlag==='wash' ? goodsCategoryId : '',
         goodsVehicleType: pageFlag==='wash' ? carType : ''
       },
       page: {
@@ -194,18 +200,7 @@ Page({
       }
     })
     if (result) {
-      let arr = []
-      if (result.length) {
-        arr = result.map(item => {
-          if (item.orgGoodsExtList[0].couponList.length) {
-            item['isShow'] = true
-          } else {
-            item['isShow'] = false
-          }
-          return item
-        })
-      }
-      callback && callback(arr, page)
+      callback && callback(result || [], page)
     }
     this.loading = false
     this.setData({
