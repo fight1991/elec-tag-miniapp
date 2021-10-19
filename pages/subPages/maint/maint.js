@@ -33,8 +33,8 @@ Page({
     },
     bannerId: 2201,//洗车2101 维保2201
     washBtnList: [],
-    upkeepType: '', // 洗车类型
-    activeTab: '', // 洗车当前tab
+    upkeepType: 'standardWash', // 洗车类型
+    activeTab: 'standardWash', // 洗车当前tab
     currentPlace: '', // 位置信息
     city: '', // 城市名
     pois: [], // 当前位置的周边信息
@@ -143,14 +143,13 @@ Page({
   // 洗车筛选按钮
   washTabBtn (e) {
     let current = e.target.dataset.type
-    if (current === this.data.activeTab) {
-      current = ''
+    if (current !== this.data.activeTab) {
+      this.setData({
+        activeTab: current
+      })
+      this.data.upkeepType = current
+      this.initList()
     }
-    this.setData({
-      activeTab: current
-    })
-    this.data.upkeepType = current
-    this.initList()
   },
   // 初始化附件位置
   initPoisData () {
@@ -195,15 +194,18 @@ Page({
       }
     })
     if (result) {
-      let arr = result.map(item=>{
-        if (item.orgGoodsExtList[0].couponList.length) {
-          item['isShow'] = true
-        } else {
-          item['isShow'] = false
-        }
-        return item
-      })
-      callback && callback(arr || [], page)
+      let arr = []
+      if (result.length) {
+        arr = result.map(item=>{
+          if (item.orgGoodsExtList[0].couponList.length) {
+            item['isShow'] = true
+          } else {
+            item['isShow'] = false
+          }
+          return item
+        })
+      }
+      callback && callback(arr, page)
     }
     this.loading = false
     this.setData({
@@ -225,6 +227,7 @@ Page({
   },
   // 下拉刷新
   initList () {
+    console.log('11111',this.data.distance);
     this.getList(0, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
       this.setData({
