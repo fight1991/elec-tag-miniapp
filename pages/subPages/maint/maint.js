@@ -118,12 +118,16 @@ Page({
       goodsId,
       couponConfigId
     })
-    console.log('result',result);
-    
     if (result) {
       // 领取成功后, 刷新状态
-      utils.showToast.success('领取成功', () => {
-        this.initList()
+      let arr = this.data.list.map(item => {
+        if(item.orgGoodsExtList[0].orgId === orgId && item.orgGoodsExtList[0].goodsId === goodsId) {
+          item.isShow = false
+        }
+        return item
+      });
+      this.setData({
+        list: arr
       })
     }
   },
@@ -191,7 +195,15 @@ Page({
       }
     })
     if (result) {
-      callback && callback(result || [], page)
+      let arr = result.map(item=>{
+        if (item.orgGoodsExtList[0].couponList.length) {
+          item['isShow'] = true
+        } else {
+          item['isShow'] = false
+        }
+        return item
+      })
+      callback && callback(arr || [], page)
     }
     this.loading = false
     this.setData({

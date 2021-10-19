@@ -60,11 +60,11 @@
                     <text class="goods-name text-cut">{{item.orgGoodsExtList[0].goodsName || '-'}}</text>
                   </view>
                   <view class="goods-price">
-                    <new-old-price wx:if="{{item.orgGoodsExtList[0].couponList.length}}" oldPrice="{{item.orgGoodsExtList[0].couponList[0].fixedAmount}}" newPrice="{{' ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
+                    <new-old-price wx:if="{{item.isShow}}" oldPrice="{{item.orgGoodsExtList[0].couponList[0].fixedAmount}}" newPrice="{{' ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
                     <new-old-price wx:else oldPrice="{{item.orgGoodsExtList[0].goodsPlatPrice}}" newPrice="{{'门市 ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
                   </view>
                 </view>
-                <view class="foot-right purchase-btn" data-citem="{{item.orgGoodsExtList[0]}}" catchtap="openTip" wx:if="{{item.orgGoodsExtList[0].couponList.length}}">
+                <view class="foot-right purchase-btn" data-citem="{{item.orgGoodsExtList[0]}}" catchtap="openTip" wx:if="{{item.isShow}}">
                   <view class="right-now">立即抢</view>
                   <view class="remain-num">余{{item.orgGoodsExtList[0].couponList[0].numberDailyRemaining+''}}</view>
                 </view>
