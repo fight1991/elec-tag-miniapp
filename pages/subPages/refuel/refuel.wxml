@@ -5,7 +5,8 @@
       <view class="search-box" disabled>
         <searchInput
           disabled
-          value="{{searchStr}}"
+          model:value="{{searchStr}}"
+          bindclear="clearSearch"
           placeHolder="搜索附近的加油站">
         </searchInput>
       </view>

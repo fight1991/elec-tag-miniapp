@@ -20,7 +20,7 @@ Component({
     bannerList:[],
     indicatorColor: 'rgba(255, 255, 255, .3)',
     indicatorActiveColor: 'rgba(255, 255, 255, 1)',
-    autoplay: true,
+    autoplay: false,
     interval: 3000,
     duration: 500,
   },

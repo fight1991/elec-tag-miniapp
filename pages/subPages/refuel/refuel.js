@@ -78,6 +78,9 @@ Page({
     }
     this.initList()
   },
+  clearSearch () {
+    this.initList()
+  },
   // 模态框
   onClickHide () {
     this.setData({

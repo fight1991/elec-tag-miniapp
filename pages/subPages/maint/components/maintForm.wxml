@@ -12,7 +12,7 @@
       <view class="w-220">
         {{item.itemName}}
       </view>
-      <view class="content-center">
+      <view class="flex-1">
         <view class="flex-between">
           <view class="center-title2">
             {{item.itemName==='工时费' ? '' : '门市价'}}
@@ -25,7 +25,7 @@
     </view>
     <view class="flex">
       <view class="w-220"></view>
-      <view class="content-center">
+      <view class="flex-1">
         <view class="flex-between">
           <view class="center-title2">
             平台优惠
@@ -38,7 +38,7 @@
     </view>
     <view class="flex">
       <view class="w-220"></view>
-      <view class="content-center">
+      <view class="flex-1">
         <view class="flex-between">
           <view class="center-title2">
             优惠后价格
@@ -51,10 +51,10 @@
     </view>
     <view class="extra">*额外增值收费服务依据到店收费为准</view>
     <view class="flex-between">
-      <view>
+      <view class="w-220">
         门店地址
       </view>
-      <view>
+      <view class="flex-1 tr">
         {{dataForm.address}}
       </view>
     </view>

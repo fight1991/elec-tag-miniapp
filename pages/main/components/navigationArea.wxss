@@ -1,5 +1,4 @@
-.nav-bar { 
-  z-index: 5;
+.nav-bar {
   position: fixed;
   width: 100%;
   top: 0;
