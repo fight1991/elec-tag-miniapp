@@ -107,9 +107,6 @@ Page({
   //确认领取
   async onConfirm () {
     let goodItem = this.data.list[this.data.selectIndex].orgGoodsExtList[0]
-    this.setData({
-      list: arr
-    })
     let { orgId, goodsId } = goodItem
     let { couponId: couponConfigId } = goodItem.couponList[0]
     let { result } = await addCoupon({
