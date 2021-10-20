@@ -65,6 +65,7 @@ Page({
         oil,
         hasSelect: true
       })
+      this.initList()
     }
   },
   // 筛选条件按钮
@@ -86,6 +87,10 @@ Page({
     this.setData({
       showMask: false,
       hasSelect: true
+    })
+    wx.setStorage({
+      key: 'oil',
+      data: this.data.oil
     })
     this.initList()
   },
@@ -118,7 +123,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.data.hasSelect && this.initList()
+    // this.data.hasSelect && this.initList()
   },
   // 获取列表
   async getList (pageIndex, callback) {
