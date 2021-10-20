@@ -19,7 +19,7 @@
       <dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
       <dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
       </dropdown-item>
-      <dropdown-item bind:change="selectBtn" model:value="{{ carType }}" options="{{ carTypeOption }}" wx:if="{{pageFlag==='wash' && carTypeOption.length}}">
+      <dropdown-item bind:change="selectBtn" model:value="{{ carType }}" options="{{ carTypeOption }}" wx:if="{{pageFlag=='wash'}}">
       </dropdown-item>
     </dropdown-menu>
   </view>
