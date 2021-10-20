@@ -71,7 +71,8 @@ Page({
     if (location) {
       let { name, latitude, longitude } = location
       this.setData({
-        destination: name
+        destination: name,
+        address: name
       })
       this.data.searchForm.latitude = latitude
       this.data.searchForm.longitude = longitude
@@ -117,7 +118,7 @@ Page({
         list: [...list, ...resList],
         hasMore: pageIndex * pageSize >= total ? false : true
       })
-      this.myMap.setMarkersOnMap(this.data.list)
+      this.addMakers()
     })
   },
   // 下拉刷新
@@ -130,22 +131,37 @@ Page({
         total,
         hasMore: pageIndex * pageSize >= total ? false : true
       })
-      this.myMap.setMarkersOnMap(this.data.list)
+      this.addMakers()
     })
   },
   // 重新定位到当前位置
   resetCurrentPosition () {
-    let { latitude, longitude } = app.currentPos
+    let { latitude, longitude, title } = app.currentPos
     this.myMap.setIncludePoints([{
       latitude,
       longitude
     }])
     let { resetActiveIcon } = this.data
-    !resetActiveIcon && this.setData({ resetActiveIcon: true })
+    if (!resetActiveIcon) {
+      this.setData({
+        resetActiveIcon: true,
+        destination: '',
+        address: title
+      })
+      this.initList()
+    }
   },
   // 视野发生变化, 重新定位图标置灰状态
   regionchange (e) {
     let { resetActiveIcon } = this.data
     resetActiveIcon && this.setData({ resetActiveIcon: false })
+  },
+  // 添加标记
+  addMakers () {
+    let points = [...this.data.list]
+    if (this.data.destination) { // 目的地点也添加进去
+      points = [...this.data.list, {...this.data.searchForm, location: true}]
+    }
+    this.myMap.setMarkersOnMap(points)
   }
 })
