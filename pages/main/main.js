@@ -26,21 +26,9 @@ Page({
   },
   onShow: function () {},
   onReady: function () {
-    const _this = this;
-    let info = JSON.parse(wx.getStorageSync('navInfo'))
-    if (info.top === 0) {
-      setTimeout(() => {
-        const menuButtonInfo = wx.getMenuButtonBoundingClientRect();
-        app.setStorageInfo(menuButtonInfo)
-        _this.setData({
-          navBarHeight: JSON.parse(wx.getStorageSync('navInfo')).navBarHeight,
-        });
-      }, 400);
-    } else {
-      _this.setData({
-        navBarHeight: info.navBarHeight,
-      });
-    }
+    this.setData({
+      navBarHeight: app.getSafeData()['bottomTop']
+    })
   },
   // 权限检测
   checkPermission () {

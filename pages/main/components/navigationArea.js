@@ -8,22 +8,13 @@ Component({
         }
     },
     data: {
-        navInfo:{
-            navBarHeight: 60, // 导航栏高度
-            menuRight: 8, // 胶囊距右方间距（方保持左、右间距一致）
-            menuBotton: 4, // 胶囊距底部间距（保持底部间距一致）
-            menuHeight: 32, // 胶囊高度（自定义内容可与胶囊高度保证一致）
-        },
+        navTop: 0
     },
     lifetimes: {
         attached: function () {
-            let info = JSON.parse(wx.getStorageSync('navInfo'))
-            info.navBarHeight = info.navBarHeight
-            info.menuRight = info.menuRight
-            info.menuBotton = info.menuBotton
-            info.menuHeight = info.menuHeight
+            let { navTop } = app.getSafeData()
             this.setData({
-                navInfo: info
+                navTop
             })
         },
     },

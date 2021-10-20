@@ -46,10 +46,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let info = JSON.parse(wx.getStorageSync('navInfo'))
-    this.setData({
-      navBarHeight: info.navBarHeight,
-    });
+    
   },
   // 用户退出
   loginOut () {
@@ -113,7 +110,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      navBarHeight: app.getSafeData()['bottomTop'],
+    });
   },
 
   /**

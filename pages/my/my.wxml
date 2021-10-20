@@ -1,5 +1,5 @@
 
-<view class="outer" style="padding-top:{{navBarHeight+10}}px;">
+<view class="outer" style="padding-top:{{navBarHeight+20}}rpx;">
   <top-bg></top-bg>
   <view class="user-bg">
     <view class="user-left">

@@ -1,12 +1,9 @@
 .nav-bar {
   position: fixed;
-  width: 100%;
-  top: 0;
-  color: #fff;
+  left: 40rpx;
+  transform: translateY(-50%);
 }
 .pos-box {
-  position: absolute;
-  left: 50rpx;
-  width: 60%;
+  max-width: 480rpx;
   color: #fff;
 }

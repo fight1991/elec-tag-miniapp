@@ -1,7 +1,7 @@
 <!--pages/main/main.wxml-->
 <view class="linear-box">
   <top-bg></top-bg>
-  <view class="card-show-box" style="padding-top:{{navBarHeight+10}}px;">
+  <view class="card-show-box" style="padding-top:{{navBarHeight+20}}rpx;">
     <navigation-area current-place="{{currentPlace}}"></navigation-area>
     <card-show bindgetCarNum="getCarNum"></card-show>
   </view>

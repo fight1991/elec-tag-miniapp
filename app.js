@@ -17,7 +17,7 @@ import store from './store/index'
 share()
 App({
   onLaunch() {
-    this.getSystemBarInfo()
+
   },
   utils, // 绑定公共方法
   api, // 绑定api
