@@ -44,13 +44,24 @@ Component({
     },
     // 标点
     setMarkersOnMap (arr) {
-      let markers = arr.map(v => (
-        {
-          id: v.orgId * 1,
-          longitude: v.longitude,
-          latitude: v.latitude
+      let markers = arr.map(v => {
+        if (v.location) {
+          return {
+            id: v.longitude,
+            longitude: v.longitude,
+            latitude: v.latitude
+          }
+        } else {
+          return {
+            id: v.orgId * 1,
+            longitude: v.longitude,
+            latitude: v.latitude,
+            iconPath: '/pages/image/icons/location_map.png',
+            width: 17,
+            height: 22
+          } 
         }
-      ))
+      })
       /**
        * 注意:经测试
        * setData({
@@ -67,7 +78,7 @@ Component({
       })
       this.setIncludePoints(markers)
     },
-    // 将标点现实的在视图范围内
+    // 将标点显示在视图范围内
     setIncludePoints (points) {
       let MapContext = wx.createMapContext('map', this)
       MapContext.includePoints({
