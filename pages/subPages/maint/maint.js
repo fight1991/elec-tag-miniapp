@@ -26,7 +26,7 @@ Page({
     carType: '',
     distance: 3,
     other: 'distance',
-    pageFlag: 'maint', // wash洗车 miant维修保养
+    pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',
       maint: '维修保养'
