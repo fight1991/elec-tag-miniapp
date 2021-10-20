@@ -1,21 +1,23 @@
 <!--pages/subPages/wash/washDetail.wxml-->
-<view class="box">
-  <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
-  <view class="title">
-    {{dataForm.goodsName}}
-    <view style="padding-left:20rpx;" wx:for="{{dataForm.orgTags}}" wx:key="item">
-      <van-tag class="fs-22" plain type="primary">{{serviceText[item] || '-'}}</van-tag>
+<safe-area>
+  <view class="box">
+    <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
+    <view class="title">
+      {{dataForm.goodsName}}
+      <view style="padding-left:20rpx;" wx:for="{{dataForm.orgTags}}" wx:key="item">
+        <van-tag class="fs-22" plain type="primary">{{serviceText[item] || '-'}}</van-tag>
+      </view>
+    </view>
+    <view wx:if="{{pageFlag=='wash'}}">
+      <!-- 洗车套餐 -->
+      <wash-form dataForm="{{dataForm}}"></wash-form>
+    </view>
+    <view wx:if="{{pageFlag=='maint'}}">
+      <!-- 维修套餐 -->
+      <maint-form dataForm="{{dataForm}}"></maint-form>
     </view>
   </view>
-  <view wx:if="{{pageFlag=='wash'}}">
-    <!-- 洗车套餐 -->
-    <wash-form dataForm="{{dataForm}}"></wash-form>
-  </view>
-  <view wx:if="{{pageFlag=='maint'}}">
-    <!-- 维修套餐 -->
-    <maint-form dataForm="{{dataForm}}"></maint-form>
-  </view>
-</view>
+</safe-area>
 <view>
   <fixBtn type="light" width="50vw" bindtap="makePhone">联系电话</fixBtn>
   <fixBtn align="right" width="50vw" bindtap="goBtn">立即前往</fixBtn>
