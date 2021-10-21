@@ -9,7 +9,7 @@
   <view class="item-box">
     <block wx:for="{{list}}" wx:key="couponConfigId">
       <view class="coupon-item" style="background-image:url({{bgImg.left}});background-size:100% 100%;">
-        <navigator url="/pages/subPages/ticket/ticketDetail?couponId={{item.couponConfigId}}&pageFlag={{item.couponExt.service}}&pageOrigin=use&orgId={{item.receiveOrgId}}&goodsId={{item.receiveGoodsId}}">
+        <navigator url="/pages/subPages/ticket/ticketDetail?couponId={{item.couponId}}&couponConfigId={{item.couponConfigId}}&pageFlag={{item.couponExt.service}}&pageOrigin=use&orgId={{item.receiveOrgId}}&goodsId={{item.receiveGoodsId}}">
           <view class="left-content">
             <view class="left-box">
               <view class="overflow-ellipsis">

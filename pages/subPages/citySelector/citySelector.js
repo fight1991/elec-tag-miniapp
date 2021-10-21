@@ -35,7 +35,7 @@ Page({
     let pages = getCurrentPages()
     let prePage = pages[pages.length - 2]
     if (prePage) {
-      let { currentPlace, city, pois=[] } = prePage.data
+      let { currentPlace, city, pois=[] } = app.currentPos
       this.data.prePage = prePage
       this.data.pois = pois
       this.setData({

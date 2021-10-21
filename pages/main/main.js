@@ -13,8 +13,6 @@ Page({
     menuButtonInfo:{},
     carTotal: 0,
     currentPlace: '', // 当前位置
-    city: '', // 城市名
-    pois: [], // 当前位置的周边信息
   },
 
   /**

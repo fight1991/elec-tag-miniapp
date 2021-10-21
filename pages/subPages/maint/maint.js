@@ -154,10 +154,8 @@ Page({
   // 初始化附件位置
   initPoisData () {
     let { title, latitude, longitude } = app.currentPos
-    this.data.pois = pois
     this.setData({
       currentPlace:title,
-      pois,
       latitude,
       longitude
     })
