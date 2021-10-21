@@ -16,9 +16,8 @@ Component({
   },
   lifetimes: {
     attached: function () {
-        let info = JSON.parse(wx.getStorageSync('navInfo'))
         this.setData({
-          navBarHeight: info.navBarHeight+56
+          navBarHeight: app.getSafeData()['bottomTop'] + 56
         })
     },
 },
