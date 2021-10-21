@@ -10,9 +10,9 @@ Page({
   data: {
     // 组件参数设置，传递到组件
     navBarHeight: 60,
+    navTop: 0,
     menuButtonInfo:{},
     carTotal: 0,
-    currentPlace: '', // 当前位置
   },
 
   /**
@@ -22,10 +22,13 @@ Page({
     qqmapsdk = app.initMapSdk()
     this.checkPermission()
   },
-  onShow: function () {},
+  onShow: function () {
+
+  },
   onReady: function () {
     this.setData({
-      navBarHeight: app.getSafeData()['bottomTop']
+      navBarHeight: app.getSafeData()['bottomTop'],
+      navTop: app.getSafeData()['navTop']
     })
   },
   // 权限检测
@@ -58,8 +61,6 @@ Page({
   startOpenPositionChange () {
     wx.onLocationChange(res => {
       this.reverseGeocoder(res)
-      // 发送位置信息更改广播
-      app.sendPosition(Date.now())
     })
   },
   // 解析位置
@@ -80,15 +81,17 @@ Page({
             obj = {...item, ...item.ad_info}
             return obj
           })
-          app.currentPos.latitude = latitude
-          app.currentPos.longitude = longitude
-          app.currentPos.pois = arr
-          app.currentPos.province = tempRes.address_component.province
-          app.currentPos.title = tempRes.formatted_addresses.recommend
-          app.currentPos.city = tempRes.address_component.city
-          this.setData({
-            currentPlace: app.currentPos.title,
+          // 保存到全局
+          app.savePosition({
+            latitude,
+            longitude,
+            pois: arr,
+            province: tempRes.address_component.province,
+            title: tempRes.formatted_addresses.recommend, // 地址详情
+            city: tempRes.address_component.city
           })
+          // 发送位置信息更改广播
+          app.sendPosition(tempRes.formatted_addresses.recommend)
           callback && callback()
         }
       }

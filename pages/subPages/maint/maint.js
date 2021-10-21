@@ -36,7 +36,6 @@ Page({
     upkeepType: '', // 洗车类型
     activeTab: '', // 洗车当前tab
     goodsCategoryId: '',
-    currentPlace: '', // 位置信息
     latitude: '',
     longitude: '',
     tagText: {},
@@ -153,10 +152,7 @@ Page({
   },
   // 初始化附件位置
   initPoisData () {
-    let { title, latitude, longitude } = app.currentPos
-    this.setData({
-      currentPlace:title
-    })
+    let { latitude, longitude } = app.currentPos
     this.data.latitude = latitude
     this.data.longitude = longitude
   },

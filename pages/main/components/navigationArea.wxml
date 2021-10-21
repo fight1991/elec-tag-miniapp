@@ -1,7 +1,7 @@
 <!-- 自定义获取位置顶部栏 -->
 <view class="nav-bar" style="top:{{navTop}}rpx">
   <view class="pos-box">
-    <current-position bindplaceSearch="placeSearch" current-place="{{currentPlace}}">
+    <current-position id="position">
       <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
     </current-position>
   </view>
