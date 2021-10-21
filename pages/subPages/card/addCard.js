@@ -23,13 +23,17 @@ Page({
     hiddenDateCase: true,
     hiddenCodeCase: true,
     safeCodeImg: '/pages/image/card-safecode.png', // 安全码说明
-    safeDateImg: '/pages/image/card-date.png' // 有效期
+    safeDateImg: '/pages/image/card-date.png', // 有效期
+    years: [],
+    months: [],
+    show: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.initPickerParams()
     this.mapPropsToData()
   },
   mapPropsToData () {
@@ -61,6 +65,44 @@ Page({
     let { cardImage } = this.data
     if (!cardImage) return
     this.ocrCardNo(cardImage)
+  },
+  // 日期选择
+  pickerChange (e) {
+    const val = e.detail.value
+    console.log(e)
+    let year =  this.data.years[val[0]]
+    let month =  this.data.months[val[1]]
+    this.setData({
+      'formData.validDate': month + year
+    })
+  },
+  openPage () {
+    this.setData({
+      show: true
+    })
+  },
+  // 初始化有效期选择
+  initPickerParams () {
+    // 年从当前系统年份开始到2099年
+    let date = new Date()
+    let year = date.getFullYear().toString()
+    // 取后面2位
+    let startYear = year.substr(2, 2) *1
+    let yearArr = [] // 到2099年
+    let monthArr = [] // 1-12月
+    for(var i = startYear; i <= 99; i ++) {
+      yearArr.push(i)
+    }
+    for(var i = 1; i <= 12; i ++) {
+      if (i < 10) {
+        i = '0' + i
+      }
+      monthArr.push(i)
+    }
+    this.setData({
+      years: yearArr,
+      months: monthArr
+    })
   },
   // 银行卡号识别
   async ocrCardNo (imgUrl) {
