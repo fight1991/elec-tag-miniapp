@@ -88,13 +88,8 @@ Page({
           app.currentPos.province = tempRes.address_component.province
           app.currentPos.title = tempRes.formatted_addresses.recommend
           app.currentPos.city = tempRes.address_component.city
-
           this.setData({
             currentPlace: app.currentPos.title,
-            city: tempRes.address_component.city,
-            pois: arr,
-            latitude,
-            longitude
           })
           callback && callback()
         }

@@ -37,8 +37,6 @@ Page({
     activeTab: '', // 洗车当前tab
     goodsCategoryId: '',
     currentPlace: '', // 位置信息
-    city: '', // 城市名
-    pois: [], // 当前位置的周边信息
     latitude: '',
     longitude: '',
     tagText: {},
@@ -155,11 +153,10 @@ Page({
   },
   // 初始化附件位置
   initPoisData () {
-    let { title, city, pois, latitude, longitude } = app.currentPos
+    let { title, latitude, longitude } = app.currentPos
     this.data.pois = pois
     this.setData({
       currentPlace:title,
-      city,
       pois,
       latitude,
       longitude

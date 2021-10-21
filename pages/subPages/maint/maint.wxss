@@ -19,6 +19,8 @@ page {
   margin-top: 30rpx;
   width: 100%;
   overflow-x: auto;
+  /* 兼容ios */
+  -webkit-overflow-scrolling: touch;
 }
 .item {
   width: 25%;
