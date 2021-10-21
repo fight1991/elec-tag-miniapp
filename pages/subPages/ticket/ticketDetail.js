@@ -11,6 +11,7 @@ Page({
 		},
 		params: {
 			pageOrigin: 'use', // get领券 use立即使用
+			couponConfigId: '',
 			couponId: '',
 			orgId: '',
 			goodsId: ''
@@ -21,12 +22,13 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: async function (options) {
-		let { pageOrigin, couponId, orgId = '', goodsId = '' } = options
+		let { pageOrigin, couponConfigId, couponId, orgId = '', goodsId = '' } = options
 		wx.setNavigationBarTitle({
 			title: this.data.pageTitle[pageOrigin]
 		})
 		let obj = this.data.params
 		obj.pageOrigin = pageOrigin
+		obj.couponConfigId = couponConfigId
 		obj.couponId = couponId
 		obj.orgId = orgId
 		obj.goodsId = goodsId

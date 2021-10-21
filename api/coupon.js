@@ -22,6 +22,13 @@ export const couponDetail = (data) => {
     data
   })
 }
+//从banner点击卡券详情
+export const getCouponDetail = (data) => {
+  return wx.$post_business({
+    url: '/ec-coupon/activity/getCouponDetail',
+    data
+  })
+}
 //卡券领取
 export const addCoupon = (data) => {
   return wx.$post_business({

@@ -1,7 +1,7 @@
 // pages/ticket/components/couponDetail.js
 var app = getApp()
 const utils = app.utils
-const { couponDetail, addCoupon, translateDic } = app.api
+const { couponDetail, getCouponDetail, addCoupon, translateDic } = app.api
 Component({
   /**
    * 组件的属性列表
@@ -45,13 +45,35 @@ Component({
    */
   methods: {
     // 获取卡券详情
-    async getDetail () {
+    getDetail () {
+      if (this.data.params.pageOrigin === 'get') {
+        //banner领券
+        this.getBnnerCoupon()
+      } else {
+        //我的卡券领券
+        this.getMyCoupon()
+      }
+    },
+    //我的卡券详情
+    async getMyCoupon () {
       let { result } = await couponDetail({
-        couponConfigId: this.data.params.couponId
+        couponConfigId: this.data.params.couponConfigId,
+        couponId: this.data.params.couponId
       })
       if (result) {
         this.setData({
-          info: result.couponExt,
+          info: result,
+          isShow: false,
+          isFirst: false
+        })
+      }
+    },
+    //banner优惠券详情
+    async  getBnnerCoupon () {
+      let { result } = await getCouponDetail(this.data.params.couponId)
+      if (result) {
+        this.setData({
+          info: result,
           isShow: false,
           isFirst: false
         })
