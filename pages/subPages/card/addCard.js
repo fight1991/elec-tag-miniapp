@@ -69,9 +69,8 @@ Page({
   // 日期选择
   pickerChange (e) {
     const val = e.detail.value
-    console.log(e)
-    let year =  this.data.years[val[0]]
-    let month =  this.data.months[val[1]]
+    let year =  this.data.years[val[1]]
+    let month =  this.data.months[val[0]]
     this.setData({
       'formData.validDate': month + year
     })
