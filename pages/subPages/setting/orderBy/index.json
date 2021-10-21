@@ -1,7 +1,8 @@
 {
 	"usingComponents": {
 		"drag": "/pages/components/drag/index",
-		"drag-item": "./drag-item/index"
+		"drag-item": "./drag-item/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
 	},
 	"navigationBarTitleText": "扣款顺序"
 }

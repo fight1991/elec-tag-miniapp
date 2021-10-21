@@ -197,22 +197,9 @@
     "dropdown-menu": "/publicBag/components/dropdownMenu/dropdownMenu",
     "dropdown-item": "/publicBag/components/dropdownItem/dropdownItem",
     "safe-area": "/publicBag/components/safeArea/safeArea",
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index",
-    "van-button": "@vant/weapp/button/index",
     "van-tag": "@vant/weapp/tag/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-switch": "@vant/weapp/switch/index",
-    "van-sticky": "@vant/weapp/sticky/index",
-    "van-count-down": "@vant/weapp/count-down/index",
-    "van-field": "@vant/weapp/field/index",
-    "van-checkbox": "@vant/weapp/checkbox/index",
-    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
-    "van-radio": "@vant/weapp/radio/index",
-    "van-radio-group": "@vant/weapp/radio-group/index",
-    "van-notice-bar": "@vant/weapp/notice-bar/index",
-    "van-overlay": "@vant/weapp/overlay/index"
+    "van-cell-group": "@vant/weapp/cell-group/index"
   },
   "useExtendedLib": {
     "weui": true
