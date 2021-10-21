@@ -29,6 +29,7 @@ Component({
    */
   data: {
     isShow: true,
+    isFirst: true, //记录第一次进入页面渲染骨架屏
     serviceText: {},
     userCouponText: {},
     info: {},
@@ -45,16 +46,14 @@ Component({
   methods: {
     // 获取卡券详情
     async getDetail () {
-      this.setData({
-        isShow: true
-      })
       let { result } = await couponDetail({
         couponConfigId: this.data.params.couponId
       })
       if (result) {
         this.setData({
           info: result.couponExt,
-          isShow: false
+          isShow: false,
+          isFirst: false
         })
       }
     },
@@ -72,7 +71,7 @@ Component({
       
     },
     gotoPage () {
-      if (this.data.params === 'get') {
+      if (this.data.params.pageOrigin === 'get') {
         wx.navigateBack({
           delta: 1,
         })
