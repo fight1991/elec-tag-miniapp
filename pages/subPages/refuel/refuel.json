@@ -3,7 +3,10 @@
     "business-card": "/pages/components/businessCard/businessCard",
     "new-old-price": "/pages/components/new_old_price/new_old_price",
     "banner": "/pages/components/banner/banner",
-    "tag-group": "/pages/components/tag-group/tag-group"
+    "tag-group": "/pages/components/tag-group/tag-group",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-overlay": "@vant/weapp/overlay/index"
   },
   "navigationBarTitleText": "无感加油"
 }
