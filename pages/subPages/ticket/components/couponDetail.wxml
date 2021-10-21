@@ -1,6 +1,6 @@
 <!--pages/ticket/components/couponDetail.wxml-->
 <import src="../ticketDetail.skeleton.wxml"/>
-<template is="skeleton" wx:if="{{isShow}}" />
+<template is="skeleton" wx:if="{{isShow && isFirst}}" />
 
 <view class="coupon-box" wx:else>
   <view class="coupon-top">
