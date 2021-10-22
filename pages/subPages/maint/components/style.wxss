@@ -1,5 +1,5 @@
 .title {
-  padding:20rpx 40rpx;
+  padding:30rpx 40rpx;
   color: #2E2E2E;
   font-size: 30rpx;
 }
@@ -19,6 +19,7 @@
   color: #4D4D4D;
   background-color: #fff;
   border-radius: 10rpx;
+  margin: 0 30rpx;
 }
 .flex {
   display: flex;
@@ -37,7 +38,7 @@
 .content-box {
   padding: 10rpx 0 30rpx 0;
 }
-.content-center {
+.flex-1 {
   flex: 1;
 }
 .center-title {
@@ -54,4 +55,7 @@
   color: #808080;
   font-size: 24rpx;
   padding-bottom: 30rpx;
+}
+.tr {
+  text-align: right;
 }

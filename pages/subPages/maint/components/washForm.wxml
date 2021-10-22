@@ -6,11 +6,11 @@
       {{dataForm.goodsDesc}}
     </view>
     <view class="flex-between">
-      <view>
+      <view class="w-170">
         适用车型
       </view>
-      <view>
-        {{carType[dataForm.goodsVehicleType]}}
+      <view class="flex-1 tr">
+        {{carType[dataForm.orgGoodsExtList[0].goodsDefaultConfig.goodsVehicleType]}}
       </view>
     </view>
 
@@ -18,7 +18,7 @@
       <view class="w-170">
         套餐价格
       </view>
-      <view class="content-center">
+      <view class="flex-1">
         <view class="flex-between">
           <view class="center-title">
             门市价
@@ -54,10 +54,10 @@
       </view>
     </view>
     <view class="flex-between">
-      <view>
+      <view class="w-170">
         门店地址
       </view>
-      <view>
+      <view class="flex-1 tr">
         {{dataForm.address}}
       </view>
     </view>

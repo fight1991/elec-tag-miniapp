@@ -16,9 +16,11 @@ page {
 .item-box {
   display: flex;
   text-align: center;
-  margin: 30rpx 0;
+  margin-top: 30rpx;
   width: 100%;
   overflow-x: auto;
+  /* 兼容ios */
+  -webkit-overflow-scrolling: touch;
 }
 .item {
   width: 25%;

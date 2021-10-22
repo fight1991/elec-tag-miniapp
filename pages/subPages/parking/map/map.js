@@ -30,6 +30,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 获取地图对象
+    getMapObj () {
+      if (this.mapObj) {
+        return this.mapObj
+      }
+      let MapContext = wx.createMapContext('map', this)
+      this.mapObj = MapContext
+      return MapContext
+    },
     // 设置地图当前位置,及标点
     initMap (obj) {
       this.setData({
@@ -42,15 +51,33 @@ Component({
         longitude
       })
     },
+    // 移除点(id集合)
+    removeMarkers (markerIds) {
+      let MapContext = this.getMapObj()
+      MapContext.removeMarkers({
+        markerIds
+      })
+    },
     // 标点
     setMarkersOnMap (arr) {
-      let markers = arr.map(v => (
-        {
-          id: v.orgId * 1,
-          longitude: v.longitude,
-          latitude: v.latitude
+      let markers = arr.map(v => {
+        if (v.location) {
+          return {
+            id: v.longitude,
+            longitude: v.longitude,
+            latitude: v.latitude
+          }
+        } else {
+          return {
+            id: v.orgId * 1,
+            longitude: v.longitude,
+            latitude: v.latitude,
+            iconPath: '/pages/image/icons/location_map.png',
+            width: 17,
+            height: 22
+          } 
         }
-      ))
+      })
       /**
        * 注意:经测试
        * setData({
@@ -61,15 +88,15 @@ Component({
         })
        * 
        */
-      let MapContext = wx.createMapContext('map', this)
+      let MapContext = this.getMapObj()
       MapContext.addMarkers({
         markers
       })
       this.setIncludePoints(markers)
     },
-    // 将标点现实的在视图范围内
+    // 将标点显示在视图范围内
     setIncludePoints (points) {
-      let MapContext = wx.createMapContext('map', this)
+      let MapContext = this.getMapObj()
       MapContext.includePoints({
         points: points,
         padding: [100, 100, 100, 100]

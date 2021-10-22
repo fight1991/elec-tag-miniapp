@@ -24,9 +24,11 @@
       <input class="input-element" type="text" id="cvn2" bindinput="bindData" value="{{formData.cvn2}}"/>
       <iconfont bindtap="openCodeCase" color="#3E77FF" size="46rpx" class="photo-btn" icon="wenhao"></iconfont>
     </view>
-    <view class="form-item" wx:if="{{formData.bankCardType==2}}">
+    <!-- formData.bankCardType==2 -->
+    <view class="form-item" wx:if="{{true}}">
       <view class="input-label">有效期</view>
-      <input class="input-element" type="text" id="validDate" bindinput="bindData" value="{{formData.validDate}}"/>
+      <view class="input-element" bindtap="openPage">{{formData.validDate ? formData.validDate : '请选择'}}</view>
+      <!-- <input class="input-element" disabled type="text" id="validDate" bindinput="bindData" value="{{formData.validDate}}"/> -->
       <iconfont bindtap="openDateCase" color="#3E77FF" size="46rpx" class="photo-btn" icon="wenhao"></iconfont>
     </view>
   </view>
@@ -41,7 +43,7 @@
   <desc 
     title="有效期说明"
     subTitle="信用卡有效期位于卡号下方显示为月/年 (MMYY)"
-    other="填写提示: 09/25"
+    other="填写提示: 0925"
     img="{{safeDateImg}}">
   </desc>
 </mask>
@@ -52,4 +54,22 @@
     img="{{safeCodeImg}}">
   </desc>
 </mask>
+<page-container 
+  show="{{show}}"
+  position="bottom"
+  close-on-slide-down="{{false}}"
+
+>
+  <view class="detail-page">
+    <picker-view bindchange="pickerChange" indicator-class="red" indicator-style="height: 50px;color:red" style="width: 100%; height: 300px;">
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="item" style="line-height: 50px; text-align: center;">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="item" style="line-height: 50px; text-align: center;">20{{item}}年</view>
+      </picker-view-column>
+      
+    </picker-view>
+  </view>
+</page-container>
 

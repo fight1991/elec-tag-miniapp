@@ -13,13 +13,13 @@ Page({
     showDefault: true, // 是否显示默认值
     currentPlace: '',
     city: '',
-    prePage: null,
+    prePage: null
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initPoisData()
+    this.initPoisData(options)
     // 实例化sdk
     qqmapsdk = app.initMapSdk()
   },
@@ -31,44 +31,43 @@ Page({
     })
   },
   // 初始化附件位置
-  initPoisData () {
+  initPoisData (options) {
+    let { title, city, pois = [] } = app.currentPos
+    let preTitle = options.title
+    this.data.pois = pois
+    this.setData({
+      currentPlace: preTitle || title,
+      city,
+      suggestion: pois
+    })
+  },
+  // 获取上一页的组件实例
+  getPrefixComponentInstance () {
+    if (this.preEle) {
+      return this.preEle
+    }
     let pages = getCurrentPages()
     let prePage = pages[pages.length - 2]
-    if (prePage) {
-      let { currentPlace, city, pois=[] } = prePage.data
-      this.data.prePage = prePage
-      this.data.pois = pois
-      this.setData({
-        currentPlace,
-        city,
-        suggestion: pois
-      })
-    }
+    if (!prePage) return null
+    let preEle = prePage.selectComponent('#currentAddress')
+    if (!preEle) return null
+    this.preEle = preEle
+    return preEle
   },
   // 数据回填方法
-  backfill: function (e) {
+  backfill (e) {
     let id = e.currentTarget.id
     let select = {...this.data.suggestion[id]}
-    if (!this.data.prePage) return
-    this.data.prePage.setData({
-      currentPlace: select.title,
+    let preEle = this.getPrefixComponentInstance()
+    if (!preEle) return
+    preEle.getSelectedPlace({
+      provice: select.province,
+      title: select.title,
       latitude: select.location.lat,
       longitude: select.location.lng,
-      city: this.data.city,
+      city: select.city,
       pois: this.data.suggestion,
-    });
-    if (this.data.prePage.route === 'pages/main/main' && app.currentPos.province !== select.title) {
-      // 如果是首页跳转过来选择的要更新全局位置信息
-      app.currentPos.latitude = select.location.lat
-      app.currentPos.longitude = select.location.lng
-      app.currentPos.pois = this.data.suggestion || []
-      app.currentPos.province = select.province
-      app.currentPos.title = select.title
-      app.currentPos.city = select.city
-    }
-    if (this.data.prePage.route === 'pages/subPages/maint/maint' && this.data.currentPlace !== select.title) {
-      this.data.prePage.initList()
-    }
+    })
     wx.navigateBack({
       delta: 1,
     })
@@ -108,7 +107,6 @@ Page({
           suggestion: sug,
           showDefault: false
         });
-        console.log('this.suggestion',sug);
       },
       fail: function(error) {
         console.error(error);
@@ -119,19 +117,21 @@ Page({
     });
   },
   // 重新定位
-  regetPosition () {
-    if (!this.data.prePage) return
+  async regetPosition () {
     wx.showLoading({
       title: '定位中',
     })
-    app.getCurrentPosition()
-      .then(({ latitude, longitude }) => {
-      this.data.prePage.reverseGeocoder({ latitude, longitude }, () => {
-        wx.hideLoading()
-        wx.navigateBack({
-          delta: 1
-        })
-      })
+    let isOpenGps = await app.getCurrentPosition()
+    if (!isOpenGps) {
+      app.messageBox.common('重新定位失败')
+    }
+    let placeInfo = await app.resolveGeocoder(isOpenGps)
+    let preEle = this.getPrefixComponentInstance()
+    if (!preEle) return
+    preEle.getSelectedPlace(placeInfo)
+    wx.hideLoading()
+    wx.navigateBack({
+      delta: 1
     })
   },
   /**

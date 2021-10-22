@@ -1,7 +1,7 @@
 <!--pages/subPages/parking/nearParking.wxml-->
 <view class="box">
   <view class="search-box" bindtap="searchPlace">
-    <searchInput bind:clear="initList" disabled placeHolder="请输入您的目的地" value="{{destination}}"></searchInput>
+    <searchInput hiddenSuffixIcon disabled placeHolder="请输入您的目的地" model:value="{{destination}}"></searchInput>
   </view>
   <view class="right-top">
     <view class="icon-box" bindtap="lookRecord">
@@ -31,9 +31,9 @@
           <iconfont icon="position" size="30rpx"></iconfont>
           <text class="address text-cut">{{address}}</text>
         </view>
-        <view class="refresh" bindtap="initList">
+        <!-- <view class="refresh" bindtap="initList">
           <iconfont icon="refresh" size="40rpx"></iconfont>
-        </view>
+        </view> -->
       </view>
       
     </view>

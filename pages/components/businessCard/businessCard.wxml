@@ -3,7 +3,7 @@
   <view class="head-box">
     <view class="head-img">
       <!-- <slot name="pref"></slot> -->
-      <image class="img" mode="widthFix" src="{{src}}"></image>
+      <image lazy-load class="img" mode="widthFix" src="{{src}}"></image>
     </view>
     <view class="title-box">
       <!-- 图片右侧第1行 -->

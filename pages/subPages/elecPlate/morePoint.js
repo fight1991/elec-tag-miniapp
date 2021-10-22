@@ -21,13 +21,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getCurrentPosition().then(({ latitude, longitude }) => {
-      this.setData({
-        longitude,
-        latitude
-      })
-      this.initList()
-    })
+    let { longitude, latitude } = app.currentPos
+    this.data.longitude = longitude
+    this.data.latitude = latitude
+    this.initList()
   },
   // 获取列表
   async getList (pageIndex, callback) {

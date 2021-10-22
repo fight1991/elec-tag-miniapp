@@ -1,38 +1,40 @@
 <!--pages/subPages/wash/shopInfo.wxml-->
-<view class="box">
-  <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
-  <shopAddress
-    title="{{dataForm.orgName || '-'}}"
-    distance="{{distance || 0}}km"
-    address="{{dataForm.address || '-'}}"
-    startTime="{{dataForm.businessTimeList[0] || '00:00'}}"
-    endTime="{{dataForm.businessTimeList[1] || '24:00'}}">
-  </shopAddress>
-  <view>
-    <view class="title">{{pageTitle[pageFlag]}}</view>
-    <view class="content-box">
-      <view class="card-item" wx:for="{{dataForm.goodsList}}" wx:key="goodsId">
-        <view bindtap="goDetail" data-item="{{item}}">
-          <business-card
-            src="{{item.goodsImage}}"
-            row1Title="{{item.goodsName}}">
-            <view slot="row3">
-              <new-old-price wx:if="{{item.couponList.length}}" oldPrice="{{item.couponList[0].fixedAmount}}" newPrice="{{'门市 ¥' + item.goodsMarketPrice}}"></new-old-price>
-              <new-old-price wx:else oldPrice="{{item.goodsPlatPrice}}" newPrice="{{'门市 ¥' + item.goodsMarketPrice}}"></new-old-price>
-            </view>
-            <view slot="action">
-              <view class="purchase-btn" data-citem="{{item}}" catchtap="openTip" wx:if="{{item.couponList.length}}">
-                <view class="right-now stopTap">立即抢</view>
-                <view class="remain-num stopTap">余{{item.couponList[0].numberDailyRemaining+''}}</view>
+<safe-area>
+  <view class="box">
+    <fullBanner bgSrc="{{dataForm.urlOutletImage}}"></fullBanner>
+    <shopAddress
+      title="{{dataForm.orgName || '-'}}"
+      distance="{{distance || 0}}km"
+      address="{{dataForm.address || '-'}}"
+      startTime="{{dataForm.businessTimeList[0] || '00:00'}}"
+      endTime="{{dataForm.businessTimeList[1] || '24:00'}}">
+    </shopAddress>
+    <view>
+      <view class="title">{{pageTitle[pageFlag]}}</view>
+      <view class="content-box">
+        <view class="card-item" wx:for="{{dataForm.goodsList}}" wx:key="goodsId">
+          <view bindtap="goDetail" data-item="{{item}}">
+            <business-card
+              src="{{item.goodsImage}}"
+              row1Title="{{item.goodsName}}">
+              <view slot="row3">
+                <new-old-price wx:if="{{item.couponList.length}}" oldPrice="{{item.couponList[0].fixedAmount}}" newPrice="{{'门市 ¥' + item.goodsMarketPrice}}"></new-old-price>
+                <new-old-price wx:else oldPrice="{{item.goodsPlatPrice}}" newPrice="{{'门市 ¥' + item.goodsMarketPrice}}"></new-old-price>
               </view>
-              <van-button color="#447FFF" size="mini" plain wx:else>查看</van-button>
-            </view>
-          </business-card>
+              <view slot="action">
+                <view class="purchase-btn" data-index="{{index}}" catchtap="openTip" wx:if="{{item.couponList.length}}">
+                  <view class="right-now stopTap">立即抢</view>
+                  <view class="remain-num stopTap">余{{item.couponList[0].numberDailyRemaining+''}}</view>
+                </view>
+                <van-button color="#447FFF" size="mini" plain wx:else>查看</van-button>
+              </view>
+            </business-card>
+          </view>
         </view>
       </view>
     </view>
   </view>
-</view>
+</safe-area>
 <view>
   <fixBtn type="light" width="50vw" bindtap="makePhone">联系电话</fixBtn>
   <fixBtn align="right" width="50vw" bindtap="goBtn">立即前往</fixBtn>

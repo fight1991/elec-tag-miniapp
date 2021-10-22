@@ -3,7 +3,8 @@
     "shopAddress": "/pages/subPages/components/shopAddress/shopAddress",
     "business-card": "/pages/components/businessCard/businessCard",
     "new-old-price": "/pages/components/new_old_price/new_old_price",
-    "tip-dialog": "./components/tipDialog"
+    "tip-dialog": "./components/tipDialog",
+    "van-button": "@vant/weapp/button/index"
   },
   "navigationStyle": "custom"
 }

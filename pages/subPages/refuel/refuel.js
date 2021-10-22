@@ -65,6 +65,7 @@ Page({
         oil,
         hasSelect: true
       })
+      this.initList()
     }
   },
   // 筛选条件按钮
@@ -78,11 +79,18 @@ Page({
     }
     this.initList()
   },
+  clearSearch () {
+    this.initList()
+  },
   // 模态框
   onClickHide () {
     this.setData({
       showMask: false,
       hasSelect: true
+    })
+    wx.setStorage({
+      key: 'oil',
+      data: this.data.oil
     })
     this.initList()
   },
@@ -115,7 +123,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.data.hasSelect && this.initList()
+    // this.data.hasSelect && this.initList()
   },
   // 获取列表
   async getList (pageIndex, callback) {
@@ -151,8 +159,8 @@ Page({
     let { pageIndex, list } = this.data
     this.getList(pageIndex, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: [...list, ...resList],
         hasMore: pageIndex * pageSize >= total ? false : true
       })
@@ -162,8 +170,8 @@ Page({
   initList () {
     this.getList(0, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: resList,
         total,
         hasMore: pageIndex * pageSize >= total ? false : true

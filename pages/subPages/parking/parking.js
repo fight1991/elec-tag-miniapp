@@ -14,7 +14,7 @@ Page({
       longitude: '',
       sortType: 'distance'
     },
-    resetActiveIcon: false,
+    resetActiveIcon: true,
     serviceText: {}, // 设施服务字典
     address: '',
     collapse: false, // 下拉是否展开
@@ -61,6 +61,8 @@ Page({
   // 地图上选点
   searchPlace () {
     let { key, referer } = app.appLBS
+    let { resetActiveIcon } = this.data
+    resetActiveIcon && this.setData({resetActiveIcon: false})
     wx.navigateTo({
       url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer
     })
@@ -71,7 +73,8 @@ Page({
     if (location) {
       let { name, latitude, longitude } = location
       this.setData({
-        destination: name
+        destination: name,
+        address: name
       })
       this.data.searchForm.latitude = latitude
       this.data.searchForm.longitude = longitude
@@ -112,40 +115,61 @@ Page({
     let { pageIndex, list } = this.data
     this.getList(pageIndex, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: [...list, ...resList],
         hasMore: pageIndex * pageSize >= total ? false : true
       })
-      this.myMap.setMarkersOnMap(this.data.list)
+      this.addMakers()
     })
   },
   // 下拉刷新
   initList () {
     this.getList(0, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: resList,
         total,
         hasMore: pageIndex * pageSize >= total ? false : true
       })
-      this.myMap.setMarkersOnMap(this.data.list)
+      this.addMakers()
     })
   },
   // 重新定位到当前位置
   resetCurrentPosition () {
-    let { latitude, longitude } = app.currentPos
-    this.myMap.setIncludePoints([{
-      latitude,
-      longitude
-    }])
+    let { latitude, longitude, title } = app.currentPos // 初始位置
+    let oldLocation = this.data.searchForm // 选取的目的地位置
     let { resetActiveIcon } = this.data
-    !resetActiveIcon && this.setData({ resetActiveIcon: true })
+    if (!resetActiveIcon) {
+      // 移除目的地
+      this.myMap.removeMarkers([oldLocation.longitude])
+      // this.myMap.setIncludePoints([{
+      //   latitude,
+      //   longitude
+      // }])
+      this.setData({
+        resetActiveIcon: true,
+        destination: '',
+        address: title
+      })
+      this.data.searchForm.latitude = latitude
+      this.data.searchForm.longitude = longitude
+      this.initList()
+    }
   },
   // 视野发生变化, 重新定位图标置灰状态
   regionchange (e) {
     let { resetActiveIcon } = this.data
-    resetActiveIcon && this.setData({ resetActiveIcon: false })
+    if (!resetActiveIcon) return
+    this.setData({ resetActiveIcon: false })
+  },
+  // 添加标记
+  addMakers () {
+    let points = [...this.data.list]
+    if (this.data.destination) { // 目的地点也添加进去
+      points = [...this.data.list, {...this.data.searchForm, location: true}]
+    }
+    this.myMap.setMarkersOnMap(points)
   }
 })

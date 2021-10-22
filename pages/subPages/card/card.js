@@ -27,11 +27,9 @@ Page({
         pageSize
       }
     })
-    if (result && result.length > 0) {
-      this.setData({
-        cardList: result
-      })
-    }
+    this.setData({
+      cardList: result || []
+    })
     wx.stopPullDownRefresh()
   },
   /**
@@ -46,7 +44,6 @@ Page({
    */
   onShow: function () {
     this.getCardList()
-
   },
 
   /**
@@ -67,7 +64,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getSupportBankList()
+    this.getCardList()
   },
 
   /**

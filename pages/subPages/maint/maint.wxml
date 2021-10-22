@@ -4,7 +4,7 @@
   <banner bannerId="{{bannerId}}"></banner>
   <!-- 头部洗车组件 -->
   <view class="item-box" wx:if="{{pageFlag==='wash'}}" bindtap="washTabBtn">
-    <view class="item" data-type="{{item.goodsCategoryCode}}" wx:for="{{washBtnList}}" wx:key="goodsDefaultId">
+    <view class="item" wx:for="{{washBtnList}}" data-index="{{index}}" wx:key="goodsDefaultId">
       <image class="img stopTap" mode="widthFix" src="{{item.goodsCategoryIcon}}"></image>
       <text class="stopTap img-text{{activeTab==item.goodsCategoryCode?' active':''}}">{{item.goodsCategoryName}}</text>
     </view>
@@ -13,13 +13,13 @@
   <view class="mt-30">
     <dropdown-menu active-color="#447fff" style="{{pageFlag==='maint'?'width: 66.6%;':'width: 75%;'}}">
       <view class="pos-box" style="{{pageFlag==='maint'?'width: 33.3%;':'width: 25%;'}}"> 
-        <current-position bindplaceSearch="placeSearch" icon-size="26rpx" icon-color="#4D4D4D" current-place="{{currentPlace}}">
+        <current-position id="currentAddress" bind:getSelectedPlace="getSelectedPlace" updateToApp="{{false}}" icon-size="26rpx" icon-color="#4D4D4D">
         </current-position>
       </view>
       <dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />
       <dropdown-item bind:change="selectBtn" model:value="{{ other }}" options="{{ otherOption }}">
       </dropdown-item>
-      <dropdown-item bind:change="selectBtn" model:value="{{ carType }}" options="{{ carTypeOption }}" wx:if="{{pageFlag==='wash' && carTypeOption.length}}">
+      <dropdown-item bind:change="selectBtn" model:value="{{ carType }}" options="{{ carTypeOption }}" wx:if="{{pageFlag=='wash'}}">
       </dropdown-item>
     </dropdown-menu>
   </view>
@@ -42,12 +42,12 @@
             lat="{{item.latitude}}"
             lng="{{item.longitude}}">
             <view slot="row3">
-              <view class="flex-row" wx:if="{{item.orgTags.indexOf('activityCarWash') !== -1}}">
-                <view style="padding-right:10rpx;">
-                  <van-tag class="fs-22" plain type="primary">一元洗车</van-tag>
+              <view class="flex-row" wx:if="{{item.orgTags && item.orgTags.length}}">
+                <view wx:for="{{item.orgTags}}" wx:key="item">
+                  <van-tag style="margin-right:10rpx;" class="fs-22"  wx:if="{{item === 'activityCarWash'}}" plain type="primary">一元洗车</van-tag>
                 </view>
-                <view style="padding-right:10rpx;" wx:for="{{item.orgTags}}" wx:key="item">
-                  <van-tag class="fs-22" plain  wx:if="{{item !== 'activityCarWash'}}">{{tagText[item]}}</van-tag>
+                <view wx:for="{{item.orgTags}}" wx:key="item">
+                  <van-tag style="margin-right:10rpx;" class="fs-22" plain  wx:if="{{item !== 'activityCarWash'}}">{{tagText[item]}}</van-tag>
                 </view>
               </view>
             </view>
@@ -60,11 +60,11 @@
                     <text class="goods-name text-cut">{{item.orgGoodsExtList[0].goodsName || '-'}}</text>
                   </view>
                   <view class="goods-price">
-                    <new-old-price wx:if="{{item.isShow}}" oldPrice="{{item.orgGoodsExtList[0].couponList[0].fixedAmount}}" newPrice="{{' ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
+                    <new-old-price wx:if="{{item.orgGoodsExtList[0].couponList.length}}" oldPrice="{{item.orgGoodsExtList[0].couponList[0].fixedAmount}}" newPrice="{{' ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
                     <new-old-price wx:else oldPrice="{{item.orgGoodsExtList[0].goodsPlatPrice}}" newPrice="{{'门市 ¥' + item.orgGoodsExtList[0].goodsMarketPrice}}"></new-old-price>
                   </view>
                 </view>
-                <view class="foot-right purchase-btn" data-citem="{{item.orgGoodsExtList[0]}}" catchtap="openTip" wx:if="{{item.isShow}}">
+                <view class="foot-right purchase-btn" data-index="{{index}}" catchtap="openTip" wx:if="{{item.orgGoodsExtList[0].couponList.length}}">
                   <view class="right-now">立即抢</view>
                   <view class="remain-num">余{{item.orgGoodsExtList[0].couponList[0].numberDailyRemaining+''}}</view>
                 </view>

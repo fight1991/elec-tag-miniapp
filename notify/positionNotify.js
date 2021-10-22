@@ -9,6 +9,15 @@ export default {
     city: '', //城市名称
     pois: [], // 当前位置的周边信息
   },
+  savePosition ({ latitude = '', longitude = '', title = '', province = '', city = '', pois = []}) {
+    this.currentPos.latitude = latitude
+    this.currentPos.longitude = longitude
+    this.currentPos.title = title
+    this.currentPos.province = province
+    this.currentPos.city = city
+    this.currentPos.pois = pois
+
+  },
   sendPosition (value) { // 发送位置更改通知
     this.currentPos.tamp = value
   },

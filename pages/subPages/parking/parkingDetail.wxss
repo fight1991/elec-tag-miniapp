@@ -2,6 +2,7 @@
 .box {
   padding-bottom: 110rpx;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .title {
   padding: 20rpx 30rpx;

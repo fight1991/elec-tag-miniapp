@@ -1,252 +1,258 @@
 {
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "登录页面",
+          "pathName": "pages/login/signIn",
+          "query": "",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "name": "tab首页",
+          "pathName": "pages/main/main",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "完善用户信息首页",
+          "pathName": "pages/verifyInfo/index",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "登录页面",
-                    "pathName": "pages/login/signIn",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "tab首页",
-                    "pathName": "pages/main/main",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "完善用户信息首页",
-                    "pathName": "pages/verifyInfo/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "实名认证",
-                    "pathName": "pages/verifyInfo/verifyRealName",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "行驶证认证",
-                    "pathName": "pages/verifyInfo/verifyLicense",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "申领方式",
-                    "pathName": "pages/verifyInfo/applyWays",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "电子车牌",
-                    "pathName": "pages/elecPlate/elecPlate",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "上传车辆照片",
-                    "pathName": "pages/elecPlate/uploadImg",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "车辆信息",
-                    "pathName": "pages/carInfo/carInfo",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "扫码绑定页面",
-                    "pathName": "pages/scanBind/scanBind",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "绑定成功页面",
-                    "pathName": "pages/scanBind/bindStatus",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "银行卡",
-                    "pathName": "pages/card/card",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "添加银行卡",
-                    "pathName": "pages/subPages/card/addCard",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "银行卡手机号验证",
-                    "pathName": "pages/subPages/card/check",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "选择地点",
-                    "pathName": "pages/subPages/citySelector/citySelector",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "无感加油",
-                    "pathName": "pages/subPages/refuel/refuel",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "无感加油搜索",
-                    "pathName": "pages/subPages/refuel/search",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "无感加油详情",
-                    "pathName": "pages/subPages/refuel/oilDetail",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "智慧停车",
-                    "pathName": "pages/subPages/parking/parking",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "附近停车场",
-                    "pathName": "pages/subPages/parking/nearParking",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "附近停车场详情",
-                    "pathName": "pages/subPages/parking/parkingDetail",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "停车记录列表",
-                    "pathName": "pages/subPages/parking/parkingRecord",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "停车记录详情",
-                    "pathName": "pages/subPages/parking/recordDetail",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "洗车/维保",
-                    "pathName": "pages/subPages/maint/maint",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "维保/洗车店铺详情",
-                    "pathName": "pages/subPages/maint/shopInfo",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "套餐详情",
-                    "pathName": "pages/subPages/maint/detail",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "我的页面",
-                    "pathName": "pages/my/my",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "订单管理",
-                    "pathName": "pages/subPages/order/order",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "推送设置",
-                    "pathName": "pages/subPages/send/send",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "个人设置",
-                    "pathName": "pages/subPages/setting/setting",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "验证码",
-                    "pathName": "pages/subPages/setting/code",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "交易密码",
-                    "pathName": "pages/subPages/setting/trade",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "免密支付",
-                    "pathName": "pages/subPages/setting/pay",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "扣款顺序",
-                    "pathName": "pages/subPages/setting/orderBy/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "订单详情",
-                    "pathName": "pages/subPages/order/detail",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "支付协议",
-                    "pathName": "pages/subPages/card/license",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "登录选择页面",
-                    "pathName": "pages/login/loginType",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "我的卡券",
-                    "pathName": "pages/subPages/ticket/ticket",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "卡券详情",
-                    "pathName": "pages/subPages/ticket/ticketDetail",
-                    "query": "id=1&type=fixedPrice",
-                    "scene": null
-                }
-            ]
+        {
+          "name": "实名认证",
+          "pathName": "pages/verifyInfo/verifyRealName",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "行驶证认证",
+          "pathName": "pages/verifyInfo/verifyLicense",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "申领方式",
+          "pathName": "pages/verifyInfo/applyWays",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "电子车牌",
+          "pathName": "pages/elecPlate/elecPlate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "上传车辆照片",
+          "pathName": "pages/elecPlate/uploadImg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "车辆信息",
+          "pathName": "pages/carInfo/carInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "扫码绑定页面",
+          "pathName": "pages/scanBind/scanBind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "绑定成功页面",
+          "pathName": "pages/scanBind/bindStatus",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "银行卡",
+          "pathName": "pages/card/card",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "添加银行卡",
+          "pathName": "pages/subPages/card/addCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "银行卡手机号验证",
+          "pathName": "pages/subPages/card/check",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择地点",
+          "pathName": "pages/subPages/citySelector/citySelector",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "无感加油",
+          "pathName": "pages/subPages/refuel/refuel",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "无感加油搜索",
+          "pathName": "pages/subPages/refuel/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "无感加油详情",
+          "pathName": "pages/subPages/refuel/oilDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "智慧停车",
+          "pathName": "pages/subPages/parking/parking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "附近停车场",
+          "pathName": "pages/subPages/parking/nearParking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "附近停车场详情",
+          "pathName": "pages/subPages/parking/parkingDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "停车记录列表",
+          "pathName": "pages/subPages/parking/parkingRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "停车记录详情",
+          "pathName": "pages/subPages/parking/recordDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "洗车/维保",
+          "pathName": "pages/subPages/maint/maint",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "维保/洗车店铺详情",
+          "pathName": "pages/subPages/maint/shopInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "套餐详情",
+          "pathName": "pages/subPages/maint/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的页面",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单管理",
+          "pathName": "pages/subPages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "推送设置",
+          "pathName": "pages/subPages/send/send",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人设置",
+          "pathName": "pages/subPages/setting/setting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "验证码",
+          "pathName": "pages/subPages/setting/code",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "交易密码",
+          "pathName": "pages/subPages/setting/trade",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "免密支付",
+          "pathName": "pages/subPages/setting/pay",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "扣款顺序",
+          "pathName": "pages/subPages/setting/orderBy/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/subPages/order/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "支付协议",
+          "pathName": "pages/subPages/card/license",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录选择页面",
+          "pathName": "pages/login/loginType",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的卡券",
+          "pathName": "pages/subPages/ticket/ticket",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "卡券详情",
+          "pathName": "pages/subPages/ticket/ticketDetail",
+          "query": "id=1&type=fixedPrice",
+          "scene": null
+        },
+        {
+          "name": "启动页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
         }
+      ]
     }
+  }
 }

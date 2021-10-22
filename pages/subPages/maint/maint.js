@@ -26,7 +26,7 @@ Page({
     carType: '',
     distance: 3,
     other: 'distance',
-    pageFlag: 'maint', // wash洗车 miant维修保养
+    pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
       wash: '洗车美容',
       maint: '维修保养'
@@ -35,13 +35,11 @@ Page({
     washBtnList: [],
     upkeepType: '', // 洗车类型
     activeTab: '', // 洗车当前tab
-    currentPlace: '', // 位置信息
-    city: '', // 城市名
-    pois: [], // 当前位置的周边信息
+    goodsCategoryId: '',
     latitude: '',
     longitude: '',
     tagText: {},
-    couponItem: {},
+    selectIndex: null,
     tipVisible: false, //温馨提示
     // 下拉刷新
     collapse: false, // 下拉是否展开
@@ -62,31 +60,25 @@ Page({
       title: this.data.pageTitle[pageFlag]
     })
     if (pageFlag == 'wash') {
-      this.getWashBtnList()
       this.setData({
         bannerId: 2101
       })
+      await this.getWashBtnList()
     }
     //车辆类型
     let carType = await translateDic('goodsVehicleType')
     let arr = Object.keys(carType).map(function(key){
-      return { value: key, label: carType[key] };
-    });
+      return { value: key, label: carType[key] }
+    })
     this.setData({
       pageFlag,
       carTypeOption: arr,
       carType: 'car',
-      tagText: await translateDic('orgServiceTag'),
+      tagText: await translateDic('orgServiceTag')
     })
     
-    await this.initPoisData()
-    await this.initList()
-    // app.listenPosition(({ latitude, longitude, title }) => {
-    //   this.data.latitude = latitude
-    //   this.data.longitude = longitude
-    //   // 获取附近的停车场
-    //   this.initList()
-    // })
+    this.initPoisData()
+    this.initList()
   },
 
   /**
@@ -99,7 +91,7 @@ Page({
   openTip (e) {
     this.setData({
       tipVisible: true,
-      couponItem: { ...e.currentTarget.dataset.citem }
+      selectIndex: e.currentTarget.dataset.index
     })
   },
   goShopInfo (e) {
@@ -111,8 +103,9 @@ Page({
   },
   //确认领取
   async onConfirm () {
-    let { orgId, goodsId } = this.data.couponItem
-    let { couponId: couponConfigId } = this.data.couponItem.couponList[0]
+    let goodItem = this.data.list[this.data.selectIndex].orgGoodsExtList[0]
+    let { orgId, goodsId } = goodItem
+    let { couponId: couponConfigId } = goodItem.couponList[0]
     let { result } = await addCoupon({
       orgId,
       goodsId,
@@ -120,55 +113,54 @@ Page({
     })
     if (result) {
       // 领取成功后, 刷新状态
-      let arr = this.data.list.map(item => {
-        if(item.orgGoodsExtList[0].orgId === orgId && item.orgGoodsExtList[0].goodsId === goodsId) {
-          item.isShow = false
-        }
-        return item
-      });
+      goodItem.couponList = []
       this.setData({
-        list: arr
+        list: this.data.list
       })
     }
   },
   // 获取洗车按钮列表
   async getWashBtnList () {
     let { result } = await washBtnList()
-    if (result) {
+    if (result && result.length) {
+      this.data.upkeepType = result[0].goodsCategoryCode, // 洗车类型
+      this.data.goodsCategoryId = result[0].goodsCategoryId
       this.setData({
-        washBtnList: result
+        washBtnList: result,
+        activeTab: result[0].goodsCategoryCode, // 洗车当前tab
+      })
+    } else {
+      this.data.goodsCategoryId = ''
+      this.data.upkeepType = ''
+      this.setData({
+        washBtnList: [],
+        activeTab: ''
       })
     }
   },
   // 洗车筛选按钮
   washTabBtn (e) {
-    let current = e.target.dataset.type
-    if (current === this.data.activeTab) {
-      current = ''
+    let current = this.data.washBtnList[e.target.dataset.index]
+    if (current.goodsCategoryCode !== this.data.activeTab) {
+      this.data.goodsCategoryId = current.goodsCategoryId
+      this.setData({
+        activeTab: current.goodsCategoryCode
+      })
+      this.data.upkeepType = current.goodsCategoryCode
+      this.initList()
     }
-    this.setData({
-      activeTab: current
-    })
-    this.data.upkeepType = current
-    this.initList()
   },
   // 初始化附件位置
   initPoisData () {
-    let { title, city, pois, latitude, longitude } = app.currentPos
-    this.data.pois = pois
-    this.setData({
-      currentPlace:title,
-      city,
-      pois,
-      latitude,
-      longitude
-    })
+    let { latitude, longitude } = app.currentPos
+    this.data.latitude = latitude
+    this.data.longitude = longitude
   },
-  // 城市选择
-  placeSearch () {
-    wx.navigateTo({
-      url: '/pages/subPages/citySelector/citySelector',
-    })
+  getSelectedPlace (e) {
+    let { latitude, longitude } = e.detail
+    this.data.latitude = latitude
+    this.data.longitude = longitude
+    this.initList()
   },
   // 筛选按钮
   selectBtn () {
@@ -178,7 +170,7 @@ Page({
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
-    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType, carType} = this.data
+    let { pageSize, pageFlag, latitude, longitude, distance, other, upkeepType, carType, goodsCategoryId} = this.data
     pageIndex ++
     let { result, page } = await listApi[pageFlag]({
       data: {
@@ -187,6 +179,7 @@ Page({
         radius: distance,
         sortType: other,
         upkeepType,
+        goodsCategoryId: pageFlag==='wash' ? goodsCategoryId : '',
         goodsVehicleType: pageFlag==='wash' ? carType : ''
       },
       page: {
@@ -195,15 +188,7 @@ Page({
       }
     })
     if (result) {
-      let arr = result.map(item=>{
-        if (item.orgGoodsExtList[0].couponList.length) {
-          item['isShow'] = true
-        } else {
-          item['isShow'] = false
-        }
-        return item
-      })
-      callback && callback(arr || [], page)
+      callback && callback(result || [], page)
     }
     this.loading = false
     this.setData({
@@ -216,8 +201,8 @@ Page({
     let { pageIndex, list } = this.data
     this.getList(pageIndex, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: [...list, ...resList],
         hasMore: pageIndex * pageSize >= total ? false : true
       })
@@ -227,8 +212,8 @@ Page({
   initList () {
     this.getList(0, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: resList,
         total,
         hasMore: pageIndex * pageSize >= total ? false : true

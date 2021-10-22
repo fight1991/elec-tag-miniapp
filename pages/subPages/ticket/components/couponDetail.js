@@ -1,7 +1,7 @@
 // pages/ticket/components/couponDetail.js
 var app = getApp()
 const utils = app.utils
-const { couponDetail, addCoupon, translateDic } = app.api
+const { couponDetail, getCouponDetail, addCoupon, translateDic } = app.api
 Component({
   /**
    * 组件的属性列表
@@ -29,6 +29,7 @@ Component({
    */
   data: {
     isShow: true,
+    isFirst: true, //记录第一次进入页面渲染骨架屏
     serviceText: {},
     userCouponText: {},
     info: {},
@@ -44,17 +45,37 @@ Component({
    */
   methods: {
     // 获取卡券详情
-    async getDetail () {
-      this.setData({
-        isShow: true
-      })
+    getDetail () {
+      if (this.data.params.pageOrigin === 'get') {
+        //banner领券
+        this.getBnnerCoupon()
+      } else {
+        //我的卡券领券
+        this.getMyCoupon()
+      }
+    },
+    //我的卡券详情
+    async getMyCoupon () {
       let { result } = await couponDetail({
-        couponConfigId: this.data.params.couponId
+        couponConfigId: this.data.params.couponConfigId,
+        couponId: this.data.params.couponId
       })
       if (result) {
         this.setData({
-          info: result.couponExt,
-          isShow: false
+          info: result,
+          isShow: false,
+          isFirst: false
+        })
+      }
+    },
+    //banner优惠券详情
+    async  getBnnerCoupon () {
+      let { result } = await getCouponDetail(this.data.params.couponId)
+      if (result) {
+        this.setData({
+          info: result,
+          isShow: false,
+          isFirst: false
         })
       }
     },
@@ -72,19 +93,25 @@ Component({
       
     },
     gotoPage () {
-      let { type, service } = this.data.info
-      let { orgId, goodsId } = this.data.params
-      // 一元洗车跳到商户详情页
-      if (type === 'fixedPrice' && (service ==='carWash' || service ==='upkeep')) {
-        wx.navigateTo({
-          url: `/pages/subPages/maint/detail?orgId=${orgId}&pageFlag=${service==='carWash'?'wash':'maint'}&goodsId=${goodsId}`
+      if (this.data.params.pageOrigin === 'get') {
+        wx.navigateBack({
+          delta: 1,
         })
-      }
-      // 满减跳到相应场景的的商户列表页
-      if (type === 'moneyOff') {
-        wx.navigateTo({
-          url: this.data.pageUrl[service]
-        })
+      } else {
+        let { type, service } = this.data.info
+        let { orgId, goodsId } = this.data.params
+        // 一元洗车跳到商户详情页
+        if (type === 'fixedPrice' && (service ==='carWash' || service ==='upkeep')) {
+          wx.navigateTo({
+            url: `/pages/subPages/maint/detail?orgId=${orgId}&pageFlag=${service==='carWash'?'wash':'maint'}&goodsId=${goodsId}`
+          })
+        }
+        // 满减跳到相应场景的的商户列表页
+        if (type === 'moneyOff') {
+          wx.navigateTo({
+            url: this.data.pageUrl[service]
+          })
+        }
       }
     },
     async addCouponFun () {

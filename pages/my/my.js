@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navBarHeight: app.navHeight,
+    navBarHeight: 60,
     wxUserImg: app.static_user_logo,
     elecShow: false, // 是否显示电子车牌
     authPersonal: false, // 是否已实名
@@ -110,7 +110,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      navBarHeight: app.getSafeData()['bottomTop'],
+    });
   },
 
   /**

@@ -1,8 +1,0 @@
-<!-- 自定义获取位置顶部栏 -->
-<view class="nav-bar" style="height:{{navBarHeight}}px;">
-  <view class="pos-box" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{menuHeight}}px; bottom:{{menuBotton}}px;">
-    <current-position bindplaceSearch="placeSearch" current-place="{{currentPlace}}">
-      <iconfont size="30rpx" icon="arrow-right" color="#fff"></iconfont>
-    </current-position>
-  </view>
-</view>

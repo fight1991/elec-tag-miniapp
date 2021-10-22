@@ -12,9 +12,15 @@ Component({
    * 组件的初始数据
    */
   data: {
-    navBarHeight: app.navHeight,
+    navBarHeight: 116,
   },
-
+  lifetimes: {
+    attached: function () {
+        this.setData({
+          navBarHeight: app.getSafeData()['bottomTop'] + 56
+        })
+    },
+},
   /**
    * 组件的方法列表
    */
