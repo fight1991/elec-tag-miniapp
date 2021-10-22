@@ -24,10 +24,10 @@ export const getUserPermission = (isLoading) => {
 
 // 业务平台接口开始>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // 用户完整信息查询
-export const getUserTotalInfo = (isLoading) => {
+export const getUserTotalInfo = (other = true) => {
   return wx.$post_business({
     url: '/user-center/member-user/getUserInfo',
-    isLoading
+    other
   })
 }
 

@@ -54,13 +54,12 @@ export default {
       url: '/pages/main/main',
     })
   },
-  async saveUserBusinessInfo (isLoad) { // 获取并保存用户业务信息和
-    let { result } = await getUserTotalInfo(isLoad)
+  async saveUserBusinessInfo (otherInfo) { // 获取并保存用户业务信息和
+    let { result, other } = await getUserTotalInfo(otherInfo)
     if (result) {
       this.globalData.userInfo = result
-      return true
     }
-    return false
+    return { result, other }
   },
   /**  初始化所有用户信息
    * params: isLoad 是否开启loading

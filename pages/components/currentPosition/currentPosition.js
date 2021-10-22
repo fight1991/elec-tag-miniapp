@@ -33,7 +33,6 @@ Component({
     attached () {
       // 订阅更新
       app.listenPosition(({ title }) => {
-        console.log(title)
         if (this.data.onTime && title) {
           this.setData({
             currentPlace: title
