@@ -92,7 +92,12 @@ Page({
   startOpenPositionChange () {
     wx.onLocationChange(res => {
       this.data.startLocationChange = true
-      app.resolveGeocoder(res)
+      app.resolveGeocoder(res, (info) => {
+        // 地址变化更新全局位置信息
+        app.savePosition(info)
+        // 发送广播
+        app.sendPosition(Date.now())
+      })
     })
   },
   /**
