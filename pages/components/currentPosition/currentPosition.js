@@ -31,21 +31,17 @@ Component({
    */
   lifetimes: {
     attached () {
-      // 订阅更新
-      app.listenPosition(({ title }) => {
-        if (this.data.onTime && title) {
-          this.setData({
-            currentPlace: title
-          })
-        }
+      this.setData({
+        currentPlace: app.currentPos.title
       })
     }
   },
   methods: {
     placeSearch () {
-      if (this.data.currentPlace) {
+      let { currentPlace, onTime } = this.data
+      if (currentPlace) {
         wx.navigateTo({
-          url: '/pages/subPages/citySelector/citySelector',
+          url: `/pages/subPages/citySelector/citySelector?title=${currentPlace}&onTime=${onTime}`,
         })
       }
     },
@@ -55,6 +51,9 @@ Component({
       if (this.data.onTime) {
         app.savePosition({ latitude, longitude, city, pois, title, province })
       }
+      this.setData({
+        currentPlace: title
+      })
       this.triggerEvent('getSelectedPlace', { latitude, longitude, city, pois, title, province })
     }
   }

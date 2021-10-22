@@ -13,7 +13,7 @@
   <view class="mt-30">
     <dropdown-menu active-color="#447fff" style="{{pageFlag==='maint'?'width: 66.6%;':'width: 75%;'}}">
       <view class="pos-box" style="{{pageFlag==='maint'?'width: 33.3%;':'width: 25%;'}}"> 
-        <current-position id="currentAddresss" onTime="{{false}}" icon-size="26rpx" icon-color="#4D4D4D">
+        <current-position id="currentAddress" bind:getSelectedPlace="getSelectedPlace" onTime="{{false}}" icon-size="26rpx" icon-color="#4D4D4D">
         </current-position>
       </view>
       <dropdown-item bind:change="selectBtn" model:value="{{ distance }}" options="{{ distanceOption }}" />

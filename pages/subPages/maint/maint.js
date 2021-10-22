@@ -156,11 +156,11 @@ Page({
     this.data.latitude = latitude
     this.data.longitude = longitude
   },
-  // 城市选择
-  placeSearch () {
-    wx.navigateTo({
-      url: '/pages/subPages/citySelector/citySelector',
-    })
+  getSelectedPlace (e) {
+    let { latitude, longitude } = e.detail
+    this.data.latitude = latitude
+    this.data.longitude = longitude
+    this.initList()
   },
   // 筛选按钮
   selectBtn () {

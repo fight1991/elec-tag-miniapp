@@ -13,13 +13,13 @@ Page({
     showDefault: true, // 是否显示默认值
     currentPlace: '',
     city: '',
-    prePage: null,
+    prePage: null
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initPoisData()
+    this.initPoisData(options)
     // 实例化sdk
     qqmapsdk = app.initMapSdk()
   },
@@ -31,28 +31,35 @@ Page({
     })
   },
   // 初始化附件位置
-  initPoisData () {
+  initPoisData (options) {
     let { title, city, pois = [] } = app.currentPos
+    let preTitle = options.title
     this.data.pois = pois
     this.setData({
-      currentPlace: title,
+      currentPlace: preTitle || title,
       city,
       suggestion: pois
     })
   },
-  // 数据回填方法
-  backfill: function (e) {
-    let id = e.currentTarget.id
-    let select = {...this.data.suggestion[id]}
+  // 获取上一页的组件实例
+  getPrefixComponentInstance () {
+    if (this.preEle) {
+      return this.preEle
+    }
     let pages = getCurrentPages()
     let prePage = pages[pages.length - 2]
-    if (!prePage) return
+    if (!prePage) return null
     let preEle = prePage.selectComponent('#currentAddress')
-    if (!preEle) return
+    if (!preEle) return null
     this.preEle = preEle
-    preEle.setData({
-      currentPlace: select.title
-    });
+    return preEle
+  },
+  // 数据回填方法
+  backfill (e) {
+    let id = e.currentTarget.id
+    let select = {...this.data.suggestion[id]}
+    let preEle = this.getPrefixComponentInstance()
+    if (!preEle) return
     preEle.getSelectedPlace({
       provice: select.province,
       title: select.title,
@@ -119,7 +126,10 @@ Page({
     if (!isOpenGps) {
       app.messageBox.common('重新定位失败')
     }
-    await app.resolveGeocoder(isOpenGps)
+    let placeInfo = await app.resolveGeocoder(isOpenGps)
+    let preEle = this.getPrefixComponentInstance()
+    if (!preEle) return
+    preEle.getSelectedPlace(placeInfo)
     wx.hideLoading()
     wx.navigateBack({
       delta: 1

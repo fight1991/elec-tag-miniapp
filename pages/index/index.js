@@ -64,11 +64,13 @@ Page({
     }
     // 已打开GPS
     let { latitude, longitude } = isOpenGps
-    let reverseSuccess = await app.resolveGeocoder({ latitude, longitude })
-    if (!reverseSuccess) {
+    let reverseSuccessInfo = await app.resolveGeocoder({ latitude, longitude })
+    if (!reverseSuccessInfo) {
       app.messageBox.common('地址解析失败')
       return false
     }
+    // 保存地址信息
+    app.savePosition(reverseSuccessInfo)
     // 开启位置监听
     !this.data.startLocationChange && this.startOpenPositionChange()
     // 页面跳转
