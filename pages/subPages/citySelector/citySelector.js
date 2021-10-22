@@ -49,6 +49,7 @@ Page({
     if (!prePage) return
     let preEle = prePage.selectComponent('#currentAddress')
     if (!preEle) return
+    this.preEle = preEle
     preEle.setData({
       currentPlace: select.title
     });
@@ -110,19 +111,18 @@ Page({
     });
   },
   // 重新定位
-  regetPosition () {
-    if (!this.data.prePage) return
+  async regetPosition () {
     wx.showLoading({
       title: '定位中',
     })
-    app.getCurrentPosition()
-      .then(({ latitude, longitude }) => {
-      this.data.prePage.reverseGeocoder({ latitude, longitude }, () => {
-        wx.hideLoading()
-        wx.navigateBack({
-          delta: 1
-        })
-      })
+    let isOpenGps = await app.getCurrentPosition()
+    if (!isOpenGps) {
+      app.messageBox.common('重新定位失败')
+    }
+    await app.resolveGeocoder(isOpenGps)
+    wx.hideLoading()
+    wx.navigateBack({
+      delta: 1
     })
   },
   /**
