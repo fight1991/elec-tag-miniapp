@@ -107,7 +107,6 @@ Page({
           suggestion: sug,
           showDefault: false
         });
-        console.log('this.suggestion',sug);
       },
       fail: function(error) {
         console.error(error);
