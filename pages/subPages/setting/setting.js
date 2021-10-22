@@ -7,8 +7,7 @@ Page({
    */
   data: {
     openTradePwd: false, // 是否设置了交易密码
-    quickPay: false, // 是否开启免密支付
-    limitAmount: 0, // 免密支付金额
+    quickPay: false // 是否开启免密支付
   },
 
   /**
@@ -24,7 +23,6 @@ Page({
     let { userInfo } = app.globalData
     this.setData({
       openTradePwd: userInfo.openTradePwd || false,
-      limitAmount: userInfo.limitAmount || 0,
       quickPay: userInfo.quickPay || false
     })
   },

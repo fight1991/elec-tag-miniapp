@@ -142,9 +142,9 @@ Page({
   washTabBtn (e) {
     let current = this.data.washBtnList[e.target.dataset.index]
     if (current.goodsCategoryCode !== this.data.activeTab) {
+      this.data.goodsCategoryId = current.goodsCategoryId
       this.setData({
-        activeTab: current.goodsCategoryCode,
-        goodsCategoryId: current.goodsCategoryId
+        activeTab: current.goodsCategoryCode
       })
       this.data.upkeepType = current.goodsCategoryCode
       this.initList()
