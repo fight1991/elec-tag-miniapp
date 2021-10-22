@@ -13,7 +13,7 @@ Component({
       type: String,
       value: '40rpx'
     },
-    onTime: { // 是否跟随全局地址信息
+    updateToApp: { // 是否跟随全局地址信息
       type: Boolean,
       value: true
     }
@@ -38,17 +38,17 @@ Component({
   },
   methods: {
     placeSearch () {
-      let { currentPlace, onTime } = this.data
+      let { currentPlace } = this.data
       if (currentPlace) {
         wx.navigateTo({
-          url: `/pages/subPages/citySelector/citySelector?title=${currentPlace}&onTime=${onTime}`,
+          url: `/pages/subPages/citySelector/citySelector?title=${currentPlace}`,
         })
       }
     },
     // 获取选择的地址信息
     getSelectedPlace ({ latitude, longitude, city, pois, title, province }) {
       // 是否更新到全局
-      if (this.data.onTime) {
+      if (this.data.updateToApp) {
         app.savePosition({ latitude, longitude, city, pois, title, province })
       }
       this.setData({
