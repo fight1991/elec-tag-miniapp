@@ -63,8 +63,8 @@ Page({
   initList () {
     this.getList(0, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: resList,
         hasMore: pageIndex * pageSize >= total ? false : true
       })
@@ -81,8 +81,8 @@ Page({
     let { pageIndex, list } = this.data
     this.getList(pageIndex, (resList, pagination) => {
       var { pageIndex, total, pageSize } = pagination
+      this.data.pageIndex = pageIndex
       this.setData({
-        pageIndex,
         list: [...list, ...resList],
         hasMore: pageIndex * pageSize >= total ? false : true
       })
