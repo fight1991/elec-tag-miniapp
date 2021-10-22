@@ -39,9 +39,9 @@ Page({
       province: app.currentPos.province
     })
     if (result) {
+      this.data.priceList = result.priceList
       this.setData({
-        orgBusiness: result.orgBusiness,
-        priceList: result.priceList
+        orgBusiness: result.orgBusiness
       })
       if (result.priceList.length > 0) {
         let tempSelection = result.priceList.map(v => v.oilType)

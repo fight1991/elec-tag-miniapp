@@ -123,18 +123,18 @@ Page({
   async getWashBtnList () {
     let { result } = await washBtnList()
     if (result && result.length) {
+      this.data.upkeepType = result[0].goodsCategoryCode, // 洗车类型
+      this.data.goodsCategoryId = result[0].goodsCategoryId
       this.setData({
         washBtnList: result,
-        upkeepType: result[0].goodsCategoryCode, // 洗车类型
         activeTab: result[0].goodsCategoryCode, // 洗车当前tab
-        goodsCategoryId: result[0].goodsCategoryId
       })
     } else {
+      this.data.goodsCategoryId = ''
+      this.data.upkeepType = ''
       this.setData({
         washBtnList: [],
-        upkeepType: '',
-        activeTab: '',
-        goodsCategoryId: ''
+        activeTab: ''
       })
     }
   },
