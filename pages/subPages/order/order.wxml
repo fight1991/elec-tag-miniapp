@@ -1,5 +1,6 @@
 <!--pages/subPages/order/order.wxml-->
 <view>
+ <view class="gopay" bindtap="openPayPage">去支付</view>
   <view class="tab-box">
     <van-tabs color="#447fff" sticky swipeable animated active="{{ activeTab }}" bind:change="tabChange">
       <van-tab wx:key="index" wx:for-index="key" wx:for-item="value" name="{{key}}" wx:for="{{payStatusText}}" title="{{value}}">
@@ -29,3 +30,4 @@
     </van-tabs>
   </view>
 </view>
+<go-pay model:show-pay="{{showPay}}"></go-pay>

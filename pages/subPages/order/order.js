@@ -20,16 +20,23 @@ Page({
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     loading: false, // 正在加载
-    list: []
+    list: [],
+    showPay: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    this.initList()
+    // this.initList()
+    // this.setData({
+    //   serviceText: await translateDic('orgServiceType')
+    // })
+  },
+  // 打开支付组件
+  openPayPage () {
     this.setData({
-      serviceText: await translateDic('orgServiceType')
+      showPay: true
     })
   },
   tabChange (e) {
