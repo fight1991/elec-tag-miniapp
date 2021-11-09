@@ -8,6 +8,7 @@ Page({
    */
   data: {
     activeTab: 0,
+    amount: 0,
     currentName: '',
     payStatusText: {
       all: '全部',
@@ -32,11 +33,15 @@ Page({
     // this.setData({
     //   serviceText: await translateDic('orgServiceType')
     // })
+    
   },
   // 打开支付组件
-  openPayPage () {
+  openPayPage (e) {
+    let index = e.currentTarget.dataset.index
     this.setData({
-      showPay: true
+      showPay: true,
+      amount: 100
+      // amount: this.data.list[index]
     })
   },
   tabChange (e) {
@@ -78,8 +83,6 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
-  // 去付款
-  goPay () {},
   onPullDownRefresh: function () {
     this.initList()
   },
