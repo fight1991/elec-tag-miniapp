@@ -2,7 +2,7 @@
 <view class="box">
 	<view class="code-box">
 		<view class="mobile-title">验证码已发送至{{mobile}}</view>
-		<block-code binddone="confirmCode"></block-code>
+		<block-code binddone="confirmCode" margin="0 30rpx"></block-code>
 		<view class="cut-down">
 			<van-count-down
 				class="control-count-down"
