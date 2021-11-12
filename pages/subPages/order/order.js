@@ -39,8 +39,7 @@ Page({
     let index = e.currentTarget.dataset.index
     this.setData({
       showPay: true,
-      amount: 100
-      // amount: this.data.list[index]
+      amount: this.data.list[index].totalAmount
     })
   },
   tabChange (e) {

@@ -4,7 +4,7 @@
     <van-tabs color="#447fff" sticky swipeable animated active="{{ activeTab }}" bind:change="tabChange">
       <van-tab wx:key="index" wx:for-index="key" wx:for-item="value" name="{{key}}" wx:for="{{payStatusText}}" title="{{value}}">
         <view class="content-box">
-          <view class="card-item" wx:for="{{list}}" wx:key="index" data-index="{{index}}">
+          <view class="card-item" wx:for="{{list}}" wx:key="index">
             <navigator url="./detail?orderNum={{item.tradeOrderNo}}">
               <van-cell-group inset>
                 <van-cell title="{{item.merchantName}}">
@@ -22,7 +22,7 @@
                   </view>
                 </view>
                 <van-cell>
-                  <van-button size="small" plain type="info" wx:if="{{item.status=='doing'}}" catchtap="openPayPage">去付款</van-button>
+                  <van-button size="small" plain type="info" wx:if="{{item.status=='doing'}}" data-index="{{index}}" catchtap="openPayPage">去付款</van-button>
                 </van-cell>
               </van-cell-group>
             </navigator>
