@@ -16,7 +16,7 @@
       <van-cell title="加油升数" wx:if="{{formData.merchantService == 'refueling'}}" value="{{formData.liters/1000 || '-'}}" />
       <van-cell title="交易金额" value="{{formData.totalAmount || '-'}}" />
       <van-cell title="优惠金额" value="{{formData.couponAmount || '-'}}" />
-      <van-cell title="应付金额" value="{{formData.payAmount || '-'}}" />
+      <van-cell title="实付金额" value="{{formData.payAmount || '-'}}" />
       <van-cell title="订单编号" value="{{formData.tradeOrderNo || '-'}}" />
       <van-cell title="创建时间" value="{{formData.createdTime || '-'}}" />
       <van-cell wx:if="{{formData.status=='done'}}" title="支付时间" value="{{formData.payDate || '-'}}" />
@@ -24,4 +24,5 @@
     </van-cell-group>
   </view>
 </view>
-<fixBtn bgColor="#FF7E37" wx:if="{{formData.status=='doing'}}">去支付</fixBtn>
+<fixBtn bgColor="#FF7E37" wx:if="{{formData.status=='doing'}}" bindtap="openPayPage">去支付</fixBtn>
+<go-pay model:show-pay="{{showPay}}" amount="{{formData.payAmount}}"></go-pay>

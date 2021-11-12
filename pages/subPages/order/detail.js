@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showPay: false,
     formData: {},
     serviceText: {}
   },
@@ -36,6 +37,12 @@ Page({
         }
       })
     }
+  },
+  // 打开支付组件
+  openPayPage () {
+    this.setData({
+      showPay: true
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

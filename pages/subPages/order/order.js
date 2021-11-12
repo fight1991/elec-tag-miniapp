@@ -29,11 +29,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // this.initList()
-    // this.setData({
-    //   serviceText: await translateDic('orgServiceType')
-    // })
-    
+    this.initList()
+    this.setData({
+      serviceText: await translateDic('orgServiceType')
+    })
   },
   // 打开支付组件
   openPayPage (e) {

@@ -1,8 +1,5 @@
 <!--pages/subPages/order/order.wxml-->
 <view>
-  <view bindtap="openPayPage">
-    去付款
-  </view>
   <view class="tab-box">
     <van-tabs color="#447fff" sticky swipeable animated active="{{ activeTab }}" bind:change="tabChange">
       <van-tab wx:key="index" wx:for-index="key" wx:for-item="value" name="{{key}}" wx:for="{{payStatusText}}" title="{{value}}">
