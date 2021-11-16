@@ -1,6 +1,6 @@
 // pages/subPages/order/order.js
 var app = getApp()
-const { orderList: listApi, translateDic } = app.api
+const { orderList: listApi, translateDic, getFreezeStatus } = app.api
 Page({
 
   /**
@@ -19,6 +19,7 @@ Page({
       closed: '已关闭'
     },
     serviceText: {},
+    isFreeze: false, // 是否被冻结
     pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
@@ -31,6 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    this.getFreezeFun()
     this.initList()
     this.setData({
       serviceText: await translateDic('orgServiceType')
@@ -38,6 +40,13 @@ Page({
   },
   // 打开支付组件
   openPayPage (e) {
+    if (this.data.isFreeze) {
+      wx.showToast({
+        title: '账户已被冻结，无法继续支付！',
+        icon: 'none'
+      })
+      return
+    }
     let index = e.currentTarget.dataset.index
     this.setData({
       showPay: true,
@@ -49,7 +58,6 @@ Page({
     let tabValue = e.detail.name
     let status = tabValue == 'all' ? '' : tabValue
     this.data.currentName = status
-    
     this.initList()
   },
   // 获取列表
@@ -83,6 +91,14 @@ Page({
       })
       wx.stopPullDownRefresh()
     })
+  },
+  async getFreezeFun () {
+    let { result } = await getFreezeStatus()
+    if (result) {
+      this.setData({
+        isFreeze: true
+      })
+    }
   },
   onPullDownRefresh: function () {
     this.initList()

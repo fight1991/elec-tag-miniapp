@@ -9,6 +9,7 @@ Page({
   data: {
     showPay: false,
     formData: {},
+    isFreeze: false, // 是否被冻结
     serviceText: {}
   },
 
@@ -16,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getFreezeFun()
     let orderNum = options.orderNum
     if (orderNum) {
       let pages = getCurrentPages()
@@ -38,10 +40,26 @@ Page({
       })
     }
   },
+  async getFreezeFun () {
+    let { result } = await getFreezeStatus()
+    if (result) {
+      this.setData({
+        isFreeze: true
+      })
+    }
+  },
   // 打开支付组件
   openPayPage () {
+    if (this.data.isFreeze) {
+      wx.showToast({
+        title: '账户已被冻结，无法继续支付！',
+        icon: 'none'
+      })
+      return
+    }
     this.setData({
-      showPay: true
+      showPay: true,
+      params: this.data.formData
     })
   },
   /**
