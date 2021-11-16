@@ -11,7 +11,7 @@
                   <text class="{{item.status}}">{{payStatusText[item.status]}}</text>
                 </van-cell>
                 <van-cell border="{{false}}" title="{{item.plateNo}}">
-                  <text class="warning">¥{{item.totalAmount}}</text>
+                  <text class="warning">¥{{item.payAmount ? item.payAmount : item.totalAmount}}</text>
                 </van-cell>
                 <view class="list-flex">
                   <view>
@@ -36,4 +36,4 @@
     </van-tabs>
   </view>
 </view>
-<go-pay model:show-pay="{{showPay}}" amount="{{amount}}"></go-pay>
+<go-pay model:show-pay="{{showPay}}" params="{{params}}"></go-pay>

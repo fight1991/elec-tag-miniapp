@@ -9,6 +9,8 @@ Page({
   data: {
     activeTab: 0,
     amount: 0,
+    tradeOrderNo: null,
+    params: {},
     currentName: '',
     payStatusText: {
       all: '全部',
@@ -39,7 +41,8 @@ Page({
     let index = e.currentTarget.dataset.index
     this.setData({
       showPay: true,
-      amount: this.data.list[index].totalAmount
+      itemIndex: index,
+      params: this.data.list[index]
     })
   },
   tabChange (e) {

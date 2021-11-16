@@ -143,13 +143,6 @@ export const orderDetail = (data) => {
     data
   })
 }
-// 支付
-export const orderPay = (data) => {
-  return wx.$post_business({
-    url: '/user-center/trade/addPay',
-    data
-  })
-}
 // 个人设置 -- 设置交易密码
 export const tradePw = (data) => {
   return wx.$post_business({
