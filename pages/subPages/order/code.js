@@ -15,8 +15,6 @@ Page({
    */
   onLoad: function (options) {
     this.data.tradeOrderNo = options.tradeOrderNo
-    console.log('onLoad', options, this.data.tradeOrderNo)
-    
     this.setData({
       mobile: app.globalData.userInfo.mobile || ''
     })
