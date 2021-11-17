@@ -23,6 +23,13 @@ export const getFreezeStatus = (data) => {
     responseType: 'boolean'
   })
 }
+// 测试环境支付时输短信验证码
+export const payByBackSMS = (data) => {
+  return wx.$post_business({
+    url: '/user-center/trade/payByBackSMS',
+    data
+  })
+}
 // 锁定优惠券
 export const lockCoupon = (data) => {
   return wx.$post_business({
