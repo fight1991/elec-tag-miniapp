@@ -2,7 +2,6 @@
   padding: 30rpx;
 }
 .code-box {
-  padding: 30rpx;
   border-radius: 10rpx;
   background-color: #fff;
 }
@@ -19,6 +18,6 @@
   justify-content: flex-end;
 }
 .code-box {
-  padding: 0 30rpx;
+  padding: 0 10rpx;
   box-sizing: border-box;
 }

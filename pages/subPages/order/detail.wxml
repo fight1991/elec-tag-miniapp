@@ -1,27 +1,30 @@
 <!--pages/subPages/order/detail.wxml-->
-<view class="box">
-  <view class="line-item wait" wx:if="{{formData.status=='doing'}}">
-    <view class="left">待支付</view>
-    <view class="right">¥{{formData.payAmount}}</view>
+<safe-area>
+  <view class="box">
+    <view class="line-item wait" wx:if="{{formData.status=='doing'}}">
+      <view class="left">待支付</view>
+      <view class="right">¥{{formData.payAmount ? formData.payAmount : formData.totalAmount}}</view>
+    </view>
+    <view class="line-item close" wx:if="{{formData.status=='closed'}}">
+      <view class="left">已关闭</view>
+      <view class="right">¥{{formData.payAmount}}</view>
+    </view>
+    <view class="content-box">
+      <van-cell-group>
+        <van-cell title="商户名称" value="{{formData.merchantName || '-'}}" />
+        <van-cell title="车牌号" value="{{formData.plateNo || '-'}}" />
+        <van-cell title="消费类型" value="{{serviceText[formData.merchantService] || '-'}}" />
+        <van-cell title="加油升数" wx:if="{{formData.merchantService == 'refueling'}}" value="{{formData.liters/1000 || '-'}}" />
+        <van-cell title="交易金额" value="{{formData.totalAmount || '-'}}" />
+        <van-cell title="优惠金额" value="{{formData.couponAmount || '-'}}" />
+        <van-cell title="实付金额" value="{{formData.payAmount ? formData.payAmount : formData.totalAmount}}" />
+        <van-cell title="订单编号" value="{{formData.tradeOrderNo || '-'}}" />
+        <van-cell title="创建时间" value="{{formData.createdTime || '-'}}" />
+        <van-cell wx:if="{{formData.status=='done'}}" title="支付时间" value="{{formData.payDate || '-'}}" />
+        <van-cell wx:if="{{formData.status=='closed'}}" title="关闭时间" value="{{formData.closeDate || '-'}}" />
+      </van-cell-group>
+    </view>
   </view>
-  <view class="line-item close" wx:if="{{formData.status=='closed'}}">
-    <view class="left">已关闭</view>
-    <view class="right">¥{{formData.payAmount}}</view>
-  </view>
-  <view class="content-box">
-    <van-cell-group>
-      <van-cell title="商户名称" value="{{formData.merchantName || '-'}}" />
-      <van-cell title="车牌号" value="{{formData.plateNo || '-'}}" />
-      <van-cell title="消费类型" value="{{serviceText[formData.merchantService] || '-'}}" />
-      <van-cell title="加油升数" wx:if="{{formData.merchantService == 'refueling'}}" value="{{formData.liters/1000 || '-'}}" />
-      <van-cell title="交易金额" value="{{formData.totalAmount || '-'}}" />
-      <van-cell title="优惠金额" value="{{formData.couponAmount || '-'}}" />
-      <van-cell title="应付金额" value="{{formData.payAmount || '-'}}" />
-      <van-cell title="订单编号" value="{{formData.tradeOrderNo || '-'}}" />
-      <van-cell title="创建时间" value="{{formData.createdTime || '-'}}" />
-      <van-cell wx:if="{{formData.status=='done'}}" title="支付时间" value="{{formData.payDate || '-'}}" />
-      <van-cell wx:if="{{formData.status=='closed'}}" title="关闭时间" value="{{formData.closeDate || '-'}}" />
-    </van-cell-group>
-  </view>
-</view>
-<fixBtn bgColor="#FF7E37" wx:if="{{formData.status=='doing'}}">去支付</fixBtn>
+</safe-area>
+<fixBtn bgColor="#FF7E37" wx:if="{{formData.status=='doing'}}" bindtap="openPayPage">去支付</fixBtn>
+<go-pay model:show-pay="{{showPay}}" params="{{params}}"></go-pay>

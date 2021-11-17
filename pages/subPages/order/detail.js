@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showPay: false,
     formData: {},
+    isFreeze: false, // 是否被冻结
     serviceText: {}
   },
 
@@ -36,6 +38,21 @@ Page({
         }
       })
     }
+  },
+  // 打开支付组件
+  async openPayPage () {
+    let { result } = await getFreezeStatus()
+    if (result) {
+      wx.showToast({
+        title: '账户已被冻结，无法继续支付！',
+        icon: 'none'
+      })
+      return
+    }
+    this.setData({
+      showPay: true,
+      params: this.data.formData
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

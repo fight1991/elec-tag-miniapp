@@ -1,6 +1,6 @@
 // pages/subPages/order/order.js
 var app = getApp()
-const { orderList: listApi, translateDic } = app.api
+const { orderList: listApi, translateDic, getFreezeStatus } = app.api
 Page({
 
   /**
@@ -8,6 +8,9 @@ Page({
    */
   data: {
     activeTab: 0,
+    amount: 0,
+    tradeOrderNo: null,
+    params: {},
     currentName: '',
     payStatusText: {
       all: '全部',
@@ -16,11 +19,13 @@ Page({
       closed: '已关闭'
     },
     serviceText: {},
+    isFreeze: false, // 是否被冻结
     pageIndex: 0, // 当前页
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     loading: false, // 正在加载
-    list: []
+    list: [],
+    showPay: false
   },
 
   /**
@@ -32,11 +37,27 @@ Page({
       serviceText: await translateDic('orgServiceType')
     })
   },
+  // 打开支付组件
+  async openPayPage (e) {
+    let { result } = await getFreezeStatus()
+    if (result) {
+      wx.showToast({
+        title: '账户已被冻结，无法继续支付！',
+        icon: 'none'
+      })
+      return
+    }
+    let index = e.currentTarget.dataset.index
+    this.setData({
+      showPay: true,
+      itemIndex: index,
+      params: this.data.list[index]
+    })
+  },
   tabChange (e) {
     let tabValue = e.detail.name
     let status = tabValue == 'all' ? '' : tabValue
     this.data.currentName = status
-    
     this.initList()
   },
   // 获取列表
@@ -71,8 +92,12 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
-  // 去付款
-  goPay () {},
+  async getFreezeFun () {
+    let { result } = await getFreezeStatus()
+      this.setData({
+        isFreeze: result
+      })
+  },
   onPullDownRefresh: function () {
     this.initList()
   },
