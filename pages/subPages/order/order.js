@@ -32,15 +32,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    this.getFreezeFun()
     this.initList()
     this.setData({
       serviceText: await translateDic('orgServiceType')
     })
   },
   // 打开支付组件
-  openPayPage (e) {
-    if (this.data.isFreeze) {
+  async openPayPage (e) {
+    let { result } = await getFreezeStatus()
+    if (result) {
       wx.showToast({
         title: '账户已被冻结，无法继续支付！',
         icon: 'none'
@@ -94,11 +94,9 @@ Page({
   },
   async getFreezeFun () {
     let { result } = await getFreezeStatus()
-    if (result) {
       this.setData({
-        isFreeze: true
+        isFreeze: result
       })
-    }
   },
   onPullDownRefresh: function () {
     this.initList()

@@ -20,6 +20,7 @@ export const getFreezeStatus = (data) => {
   return wx.$post_business({
     url: '/user-center/trade/getFreezeStatus',
     data,
+    responseType: 'boolean'
   })
 }
 // 锁定优惠券

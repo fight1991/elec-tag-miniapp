@@ -137,10 +137,11 @@ export const orderList = ({data, page}) => {
   })
 }
 // 订单详情
-export const orderDetail = (data) => {
+export const orderDetail = (data, isLoading) => {
   return wx.$post_business({
     url: '/user-center/trade/getTrade',
-    data
+    data,
+    isLoading
   })
 }
 // 个人设置 -- 设置交易密码
