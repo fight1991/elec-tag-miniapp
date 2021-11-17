@@ -1,4 +1,4 @@
-// pages/subPages/order/code/code.js
+// pages/subPages/order/code.js
 var app = getApp()
 const { payByBackSMS } = app.api
 Page({

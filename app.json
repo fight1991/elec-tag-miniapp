@@ -27,6 +27,7 @@
       "name": "order",
       "pages": [
         "order",
+        "code",
         "detail"
       ]
     },
