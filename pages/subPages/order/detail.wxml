@@ -3,7 +3,7 @@
   <view class="box">
     <view class="line-item wait" wx:if="{{formData.status=='doing'}}">
       <view class="left">待支付</view>
-      <view class="right">¥{{formData.payAmount}}</view>
+      <view class="right">¥{{formData.payAmount ? formData.payAmount : formData.totalAmount}}</view>
     </view>
     <view class="line-item close" wx:if="{{formData.status=='closed'}}">
       <view class="left">已关闭</view>

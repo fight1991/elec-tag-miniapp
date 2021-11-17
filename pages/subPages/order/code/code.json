@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "block-code": "/publicBag/components/blockCode/blockCode"
+  },
+  "navigationBarTitleText": "短信验证码"
+}
