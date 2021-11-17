@@ -1,4 +1,4 @@
-<!--pages/subPages/order/code/code.wxml-->
+<!--pages/subPages/order/code.wxml-->
 <view class="box">
 	<view class="code-box">
 		<view class="mobile-title">验证码已发送至{{mobile}}</view>

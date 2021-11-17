@@ -1,4 +1,4 @@
-// pages/subPages/order/code/code.js
+// pages/subPages/order/code.js
 var app = getApp()
 const { payByBackSMS } = app.api
 Page({
@@ -15,8 +15,6 @@ Page({
    */
   onLoad: function (options) {
     this.data.tradeOrderNo = options.tradeOrderNo
-    console.log('onLoad', options, this.data.tradeOrderNo)
-    
     this.setData({
       mobile: app.globalData.userInfo.mobile || ''
     })
