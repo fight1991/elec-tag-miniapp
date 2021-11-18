@@ -8,7 +8,6 @@ Page({
    */
   data: {
     mobile: '',
-    countDown: null,
     time: 60*1000,
     pageTo: 'trade',
     isFinish: false,
