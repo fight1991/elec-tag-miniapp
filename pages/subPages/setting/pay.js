@@ -9,7 +9,7 @@ Page({
   data: {
     check: 500,
     code: '',
-    isOpen: false
+    isOpen: false,
   },
 
   /**
@@ -20,8 +20,6 @@ Page({
   },
   mapPropsData () {
     let { limitAmount, quickPay } = app.globalData.userInfo
-    console.log('limitAmount', limitAmount);
-    console.log('quickPay', quickPay);
     
     this.setData({
       check: quickPay ? limitAmount : 500,
