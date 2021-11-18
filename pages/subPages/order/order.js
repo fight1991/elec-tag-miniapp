@@ -57,7 +57,9 @@ Page({
   tabChange (e) {
     let tabValue = e.detail.name
     let status = tabValue == 'all' ? '' : tabValue
-    this.data.currentName = status
+    this.setData({
+      currentName: status
+    })
     this.initList()
   },
   // 获取列表
