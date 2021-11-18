@@ -13,7 +13,7 @@
 }
 .cut-down {
   text-align: right;
-  padding: 30rpx 0 0;
+  padding: 30rpx 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -21,4 +21,9 @@
 .code-box {
   padding: 0 30rpx;
   box-sizing: border-box;
+}
+.resend {
+  color: #447FFF;
+  text-align: right;
+  padding: 30rpx 0;
 }
