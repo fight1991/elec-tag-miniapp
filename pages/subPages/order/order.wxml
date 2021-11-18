@@ -36,4 +36,4 @@
     </van-tabs>
   </view>
 </view>
-<go-pay model:show-pay="{{showPay}}" params="{{params}}"></go-pay>
+<go-pay model:show-pay="{{showPay}}" bind:success-pay="initList" params="{{params}}"></go-pay>

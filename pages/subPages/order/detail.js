@@ -27,6 +27,15 @@ Page({
       this.getDetail(orderNum)
     }
   },
+  // 返回订单列表页
+  goOrderList () {
+    let pages = getCurrentPages()
+    let prePage = pages[pages.length - 2]
+    prePage.initList()
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
   // 获取详情
   async getDetail (no) {
     let { result } = await orderDetail(no)
