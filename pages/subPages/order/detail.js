@@ -1,6 +1,6 @@
 // pages/subPages/order/detail.js
 var app = getApp()
-const { orderDetail } = app.api
+const { orderDetail, getFreezeStatus } = app.api
 Page({
 
   /**
