@@ -20,6 +20,9 @@ Page({
   },
   mapPropsData () {
     let { limitAmount, quickPay } = app.globalData.userInfo
+    console.log('limitAmount', limitAmount);
+    console.log('quickPay', quickPay);
+    
     this.setData({
       check: quickPay ? limitAmount : 500,
       isOpen: quickPay
@@ -32,7 +35,7 @@ Page({
   // 关闭免密支付
   closeBtn () {
     app.utils.openConfirm({
-      content: '是否关闭关闭小额免密支付',
+      content: '是否关闭小额免密支付',
       confirm: () => {
         this.payWithoutPw(false)
       }
@@ -52,6 +55,7 @@ Page({
     })
     if (result) {
       app.globalData.userInfo.quickPay = status
+      app.globalData.userInfo.limitAmount = this.data.check
       wx.navigateBack({
         delta: 1
       })
