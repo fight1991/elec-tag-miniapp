@@ -12,7 +12,7 @@
                 </van-cell>
                 <van-cell border="{{false}}" title="{{item.plateNo}}">
                   <!-- 已关闭订单总显示应付金额 -->
-                  <text class="warning" wx:if="{{currentName=='closed'}}">¥{{item.payAmount}}</text>
+                  <text class="warning" wx:if="{{currentName=='closed'}}">¥{{item.totalAmount}}</text>
                   <text class="warning" wx:else>¥{{item.payAmount != null ? item.payAmount : item.totalAmount}}</text>
                 </van-cell>
                 <view class="list-flex">
