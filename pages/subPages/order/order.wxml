@@ -11,11 +11,20 @@
                   <text class="{{item.status}}">{{payStatusText[item.status]}}</text>
                 </van-cell>
                 <van-cell border="{{false}}" title="{{item.plateNo}}">
-                  <text class="warning">¥{{item.totalAmount}}</text>
+                  <!-- 已关闭订单总显示应付金额 -->
+                  <text class="warning" wx:if="{{currentName=='closed'}}">¥{{item.payAmount}}</text>
+                  <text class="warning" wx:else>¥{{item.payAmount != null ? item.payAmount : item.totalAmount}}</text>
                 </van-cell>
-                <van-cell border="{{false}}" title="{{serviceText[item.merchantService]}}" value="创建时间: {{item.createdTime}}"/>
+                <view class="list-flex">
+                  <view>
+                    {{serviceText[item.merchantService]}}
+                  </view>
+                  <view class="w-350">
+                    创建时间: {{item.createdTime}}
+                  </view>
+                </view>
                 <van-cell>
-                  <van-button size="small" plain type="info" wx:if="{{item.status=='doing'}}" catchtap="goPay">去付款</van-button>
+                  <van-button size="small" plain type="info" wx:if="{{item.status=='doing'}}" data-index="{{index}}" catchtap="openPayPage">去付款</van-button>
                 </van-cell>
               </van-cell-group>
             </navigator>
@@ -29,3 +38,4 @@
     </van-tabs>
   </view>
 </view>
+<go-pay model:show-pay="{{showPay}}" bind:success-pay="initList" params="{{params}}"></go-pay>

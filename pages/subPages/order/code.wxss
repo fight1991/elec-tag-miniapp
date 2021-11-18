@@ -2,7 +2,6 @@
   padding: 30rpx;
 }
 .code-box {
-  padding: 30rpx;
   border-radius: 10rpx;
   background-color: #fff;
 }
@@ -13,17 +12,12 @@
 }
 .cut-down {
   text-align: right;
-  padding: 30rpx 0;
+  padding: 30rpx 0 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 .code-box {
-  padding: 0 30rpx;
+  padding: 0 10rpx;
   box-sizing: border-box;
-}
-.resend {
-  color: #447FFF;
-  text-align: right;
-  padding: 30rpx 0;
 }

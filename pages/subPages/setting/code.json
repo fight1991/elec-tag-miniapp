@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "block-code": "/pages/components/blockCode/blockCode",
+    "block-code": "/publicBag/components/blockCode/blockCode",
     "van-count-down": "@vant/weapp/count-down/index"
   },
   "navigationBarTitleText": "验证身份"

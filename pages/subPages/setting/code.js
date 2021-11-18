@@ -8,9 +8,9 @@ Page({
    */
   data: {
     mobile: '',
-    cutDown: 0,
     time: 60*1000,
-    pageTo: 'trade'
+    pageTo: 'trade',
+    isFinish: false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -25,16 +25,23 @@ Page({
   },
 
   timeFinish () {
-    this.getCode()
+    // this.getCode()
+    this.setData({
+      isFinish: true
+    })
   },
   // 获取手机号验证码
   async getCode () {
+    this.setData({
+      isFinish: false
+    })
     let { result, other, error } = await getShortCode({
       type: 'setTradePwd',
       mobile: this.data.mobile
     })
     if (result) {
       app.messageBox.common('验证码发送成功')
+      this.countDown = this.selectComponent('.control-count-down')
       this.countDown && this.countDown.reset()
       this.countDown && this.countDown.start()
     }

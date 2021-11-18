@@ -2,15 +2,18 @@
 <view class="box">
 	<view class="code-box">
 		<view class="mobile-title">验证码已发送至{{mobile}}</view>
-		<block-code binddone="confirmCode"></block-code>
-		<view class="cut-down">
+		<view class="code-box">
+			<block-code binddone="confirmCode"></block-code>
+		</view>
+		<view class="cut-down" wx:if="{{!isFinish}}">
 			<van-count-down
 				class="control-count-down"
 				auto-start="{{false}}"
 				bind:finish="timeFinish"
 				format="ss"
 				time="{{ time }}"/>
-			<text>S后再次发送</text>
+			<text>S后可再次发送</text>
 		</view>
+		<view wx:else class="resend" bindtap="getCode">重新发送</view>
 	</view>
 </view>

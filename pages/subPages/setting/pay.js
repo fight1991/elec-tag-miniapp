@@ -9,7 +9,7 @@ Page({
   data: {
     check: 500,
     code: '',
-    isOpen: false
+    isOpen: false,
   },
 
   /**
@@ -20,6 +20,7 @@ Page({
   },
   mapPropsData () {
     let { limitAmount, quickPay } = app.globalData.userInfo
+    
     this.setData({
       check: quickPay ? limitAmount : 500,
       isOpen: quickPay
@@ -32,7 +33,7 @@ Page({
   // 关闭免密支付
   closeBtn () {
     app.utils.openConfirm({
-      content: '是否关闭关闭小额免密支付',
+      content: '是否关闭小额免密支付',
       confirm: () => {
         this.payWithoutPw(false)
       }
@@ -52,6 +53,7 @@ Page({
     })
     if (result) {
       app.globalData.userInfo.quickPay = status
+      app.globalData.userInfo.limitAmount = this.data.check
       wx.navigateBack({
         delta: 1
       })

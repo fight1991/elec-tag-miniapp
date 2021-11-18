@@ -1,13 +1,15 @@
 // pages/subPages/order/detail.js
 var app = getApp()
-const { orderDetail } = app.api
+const { orderDetail, getFreezeStatus } = app.api
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    showPay: false,
     formData: {},
+    isFreeze: false, // 是否被冻结
     serviceText: {}
   },
 
@@ -25,6 +27,15 @@ Page({
       this.getDetail(orderNum)
     }
   },
+  // 返回订单列表页
+  goOrderList () {
+    let pages = getCurrentPages()
+    let prePage = pages[pages.length - 2]
+    prePage.initList()
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
   // 获取详情
   async getDetail (no) {
     let { result } = await orderDetail(no)
@@ -36,6 +47,21 @@ Page({
         }
       })
     }
+  },
+  // 打开支付组件
+  async openPayPage () {
+    let { result } = await getFreezeStatus()
+    if (result) {
+      wx.showToast({
+        title: '账户已被冻结，无法继续支付！',
+        icon: 'none'
+      })
+      return
+    }
+    this.setData({
+      showPay: true,
+      params: this.data.formData
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
