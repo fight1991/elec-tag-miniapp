@@ -53,7 +53,6 @@ Page({
       itemIndex: index,
       params: this.data.list[index]
     })
-    
   },
   tabChange (e) {
     let tabValue = e.detail.name
