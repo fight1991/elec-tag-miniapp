@@ -1,0 +1,12 @@
+<!-- pages/car-keyboard/key-board/index.wxml -->
+<view class="key-board-wrapper {{currentKeyBoardName}}">
+  <view class="key-board-title" bind:tap="handleClose">关闭</view>
+  <view class="key-board">
+    <view wx:for="{{currentKeyBoard}}" wx:key="index" class="key {{item=='I' || item=='O' || disabledNumber ?'disabled-number':''}}" mark:key="{{item}}" bindtap="handleClickKey">
+      {{item}}
+    </view>
+    <view class="key" bind:tap="handleDelete">
+      <image class="delete-icon" src="./image/delete.png"></image>
+    </view>
+  </view>
+</view>

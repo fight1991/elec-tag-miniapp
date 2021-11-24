@@ -1,0 +1,51 @@
+/* pages/car-keyboard/key-input/index.wxss */
+.car-plate {
+  display:flex;
+  justify-content:center;
+  /* padding:15px 15px 0 */
+}
+.car-plate-item {
+  box-sizing:border-box;
+  width:34px;
+  height:34px;
+  line-height:34px;
+  font-size:18px;
+  text-align:center;
+  border:1px solid #E5E5E5;
+  border-radius: 3px;
+  color:#447FFF;
+  margin-right:7px;
+  font-weight: bolder;
+}
+.car-plate-item:last-child {
+  position:relative;
+}
+/* .car-plate-item-last {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.car-plate-item-last .icon-plus {
+  font-size: 64rpx;
+  height: 20px;
+}
+.car-plate-item-last .icon-text {
+  font-size: 20rpx;
+} */
+.car-plate-item:last-child::before {
+  content:'新';
+  position:absolute;
+  top:-14px;
+  left:-1px;
+  width:34px;
+  height:14px;
+  line-height:14px;
+  font-size:10px;
+  background:#66cd00;
+  color:#fff;
+  border-radius:1px
+}
+.active {
+  border-color:#447FFF;
+}

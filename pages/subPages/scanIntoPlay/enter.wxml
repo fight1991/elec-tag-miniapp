@@ -1,14 +1,13 @@
 <!--pages/subPages/scanIntoPlay/enter.wxml-->
-<safe-area>
-  <view class="box">
-    <view>
-      {{orgName}}
-    </view>
-    <view>
-      {{phone}}
-    </view>
+<view class="box">
+  <view class="info pb-34">
+    {{orgName}}
   </view>
-</safe-area>
+  <view class="info pb-85">
+    {{phone}}
+  </view>
+  <car-keyboard></car-keyboard>
+</view>
 <view>
   <fixBtn type="gray" wx:if="isDisabled">入场</fixBtn>
   <fixBtn bindtap="goBtn" wx:else>入场</fixBtn>

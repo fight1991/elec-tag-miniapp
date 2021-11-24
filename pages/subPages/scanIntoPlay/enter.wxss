@@ -1,4 +1,19 @@
 /* pages/subPages/scanIntoPlay/enter.wxss */
 .box {
-  
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 60rpx 30rpx 0 30rpx;
+  padding: 53rpx 0 92rpx 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+.info {
+  color: #4D4D4D;
+  font-size: 34rpx;
+}
+.pb-34 {
+  padding-bottom: 34rpx;
+}
+.pb-85 {
+  padding-bottom: 85rpx;
 }

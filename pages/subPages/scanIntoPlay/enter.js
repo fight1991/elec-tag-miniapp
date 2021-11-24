@@ -8,7 +8,7 @@ Page({
    */
   data: {
     isDisabled: true,
-    orgName: '',
+    orgName: '商户停车场名称',
     phone: '',
     plateNo: '',
     qrcodeId: '',
