@@ -13,6 +13,11 @@ Page({
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     list: [],
+    statusText: {
+      doing: '进行中',
+      done: '已完成',
+      closed: '已关闭'
+    },
     value: ''
   },
 
@@ -53,7 +58,13 @@ Page({
       }
     })
     if (result) {
-      callback && callback(result || [], page)
+      let arr = result.map(item => {
+       return {
+          ...item,
+          billingDurationText: item.billingDuration ? app.utils.formatHours(item.billingDuration) : ''
+        }
+      })
+      callback && callback(arr || [], page)
     }
     this.loading = false
     this.setData({

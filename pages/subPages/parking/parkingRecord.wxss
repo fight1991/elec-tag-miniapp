@@ -22,7 +22,7 @@ page {
 }
 .name {
   color:#1D1D25;
-  font-size: 32rpx;
+  font-size: 30rpx;
 }
 .sub-title {
   color: #808080;

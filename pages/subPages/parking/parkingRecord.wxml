@@ -28,8 +28,11 @@
             <view class="item middle sub-title">
               入场时间: <text class="time">{{item.inDate || '-'}}</text>
             </view>
-            <view class="item sub-title">
-              停车时长: <text class="time">{{item.outDate || '-'}}</text>
+            <view class="item">
+              <view class="name">
+                <view class="sub-title">停车时长: {{item.billingDurationText || '-'}}</view>
+                <view class="name-right scrapped">{{statusText[item.status] || '-'}}</view>
+              </view>
             </view>
           </view>
         </navigator>

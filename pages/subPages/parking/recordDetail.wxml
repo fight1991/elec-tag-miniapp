@@ -9,7 +9,7 @@
     </view>
     <view class="line-item">
       <view class="left">当前状态</view>
-      <view class="right">{{statusText[dataForm.status] || '-'}}</view>
+      <view class="right price">{{statusText[dataForm.status] || '-'}}</view>
     </view>
     <view class="line-item">
       <view class="left">商户全称</view>
