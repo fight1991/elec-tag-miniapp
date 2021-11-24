@@ -3,6 +3,10 @@
   <view class="tab-box">
     <van-tabs color="#447fff" sticky swipeable animated active="{{ activeTab }}" bind:change="tabChange">
       <van-tab wx:key="index" wx:for-index="key" wx:for-item="value" name="{{key}}" wx:for="{{payStatusText}}" title="{{value}}">
+        <view class="select-btn" bindtap="selectClick">
+          <span class="pr-16">筛选</span>
+          <iconfont icon="shaixuan" size="36rpx" color="#4D4D4D"></iconfont>
+        </view>
         <view class="content-box">
           <view class="card-item" wx:for="{{list}}" wx:key="index">
             <navigator url="./detail?orderNum={{item.tradeOrderNo}}">
@@ -39,3 +43,5 @@
   </view>
 </view>
 <go-pay show-pay="{{showPay}}" bind:success-pay="initList" params="{{params}}"></go-pay>
+<filter show-select="{{showSelect}}" bind:init="initList" serviceList="{{serviceList}}"></filter>
+

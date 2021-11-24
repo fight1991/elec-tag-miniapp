@@ -25,7 +25,9 @@ Page({
     total: 0, // 条目数
     loading: false, // 正在加载
     list: [],
-    showPay: false
+    showPay: false, // 支付弹框
+    showSelect: false, // 筛选弹框
+    serviceList: [], // 项目数组
   },
 
   /**
@@ -35,6 +37,22 @@ Page({
     this.initList()
     this.setData({
       serviceText: await translateDic('orgServiceType')
+    })
+    let res = Object.entries(this.data.serviceText).map(item=>{
+      return {
+        value: item[0],
+        label: item[1],
+        isActive: false
+      }
+    })
+    this.setData({
+      serviceList: res
+    })
+  },
+  
+  selectClick () {
+    this.setData({
+      showSelect: true
     })
   },
   // 打开支付组件

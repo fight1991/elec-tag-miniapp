@@ -1,0 +1,69 @@
+<!--pages/subPages/order/components/filter.wxml-->
+<view class="pay-mask {{showSelect?'pay-mask-show':''}}" catch:touchmove="noop">
+  <view class="pay-box {{showSelect?'pay-box-show':''}}">
+    <!-- 抽屉容器 -->
+    <view class="draw-box {{step==1?'origin-step':'next-step'}}">
+      <!-- 抽屉一 -->
+      <view class="pay-item">
+        <view class="pay-header">
+          <view class="icon-box" bindtap="hideMask">
+            <iconfont icon="close-none"></iconfont>
+          </view>
+          <view class="select-title">
+            全部筛选
+          </view>
+        </view>
+        <scroll-view scroll-y class="select-content">
+          <view class="label">
+            订单日期
+          </view>
+          <view class="select-box flex">
+            <view class="date-input {{startDate ? 'black' : ''}}" data-type="start" bindtap="openPage">{{startDate ? startDate : '开始日期'}}</view>
+            <view class="split-line">
+              ——
+            </view>
+            <view class="date-input {{endDate ? 'black' : ''}}" data-type="end" bindtap="openPage">{{endDate ? endDate : '终止日期'}}</view>
+          </view>
+          <view wx:if="{{plateNoList.length}}">
+            <view class="label">
+              车牌号
+            </view>
+            <view class="select-box">
+              <view wx:for="{{plateNoList}}" wx:key="index" data-item="{{item}}" class="btn-item {{item==plateNoActive ? 'is-active' : ''}}" bindtap="plateNoSelect">
+                {{item}}
+              </view>
+            </view>
+          </view>
+          <view class="label">
+            项目类型
+          </view>
+          <view class="select-box">
+            <view wx:for="{{serviceList}}" wx:key="index" data-index="{{index}}" class="btn-item {{item.isActive==true ? 'is-active' : ''}}" bindtap="serviceSelect">
+              {{item.label}}
+            </view>
+          </view>
+        </scroll-view>
+        <view class="select-bottom">
+          <view class="select-reset" bindtap="reset">
+            重置
+          </view>
+          <view class="select-confirm" bindtap="confirm">
+            确定
+          </view>
+        </view>
+      </view>
+      <!-- 抽屉二 -->
+      <view class="pay-item next-draw">
+        <van-datetime-picker
+          type="date"
+          value="{{ selectTime }}"
+          formatter="{{formatter}}"
+          bind:confirm="confirmPicker"
+          bind:cancel="cancelPicker"
+        />
+      </view>
+    </view>
+  </view>
+</view>
+
+

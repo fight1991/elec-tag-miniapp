@@ -28,3 +28,15 @@
   width: 490rpx;
   color: #999999;
 }
+.select-btn {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 60rpx;
+  background: #fff;
+  text-align: right;
+  font-size: 26rpx;
+  color: #4D4D4D;
+}
+.pr-16 {
+  padding-right: 12rpx;
+}

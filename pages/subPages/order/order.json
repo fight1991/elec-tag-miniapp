@@ -3,7 +3,8 @@
     "van-button": "@vant/weapp/button/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "go-pay": "/publicBag/components/goPay/index"
+    "go-pay": "/publicBag/components/goPay/index",
+    "filter": "./components/filter"
   },
   "navigationBarTitleText": "订单管理",
   "enablePullDownRefresh": true,
