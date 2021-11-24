@@ -88,7 +88,7 @@ Page({
   },
   goRealName () {
     wx.navigateTo({
-      url: '/pages/subPages/verifyInfo/idcardVerify',
+      url: '/pages/subPages/verifyInfo/verifyRealName',
     })
   },
   routePage (e) {
