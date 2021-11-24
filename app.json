@@ -133,6 +133,16 @@
         "pay",
         "orderBy/index"
       ]
+    },
+    {
+      "root": "pages/subPages/scanIntoPlay",
+      "name": "scanIntoPlay",
+      "pages": [
+        "enter",
+        "enterDetail",
+        "out",
+        "outDetail"
+      ]
     }
   ],
   "preloadRule": {},

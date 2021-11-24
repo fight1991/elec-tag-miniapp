@@ -251,6 +251,12 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "扫码进场",
+          "pathName": "pages/subPages/scanIntoPlay/enter",
+          "query": "",
+          "scene": null
         }
       ]
     }

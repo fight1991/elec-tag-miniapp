@@ -14,6 +14,8 @@ import * as circleApi from './circle'
 import * as couponApi from './coupon'
 // 支付相关
 import * as payApi from './pay'
+// 微信扫码停车相关
+import * as scanParkingApi from './scanParking'
 export default {
   ...uploadApi, // 上传相关
   ...usersApi, // 用户相关
@@ -22,5 +24,6 @@ export default {
   ...dictApi, // 字典相关
   ...circleApi, // 商圈相关
   ...couponApi, // 优惠券相关
-  ...payApi // 支付相关
+  ...payApi, // 支付相关
+  ...scanParkingApi, // 微信扫码停车相关
 }
