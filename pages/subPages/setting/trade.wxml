@@ -3,14 +3,14 @@
   <van-cell-group>
     <van-field
       focus
-      password
+      type="number"
       required
       maxlength="{{6}}"
       model:value="{{ password }}"
       placeholder="请输入6位交易密码"
     />
     <van-field
-      password
+      type="number"
       required
       maxlength="{{6}}"
       model:value="{{ password2 }}"
