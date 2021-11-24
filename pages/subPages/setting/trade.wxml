@@ -4,6 +4,7 @@
     <van-field
       focus
       type="number"
+      password
       required
       maxlength="{{6}}"
       model:value="{{ password }}"
@@ -11,6 +12,7 @@
     />
     <van-field
       type="number"
+      password
       required
       maxlength="{{6}}"
       model:value="{{ password2 }}"
