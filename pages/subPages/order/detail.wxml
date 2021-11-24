@@ -27,4 +27,4 @@
   </view>
 </safe-area>
 <fixBtn bgColor="#FF7E37" wx:if="{{formData.status=='doing'}}" bindtap="openPayPage">去支付</fixBtn>
-<go-pay model:show-pay="{{showPay}}" bind:success-pay="goOrderList" params="{{params}}"></go-pay>
+<go-pay show-pay="{{showPay}}" bind:success-pay="goOrderList" params="{{params}}"></go-pay>

@@ -72,7 +72,7 @@ Page({
     let year =  this.data.years[val[1]]
     let month =  this.data.months[val[0]]
     this.setData({
-      'formData.validDate': month + year
+      'formData.validDate': `${month}${year}`
     })
   },
   openPage () {
