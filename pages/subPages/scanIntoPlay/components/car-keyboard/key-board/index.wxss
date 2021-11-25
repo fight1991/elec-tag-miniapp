@@ -12,13 +12,13 @@
   padding-bottom: env(safe-area-inset-bottom);
 }
 .key-board-wrapper .key-board-title {
-  border-top:1px solid #ccc;background:#f6f6f6;
-  height:45px;
-  line-height:45px;
-  font-size:16px;
+  border-top: 1px solid #ccc;background:#f6f6f6;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
   color:#666;
   text-align:right;
-  padding-right:15px
+  padding-right: 30rpx
 }
 .key-board-wrapper .key-board {
   display:flex;
@@ -27,49 +27,50 @@
 }
 .key-board-wrapper .key {
   box-sizing:border-box;
-  height:42px;
-  line-height:42px;
+  height: 84rpx;
+  line-height: 84rpx;
   background-color:#fff;
   color:#000;
-  border-radius:5px;
-  margin-bottom:9px;
+  border-radius: 10rpx;
+  margin-bottom: 18rpx;
   text-align:center;
   box-shadow:0 1px 0 0 rgba(0,0,0,.35)
 }
 .key-board-wrapper.province-keyboard .key-board {
-  padding:10px 8px
+  padding: 20rpx 16rpx
 }
 .key-board-wrapper.province-keyboard .key {
-  width:32px;margin-right:4px
+  width: 64rpx;
+  margin-right: 8rpx
 }
 .key-board-wrapper.province-keyboard .key:nth-child(10n) {
-  margin-right:0
+  margin-right: 0
 }
 .key-board-wrapper.province-keyboard .key:nth-child(31) {
-  background:#dddfe4;
-  width:45px;
-  margin-right:5px;
-  font-size:16px
+  background: #dddfe4;
+  width: 90rpx;
+  margin-right: 10rpx;
+  font-size: 32rpx
 }
 .key-board-wrapper.province-keyboard .key:last-child {
-  width:50px
+  width: 100rpx
 }
 .key-board-wrapper.letter-keyboard .key-board {
-  padding:10px 5px
+  padding: 20rpx 10rpx
 }
 .key-board-wrapper.letter-keyboard .key {
-  width:31px;
-  margin-right:6px
+  width: 62rpx;
+  margin-right: 12rpx
 }
 .key-board-wrapper.letter-keyboard .key:nth-child(10n) {
   margin-right:0
 }
 .key-board-wrapper.letter-keyboard .key:nth-child(31) {
   background:#dddfe4;
-  width:63px;
-  margin-left:3px;
-  margin-right:8px;
-  font-size:14px
+  width: 126rpx;
+  margin-left: 6rpx;
+  margin-right: 16rpx;
+  font-size: 28rpx
 }
 .key-board-wrapper.letter-keyboard .key.disabled-number:nth-child(-n+10) {
   color:#ccc
@@ -81,13 +82,13 @@
   color:#ccc
 }
 .key-board-wrapper .key:last-child {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:63px;
-  background:#aeb3bc
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 126rpx;
+  background: #aeb3bc
 }
 .key-board-wrapper .delete-icon {
-  width:20px;
-  height:20px
+  width: 40rpx;
+  height: 40rpx
 }
