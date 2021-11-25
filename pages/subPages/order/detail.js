@@ -10,7 +10,8 @@ Page({
     showPay: false,
     formData: {},
     isFreeze: false, // 是否被冻结
-    serviceText: {}
+    serviceText: {},
+    orderNum: ''
   },
 
   /**
@@ -20,24 +21,30 @@ Page({
     let orderNum = options.orderNum
     if (orderNum) {
       let pages = getCurrentPages()
-      let prePage = pages[pages.length - 2]
+      this.prePage = pages[pages.length - 2]
+      if (!this.prePage) return
+      this.data.orderNum = orderNum
       this.setData({
-        serviceText: prePage.data.serviceText
+        serviceText: this.prePage.data.serviceText
       })
-      this.getDetail(orderNum)
+      this.getDetail()
     }
   },
-  // 返回订单列表页
-  goOrderList () {
-    let pages = getCurrentPages()
-    let prePage = pages[pages.length - 2]
-    prePage.initList()
+  // 支付成功
+  successPay () {
+    this.getDetail()
+    //刷新上一页列表数据
+    this.prePage && this.prePage.initList()
+  },
+  // 支付面板隐藏触发
+  backList () {
     wx.navigateBack({
       delta: 1,
     })
   },
   // 获取详情
-  async getDetail (no) {
+  async getDetail () {
+    let no = this.data.orderNum
     let { result } = await orderDetail(no)
     if (result) {
       this.setData({
