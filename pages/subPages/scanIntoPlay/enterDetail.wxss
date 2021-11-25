@@ -1,1 +1,27 @@
 /* pages/subPages/scanIntoPlay/enterDetail.wxss */
+.box {
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 60rpx 30rpx 0 30rpx;
+  padding: 53rpx 40rpx 57rpx 40rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #808080;
+}
+.info-flex {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+.enter-title {
+  font-size: 34rpx;
+  text-align: center;
+  color: #4d4d4d;
+  padding-bottom: 80rpx;
+}
+.c-yellow {
+  color: #FF7E37;
+}
+.c-black {
+  color: #4d4d4d;
+}

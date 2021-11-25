@@ -1,1 +1,21 @@
 /* pages/subPages/scanIntoPlay/outDetail.wxss */
+.box {
+  background: #ffffff;
+  padding: 10rpx 0 50rpx 50rpx;
+  box-sizing: border-box;
+}
+.item-flex {
+  display: flex;
+  padding: 33rpx 44rpx 37rpx 10rpx;
+  font-size: 30rpx;
+  color: #808080;
+  border: 2rpx solid #F7F7F7;
+}
+.item-left {
+  width: 150rpx;
+}
+.item-right {
+  flex: 1;
+  color: #4D4D4D;
+  text-align: right;
+}

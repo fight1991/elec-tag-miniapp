@@ -2,7 +2,6 @@
 .car-plate {
   display:flex;
   justify-content:center;
-  /* padding:15px 15px 0 */
 }
 .car-plate-item {
   box-sizing:border-box;
@@ -20,19 +19,6 @@
 .car-plate-item:last-child {
   position:relative;
 }
-/* .car-plate-item-last {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.car-plate-item-last .icon-plus {
-  font-size: 64rpx;
-  height: 20px;
-}
-.car-plate-item-last .icon-text {
-  font-size: 20rpx;
-} */
 .car-plate-item:last-child::before {
   content:'新';
   position:absolute;

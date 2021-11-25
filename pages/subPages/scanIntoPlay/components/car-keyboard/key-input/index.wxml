@@ -1,14 +1,6 @@
 <!-- pages/car-keyboard/key-input/index.wxml -->
 <view class="car-plate">
-  <view mark:index="{{index}}" class="car-plate-item {{index===currentIndex?'active':''}} " wx:for="{{innerPlate}}" wx:key="index" bind:tap="handleClickPlate">
+  <view mark:index="{{index}}" class="car-plate-item {{index===currentIndex?'active':''}} " wx:for="{{innerPlate}}" wx:key="index" bind:tap="handleClickPlate" >
     {{item}}
   </view>
- <!-- <view mark:index="{{8}}" class="car-plate-item car-plate-item-last {{8===currentIndex?'active':''}} " bind:tap="handleClickPlate">
-    <view class="icon-plus">
-      +
-    </view>
-    <view class="icon-text">
-      新能源
-    </view>
-  </view> !-->
 </view>

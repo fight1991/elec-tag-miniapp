@@ -1,2 +1,25 @@
 <!--pages/subPages/scanIntoPlay/enterDetail.wxml-->
-<text>pages/subPages/scanIntoPlay/enterDetail.wxml</text>
+<view class="box">
+  <view class="enter-title">
+    欢迎进入{{orgName}}
+  </view>
+  <view class="info-flex">
+    <view>
+      入场时间
+    </view>
+    <view class="c-black">
+      {{inDate}}
+    </view>
+  </view>
+  <view class="info-flex">
+    <view>
+      出场码
+    </view>
+    <view class="c-yellow">
+      {{authCode}}
+    </view>
+  </view>
+  <view class="theme-color">
+    出场时输入出场码支付后抬闸
+  </view>
+</view>

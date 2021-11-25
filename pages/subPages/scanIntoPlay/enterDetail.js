@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    orgName: '商户停车场名称',
+    inDate: '2021-07-07 13:31:25',
+    authCode: '8888',
 
   },
 
@@ -12,7 +15,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('options', options);
+    let { orgName, inDate, code } = options
+    this.setData({
+      orgName,
+      inDate,
+      code
+    })
   },
 
   /**

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "car-keyboard": "./components/car-keyboard/index"
-  }
+  },
+  "navigationBarTitleText": "扫码进出场"
 }

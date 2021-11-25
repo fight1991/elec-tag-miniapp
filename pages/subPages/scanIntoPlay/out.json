@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "block-code": "/publicBag/components/blockCode/blockCode"
+  },
+  "navigationBarTitleText": "扫码进出场"
 }

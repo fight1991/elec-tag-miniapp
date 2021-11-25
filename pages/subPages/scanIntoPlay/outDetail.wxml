@@ -1,2 +1,62 @@
 <!--pages/subPages/scanIntoPlay/outDetail.wxml-->
-<text>pages/subPages/scanIntoPlay/outDetail.wxml</text>
+<safe-area>
+  <view class="box">
+    <view class="item-flex">
+      <view class="item-left">
+        停车场
+      </view>
+      <view class="item-right">
+        {{orgName || '-'}}
+      </view>
+    </view>
+    <view class="item-flex">
+      <view class="item-left">
+        车牌号
+      </view>
+      <view class="item-right">
+        {{plateNo || '-'}}
+      </view>
+    </view>
+    <view class="item-flex">
+      <view class="item-left">
+        订单号
+      </view>
+      <view class="item-right">
+        {{tradeOrderNo || '-'}}
+      </view>
+    </view>
+    <view class="item-flex">
+      <view class="item-left">
+        进场时间
+      </view>
+      <view class="item-right">
+        {{inDate || '-'}}
+      </view>
+    </view>
+    <view class="item-flex">
+      <view class="item-left">
+        出场时间
+      </view>
+      <view class="item-right">
+        {{outDate || '-'}}
+      </view>
+    </view>
+    <view class="item-flex">
+      <view class="item-left">
+        停车时长
+      </view>
+      <view class="item-right">
+        {{billingDuration || '-'}}
+      </view>
+    </view>
+    <view class="item-flex">
+      <view class="item-left">
+        停车费用
+      </view>
+      <view class="item-right">
+        {{totalAmount+'' ? '¥'+totalAmount : '-'}}
+      </view>
+    </view>
+  </view>
+</safe-area>
+<fixBtn bindtap="confirmPay">支付金额</fixBtn>

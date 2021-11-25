@@ -257,6 +257,24 @@
           "pathName": "pages/subPages/scanIntoPlay/enter",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "扫码进场详情",
+          "pathName": "pages/subPages/scanIntoPlay/enterDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "扫码出场",
+          "pathName": "pages/subPages/scanIntoPlay/out",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "收费详情",
+          "pathName": "pages/subPages/scanIntoPlay/outDetail",
+          "query": "",
+          "scene": null
         }
       ]
     }

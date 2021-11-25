@@ -16,13 +16,11 @@ Component({
       // 设置 键盘方式
       let type = currentIndex < 1 ? 'province' : 'letter';
       this.selectComponent('#keyboard').changeKeyBoard(type);
+      
       this.setData({
         plate: pArr.join(''),
         currentIndex: currentIndex < 8 ? currentIndex : 7,
         disabledNumber: currentIndex === 1
-      });
-      this.triggerEvent('change', {
-        value: pArr.join('')
       });
     },
     handlePlateDelete () {
@@ -48,6 +46,9 @@ Component({
     handleClose () {
       this.setData({
         showKeyboard: false
+      });
+      this.triggerEvent('change', { 
+        value: this.data.plate
       });
     }
   },
