@@ -6,7 +6,7 @@
       {{item}}
     </view>
     <view class="key" bind:tap="handleDelete">
-      <image class="delete-icon" src="./image/delete.png"></image>
+      <iconfont icon="qingchu" size="60rpx" class="delete-icon"></iconfont>
     </view>
   </view>
 </view>

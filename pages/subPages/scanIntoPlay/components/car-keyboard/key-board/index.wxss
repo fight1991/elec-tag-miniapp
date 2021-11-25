@@ -1,5 +1,6 @@
 /* pages/car-keyboard/key-board/index.wxss */
 .key-board-wrapper {
+  font-size: 32rpx;
   z-index: 999;
   position:fixed;
   bottom:0;
@@ -15,62 +16,49 @@
   border-top: 1px solid #ccc;background:#f6f6f6;
   height: 90rpx;
   line-height: 90rpx;
-  font-size: 32rpx;
   color:#666;
   text-align:right;
   padding-right: 30rpx
 }
 .key-board-wrapper .key-board {
-  display:flex;
-  flex-wrap:wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 64rpx);
+  justify-content: center;
+  grid-gap: 18rpx 8rpx;
   background:rgba(210,213,219,.9)
 }
+.last-key-board {
+  display: flex;
+}
 .key-board-wrapper .key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing:border-box;
   height: 84rpx;
-  line-height: 84rpx;
   background-color:#fff;
   color:#000;
   border-radius: 10rpx;
-  margin-bottom: 18rpx;
-  text-align:center;
   box-shadow:0 1px 0 0 rgba(0,0,0,.35)
 }
 .key-board-wrapper.province-keyboard .key-board {
   padding: 20rpx 16rpx
 }
-.key-board-wrapper.province-keyboard .key {
-  width: 64rpx;
-  margin-right: 8rpx
-}
 .key-board-wrapper.province-keyboard .key:nth-child(10n) {
   margin-right: 0
 }
 .key-board-wrapper.province-keyboard .key:nth-child(31) {
+  grid-column: span 2;
   background: #dddfe4;
-  width: 90rpx;
-  margin-right: 10rpx;
-  font-size: 32rpx
 }
 .key-board-wrapper.province-keyboard .key:last-child {
-  width: 100rpx
+  grid-column: span 2;
 }
 .key-board-wrapper.letter-keyboard .key-board {
   padding: 20rpx 10rpx
 }
-.key-board-wrapper.letter-keyboard .key {
-  width: 62rpx;
-  margin-right: 12rpx
-}
-.key-board-wrapper.letter-keyboard .key:nth-child(10n) {
-  margin-right:0
-}
 .key-board-wrapper.letter-keyboard .key:nth-child(31) {
   background:#dddfe4;
-  width: 126rpx;
-  margin-left: 6rpx;
-  margin-right: 16rpx;
-  font-size: 28rpx
 }
 .key-board-wrapper.letter-keyboard .key.disabled-number:nth-child(-n+10) {
   color:#ccc
@@ -82,13 +70,6 @@
   color:#ccc
 }
 .key-board-wrapper .key:last-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 126rpx;
-  background: #aeb3bc
-}
-.key-board-wrapper .delete-icon {
-  width: 40rpx;
-  height: 40rpx
+  background: #aeb3bc;
+  grid-column: span 2;
 }
