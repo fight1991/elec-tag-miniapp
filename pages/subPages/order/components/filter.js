@@ -73,12 +73,12 @@ Component({
     },
     //确定
     confirm () {
-      let list = this.data.serviceList.filter(item => item.isActive)
+      let list = this.data.serviceList.filter(item => item.isActive).map(item => item.value)
       let obj= {
-        startDate: this.data.startDate,
-        endDate: this.data.endDate,
-        plateNoActive: this.data.plateNoActive,
-        serviceSelectList: [...list]
+        createdTimeStart: this.data.startDate ? this.data.startDate + ' 00:00:00' : '',
+        createdTimeEnd: this.data.endDate ? this.data.endDate + ' 59:59:59' : '',
+        plateNo: this.data.plateNoActive,
+        serviceList: [...list]
       }
       this.triggerEvent('init', obj)
       this.hideMask()

@@ -6,7 +6,7 @@
   <view class="info pb-85">
     {{phone}}
   </view>
-  <car-keyboard bind:change="getPlateNo"></car-keyboard>
+  <car-keyboard bind:change="getPlateNo" plate="{{plateNo}}"></car-keyboard>
 </view>
 <fixBtn type="gray" wx:if="{{isDisabled}}">入场</fixBtn>
 <fixBtn wx:else bindtap="confirmEnter">入场</fixBtn>

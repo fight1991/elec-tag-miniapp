@@ -28,6 +28,12 @@ Page({
     showPay: false, // 支付弹框
     showSelect: false, // 筛选弹框
     serviceList: [], // 项目数组
+    filterObj: {
+      createdTimeStart: '',
+      createdTimeEnd: '',
+      plateNo: '',
+      serviceList: []
+    } // 筛选项
   },
 
   /**
@@ -80,16 +86,23 @@ Page({
     })
     this.initList()
   },
+  // 筛选列表
+  filterList (e) {
+    this.data.filterObj = e.detail
+    this.initList()
+  },
   // 获取列表
   async getList (pageIndex, callback) {
+    let obj = {
+      status: this.data.currentName,
+      ...this.data.filterObj 
+    }
     if (this.loading) return
     this.loading = true
     let { pageSize } = this.data
     pageIndex ++
     let { result, page } = await listApi({
-      data: {
-        status: this.data.currentName
-      },
+      data: obj,
       page: {
         pageIndex,
         pageSize

@@ -43,5 +43,5 @@
   </view>
 </view>
 <go-pay show-pay="{{showPay}}" bind:success-pay="initList" params="{{params}}"></go-pay>
-<filter show-select="{{showSelect}}" bind:init="initList" serviceList="{{serviceList}}"></filter>
+<filter show-select="{{showSelect}}" bind:init="filterList" serviceList="{{serviceList}}"></filter>
 
