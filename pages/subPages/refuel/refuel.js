@@ -33,7 +33,7 @@ Page({
       { label: '距离最近', value: 'distance'},
       { label: '价格最低', value: 'price'}
     ],
-    distance: 3,
+    distance: '-1',
     other: 'distance',
     oil: '92#',
     searchStr: '',
