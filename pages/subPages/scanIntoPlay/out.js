@@ -13,7 +13,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
     if (app.ssToken) {
       this.setData({
@@ -33,7 +33,8 @@ Page({
     }
     // 3.本地有token, 初始化信息（适用于关闭小程序再进入时app.ssToken无值）
     app.ssToken = token
-    await app.saveUserBusinessInfo()
+    let res = await app.saveUserBusinessInfo()
+    if (!res) return
     this.setData({
       phone: app.globalData.userInfo.mobile
     })
