@@ -33,8 +33,7 @@ Page({
     }
     // 3.本地有token, 初始化信息（适用于关闭小程序再进入时app.ssToken无值）
     app.ssToken = token
-    let res = await app.saveUserBusinessInfo()
-    if (!res) return
+    await app.saveUserBusinessInfo()
     this.setData({
       phone: app.globalData.userInfo.mobile
     })
