@@ -24,7 +24,7 @@ Page({
     ],
     carTypeOption: [],
     carType: '',
-    distance: 3,
+    distance: '-1',
     other: 'distance',
     pageFlag: 'wash', // wash洗车 miant维修保养
     pageTitle: {
