@@ -18,20 +18,29 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    // 判断本地有无用户信息 无
+  onLoad: async function (options) {
+    // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
+    if (app.ssToken) {
+      this.setData({
+        phone: app.globalData.userInfo.mobile
+      })
+      this.getScanInit()
+      return
+    }
+    // 2.本地无token, 去登陆 
     let token = wx.getStorageSync('token')
     if (!token) {
-      app.redirect = '/pages/subPages/scanIntoPlay/out'
-      wx.relaunch({
+      app.redirect = '/pages/subPages/scanIntoPlay/enter'
+      wx.reLaunch({
         url: '/pages/login/loginType'
       })
       return
     }
+    // 3.本地有token, 初始化信息（适用于关闭小程序再进入时app.ssToken无值）
     app.ssToken = token
-    var localPhone = app.globalData.userInfo.mobile
+    await app.saveUserBusinessInfo()
     this.setData({
-      phone: localPhone
+      phone: app.globalData.userInfo.mobile
     })
     this.getScanInit()
   },

@@ -1,37 +1,39 @@
 /* pages/car-keyboard/key-input/index.wxss */
 .car-plate {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
 }
 .car-plate-item {
-  box-sizing:border-box;
-  width:34px;
-  height:34px;
-  line-height:34px;
-  font-size:18px;
-  text-align:center;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68rpx;
+  height: 68rpx;
+  font-size: 36rpx;
+  text-align: center;
   border:1px solid #E5E5E5;
-  border-radius: 3px;
-  color:#447FFF;
-  margin-right:7px;
+  border-radius: 6rpx;
+  color: #447FFF;
+  margin-right: 14rpx;
   font-weight: bolder;
 }
 .car-plate-item:last-child {
-  position:relative;
+  position: relative;
 }
 .car-plate-item:last-child::before {
-  content:'新';
-  position:absolute;
-  top:-14px;
-  left:-1px;
-  width:34px;
-  height:14px;
-  line-height:14px;
-  font-size:10px;
-  background:#66cd00;
-  color:#fff;
-  border-radius:1px
+  content: '新';
+  position: absolute;
+  top: -28rpx;
+  left: -2rpx;
+  width: 68rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 20rpx;
+  background: #66cd00;
+  color: #fff;
+  border-radius: 2rpx
 }
 .active {
-  border-color:#447FFF;
+  border-color: #447FFF;
 }
