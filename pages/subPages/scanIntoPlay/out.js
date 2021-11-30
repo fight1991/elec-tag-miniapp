@@ -7,13 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    authCode: ''
+    authCode: '',
+    qrcodeId: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    // 获取二维码所带参数
+    if (options.q) {
+      let option = decodeURIComponent(options.q)
+      let qrcodeId = option.split('qrcodeId=')[1]
+      if (!qrcodeId) return
+      wx.setStorageSync('outId', qrcodeId)
+    }
+    let outId = wx.getStorageSync('outId')
+    if (!outId) {
+      app.messageBox.common('请用微信扫一扫，重新扫码！')
+      return
+    }
+    this.data.qrcodeId = outId
     // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
     if (app.ssToken) {
       this.setData({
@@ -42,6 +56,9 @@ Page({
   // 出场码输入
   changeCode (e) {
     this.data.authCode = e.detail
+    if (this.data.authCode.length == 6) {
+      wx.hideKeyboard()
+    }
   },
   // 出场
   async confirmOut () {
