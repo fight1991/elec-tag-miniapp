@@ -1,5 +1,4 @@
 // pages/car-keyboard/key-input/index.js
-const PlateCount = require('../config').PlateCount
 Component({
   /**
    * 组件的属性列表
@@ -7,9 +6,9 @@ Component({
   properties: {
     plate: {
       type: String,
-      observer (v) {
+      observer: function (v) {
         // 对内容进行处理
-        const innerPlate = this.data.innerPlate.map((_, index) => v[index] || '');
+        let innerPlate = this.data.innerPlate.map((_, index) => v[index] || '');
         this.setData({
           innerPlate
         });
@@ -23,12 +22,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    innerPlate: []
-  },
-  ready () {
-    this.setData({
-      innerPlate: Array(PlateCount).fill(''),
-    });
+    innerPlate: new Array(8)
   },
   /**
    * 组件的方法列表
@@ -36,7 +30,7 @@ Component({
   methods: {
     handleClickPlate (e) {
       this.triggerEvent('indexChange', {
-        index: e.mark.index
+        index: e.currentTarget.dataset.index
       });
     }
   }

@@ -1,6 +1,6 @@
 <!-- pages/car-keyboard/key-input/index.wxml -->
 <view class="car-plate">
-  <view mark:index="{{index}}" class="car-plate-item {{index===currentIndex?'active':''}} " wx:for="{{innerPlate}}" wx:key="index" bind:tap="handleClickPlate" >
+  <view class="car-plate-item {{index===currentIndex?'active':''}} " wx:for="{{innerPlate}}" data-index="{{index}}" wx:key="index" bind:tap="handleClickPlate" >
     {{item}}
   </view>
 </view>

@@ -62,7 +62,7 @@ Component({
 
     },
     handleClickKey (e) {
-      const { key } = e.mark;
+      const key = e.currentTarget.dataset.item;
       if (key === '') {
         return;
       }

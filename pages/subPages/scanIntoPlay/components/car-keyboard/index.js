@@ -1,6 +1,5 @@
 // pages/car-keyboard/index.js
-const PlateCount = require('./config').PlateCount
-
+// const PlateCount = require('./config').PlateCount
 Component({
   /**
  * 组件的属性列表
@@ -8,11 +7,10 @@ Component({
   properties: {
     plate: {
       type: String,
-      value: Array(PlateCount).fill(' ').join('')
+      value: ''
     },
   },
   data: {
-    // plate: Array(PlateCount).fill(' ').join(''),
     currentIndex: 0,
     disabledNumber: false,
     showKeyboard: true,

@@ -8,10 +8,10 @@ Page({
    */
   data: {
     isDisabled: true,
-    orgName: '商户停车场名称',
+    orgName: '',
     orgId: '',
     phone: '',
-    plateNo: '',
+    plateNo: Array(8).fill(' ').join(''),
     qrcodeId: '',
   },
 
@@ -19,19 +19,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // 获取二维码所带参数
-    if (options.q) {
-      let option = decodeURIComponent(options.q)
-      let qrcodeId = option.split('qrcodeId=')[1]
-      if (!qrcodeId) return
-      wx.setStorageSync('enterId', qrcodeId)
-    }
-    let enterId = wx.getStorageSync('enterId')
-    if (!enterId) {
-      app.messageBox.common('请用微信扫一扫，重新扫码！')
-      return
-    }
-    this.data.qrcodeId = enterId
+    // // 获取二维码所带参数
+    // if (options.q) {
+    //   let option = decodeURIComponent(options.q)
+    //   let qrcodeId = option.split('id=')[1]
+    //   if (!qrcodeId) return
+    //   wx.setStorageSync('enterId', qrcodeId)
+    // }
+    // let enterId = wx.getStorageSync('enterId')
+    // if (!enterId) {
+    //   app.messageBox.common('请用微信扫一扫，重新扫码！')
+    //   return
+    // }
+    // this.data.qrcodeId = enterId
+
+    this.data.qrcodeId = '1812927690437561155'
     // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
     let plateNo = wx.getStorageSync('plateNo')
     if (app.ssToken) {
@@ -39,7 +41,7 @@ Page({
         phone: app.globalData.userInfo.mobile,
         plateNo
       })
-      this.getScanInit()
+      await this.getScanInit()
       return
     }
     // 2.本地无token, 去登陆 
@@ -58,40 +60,32 @@ Page({
       phone: app.globalData.userInfo.mobile,
       plateNo
     })
-    this.getScanInit()
+    await this.getScanInit()
   },
   // 入场
   async confirmEnter () {
     let { plateNo, qrcodeId } = this.data
-    // let reg = /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[a-zA-Z](([DF]((?![IO])[a-zA-Z0-9](?![IO]))[0-9]{4})|([0-9]{5}[DF]))|[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1})$/
-    // if (!reg.test(plateNo)) {
-    //   app.messageBox.common('请输入正确的车牌号')
-    //   return
-    // }
-    // let { result } = await enterScan({
-    //   plateNo,
-    //   plateColor: plateNo.length === 8 ? 'yellow' : 'blue',
-    //   qrcodeId,
-    // })
-    // if (result) {
-    //   //记录车牌号
-    //   wx.setStorage({
-    //     key: 'plateNo',
-    //     data: plateNo
-    //   })
-    //   let { orgName, inDate, code } = result
-    //   wx.navigateTo({
-    //     url: `./enterDetail?orgName=${orgName}&inDate=${inDate}&code=${code}`
-    //   })
-    // }
-
-    wx.setStorage({
-      key: 'plateNo',
-      data: plateNo
+    let reg = /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[a-zA-Z](([DF]((?![IO])[a-zA-Z0-9](?![IO]))[0-9]{4})|([0-9]{5}[DF]))|[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1})$/
+    if (!reg.test(plateNo)) {
+      app.messageBox.common('请输入正确的车牌号')
+      return
+    }
+    let { result } = await enterScan({
+      plateNo,
+      plateColor: plateNo.length === 8 ? 'yellow' : 'blue',
+      qrcodeId,
     })
-    wx.navigateTo({
-      url: `./enterDetail?orgName=停车场&inDate=2020-12-30&code=8888`
-    })
+    if (result) {
+      //记录车牌号
+      wx.setStorage({
+        key: 'plateNo',
+        data: plateNo
+      })
+      let { orgName, inDate, code } = result
+      wx.navigateTo({
+        url: `./enterDetail?orgName=${orgName}&inDate=${inDate}&code=${code}`
+      })
+    }
   },
   // 扫码初始化
   async getScanInit () {
@@ -99,14 +93,19 @@ Page({
       qrcodeId: this.data.qrcodeId
     })
     if (result) {
+      let { orgName, orgId } = result
+      this.data.orgId = orgId
+      this.setData({
+        orgName
+      })
     }
   },
   getPlateNo (e) {
     let value = e.detail.value.trim()
     this.data.plateNo = value
-      this.setData({
-        isDisabled: value.length < 7
-      })
+    this.setData({
+      isDisabled: value.length < 7
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

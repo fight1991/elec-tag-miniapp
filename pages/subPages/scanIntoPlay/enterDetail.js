@@ -5,9 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orgName: '商户停车场名称',
-    inDate: '2021-07-07 13:31:25',
-    authCode: '8888',
+    orgName: '',
+    inDate: '',
+    authCode: '',
 
   },
 

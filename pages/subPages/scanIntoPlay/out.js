@@ -15,25 +15,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // 获取二维码所带参数
-    if (options.q) {
-      let option = decodeURIComponent(options.q)
-      let qrcodeId = option.split('qrcodeId=')[1]
-      if (!qrcodeId) return
-      wx.setStorageSync('outId', qrcodeId)
-    }
-    let outId = wx.getStorageSync('outId')
-    if (!outId) {
-      app.messageBox.common('请用微信扫一扫，重新扫码！')
-      return
-    }
-    this.data.qrcodeId = outId
+    // // 获取二维码所带参数
+    // if (options.q) {
+    //   let option = decodeURIComponent(options.q)
+    //   let qrcodeId = option.split('id=')[1]
+    //   if (!qrcodeId) return
+    //   wx.setStorageSync('outId', qrcodeId)
+    // }
+    // let outId = wx.getStorageSync('outId')
+    // if (!outId) {
+    //   app.messageBox.common('请用微信扫一扫，重新扫码！')
+    //   return
+    // }
+    // this.data.qrcodeId = outId
+
+    this.data.qrcodeId = '1812925594493520756'
     // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
     if (app.ssToken) {
       this.setData({
         phone: app.globalData.userInfo.mobile
       })
-      this.getScanInit()
+      await this.getScanInit()
       return
     }
     // 2.本地无token, 去登陆 
@@ -51,7 +53,7 @@ Page({
     this.setData({
       phone: app.globalData.userInfo.mobile
     })
-    this.getScanInit()
+    await this.getScanInit()
   },
   // 出场码输入
   changeCode (e) {
@@ -74,11 +76,11 @@ Page({
   },
   // 扫码初始化
   async getScanInit () {
-    // let { result } = await scanInit({
-    //   qrcodeId: this.data.qrcodeId
-    // })
-    // if (result) {
-    // }
+    let { result } = await scanInit({
+      qrcodeId: this.data.qrcodeId
+    })
+    if (result) {
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

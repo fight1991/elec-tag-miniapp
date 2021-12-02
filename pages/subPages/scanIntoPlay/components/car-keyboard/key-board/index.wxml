@@ -2,7 +2,7 @@
 <view class="key-board-wrapper {{currentKeyBoardName}}">
   <view class="key-board-title" bind:tap="handleClose">关闭</view>
   <view class="key-board">
-    <view wx:for="{{currentKeyBoard}}" wx:key="index" class="key {{item=='I' || item=='O' || disabledNumber ?'disabled-number':''}}" mark:key="{{item}}" bindtap="handleClickKey">
+    <view wx:for="{{currentKeyBoard}}" wx:key="index" class="key {{item=='I' || item=='O' || disabledNumber ?'disabled-number':''}}" data-item="{{item}}" bindtap="handleClickKey">
       {{item}}
     </view>
     <view class="key" bind:tap="handleDelete">
