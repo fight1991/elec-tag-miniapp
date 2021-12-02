@@ -58,7 +58,7 @@ Page({
       authCode: code, // 验证码
       tradePwd: password, // 交易密码
       limitAmount: limitAmount, // 限额
-      openTradePwd: checked, // 是否开启免密支付
+      quickPay: checked, // 是否开启免密支付
     })
     if (result) {
       app.globalData.userInfo.openTradePwd = true
