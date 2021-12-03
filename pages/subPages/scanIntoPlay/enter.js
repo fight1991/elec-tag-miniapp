@@ -81,9 +81,9 @@ Page({
         key: 'plateNo',
         data: plateNo
       })
-      let { orgName, inDate, code } = result
-      wx.navigateTo({
-        url: `./enterDetail?orgName=${orgName}&inDate=${inDate}&code=${code}`
+      let { orgName, inDate, authCode } = result
+      wx.reLaunch({
+        url: `./enterDetail?orgName=${orgName}&inDate=${inDate}&authCode=${authCode}`
       })
     }
   },

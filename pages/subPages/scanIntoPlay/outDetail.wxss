@@ -1,7 +1,8 @@
 /* pages/subPages/scanIntoPlay/outDetail.wxss */
 .box {
+  height: 100%;
   background: #ffffff;
-  padding: 10rpx 0 50rpx 50rpx;
+  padding: 10rpx 0 0 50rpx;
   box-sizing: border-box;
 }
 .item-flex {

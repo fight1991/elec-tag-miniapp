@@ -16,11 +16,11 @@ Page({
    */
   onLoad: function (options) {
     console.log('options', options);
-    let { orgName, inDate, code } = options
+    let { orgName, inDate, authCode } = options
     this.setData({
       orgName,
       inDate,
-      code
+      authCode
     })
   },
 

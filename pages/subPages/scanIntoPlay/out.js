@@ -1,6 +1,6 @@
 // pages/subPages/scanIntoPlay/out.js
 var app = getApp()
-const { enterInit } = app.api
+const { scanInit, outScan } = app.api
 Page({
 
   /**
@@ -64,15 +64,12 @@ Page({
   },
   // 出场
   async confirmOut () {
-    let authCode = this.data.authCode
+    let { authCode, qrcodeId } = this.data
     if (authCode.length != 6) {
       app.messageBox.common('请输入6位数出场码！')
       return
     }
-    wx.hideKeyboard()
-    wx.navigateTo({
-      url: `./outDetail?authCode=${authCode}`
-    })
+   this.getOutScan(authCode, qrcodeId)
   },
   // 扫码初始化
   async getScanInit () {
@@ -80,6 +77,28 @@ Page({
       qrcodeId: this.data.qrcodeId
     })
     if (result) {
+    }
+  },
+  async getOutScan (authCode, qrcodeId) {
+    let { result } = await outScan({
+      authCode,
+      qrcodeId
+    })
+    if (result) {
+      wx.hideKeyboard()
+      let { orgName, plateNo, tradeNo, inDate, outDate, totalAmount } = result
+      let obj = {
+        orgName,
+        plateNo,
+        tradeNo, 
+        inDate, 
+        outDate,
+        totalAmount,
+        billingDuration: app.utils.formatHours(result.billingDuration)
+      }
+      wx.reLaunch({
+        url: `./outDetail?param=${JSON.stringify(obj)}`
+      })
     }
   },
   /**

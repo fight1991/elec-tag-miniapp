@@ -27,5 +27,9 @@
       <view class="left">停车时长</view>
       <view class="right">{{dataForm.billingDuration || '-'}}</view>
     </view>
+    <view class="line-item" hidden="{{dataForm.parkingType != 'scan'}}">
+      <view class="left">出场码</view>
+      <view class="right price">{{dataForm.authCode || '-'}}</view>
+    </view>
   </view>
 </view>

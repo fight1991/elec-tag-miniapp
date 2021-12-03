@@ -1,6 +1,6 @@
 // pages/subPages/scanIntoPlay/outDetail.js
 var app = getApp()
-const { lockCoupon, addPay, outScan } = app.api
+const { lockCoupon, addPay } = app.api
 Page({
 
   /**
@@ -9,7 +9,7 @@ Page({
   data: {
     orgName: '',
     plateNo: '',
-    tradeOrderNo: '', 
+    tradeNo: '', 
     inDate: '', 
     outDate: '',
     billingDuration: '',
@@ -20,21 +20,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let authCode = options.authCode
-    if (authCode) {
-      this.getDetail(authCode)
-    }
+    let { orgName, plateNo, tradeNo, inDate, outDate, billingDuration, totalAmount } = JSON.parse(options.param)
+    this.setData({
+      orgName,
+      plateNo,
+      tradeNo, 
+      inDate, 
+      outDate,
+      billingDuration,
+      totalAmount
+    })
+    // this.getDetail(authCode, qrcodeId)
   },
   // 支付金额
   async confirmPay() {
-    let flag = await this.lockCouponFun()
-    if (!flag) return
+    // let flag = await this.lockCouponFun()
+    // if (!flag) return
     this.addPayFun()
   },
   // 锁定金额
   async lockCouponFun () {
     let { result } = await lockCoupon({
-      tradeOrderNo: this.data.tradeOrderNo,
+      tradeOrderNo: this.data.tradeNo,
       couponReceiveExt: null
     })
     if (result) {
@@ -43,6 +50,13 @@ Page({
   },
   // 去支付
   async addPayFun () {
+    let obj = {
+      tradeOrderNo: this.data.tradeNo,
+      payExt: {
+        payType: 'wechat',
+        payerAccountBank: null
+      }
+    }
     let { result } = await addPay(obj)
     if (result) {
       let code = result.statusCode
@@ -76,9 +90,10 @@ Page({
         }
     })
   },
-  async getDetail (authCode) {
+  async getDetail (authCode, qrcodeId) {
     let { result } = await outScan({
-      authCode
+      authCode,
+      qrcodeId
     })
     if (result) {
       result.billingDuration = app.utils.formatHours(result.billingDuration)
