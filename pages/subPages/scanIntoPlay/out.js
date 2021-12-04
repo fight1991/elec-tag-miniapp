@@ -86,7 +86,7 @@ Page({
     })
     if (result) {
       wx.hideKeyboard()
-      let { orgName, plateNo, tradeNo, inDate, outDate, totalAmount } = result
+      let { orgName, plateNo, tradeNo, inDate, outDate, totalAmount, status } = result
       let obj = {
         orgName,
         plateNo,
@@ -94,6 +94,7 @@ Page({
         inDate, 
         outDate,
         totalAmount,
+        status,
         billingDuration: app.utils.formatHours(result.billingDuration)
       }
       wx.reLaunch({

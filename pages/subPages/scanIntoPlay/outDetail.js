@@ -1,6 +1,6 @@
 // pages/subPages/scanIntoPlay/outDetail.js
 var app = getApp()
-const { lockCoupon, addPay } = app.api
+const { orderDetail } = app.api
 Page({
 
   /**
@@ -12,15 +12,18 @@ Page({
     tradeNo: '', 
     inDate: '', 
     outDate: '',
+    status: '',
     billingDuration: '',
     totalAmount: 0,
+    showPay: false, // 支付弹框
+    params:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { orgName, plateNo, tradeNo, inDate, outDate, billingDuration, totalAmount } = JSON.parse(options.param)
+    let { orgName, plateNo, tradeNo, inDate, outDate, billingDuration, totalAmount, status } = JSON.parse(options.param)
     this.setData({
       orgName,
       plateNo,
@@ -28,75 +31,40 @@ Page({
       inDate, 
       outDate,
       billingDuration,
+      status,
       totalAmount
     })
-    // this.getDetail(authCode, qrcodeId)
   },
   // 支付金额
   async confirmPay() {
-    // let flag = await this.lockCouponFun()
-    // if (!flag) return
-    this.addPayFun()
-  },
-  // 锁定金额
-  async lockCouponFun () {
-    let { result } = await lockCoupon({
-      tradeOrderNo: this.data.tradeNo,
-      couponReceiveExt: null
-    })
-    if (result) {
-      return true
-    }
-  },
-  // 去支付
-  async addPayFun () {
-    let obj = {
-      tradeOrderNo: this.data.tradeNo,
-      payExt: {
-        payType: 'wechat',
-        payerAccountBank: null
-      }
-    }
-    let { result } = await addPay(obj)
-    if (result) {
-      let code = result.statusCode
-      //支付中
-      if (code == '1') {
-        this.requestWx(result.payInfoObject)
+    // 支付调取订单详情接口: status='done'表明支付成功,其余情况走订单详情去支付流程
+    let result = await this.getOrderDetail()
+    if (result.status === 'done') {
+      this.selectComponent('#goPay').goPayResult('successPay');
+      this.setData({
+        status: done
+      })
+    } else {
+      this.setData({
+        showPay: true
+      })
+      this.data.params = {
+        ...result,
+        ...result.extendObject
       }
     }
   },
-  //微信支付
-  requestWx (payInfoObject) {
-    let {  timeStamp, nonceStr, package:packagePay, signType, paySign } = payInfoObject
-    let appId = 'wxad5aa7899b2c6297'
-    wx.requestPayment(
-      {
-        appId,
-        timeStamp,
-        nonceStr,
-        package: packagePay,
-        signType,
-        paySign,
-        success:(res) => {
-          console.log('微信支付成功', res);
-        },
-        fail: (res) => {
-          console.log('微信支付失败', res);
-          app.messageBox.common('请重新扫码支付！')
-        },
-        complete: (res) => {
-          console.log('微信支付完成', res);
-        }
+  successPay() {
+    this.setData({
+      status: done
     })
   },
-  async getDetail (authCode, qrcodeId) {
-    let { result } = await outScan({
-      authCode,
-      qrcodeId
-    })
+   // 获取订单详情
+   async getOrderDetail () {
+    let no = this.data.tradeNo
+    let { result } = await orderDetail(no)
     if (result) {
-      result.billingDuration = app.utils.formatHours(result.billingDuration)
+     return result
     }
   },
   /**

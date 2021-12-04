@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "go-pay": "/publicBag/components/goPay/index"
+  },
   "navigationBarTitleText": "收费详情"
 }

@@ -59,4 +59,5 @@
     </view>
   </view>
 </safe-area>
-<fixBtn bindtap="confirmPay">支付金额</fixBtn>
+<go-pay id="goPay" show-pay="{{showPay}}" params="{{params}}"></go-pay>
+<fixBtn bindtap="confirmPay" bind:success-pay="successPay" wx:if="{{status === 'paying' }}">支付金额</fixBtn>
