@@ -7,6 +7,7 @@ import getCurrentPosition from './publicBag/plugin/getCurrentPosition' // 获取
 import resolveGeocoder from './publicBag/plugin/reverseGeocoder' // 解析经纬度信息
 import getWechatCode from './publicBag/plugin/getWechatCode' // 获取微信code
 import * as utils from './publicBag/utils/util' // 工具类注册
+import logging from './publicBag/utils/logging' // 工具类注册
 // 监听位置信息
 import positionNotify from './notify/positionNotify'
 // 全局分享函数
@@ -19,6 +20,7 @@ share()
 App({
   onLaunch() {
     this.getSafeData()
+    this.getLoging()
   },
   utils, // 绑定公共方法
   api, // 绑定api
@@ -29,5 +31,6 @@ App({
   ...getCurrentPosition, // 获取经纬度信息
   ...resolveGeocoder, // 解析经纬度
   ...getWechatCode, // 获取jscode信息
-  ...store
+  ...store,
+  ...logging
 })
