@@ -16,20 +16,20 @@ Page({
    */
   onLoad: async function (options) {
     // // 获取二维码所带参数
-    // if (options.q) {
-    //   let option = decodeURIComponent(options.q)
-    //   let qrcodeId = option.split('id=')[1]
-    //   if (!qrcodeId) return
-    //   wx.setStorageSync('outId', qrcodeId)
-    // }
-    // let outId = wx.getStorageSync('outId')
-    // if (!outId) {
-    //   app.messageBox.common('请用微信扫一扫，重新扫码！')
-    //   return
-    // }
-    // this.data.qrcodeId = outId
+    if (options.q) {
+      let option = decodeURIComponent(options.q)
+      let qrcodeId = option.split('id=')[1]
+      if (!qrcodeId) return
+      wx.setStorageSync('outId', qrcodeId)
+    }
+    let outId = wx.getStorageSync('outId')
+    if (!outId) {
+      app.messageBox.common('请用微信扫一扫，重新扫码！')
+      return
+    }
+    this.data.qrcodeId = outId
+    // this.data.qrcodeId = '1824064333806569923'
 
-    this.data.qrcodeId = '1812925594493520756'
     // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
     if (app.ssToken) {
       this.setData({
@@ -77,6 +77,14 @@ Page({
       qrcodeId: this.data.qrcodeId
     })
     if (result) {
+      // 出场码本地缓存有时自动填入
+      let outCode = wx.getStorageSync('outCode')
+      if (outCode) {
+        wx.hideKeyboard()
+        this.setData({
+          authCode: outCode
+        })
+      }
     }
   },
   async getOutScan (authCode, qrcodeId) {

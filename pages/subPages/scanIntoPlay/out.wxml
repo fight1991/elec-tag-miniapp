@@ -3,6 +3,6 @@
   <view class="pb-45">
     出场码
   </view>
-  <block-code id="blockCode" value="{{code}}" bind:change="changeCode" blockNum="6"></block-code>
+  <block-code id="blockCode" value="{{authCode}}" bind:change="changeCode" blockNum="6"></block-code>
 </view>
 <fixBtn bindtap="confirmOut">出场</fixBtn>

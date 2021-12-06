@@ -76,9 +76,9 @@ Component({
       let list = this.data.serviceList.filter(item => item.isActive).map(item => item.value)
       let obj= {
         createdTimeStart: this.data.startDate ? this.data.startDate + ' 00:00:00' : '',
-        createdTimeEnd: this.data.endDate ? this.data.endDate + ' 59:59:59' : '',
+        createdTimeEnd: this.data.endDate ? this.data.endDate + ' 23:59:59' : '',
         plateNo: this.data.plateNoActive,
-        serviceList: [...list]
+        merchantServiceList: [...list]
       }
       this.triggerEvent('init', obj)
       this.hideMask()
@@ -129,10 +129,10 @@ Component({
     async getPlateNoList () {
       let { result } = await getCarList()
       if (result) {
-        // let elecArr = result.filter(item => {
-        // return item.bindStatus === 'bind' || item.bindStatus === 'installed'
-        // })
-        let newArr = result.map(item => {
+        let elecArr = result.filter(item => {
+        return item.bindStatus === 'installed'
+        })
+        let newArr = elecArr.map(item => {
           return item.plateNo
         })
         this.setData({

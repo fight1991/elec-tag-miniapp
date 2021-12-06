@@ -37,34 +37,39 @@ Page({
   },
   // 支付金额
   async confirmPay() {
-    // 支付调取订单详情接口: status='done'表明支付成功,其余情况走订单详情去支付流程
-    let result = await this.getOrderDetail()
-    if (result.status === 'done') {
-      this.selectComponent('#goPay').goPayResult('successPay');
-      this.setData({
-        status: done
-      })
-    } else {
-      this.setData({
-        showPay: true
-      })
-      this.data.params = {
-        ...result,
-        ...result.extendObject
-      }
-    }
+    this.getOrderDetail()
   },
   successPay() {
     this.setData({
-      status: done
+      status: 'done'
     })
+    // 清除出场码缓存
+    let outCode = wx.getStorageSync('outCode')
+    if (outCode) {
+      wx.removeStorageSync('outCode')
+    }
   },
    // 获取订单详情
+   // 支付调取订单详情接口: status='done'表明支付成功,其余情况走订单详情去支付流程
    async getOrderDetail () {
     let no = this.data.tradeNo
     let { result } = await orderDetail(no)
     if (result) {
-     return result
+      if (result.status === 'done') {
+        this.setData({
+          showPay: true,
+          status: 'done'
+        })
+        this.selectComponent('#goPay').goPayResult('successPay');
+      } else {
+        this.setData({
+          showPay: true,
+          params: {
+            ...result,
+            ...result.extendObject
+          }
+        })
+      }
     }
   },
   /**

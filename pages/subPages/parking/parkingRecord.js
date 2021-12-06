@@ -1,6 +1,6 @@
 // pages/subPages/parking/parkingRecord.js
 var app = getApp()
-const { recordList: listApi } = app.api
+const { recordList: listApi, translateDic } = app.api
 Page({
 
   /**
@@ -13,18 +13,17 @@ Page({
     pageSize: 10, // 每页请求数量
     total: 0, // 条目数
     list: [],
-    statusText: {
-      doing: '进行中',
-      done: '已完成',
-      closed: '已关闭'
-    },
+    statusText: {},
     value: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    this.setData({
+      statusText: await translateDic('parkingOrderStatus')
+    })
     this.initList()
   },
   // 清除按钮

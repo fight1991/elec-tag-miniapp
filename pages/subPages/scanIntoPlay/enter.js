@@ -20,20 +20,19 @@ Page({
    */
   onLoad: async function (options) {
     // // 获取二维码所带参数
-    // if (options.q) {
-    //   let option = decodeURIComponent(options.q)
-    //   let qrcodeId = option.split('id=')[1]
-    //   if (!qrcodeId) return
-    //   wx.setStorageSync('enterId', qrcodeId)
-    // }
-    // let enterId = wx.getStorageSync('enterId')
-    // if (!enterId) {
-    //   app.messageBox.common('请用微信扫一扫，重新扫码！')
-    //   return
-    // }
-    // this.data.qrcodeId = enterId
-
-    this.data.qrcodeId = '1812927690437561155'
+    if (options.q) {
+      let option = decodeURIComponent(options.q)
+      let qrcodeId = option.split('id=')[1]
+      if (!qrcodeId) return
+      wx.setStorageSync('enterId', qrcodeId)
+    }
+    let enterId = wx.getStorageSync('enterId')
+    if (!enterId) {
+      app.messageBox.common('请用微信扫一扫，重新扫码！')
+      return
+    }
+    this.data.qrcodeId = enterId
+    // this.data.qrcodeId = '1824063199935203441'
     // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
     let plateNo = wx.getStorageSync('plateNo')
     if (app.ssToken) {
@@ -82,6 +81,7 @@ Page({
         data: plateNo
       })
       let { orgName, inDate, authCode } = result
+      wx.setStorageSync('outCode', authCode)
       wx.reLaunch({
         url: `./enterDetail?orgName=${orgName}&inDate=${inDate}&authCode=${authCode}`
       })

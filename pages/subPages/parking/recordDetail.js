@@ -1,6 +1,6 @@
 // pages/subPages/parking/recordDetail.js
 var app = getApp()
-const { recordDetail } = app.api
+const { recordDetail, translateDic } = app.api
 Page({
 
   /**
@@ -8,17 +8,16 @@ Page({
    */
   data: {
     dataForm: {},
-    statusText: {
-      doing: '进行中',
-      done: '已完成',
-      closed: '已关闭'
-    },
+    statusText: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    this.setData({
+      statusText: await translateDic('parkingOrderStatus')
+    })
     let parkingNo = options.parkingNo
     this.getDetail(parkingNo)
   },

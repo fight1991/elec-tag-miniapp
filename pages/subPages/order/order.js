@@ -32,7 +32,7 @@ Page({
       createdTimeStart: '',
       createdTimeEnd: '',
       plateNo: '',
-      serviceList: []
+      merchantServiceList: []
     } // 筛选项
   },
 
