@@ -5,7 +5,7 @@
     <view class="subTitle">{{dataForm.plateNo || '-'}}</view>
     <view class="line-item">
       <view class="left">支付金额</view>
-      <view class="right price">¥{{dataForm.totalAmount}}</view>
+      <view class="right price">¥{{dataForm.totalAmount || '-'}}</view>
     </view>
     <view class="line-item">
       <view class="left">当前状态</view>
