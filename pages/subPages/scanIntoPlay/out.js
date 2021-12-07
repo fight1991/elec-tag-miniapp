@@ -32,9 +32,6 @@ Page({
 
     // 1.如果app.ssToken有值，说明登陆过，直接赋值初始化
     if (app.ssToken) {
-      this.setData({
-        phone: app.globalData.userInfo.mobile
-      })
       await this.getScanInit()
       return
     }
@@ -50,14 +47,13 @@ Page({
     // 3.本地有token, 初始化信息（适用于关闭小程序再进入时app.ssToken无值）
     app.ssToken = token
     await app.saveUserBusinessInfo()
-    this.setData({
-      phone: app.globalData.userInfo.mobile
-    })
     await this.getScanInit()
   },
   // 出场码输入
   changeCode (e) {
-    this.data.authCode = e.detail
+    this.setData({
+      authCode: e.detail
+    })
     if (this.data.authCode.length == 6) {
       wx.hideKeyboard()
     }
@@ -80,7 +76,11 @@ Page({
       // 出场码本地缓存有时自动填入
       let outCode = wx.getStorageSync('outCode')
       if (outCode) {
-        wx.hideKeyboard()
+        let blockCodeComponent = this.selectComponent('#blockCode')
+        if (!blockCodeComponent) {
+          return
+        }
+        blockCodeComponent.closeFocus()
         this.setData({
           authCode: outCode
         })
