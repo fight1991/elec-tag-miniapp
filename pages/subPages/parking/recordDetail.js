@@ -27,7 +27,17 @@ Page({
       parkingNo
     })
     if (result) {
-      result.billingDuration = app.utils.formatHours(result.billingDuration)
+      let endDate = ''
+      let startDate = ''
+      if (result.outDate) {
+        endDate = new Date(result.outDate).getTime()
+        startDate =  new Date(result.inDate).getTime()
+      } else {
+        endDate = new Date().getTime()
+        startDate =  new Date(result.inDate).getTime()
+      }
+      let range = endDate - startDate
+      result.billingDuration = range ? app.utils.formatHours(range) : ''
       this.setData({
         dataForm: result
       })

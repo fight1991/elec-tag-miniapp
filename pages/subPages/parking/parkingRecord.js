@@ -58,10 +58,18 @@ Page({
     })
     if (result) {
       let arr = result.map(item => {
-       return {
-          ...item,
-          billingDurationText: item.billingDuration ? app.utils.formatHours(item.billingDuration) : ''
+        let endDate = ''
+        let startDate = ''
+        if (item.outDate) {
+          endDate = new Date(item.outDate).getTime()
+          startDate =  new Date(item.inDate).getTime()
+        } else {
+          endDate = new Date().getTime()
+          startDate =  new Date(item.inDate).getTime()
         }
+        let range = endDate - startDate
+        item['billingDurationText'] = range ? app.utils.formatHours(range) : '-'
+       return item
       })
       callback && callback(arr || [], page)
     }

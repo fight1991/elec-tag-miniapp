@@ -95,6 +95,9 @@ Page({
     if (result) {
       wx.hideKeyboard()
       let { orgName, plateNo, tradeNo, inDate, outDate, totalAmount, status } = result
+      let endDate = new Date(outDate).getTime()
+      let startDate =  new Date(inDate).getTime()
+      let range = endDate - startDate
       let obj = {
         orgName,
         plateNo,
@@ -103,7 +106,7 @@ Page({
         outDate,
         totalAmount,
         status,
-        billingDuration: app.utils.formatHours(result.billingDuration)
+        billingDuration: range ? app.utils.formatHours(range) : ''
       }
       wx.reLaunch({
         url: `./outDetail?param=${JSON.stringify(obj)}`
