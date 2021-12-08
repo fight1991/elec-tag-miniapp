@@ -103,7 +103,7 @@ Page({
         outDate,
         totalAmount,
         status,
-        billingDuration: app.utils.formatHours(billingDuration)
+        billingDuration: app.utils.betweenTime(outDate, inDate)
       }
       wx.reLaunch({
         url: `./outDetail?param=${JSON.stringify(obj)}`
