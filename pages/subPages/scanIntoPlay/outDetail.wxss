@@ -10,7 +10,7 @@
   padding: 33rpx 44rpx 37rpx 10rpx;
   font-size: 30rpx;
   color: #808080;
-  border: 2rpx solid #F7F7F7;
+  border-bottom: 2rpx solid #F7F7F7;
 }
 .item-left {
   width: 150rpx;
