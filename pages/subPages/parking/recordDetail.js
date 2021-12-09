@@ -27,17 +27,11 @@ Page({
       parkingNo
     })
     if (result) {
-      let endDate = ''
-      let startDate = ''
       if (result.outDate) {
-        endDate = new Date(result.outDate).getTime()
-        startDate =  new Date(result.inDate).getTime()
+        result.billingDuration = app.utils.betweenTime(result.inDate, result.outDate)
       } else {
-        endDate = new Date().getTime()
-        startDate =  new Date(result.inDate).getTime()
+        result.billingDuration = app.utils.betweenTime(result.inDate)
       }
-      let range = endDate - startDate
-      result.billingDuration = range ? app.utils.formatHours(range) : ''
       this.setData({
         dataForm: result
       })

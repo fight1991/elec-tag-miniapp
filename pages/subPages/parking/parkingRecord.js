@@ -58,17 +58,11 @@ Page({
     })
     if (result) {
       let arr = result.map(item => {
-        let endDate = ''
-        let startDate = ''
         if (item.outDate) {
-          endDate = new Date(item.outDate).getTime()
-          startDate =  new Date(item.inDate).getTime()
+          item['billingDurationText'] = app.utils.betweenTime(item.inDate, item.outDate)
         } else {
-          endDate = new Date().getTime()
-          startDate =  new Date(item.inDate).getTime()
+          item['billingDurationText'] = app.utils.betweenTime(item.inDate)
         }
-        let range = endDate - startDate
-        item['billingDurationText'] = range ? app.utils.formatHours(range) : '-'
        return item
       })
       callback && callback(arr || [], page)
