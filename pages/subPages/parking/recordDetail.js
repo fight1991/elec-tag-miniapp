@@ -29,6 +29,8 @@ Page({
     if (result) {
       if (result.outDate) {
         result.billingDuration = app.utils.betweenTime(result.inDate, result.outDate)
+      } else if (result.status === 'closed') {
+        result.billingDuration = ''
       } else {
         result.billingDuration = app.utils.betweenTime(result.inDate)
       }

@@ -28,6 +28,10 @@ page {
   color: #808080;
   font-size: 26rpx;
 }
+.code-title {
+  color: #FF7F21;
+  font-size: 26rpx;
+}
 .middle {
   padding: 10rpx 0;
 }

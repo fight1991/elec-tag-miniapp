@@ -28,7 +28,18 @@
             <view class="item middle sub-title">
               入场时间: <text class="time">{{item.inDate || '-'}}</text>
             </view>
-            <view class="item">
+            <view class="item" wx:if="{{item.status=='doing'}}">
+              <view class="name">
+                <view class="sub-title">停车时长: {{item.billingDurationText || '-'}}</view>
+              </view>
+            </view>
+            <view class="item" wx:if="{{item.status=='doing'}}">
+              <view class="name">
+                <view class="code-title">出场码: {{item.authCode || '-'}}</view>
+                <view class="name-right scrapped">{{statusText[item.status] || '-'}}</view>
+              </view>
+            </view>
+            <view class="item" wx:else>
               <view class="name">
                 <view class="sub-title">停车时长: {{item.billingDurationText || '-'}}</view>
                 <view class="name-right scrapped">{{statusText[item.status] || '-'}}</view>

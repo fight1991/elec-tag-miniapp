@@ -60,6 +60,8 @@ Page({
       let arr = result.map(item => {
         if (item.outDate) {
           item['billingDurationText'] = app.utils.betweenTime(item.inDate, item.outDate)
+        } else if (item.status === 'closed') {
+          item['billingDurationText'] = ''
         } else {
           item['billingDurationText'] = app.utils.betweenTime(item.inDate)
         }
