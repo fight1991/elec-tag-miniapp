@@ -11,5 +11,6 @@
       <input class="input-element" type="idcard" maxlength="18" model:value="{{idNo}}" placeholder="请输入身份证号"/>
     </view>
   </view>
+  <commonBtn  bindtap="sumitBtn">提交认证</commonBtn>
 </view>
-<fixBtn bindtap="sumitBtn">提交认证</fixBtn>
+
