@@ -132,6 +132,8 @@ Page({
       })
   },
   onPullDownRefresh: function () {
+    console.log('onPullDownRefresh');
+    
     this.initList()
   },
   onReachBottom: function () {

@@ -13,7 +13,7 @@
       </van-cell>
     </van-cell-group>
   </van-radio-group>
-  <view class="tips">支付金额≤500元/笔时无需输入密码</view>
+  <view class="tips">支付金额≤{{check}}元/笔时无需输入密码</view>
 </view>
 <view wx:if="{{!isOpen}}">
   <fixBtn bindtap="openBtn">开通</fixBtn>
