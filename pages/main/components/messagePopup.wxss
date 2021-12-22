@@ -1,0 +1,4 @@
+/* pages/main/components/messagePopup.wxss */
+.btn {
+  margin: 200rpx 60rpx 0 60rpx;
+}

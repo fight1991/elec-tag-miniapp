@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "message-popup": "./components/messagePopup",
     "current-position": "/pages/components/currentPosition/currentPosition",
     "card-show": "./components/cardShow",
     "top-bg": "/pages/components/topBg/topBg",

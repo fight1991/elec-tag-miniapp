@@ -1,5 +1,11 @@
 // pages/main/main.js
 var app = getApp()
+var ids = [
+  'jPI0V6INVLfenOKIcIKgEm7u6HsmYalFbSzuhW9z2SQ',
+  'dGzLt6wrQP6jM8AUKeCXYEvEmFQULpuNXxBZU_PgipA',
+  'sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20',
+  // 'G3xuHbzv-FJLRVWaLQ_As5QmIWVmpZHHzdq0GVkajBQ',
+]
 Page({
 
   /**
@@ -10,7 +16,8 @@ Page({
     navBarHeight: 60,
     navTop: 0,
     menuButtonInfo:{},
-    carTotal: 0
+    carTotal: 0,
+    showMessage: false
   },
 
   /**
@@ -23,10 +30,24 @@ Page({
     })
   },
   onShow: function () {
-
+    // 未授权订阅消息,弹出弹框
+   let res = app.utils.getSetSubscription(ids)
+    if (res) {
+      this.setData({
+        showMessage: true
+      })
+    }
   },
   onReady: function () {
     
+  },
+  showSubscription() {
+    // 获取系统订阅弹窗
+    app.utils.showSubscription(ids,() => {
+      this.setData({
+        showMessage: false
+      })
+    })
   },
   // 获取车辆数量
   getCarNum (e) {

@@ -1,0 +1,15 @@
+<!--pages/main/components/messagePopup.wxml-->
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  round
+  catch:touchmove="noop"
+  custom-style="height: 40%;"
+  closeable
+  close-icon-position="top-left"
+  bind:close="close"
+>
+  <view class="btn">
+    <commonBtn bindtap="subscription">订阅消息授权</commonBtn>
+  </view>
+</van-popup>
