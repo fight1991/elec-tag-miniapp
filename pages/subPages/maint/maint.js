@@ -117,8 +117,11 @@ Page({
       this.setData({
         list: this.data.list
       })
+      let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+      app.utils.showSubscription(ids)
     }
   },
+  
   // 获取洗车按钮列表
   async getWashBtnList () {
     let { result } = await washBtnList()

@@ -99,6 +99,8 @@ Page({
       this.setData({
         dataForm: obj
       })
+      let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+      app.utils.showSubscription(ids)
     }
   },
   goDetail (e) {

@@ -122,6 +122,8 @@ Component({
         // 调用获取验证码api成功后, 开启倒计时
         utils.showToast.success('领取成功', () => {
           this.getDetail()
+          let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+          app.utils.showSubscription(ids)
         })
       }
     },
