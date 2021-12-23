@@ -83,7 +83,10 @@ Component({
     clickBtn () {
       if (this.data.info.userCouponStatus === 'unreceived') {
         // 领券
-        this.addCouponFun()
+        let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+        app.utils.showSubscription(ids, () => {
+          this.addCouponFun()
+        })
       } else if  (this.data.info.userCouponStatus === 'canUse') {
         // 立即使用
         this.gotoPage()

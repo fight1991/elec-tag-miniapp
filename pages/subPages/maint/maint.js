@@ -102,24 +102,27 @@ Page({
     })
   },
   //确认领取
-  async onConfirm () {
-    let goodItem = this.data.list[this.data.selectIndex].orgGoodsExtList[0]
-    let { orgId, goodsId } = goodItem
-    let { couponId: couponConfigId } = goodItem.couponList[0]
-    let { result } = await addCoupon({
-      orgId,
-      goodsId,
-      couponConfigId
-    })
-    if (result) {
-      // 领取成功后, 刷新状态
-      goodItem.couponList = []
-      this.setData({
-        list: this.data.list
+  onConfirm () {
+    let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+    app.utils.showSubscription(ids,async () => {
+      let goodItem = this.data.list[this.data.selectIndex].orgGoodsExtList[0]
+      let { orgId, goodsId } = goodItem
+      let { couponId: couponConfigId } = goodItem.couponList[0]
+      let { result } = await addCoupon({
+        orgId,
+        goodsId,
+        couponConfigId
       })
-      let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
-      app.utils.showSubscription(ids)
-    }
+      if (result) {
+        // 领取成功后, 刷新状态
+        goodItem.couponList = []
+        this.setData({
+          list: this.data.list
+        })
+      }
+    })
+      // let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+      // app.utils.showSubscription(ids)
   },
   
   // 获取洗车按钮列表

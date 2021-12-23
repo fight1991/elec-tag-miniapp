@@ -81,27 +81,28 @@ Page({
     })
   },
   //确认领取
-  async onConfirm () {
-    let index = this.data.selectIndex
-    let couponItem = this.data.dataForm.goodsList[index]
-    let { orgId, goodsId } = couponItem
-    let { couponId: couponConfigId } = couponItem.couponList[0]
-    let { result } = await addCoupon({
-      couponConfigId,
-      orgId,
-      goodsId
-    })
-    if (result) {
-      // 调用获取验证码api成功后, 开启倒计时
-      couponItem.couponList = []
-      let obj = {}
-      obj.goodsList = this.data.dataForm.goodsList
-      this.setData({
-        dataForm: obj
+  onConfirm () {
+    let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+    app.utils.showSubscription(ids, async () => {
+      let index = this.data.selectIndex
+      let couponItem = this.data.dataForm.goodsList[index]
+      let { orgId, goodsId } = couponItem
+      let { couponId: couponConfigId } = couponItem.couponList[0]
+      let { result } = await addCoupon({
+        couponConfigId,
+        orgId,
+        goodsId
       })
-      let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
-      app.utils.showSubscription(ids)
-    }
+      if (result) {
+        // 调用获取验证码api成功后, 开启倒计时
+        couponItem.couponList = []
+        let obj = {}
+        obj.goodsList = this.data.dataForm.goodsList
+        this.setData({
+          dataForm: obj
+        })
+      }
+    })
   },
   goDetail (e) {
     let { orgId, goodsId } = e.currentTarget.dataset.item
