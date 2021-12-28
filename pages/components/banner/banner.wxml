@@ -6,7 +6,7 @@
     indicator-dots="{{bannerList.length > 1 ? true : false}}"
     indicator-color="{{indicatorColor}}"
     indicator-active-color="{{indicatorActiveColor}}"
-    autoplay="{{autoplay}}"
+    autoplay="{{bannerList.length > 1 ? true : false}}"
     interval="{{interval}}"
     duration="{{duration}}"
     >

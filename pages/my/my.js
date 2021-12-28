@@ -1,6 +1,6 @@
 // pages/my/my.js
 var app = getApp()
-const { logOut } = app.api
+const { logOut, noticeCount } = app.api
 Page({
 
   /**
@@ -47,6 +47,14 @@ Page({
    */
   onLoad: function (options) {
     
+  },
+  async getNoticeCount() {
+    let { result } = await noticeCount({})
+    if (result) {
+
+      console.log('result',result>0);
+      wx.showTabBarRedDot({index:1})
+    }
   },
   // 用户退出
   loginOut () {
@@ -120,6 +128,7 @@ Page({
    */
   onShow: function () {
     this.mapStateToProps()
+    this.getNoticeCount()
   },
 
   /**

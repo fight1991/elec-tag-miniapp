@@ -38,6 +38,15 @@ export const logOut = (data) => {
     data
   })
 }
+
+//获取未读消息
+export const noticeCount = (data) => {
+  return wx.$post_business({
+    url: '/user-center/notification/getNoticeCount',
+    data
+  })
+}
+
 // 更换手机号
 export const changeMobile = (data) => {
   return wx.$post_business({

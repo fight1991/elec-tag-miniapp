@@ -7,7 +7,8 @@ import getCurrentPosition from './publicBag/plugin/getCurrentPosition' // 获取
 import resolveGeocoder from './publicBag/plugin/reverseGeocoder' // 解析经纬度信息
 import getWechatCode from './publicBag/plugin/getWechatCode' // 获取微信code
 import * as utils from './publicBag/utils/util' // 工具类注册
-import logging from './publicBag/utils/logging' // 工具类注册
+import logging from './publicBag/utils/logging' // 错误日志
+import noticeCount from './publicBag/utils/noticeCount' // 未读消息数量
 // 监听位置信息
 import positionNotify from './notify/positionNotify'
 // 全局分享函数
@@ -32,5 +33,6 @@ App({
   ...resolveGeocoder, // 解析经纬度
   ...getWechatCode, // 获取jscode信息
   ...store,
-  ...logging
+  ...logging, // 错误日志
+  ...noticeCount // 未读消息数量
 })
