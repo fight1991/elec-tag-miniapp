@@ -40,10 +40,12 @@ export const logOut = (data) => {
 }
 
 //获取未读消息
-export const noticeCount = (data) => {
+export const noticeCount = () => {
   return wx.$post_business({
     url: '/user-center/notification/getNoticeCount',
-    data
+    responseType: 'number',
+    isLoading: false,
+    other: false //不弹窗
   })
 }
 

@@ -8,7 +8,6 @@ import resolveGeocoder from './publicBag/plugin/reverseGeocoder' // 解析经纬
 import getWechatCode from './publicBag/plugin/getWechatCode' // 获取微信code
 import * as utils from './publicBag/utils/util' // 工具类注册
 import logging from './publicBag/utils/logging' // 错误日志
-import noticeCount from './publicBag/utils/noticeCount' // 未读消息数量
 // 监听位置信息
 import positionNotify from './notify/positionNotify'
 // 全局分享函数
@@ -20,9 +19,16 @@ import store from './store/index'
 share()
 App({
   onLaunch() {
+    // 获取胶囊位置
     this.getSafeData()
+    // 错误日志
     this.getLoging()
   },
+  onHide() {
+    this.timer && clearInterval(this.timer)
+    this.timer = null
+  },
+  timer: null,
   utils, // 绑定公共方法
   api, // 绑定api
   messageBox, // 绑定全局弹框
@@ -33,6 +39,5 @@ App({
   ...resolveGeocoder, // 解析经纬度
   ...getWechatCode, // 获取jscode信息
   ...store,
-  ...logging, // 错误日志
-  ...noticeCount // 未读消息数量
+  ...logging // 错误日志
 })

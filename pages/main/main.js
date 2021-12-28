@@ -1,5 +1,7 @@
 // pages/main/main.js
+import messageNotify from "../../notify/messageNotify"
 var app = getApp()
+const { noticeCount } = app.api
 var ids = [
   'jPI0V6INVLfenOKIcIKgEm7u6HsmYalFbSzuhW9z2SQ',
   'dGzLt6wrQP6jM8AUKeCXYEvEmFQULpuNXxBZU_PgipA',
@@ -19,16 +21,22 @@ Page({
     menuButtonInfo:{},
     carTotal: 0,
     showMessage: false,
+    timer: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getNoticeCount()
     this.setData({
       navBarHeight: app.getSafeData()['bottomTop'],
       navTop: app.getSafeData()['navTop']
     })
+  },
+  onUnload: function (options) {
+    console.log('onUnload');
+    
   },
   onShow: function () {
     let date = wx.getStorageSync('saveSubDate')
@@ -55,6 +63,25 @@ Page({
   },
   onReady: function () {
     
+  },
+  //获取未读消息
+  async getNoticeCount() {
+    let { result, other, error } = await noticeCount()
+    if (result > 0) {
+      // 广播未读消息数量
+      messageNotify.send(result)
+      this.data.timer = setTimeout(()=>{
+        this.getNoticeCount()
+      },1000)
+    } else {
+      // 未读消息数量置为0，并广播
+      messageNotify.send(0)
+    }
+    // 接口报错后不在请求
+    if (other || error) {
+      this.data.timer && clearTimeout(this.data.timer)
+      messageNotify.send(0)
+    }
   },
   //打开订阅弹窗
   openMessage(ids) {

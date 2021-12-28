@@ -50,6 +50,7 @@
         </view>
     </block>
   </view>
+  {{noticeCount}}
   <view class="login-out" wx:if="{{uid}}">
     <commonBtn bindtap="loginOut">退出登录</commonBtn>
     <!-- <view class="tab-item" bindtap="loginOut">

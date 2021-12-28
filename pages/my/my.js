@@ -1,4 +1,5 @@
 // pages/my/my.js
+import messageNotify from "../../notify/messageNotify"
 var app = getApp()
 const { logOut, noticeCount } = app.api
 Page({
@@ -39,22 +40,21 @@ Page({
       label: '个人设置',
       icon: 'setting',
       color: '#ffbe69'
-    }]
+    }],
+    noticeCount:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-  },
-  async getNoticeCount() {
-    let { result } = await noticeCount({})
-    if (result) {
-
-      console.log('result',result>0);
-      wx.showTabBarRedDot({index:1})
-    }
+    messageNotify.listen((res)=>{
+      console.log('num', res);
+      
+      this.setData({
+        noticeCount: res
+      })
+    })
   },
   // 用户退出
   loginOut () {
@@ -128,7 +128,6 @@ Page({
    */
   onShow: function () {
     this.mapStateToProps()
-    this.getNoticeCount()
   },
 
   /**
