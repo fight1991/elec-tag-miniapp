@@ -39,7 +39,17 @@
       </view>
     </view>
     <block wx:for="{{tabList}}" wx:key="url">
-        <view class="tab-item" bindtap="routePage" data-url="{{item.url}}">
+        <view class="tab-item" bindtap="routePage" data-url="{{item.url}}" wx:if="{{index==2}}">
+          <view class="head">
+            <iconfont icon="{{item.icon}}" color="{{item.color}}"></iconfont>
+            <text class="head-text">{{item.label}}</text>
+          </view>
+          <view class="arrow-r flex-row">
+            <view class="notice-num">{{noticeNum}}</view>
+            <iconfont icon="arrow-right" color="#ccc"></iconfont>
+          </view>
+        </view>
+        <view class="tab-item" bindtap="routePage" data-url="{{item.url}}" wx:else>
           <view class="head">
             <iconfont icon="{{item.icon}}" color="{{item.color}}"></iconfont>
             <text class="head-text">{{item.label}}</text>
@@ -50,7 +60,6 @@
         </view>
     </block>
   </view>
-  {{noticeCount}}
   <view class="login-out" wx:if="{{uid}}">
     <commonBtn bindtap="loginOut">退出登录</commonBtn>
     <!-- <view class="tab-item" bindtap="loginOut">

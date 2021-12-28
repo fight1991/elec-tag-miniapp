@@ -1,7 +1,7 @@
 // pages/my/my.js
 import messageNotify from "../../notify/messageNotify"
 var app = getApp()
-const { logOut, noticeCount } = app.api
+const { logOut } = app.api
 Page({
 
   /**
@@ -41,18 +41,24 @@ Page({
       icon: 'setting',
       color: '#ffbe69'
     }],
-    noticeCount:0
+    noticeNum: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (app.globalData.userInfo.uid) {
+      this.listenNotify()
+    }
+  },
+  //订阅未读消息数量
+  listenNotify () {
     messageNotify.listen((res)=>{
-      console.log('num', res);
+      console.log('res', res);
       
       this.setData({
-        noticeCount: res
+        noticeNum: res
       })
     })
   },

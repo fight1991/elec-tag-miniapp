@@ -102,5 +102,16 @@
   border-bottom: 1px solid #f5f5f5;
   padding: 30rpx;
 }
+.notice-num {
+  margin-right: 38rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: #ff7e37;
+  border-radius: 20rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 26rpx;
+}
 
 

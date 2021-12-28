@@ -5,6 +5,8 @@ export default {
     this.noticeNum = value
   },
   listen (callback) { // 接收通知
+    // callback初始值
+    callback && callback(this.noticeNum)
     Object.defineProperty(this, 'noticeNum', {
       configurable: true,
       enumerable: true,

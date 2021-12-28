@@ -28,17 +28,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNoticeCount()
     this.setData({
       navBarHeight: app.getSafeData()['bottomTop'],
       navTop: app.getSafeData()['navTop']
     })
   },
   onUnload: function (options) {
-    console.log('onUnload');
-    
+    this.clearTime()
   },
   onShow: function () {
+    if (!this.data.timer){
+      //只请求一次广播未读消息数量
+      if (app.globalData.userInfo.uid) {
+        this.getNoticeCount()
+      }
+    }
     let date = wx.getStorageSync('saveSubDate')
     if (date) {
       let now = app.utils.formatDate(new Date().getTime())
@@ -68,20 +72,29 @@ Page({
   async getNoticeCount() {
     let { result, other, error } = await noticeCount()
     if (result > 0) {
-      // 广播未读消息数量
-      messageNotify.send(result)
       this.data.timer = setTimeout(()=>{
         this.getNoticeCount()
-      },1000)
+      },5000)
+     if (this.temNum == result) return
+     this.temNum = result
+      // 广播未读消息数量
+      wx.showTabBarRedDot({index:1})
+      messageNotify.send(result)
     } else {
       // 未读消息数量置为0，并广播
+      if (this.temNum == result) return
+      this.temNum = result
+      wx.hideTabBarRedDot({index:1})
       messageNotify.send(0)
     }
     // 接口报错后不在请求
     if (other || error) {
-      this.data.timer && clearTimeout(this.data.timer)
-      messageNotify.send(0)
+      this.clearTime()
     }
+  },
+  clearTime () {
+    this.data.timer && clearTimeout(this.data.timer)
+    this.data.timer = null
   },
   //打开订阅弹窗
   openMessage(ids) {
@@ -91,8 +104,6 @@ Page({
     })
     //保存打开的时间
     let now = app.utils.formatDate(new Date().getTime())
-    console.log('now',now);
-    
     wx.setStorageSync('saveSubDate', now)
   },
   showSubscription() {
