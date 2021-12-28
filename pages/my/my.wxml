@@ -45,7 +45,7 @@
             <text class="head-text">{{item.label}}</text>
           </view>
           <view class="arrow-r flex-row">
-            <view class="notice-num">{{noticeNum}}</view>
+            <view class="notice-num" hidden="{{noticeNum==0}}">{{noticeNum}}</view>
             <iconfont icon="arrow-right" color="#ccc"></iconfont>
           </view>
         </view>

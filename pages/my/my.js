@@ -55,8 +55,6 @@ Page({
   //订阅未读消息数量
   listenNotify () {
     messageNotify.listen((res)=>{
-      console.log('res', res);
-      
       this.setData({
         noticeNum: res
       })
@@ -76,6 +74,10 @@ Page({
               duration: 1500,
               success: () => {
                 app.resetLoginStatus()
+                this.setData({
+                  noticeNum: 0
+                })
+                
                 this.mapStateToProps()
                 if (wx.pageScrollTo) {
                   wx.pageScrollTo({

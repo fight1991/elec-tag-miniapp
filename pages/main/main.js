@@ -33,7 +33,7 @@ Page({
       navTop: app.getSafeData()['navTop']
     })
   },
-  onUnload: function (options) {
+  onUnload: function () {
     this.clearTime()
   },
   onShow: function () {

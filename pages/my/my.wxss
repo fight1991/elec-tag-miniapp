@@ -104,10 +104,10 @@
 }
 .notice-num {
   margin-right: 38rpx;
-  width: 40rpx;
+  padding: 0 10rpx;
   height: 40rpx;
   line-height: 40rpx;
-  background: #ff7e37;
+  background: #FA5151;
   border-radius: 20rpx;
   color: #fff;
   text-align: center;
