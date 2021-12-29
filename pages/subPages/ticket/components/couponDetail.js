@@ -96,12 +96,15 @@ Component({
       
     },
     gotoPage () {
+      let { type, service } = this.data.info
       if (this.data.params.pageOrigin === 'get') {
-        wx.navigateBack({
-          delta: 1,
+        wx.navigateTo({
+          url: this.data.pageUrl[service]
         })
+        // wx.navigateBack({
+        //   delta: 1,
+        // })
       } else {
-        let { type, service } = this.data.info
         let { orgId, goodsId } = this.data.params
         // 一元洗车跳到商户详情页
         if (type === 'fixedPrice' && (service ==='carWash' || service ==='upkeep')) {

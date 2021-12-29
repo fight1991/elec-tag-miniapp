@@ -1,3 +1,6 @@
+import messageNotify from "../../../notify/messageNotify"
+var app = getApp()
+const { noticeCount } = app.api
 var app = getApp()
 const { getMessageListApi } = app.api
 Page({
@@ -20,24 +23,47 @@ Page({
   onLoad: function (options) {
     this.initList()
   },
+  onShow: function (options) {
+    this.getNoticeCount()
+  },
+  //获取未读消息
+  async getNoticeCount() {
+    let { result } = await noticeCount()
+    if (result > 0) {
+      // 广播未读消息数量
+      wx.showTabBarRedDot({
+        index:1,
+        fail:res=>{
+        }
+      })
+      messageNotify.send(result)
+    } else {
+      wx.hideTabBarRedDot({
+        index:1,
+        fail:res=>{
+        }
+      })
+      messageNotify.send(0)
+    }
+  },
   // 获取列表
   async getList (pageIndex, callback) {
     if (this.loading) return
     this.loading = true
     let { pageSize, list } = this.data
-    let createTime = ''
-    let id = ''
+    // let createTime = ''
+    // let id = ''
     // 上拉的时候
-    if (list.length > 0 && pageIndex > 0) {
-      var lastData = list[list.length - 1]
-      createTime = lastData.createTime
-      id = lastData.id
-    }
+    // if (list.length > 0 && pageIndex > 0) {
+    //   var lastData = list[list.length - 1]
+    //   createTime = lastData.createTime
+    //   id = lastData.id
+    // }
     pageIndex ++
     let { result, page } = await getMessageListApi({
       data: {
-        createTime,
-        id
+        // createTime,
+        // id
       },
       page: {
         pageIndex,

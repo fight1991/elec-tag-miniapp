@@ -78,13 +78,21 @@ Page({
      if (this.temNum == result) return
      this.temNum = result
       // 广播未读消息数量
-      wx.showTabBarRedDot({index:1})
+      wx.showTabBarRedDot({
+        index:1,
+        fail:res=>{
+        }
+      })
       messageNotify.send(result)
     } else {
       // 未读消息数量置为0，并广播
       if (this.temNum == result) return
       this.temNum = result
-      wx.hideTabBarRedDot({index:1})
+      wx.hideTabBarRedDot({
+        index:1,
+        fail:res=>{
+        }
+      })
       messageNotify.send(0)
     }
     // 接口报错后不在请求

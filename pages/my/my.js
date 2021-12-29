@@ -30,12 +30,14 @@ Page({
       label: '我的消息',
       icon: 'info',
       color: '#0dd7be'
-    }, {
-      url: '/pages/subPages/send/send',
-      label: '推送设置',
-      icon: 'send',
-      color: '#ffbe69'
-    }, {
+    },
+    //  {
+    //   url: '/pages/subPages/send/send',
+    //   label: '推送设置',
+    //   icon: 'send',
+    //   color: '#ffbe69'
+    // },
+     {
       url: '/pages/subPages/setting/setting',
       label: '个人设置',
       icon: 'setting',
@@ -74,10 +76,7 @@ Page({
               duration: 1500,
               success: () => {
                 app.resetLoginStatus()
-                this.setData({
-                  noticeNum: 0
-                })
-                
+                this.resetNotice()
                 this.mapStateToProps()
                 if (wx.pageScrollTo) {
                   wx.pageScrollTo({
@@ -88,6 +87,16 @@ Page({
             })
           }
         }
+      }
+    })
+  },
+  resetNotice () {
+    this.setData({
+      noticeNum: 0
+    })
+    wx.hideTabBarRedDot({
+      index:1,
+      fail:res=>{
       }
     })
   },
