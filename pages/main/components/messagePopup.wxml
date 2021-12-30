@@ -4,7 +4,7 @@
   position="bottom"
   round
   catch:touchmove="noop"
-  custom-style="height: 40%;"
+  custom-style="height: 300rpx;"
   closeable
   close-icon-position="top-left"
   bind:close="close"
