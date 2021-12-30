@@ -15,6 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    canClickParking: true, //防止智慧停车双击
     gridIcon: [{
       id: 'id1',
       label: '无感加油',
@@ -36,8 +37,12 @@ Component({
       icon: '/pages/image/businessCircle/parking.png',
       pageKey: 'parking'
     }]
+  }, 
+  pageLifetimes: {
+    hide () {
+      this.data.canClickParking = true
+    }
   },
-
   /**
    * 组件的方法列表
    */
@@ -65,6 +70,8 @@ Component({
       let ids = [
         'jPI0V6INVLfenOKIcIKgEm7u6HsmYalFbSzuhW9z2SQ'
       ]
+      if (!this.data.canClickParking) return
+      this.data.canClickParking = false
       app.utils.showSubscription(ids, () => {
         wx.navigateTo({
           url

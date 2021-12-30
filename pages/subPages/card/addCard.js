@@ -126,7 +126,6 @@ Page({
         })
       } else {
         this.setData({
-          'formData.bankCardNo': '',
           'formData.bankName': '',
           'formData.bankCode': '',
           'formData.bankCardType': '',
@@ -144,12 +143,14 @@ Page({
   // 下一步按钮
   nextStepBtn () {
     let { bankCardNo, bankCardType, cvn2, validDate, bankName } = this.data.formData
+    console.log('bankName',bankName);
     if (bankCardNo.length < 8) {
       app.messageBox.common('请输入正确格式的银行卡号')
       return
     }
     if (!bankName) {
       app.messageBox.common('发卡行不能为空')
+      return
     }
     if (bankCardType==2) {
       if (!cvn2) {
