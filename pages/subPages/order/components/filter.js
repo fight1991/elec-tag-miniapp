@@ -28,7 +28,6 @@ Component({
   data: {
     step: 1, // 1第一个抽屉, 2第二个抽屉
     plateNoActive: '',
-    serviceList: [],
     plateNoList: [],
     dateType: 'start',
     startDate: null, // 开始日期yyyy-mm-dd

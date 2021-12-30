@@ -103,7 +103,10 @@ Page({
   },
   //确认领取
   onConfirm () {
-    let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
+    let ids = [
+      'sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20',
+      'dGzLt6wrQP6jM8AUKeCXYEvEmFQULpuNXxBZU_PgipA'
+    ]
     app.utils.showSubscription(ids,async () => {
       let goodItem = this.data.list[this.data.selectIndex].orgGoodsExtList[0]
       let { orgId, goodsId } = goodItem
@@ -121,8 +124,6 @@ Page({
         })
       }
     })
-      // let ids = ['sn0i1ZcOYmTGkyEYku7tvf3oQPCYVW-nlNqNyI1Oq20']
-      // app.utils.showSubscription(ids)
   },
   
   // 获取洗车按钮列表

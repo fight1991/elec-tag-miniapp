@@ -1,6 +1,3 @@
-import messageNotify from "../../../notify/messageNotify"
-var app = getApp()
-const { noticeCount } = app.api
 var app = getApp()
 const { getMessageListApi } = app.api
 Page({
@@ -23,29 +20,10 @@ Page({
   onLoad: function (options) {
     this.initList()
   },
-  onShow: function (options) {
-    this.getNoticeCount()
+  onShow: function () {
+    
   },
-  //获取未读消息
-  async getNoticeCount() {
-    let { result } = await noticeCount()
-    if (result > 0) {
-      // 广播未读消息数量
-      wx.showTabBarRedDot({
-        index:1,
-        fail:res=>{
-        }
-      })
-      messageNotify.send(result)
-    } else {
-      wx.hideTabBarRedDot({
-        index:1,
-        fail:res=>{
-        }
-      })
-      messageNotify.send(0)
-    }
-  },
+  
   // 获取列表
   async getList (pageIndex, callback) {
     if (this.loading) return

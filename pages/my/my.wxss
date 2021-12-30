@@ -104,7 +104,7 @@
 }
 .notice-num {
   margin-right: 38rpx;
-  padding: 0 10rpx;
+  width: 40rpx;
   height: 40rpx;
   line-height: 40rpx;
   background: #FA5151;
@@ -112,6 +112,9 @@
   color: #fff;
   text-align: center;
   font-size: 26rpx;
+}
+.num-pd {
+  padding: 0 10rpx;
 }
 
 

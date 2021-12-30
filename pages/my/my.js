@@ -1,7 +1,7 @@
 // pages/my/my.js
 import messageNotify from "../../notify/messageNotify"
 var app = getApp()
-const { logOut } = app.api
+const { logOut, noticeCount } = app.api
 Page({
 
   /**
@@ -50,16 +50,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo.uid) {
-      this.listenNotify()
-    }
+    this.listenNotify()
   },
   //订阅未读消息数量
   listenNotify () {
     messageNotify.listen((res)=>{
       this.setData({
-        noticeNum: res
+        noticeNum: res<100 ? res+'' : '99+'
       })
+      if (res == 0) {
+        wx.hideTabBarRedDot({
+          index:1,
+          fail:res=>{
+          }
+        })
+      }
     })
   },
   // 用户退出
@@ -131,10 +136,35 @@ Page({
       url,
     })
   },
+  //获取未读消息
+  async getNoticeCount() {
+    let { result, other, error } = await noticeCount()
+    // 接口报错后不在请求
+    if (other || error) {
+      this.resetNotice()
+      return
+    }
+    if (this.temNum == result) return
+    this.temNum = result
+    if (result > 0) {
+      // 广播未读消息数量
+      this.setData({
+        noticeNum: result <100 ? result+'' : '99+'
+      })
+      wx.showTabBarRedDot({
+        index:1,
+        fail:res=>{
+        }
+      })
+    } else {
+      this.resetNotice()
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
     this.setData({
       navBarHeight: app.getSafeData()['bottomTop'],
     });
@@ -145,6 +175,7 @@ Page({
    */
   onShow: function () {
     this.mapStateToProps()
+    this.getNoticeCount()
   },
 
   /**

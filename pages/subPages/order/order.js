@@ -42,7 +42,7 @@ Page({
   onLoad: async function (options) {
     this.initList()
     this.setData({
-      serviceText: await translateDic('orgServiceType')
+      serviceText: await translateDic('consumeType')
     })
     let res = Object.entries(this.data.serviceText).map(item=>{
       return {

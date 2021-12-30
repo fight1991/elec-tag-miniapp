@@ -60,9 +60,21 @@ Component({
       pageKey = 'maint'
     }
     let url = `/pages/subPages/${pageKey}/${pageKey}?pageFlag=` + pageFlag
-    wx.navigateTo({
-      url
-    })
+    //智慧停车唤起消息模板
+    if (pageKey === 'parking') {
+      let ids = [
+        'jPI0V6INVLfenOKIcIKgEm7u6HsmYalFbSzuhW9z2SQ'
+      ]
+      app.utils.showSubscription(ids, () => {
+        wx.navigateTo({
+          url
+        })
+      })
+    } else {
+      wx.navigateTo({
+        url
+      })
+    }
   },
   }
 })
