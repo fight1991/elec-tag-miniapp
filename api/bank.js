@@ -1,10 +1,10 @@
 
 // 根据8位卡号查询属于哪家银行
-export const whichBank = (data, other) => {
+export const whichBank = (data) => {
   return wx.$post_business({
     url: '/user-center/bankCard/cardbinInfo',
     data,
-    other
+    other: true
   })
 }
 // 银行卡详情

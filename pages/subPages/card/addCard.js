@@ -114,15 +114,29 @@ Page({
     }
   },
   // 根据卡号查询市哪家银行
-  async getBankName (other = true) {
+  async getBankName () {
     let { bankCardNo } = this.data.formData
     if (bankCardNo && bankCardNo.length >= 8) {
-      let { result } = await whichBank(bankCardNo, other)
+      let { result, other, error } = await whichBank(bankCardNo)
       if (result) {
         this.setData({
           'formData.bankName': result.bankName,
           'formData.bankCode': result.bankCode,
           'formData.bankCardType': result.cardType,
+        })
+      } else {
+        this.setData({
+          'formData.bankCardNo': '',
+          'formData.bankName': '',
+          'formData.bankCode': '',
+          'formData.bankCardType': '',
+        })
+      }
+      if (other || error) {
+        this.setData({
+          'formData.bankName': '',
+          'formData.bankCode': '',
+          'formData.bankCardType': '',
         })
       }
     }

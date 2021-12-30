@@ -8,10 +8,10 @@
       value="{{openTradePwd?'已设置':'未设置'}}" />
     <van-cell
       bind:click="openLittleBtn"
-      title="小额免密支付"
+      title="无感支付"
       is-link
       value="{{quickPay?'已开启':'未开启'}}"
-      label="开启后,支付时无需输入密码"/>
+      label="开启后，无感支付场景无需支付密码"/>
       
     <van-cell bind:click="descBtn" title="扣款顺序" is-link border="{{ false }}" />
 
