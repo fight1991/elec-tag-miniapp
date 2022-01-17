@@ -1,21 +1,20 @@
 /**
- * 根据命令行运行参数，修改 根目录config/index.js 里面的项目配置信息
- * 即动态的将 env 下的配置文件的内容写入到 config/index.js 中
+ * 根据命令行运行参数，修改 根目录config/env.js 里面的项目配置信息
+ * 即动态的将 const/unique 下的配置文件的内容写入到 config/locationKey.js 中
  */
 
 const fs = require('fs')
 const path = require('path')
 //源文件
 const sourceFiles = {
-  prefix: '/env/',
-  dev: 'dev.json',
+  prefix: '/const/unique/',
   test: 'test.json',
   prod: 'prod.json'
 }
 //目标文件
 const targetFiles = [{
   prefix: '/config/',
-  filename: 'index.js'
+  filename: 'env.js'
 }]
 const preText = 'export default '
 // 获取命令行参数
@@ -38,7 +37,7 @@ fs.readFile(__dirname + sourceFiles.prefix + sourceFile,
     let content = preText + data
     // 将获取的内容写入到目标文件中
     targetFiles.forEach(function(item, index) {
-      if (item.filename === 'index.js') {
+      if (item.filename === 'env.js') {
         // 写入文件(这里只做简单的强制替换整个文件的内容)
       fs.writeFile(__dirname + item.prefix + item.filename, content, 'utf8', (err) => {
         if (err) {

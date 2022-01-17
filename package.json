@@ -11,9 +11,11 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "switch:dev": "node switch.js --dev",
-    "switch:test": "node switch.js --test",
-    "switch:prod": "node switch.js --prod"
+    "env:dev": "node switchEnv.js --dev",
+    "env:test": "node switchEnv.js --test",
+    "env:prod": "node switchEnv.js --prod",
+    "push:release": "node switchApp.js --release",
+    "push:test": "node switchApp.js --test"
   },
   "repository": {
     "type": "git",
