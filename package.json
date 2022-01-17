@@ -10,7 +10,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "switch:dev": "node switch.js --dev",
+    "switch:test": "node switch.js --test",
+    "switch:prod": "node switch.js --prod"
   },
   "repository": {
     "type": "git",
