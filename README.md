@@ -50,3 +50,13 @@
 + 工具 > 构建npm即可
 # 小程序relauch问题
 + a页面 => relauch到login页面, 点击小房子按钮或relauch某一页, a页面会重新执行
+# switchApp.js
++ 将/const/unique/中的json文件根据不同的命令写入config/locationKey.js和project.config.json中, 来改变appid和地图key
++ npm run push:release 小程序正式版
++ npm run push:test 小程序测试版
+
+# switchEnv.js
++ 将/const/env/中的json文件根据不同的命令写入config/env.js中, 来改变域名
++ npm run env:dev 开发环境接口
++ npm run env:test 测试环境接口
++ npm run env:test 正式环境接口

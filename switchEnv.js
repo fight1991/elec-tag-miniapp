@@ -1,13 +1,14 @@
 /**
  * 根据命令行运行参数，修改 根目录config/env.js 里面的项目配置信息
- * 即动态的将 const/unique 下的配置文件的内容写入到 config/locationKey.js 中
+ * 即动态的将 const/env 下的配置文件的内容写入到 config/env.js 中
  */
 
 const fs = require('fs')
 const path = require('path')
 //源文件
 const sourceFiles = {
-  prefix: '/const/unique/',
+  prefix: '/const/env/',
+  dev: 'dev.json',
   test: 'test.json',
   prod: 'prod.json'
 }
@@ -22,6 +23,7 @@ const cliArgs = process.argv.splice(2)
 // [ '--dev' ]
 // 当前环境
 const currentEnv = cliArgs[0].substr(2)
+
 // dev
 // 根据不同环境选择不同的源文件
 const sourceFile = sourceFiles[currentEnv]
