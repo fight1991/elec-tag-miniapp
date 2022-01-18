@@ -10,7 +10,18 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "env:dev": "node switchEnv.js --dev",
+    "env:test": "node switchEnv.js --test",
+    "env:prod": "node switchEnv.js --prod",
+    "push:release": "node switchApp.js --release",
+    "push:test": "node switchApp.js --test",
+    "dev:push:release": "npm run env:dev && npm run push:release",
+    "dev:push:test": "npm run env:dev && npm run push:test",
+    "test:push:release": "npm run env:test && npm run push:release",
+    "test:push:test": "npm run env:test && npm run push:test",
+    "prod:push:release": "npm run env:prod && npm run push:release",
+    "prod:push:test": "npm run env:prod && npm run push:test"
   },
   "repository": {
     "type": "git",

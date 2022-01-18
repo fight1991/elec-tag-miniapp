@@ -1,5 +1,5 @@
 // pages/subPages/card/license.js
-import config from '../../../config/index'
+import config from '../../../config/env'
 Page({
 
   /**
