@@ -1,7 +1,7 @@
 export default {
-  "FILE": "https://test-common-api.htjicon.com",
-  "USRE_API": "https://test-common-api.htjicon.com",
-  "BUSINESS_API": "https://test-ec-api.htjicon.com",
-  "assetsHost": "https://test-oss.htjicon.com",
-  "env": "test"
+  "FILE": "https://common-api.htjicon.com",
+  "USRE_API": "https://common-api.htjicon.com",
+  "BUSINESS_API": "https://ec-api.htjicon.com",
+  "assetsHost": "https://oss.htjicon.com",
+  "env": "production"
 }
